@@ -9,7 +9,7 @@ import pandas as pd
 from sklearn.metrics import roc_auc_score
 
 H = 5
-COST = {"crypto": 0.0010, "fx": 0.0002, "commodity": 0.0005}  # tek yön, oran
+COST = {"crypto": 0.0010, "fx": 0.0002, "commodity": 0.0005, "stock": 0.0005}  # tek yön, oran
 
 
 def per_asset_metrics(oos: pd.DataFrame) -> pd.DataFrame:
@@ -29,7 +29,7 @@ def per_asset_metrics(oos: pd.DataFrame) -> pd.DataFrame:
 
         # örtüşmesiz strateji: her H günde bir, p>0.55 ise long
         s = g.iloc[::H]
-        cost = COST[g["aclass"].iloc[0]]
+        cost = COST.get(g["aclass"].iloc[0], 0.0005)
         strat_r = np.where(s["p_up"] > 0.55, s["fwd_ret"] - 2 * cost, 0.0)
         bh_r = s["fwd_ret"].values
         ann = 252 / H
