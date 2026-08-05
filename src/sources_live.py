@@ -19,8 +19,11 @@ STOCKS = [
     ("spy.us", "SPY", "S&P 500 ETF"), ("qqq.us", "QQQ", "Nasdaq 100 ETF"),
 ]
 FX_EXTRA = [("xauusd", "XAUUSD", "Altın (ons)"), ("usdtry", "USDTRY", "USD/TRY")]
-CRYPTO_LIVE = [("BTCUSDT", "BTC"), ("ETHUSDT", "ETH"), ("SOLUSDT", "SOL"),
-               ("XRPUSDT", "XRP"), ("BNBUSDT", "BNB")]
+YAHOO_FX_FALLBACK = {"XAUUSD": "GC=F", "USDTRY": "TRY=X"}  # altın vadeli, USD/TRY
+# (binance_sym, asset, coinbase_product) — Binance/Bybit ABD sunucularından engelli
+CRYPTO_LIVE = [("BTCUSDT", "BTC", "BTC-USD"), ("ETHUSDT", "ETH", "ETH-USD"),
+               ("SOLUSDT", "SOL", "SOL-USD"), ("XRPUSDT", "XRP", "XRP-USD"),
+               ("BNBUSDT", "BNB", None)]
 
 
 def stooq_daily(sym: str) -> pd.DataFrame:
@@ -71,6 +74,30 @@ def binance_daily(sym: str, days: int = 3000) -> pd.DataFrame:
     return pd.concat(frames).drop_duplicates("date").sort_values("date")
 
 
+def coinbase_daily(product: str, days: int = 3000) -> pd.DataFrame:
+    """Coinbase Exchange public API (ABD dostu, anahtarsız). 300 mum/istek, sayfalı."""
+    import datetime as dt
+    end = dt.datetime.now(dt.timezone.utc)
+    frames = []
+    for _ in range(days // 300 + 1):
+        start = end - dt.timedelta(days=300)
+        url = (f"https://api.exchange.coinbase.com/products/{product}/candles"
+               f"?granularity=86400&start={start.isoformat()}&end={end.isoformat()}")
+        r = requests.get(url, headers=H, timeout=45)
+        r.raise_for_status()
+        rows = r.json()
+        if not rows:
+            break
+        frames.append(pd.DataFrame({
+            "date": pd.to_datetime([x[0] for x in rows], unit="s").date,
+            "close": [float(x[4]) for x in rows]}))
+        end = start
+        time.sleep(0.35)
+    if not frames:
+        raise ValueError(f"coinbase bos: {product}")
+    return pd.concat(frames).drop_duplicates("date").sort_values("date")
+
+
 def bybit_daily(sym: str) -> pd.DataFrame:
     """Bybit yedeği (spot, 1000 gün)."""
     url = (f"https://api.bybit.com/v5/market/kline?category=spot&symbol={sym}"
@@ -107,17 +134,29 @@ def load_live_panel(log=print) -> pd.DataFrame:
         aclass = "commodity" if asset == "XAUUSD" else "fx"
         try:
             frames.append(_norm(stooq_daily(sym), asset, aclass))
-        except Exception as e:
-            log(f"  ! {asset}: veri yok ({type(e).__name__})")
-    for sym, asset in CRYPTO_LIVE:
-        try:
-            frames.append(_norm(binance_daily(sym), asset, "crypto"))
         except Exception:
             try:
-                frames.append(_norm(bybit_daily(sym), asset, "crypto"))
-                log(f"  {asset}: binance yok, bybit kullanildi")
+                frames.append(_norm(yahoo_daily(YAHOO_FX_FALLBACK[asset]), asset, aclass))
+                log(f"  {asset}: stooq yok, yahoo kullanildi")
             except Exception as e2:
-                log(f"  ! {asset}: canli kripto yok ({type(e2).__name__})")
+                log(f"  ! {asset}: veri yok ({type(e2).__name__})")
+    for sym, asset, cb in CRYPTO_LIVE:
+        got = False
+        for fn, src in ((lambda: binance_daily(sym), "binance"),
+                        (lambda: bybit_daily(sym), "bybit"),
+                        ((lambda: coinbase_daily(cb)) if cb else None, "coinbase")):
+            if fn is None:
+                continue
+            try:
+                frames.append(_norm(fn(), asset, "crypto"))
+                if src != "binance":
+                    log(f"  {asset}: {src} kullanildi")
+                got = True
+                break
+            except Exception:
+                continue
+        if not got:
+            log(f"  ! {asset}: canli kripto yok (tum kaynaklar engelli)")
     if not frames:
         return pd.DataFrame(columns=["date", "asset", "aclass", "close"])
     return pd.concat(frames, ignore_index=True)
