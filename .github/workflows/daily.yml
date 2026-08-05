@@ -15,7 +15,7 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 55
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
 
@@ -28,9 +28,13 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Günlük çalıştırma
-        run: python src/run_live.py
+        run: |
+          mkdir -p reports
+          set -o pipefail
+          python src/run_live.py 2>&1 | tee reports/last_run.log
 
       - name: Çıktıları commit'le
+        if: always()
         run: |
           git config user.name "graphfinance-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
