@@ -27,6 +27,7 @@ CRYPTO = ["btc", "eth", "xrp"]  # sol: coinmetrics community fiyat kolonu boş
 
 
 def _get(url: str, cache_name: str, refresh: bool = True) -> str:
+    os.makedirs(DATA_DIR, exist_ok=True)
     path = os.path.join(DATA_DIR, cache_name)
     if refresh or not os.path.exists(path):
         try:
