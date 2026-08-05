@@ -1,0 +1,39 @@
+name: GraphFinance daily
+
+on:
+  schedule:
+    - cron: "0 3 * * *"   # 06:00 Türkiye (UTC+3)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-run
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Bağımlılıklar
+        run: pip install -r requirements.txt
+
+      - name: Günlük çalıştırma
+        run: python src/run_live.py
+
+      - name: Çıktıları commit'le
+        run: |
+          git config user.name "graphfinance-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data_store docs reports models
+          git commit -m "günlük çalıştırma $(date -u +%F)" || echo "değişiklik yok"
+          git push
