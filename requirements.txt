@@ -1,0 +1,7 @@
+pandas>=2.2
+numpy>=1.26
+lightgbm>=4.3
+scikit-learn>=1.4
+requests>=2.31
+pyarrow>=15
+joblib>=1.3
