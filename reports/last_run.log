@@ -19,23 +19,18 @@
   AVGO: stooq yok (ValueError), yahoo kullanildi
   SPY: stooq yok (ValueError), yahoo kullanildi
   QQQ: stooq yok (ValueError), yahoo kullanildi
-  ! XAUUSD: veri yok (ValueError)
-  ! USDTRY: veri yok (ValueError)
-  ! BTC: canli kripto yok (HTTPError)
-  ! ETH: canli kripto yok (HTTPError)
-  ! SOL: canli kripto yok (HTTPError)
-  ! XRP: canli kripto yok (HTTPError)
-  ! BNB: canli kripto yok (HTTPError)
-   mirror: 12 varlik | canli: 10 varlik
-   toplam 22 varlik, 135207 satir
+  XAUUSD: stooq yok, yahoo kullanildi
+  USDTRY: stooq yok, yahoo kullanildi
+  BTC: coinbase kullanildi
+  ETH: coinbase kullanildi
+  SOL: coinbase kullanildi
+  XRP: coinbase kullanildi
+  ! BNB: canli kripto yok (tum kaynaklar engelli)
+   mirror: 12 varlik | canli: 16 varlik
+   toplam 25 varlik, 141665 satir
 2/5 AYLIK tam dogrulama (walk-forward) + egitim...
-Traceback (most recent call last):
-  File "/home/runner/work/graphfinance/graphfinance/src/run_live.py", line 136, in <module>
-    main()
-  File "/home/runner/work/graphfinance/graphfinance/src/run_live.py", line 83, in main
-    met = per_asset_metrics(oos)
-          ^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/graphfinance/graphfinance/src/backtest.py", line 32, in per_asset_metrics
-    cost = COST[g["aclass"].iloc[0]]
-           ~~~~^^^^^^^^^^^^^^^^^^^^^
-KeyError: 'stock'
+3/5 guncel tahminler...
+4/5 tahmin defteri...
+   defter: 25 tahmin, henuz cozulen yok
+5/5 pano...
+bitti — 81s
