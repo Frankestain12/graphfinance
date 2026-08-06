@@ -53,6 +53,31 @@ def month_key(d=None):
     return f"{d.year}-{d.month:02d}"
 
 
+def routed_predictions(df: pd.DataFrame, bundle: dict) -> pd.DataFrame:
+    """Şampiyona göre tahmin: base / ext / karma (sınıf bazlı yönlendirme)."""
+    from model import top_drivers
+    idx = df.groupby("asset")["date"].idxmax()
+    last = df.loc[idx].copy()
+    champ = bundle.get("champion", "base")
+    if champ == "mix":
+        use_ext = last["aclass"].isin(set(bundle.get("ext_classes", [])))
+    else:
+        use_ext = pd.Series(champ == "ext", index=last.index)
+    parts = []
+    for flag, key in ((False, "base"), (True, "ext")):
+        sub = last[use_ext == flag]
+        if sub.empty or key not in bundle["models"]:
+            continue
+        m, fc = bundle["models"][key], bundle["feats"][key]
+        sub = sub.copy()
+        sub["p_up"] = m.predict_proba(sub[fc])[:, 1]
+        sub["drivers"] = top_drivers(m, sub, fc)
+        parts.append(sub)
+    out = pd.concat(parts, ignore_index=True)
+    return (out[["asset", "aclass", "date", "close", "p_up", "vol21", "drivers"]]
+            .sort_values("p_up", ascending=False))
+
+
 def main():
     t0 = time.time()
     print("1/5 veri katmani...")
@@ -91,35 +116,59 @@ def main():
             print(f"   {name}: ort.AUC={auc_mean:.4f}  guvenli-isabet={conf_hit:.4f}  ({len(feats)} ozellik)")
             for _, r in met_i.iterrows():
                 ab_rows.append(dict(model=name, asset=r["asset"], auc=r["auc"], hit=r["hit"]))
-        # rakip ancak ANLAMLI farkla kazanirsa tahta gecer
-        champion = "ext" if (results["ext"]["auc"] >= results["base"]["auc"] + 0.002
-                             and results["ext"]["conf"] >= results["base"]["conf"] - 0.005) else "base"
+        # 1) saf rakip anlamli farkla kazanirsa tahta gecer
+        # 2) degilse KARMA denenir: ext'in sinif bazinda acik ara kazandigi siniflara ext,
+        #    digerlerine base — karma da ancak havuzda base'i yenerse secilir
+        champion, ext_classes = "base", []
+        if (results["ext"]["auc"] >= results["base"]["auc"] + 0.002
+                and results["ext"]["conf"] >= results["base"]["conf"] - 0.005):
+            champion = "ext"
+        else:
+            bc = results["base"]["met"].groupby("aclass")["auc"].mean()
+            ec = results["ext"]["met"].groupby("aclass")["auc"].mean()
+            ext_classes = sorted(c for c in ec.index if ec[c] > bc.get(c, 1.0) + 0.005)
+            if ext_classes:
+                ob, oe = results["base"]["oos"], results["ext"]["oos"]
+                mix = pd.concat([oe[oe["aclass"].isin(ext_classes)],
+                                 ob[~ob["aclass"].isin(ext_classes)]], ignore_index=True)
+                met_mix = per_asset_metrics(mix)
+                if float(met_mix["auc"].mean()) >= results["base"]["auc"] + 0.002:
+                    champion = "mix"
+                    results["mix"] = dict(oos=mix, met=met_mix)
+                    print(f"   karma kabul: {ext_classes} siniflari grafik-paketli modele gecti")
+                else:
+                    print(f"   karma denendi ({ext_classes}) ama havuzda base'i yenemedi")
         print(f"   SAMPIYON: {champion}")
         pd.DataFrame(ab_rows).to_csv(os.path.join(REP, "ab_test.csv"), index=False)
-        feat_cols = EXT_FEATS if champion == "ext" else BASE_FEATS
         oos, met = results[champion]["oos"], results[champion]["met"]
         oos.to_parquet(os.path.join(REP, "oos_predictions.parquet"))
         met.to_csv(met_path, index=False)
         calibration(oos).to_csv(os.path.join(REP, "calibration.csv"))
-        m = train_final(df, feat_cols)
-        joblib.dump({"model": m, "feat_cols": feat_cols, "champion": champion}, MODEL_PATH)
-        imp = pd.Series(m.feature_importances_, index=feat_cols).sort_values(ascending=False)
+        models = {"base": train_final(df, BASE_FEATS)}
+        feats = {"base": BASE_FEATS}
+        if champion in ("ext", "mix"):
+            models["ext"] = train_final(df, EXT_FEATS)
+            feats["ext"] = EXT_FEATS
+        bundle = {"models": models, "feats": feats,
+                  "champion": champion, "ext_classes": ext_classes}
+        joblib.dump(bundle, MODEL_PATH)
+        imp_key = "ext" if champion == "ext" else "base"
+        imp = pd.Series(models[imp_key].feature_importances_,
+                        index=feats[imp_key]).sort_values(ascending=False)
         imp.to_csv(os.path.join(REP, "feature_importance.csv"))
         meta = {"validated_month": month_key(), "features_version": FEATURES_VERSION,
-                "champion": champion, "trained_at": str(date.today()),
+                "champion": champion, "ext_classes": ext_classes,
+                "trained_at": str(date.today()),
                 "n_assets": len(assets), "n_rows": len(df)}
         json.dump(meta, open(META_PATH, "w"))
     else:
         print("2/5 gunluk mod: kayitli model kullaniliyor "
               f"(dogrulama: {meta.get('validated_month')}, sampiyon: {meta.get('champion')})")
         bundle = joblib.load(MODEL_PATH)
-        m, feat_cols = bundle["model"], bundle["feat_cols"]
 
     print("3/5 guncel tahminler...")
     bundle = joblib.load(MODEL_PATH)
-    m, model_feats = bundle["model"], bundle["feat_cols"]
-    # ozellik kolonlari egitimdekiyle ayni sirada olmali
-    preds = latest_predictions(df, model_feats, m)
+    preds = routed_predictions(df, bundle)
     preds.to_csv(os.path.join(REP, "latest_predictions.csv"), index=False)
 
     print("4/5 tahmin defteri...")
