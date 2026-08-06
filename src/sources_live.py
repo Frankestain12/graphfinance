@@ -34,7 +34,9 @@ def stooq_daily(sym: str) -> pd.DataFrame:
     df = pd.read_csv(io.StringIO(r.text))
     if "Close" not in df.columns or df.empty:
         raise ValueError(f"stooq bos: {sym}")
-    return df.rename(columns={"Date": "date", "Close": "close"})[["date", "close"]]
+    df = df.rename(columns={"Date": "date", "Close": "close", "Volume": "volume"})
+    keep = ["date", "close"] + (["volume"] if "volume" in df.columns else [])
+    return df[keep]
 
 
 def yahoo_daily(sym: str) -> pd.DataFrame:
@@ -45,9 +47,10 @@ def yahoo_daily(sym: str) -> pd.DataFrame:
     r.raise_for_status()
     j = r.json()["chart"]["result"][0]
     ts = j["timestamp"]
-    close = j["indicators"]["quote"][0]["close"]
-    df = pd.DataFrame({"date": pd.to_datetime(ts, unit="s").date, "close": close})
-    return df.dropna()
+    q = j["indicators"]["quote"][0]
+    df = pd.DataFrame({"date": pd.to_datetime(ts, unit="s").date,
+                       "close": q["close"], "volume": q.get("volume")})
+    return df.dropna(subset=["close"])
 
 
 def binance_daily(sym: str, days: int = 3000) -> pd.DataFrame:
@@ -64,7 +67,8 @@ def binance_daily(sym: str, days: int = 3000) -> pd.DataFrame:
             break
         frames.append(pd.DataFrame({
             "date": pd.to_datetime([x[0] for x in rows], unit="ms").date,
-            "close": [float(x[4]) for x in rows]}))
+            "close": [float(x[4]) for x in rows],
+            "volume": [float(x[5]) for x in rows]}))
         end = rows[0][0] - 1
         if len(rows) < 1000:
             break
@@ -90,7 +94,8 @@ def coinbase_daily(product: str, days: int = 3000) -> pd.DataFrame:
             break
         frames.append(pd.DataFrame({
             "date": pd.to_datetime([x[0] for x in rows], unit="s").date,
-            "close": [float(x[4]) for x in rows]}))
+            "close": [float(x[4]) for x in rows],
+            "volume": [float(x[5]) for x in rows]}))
         end = start
         time.sleep(0.35)
     if not frames:
@@ -107,15 +112,19 @@ def bybit_daily(sym: str) -> pd.DataFrame:
     rows = r.json()["result"]["list"]
     return pd.DataFrame({
         "date": pd.to_datetime([int(x[0]) for x in rows], unit="ms").date,
-        "close": [float(x[4]) for x in rows]}).sort_values("date")
+        "close": [float(x[4]) for x in rows],
+        "volume": [float(x[5]) for x in rows]}).sort_values("date")
 
 
 def _norm(df: pd.DataFrame, asset: str, aclass: str) -> pd.DataFrame:
     out = df.copy()
     out["date"] = pd.to_datetime(out["date"])
     out["close"] = pd.to_numeric(out["close"], errors="coerce")
+    if "volume" not in out.columns:
+        out["volume"] = float("nan")
+    out["volume"] = pd.to_numeric(out["volume"], errors="coerce")
     out["asset"], out["aclass"] = asset, aclass
-    return out.dropna(subset=["close"])[["date", "asset", "aclass", "close"]]
+    return out.dropna(subset=["close"])[["date", "asset", "aclass", "close", "volume"]]
 
 
 def load_live_panel(log=print) -> pd.DataFrame:
