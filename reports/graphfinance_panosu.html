@@ -91,7 +91,7 @@ svg { width:100%; height:auto; display:block }
 <div class="head">
   <div>
     <h1><span class="gf">Graph</span>Finance <span style="font-weight:400;color:var(--muted);font-size:15px">· 5 günlük yön tahmini</span></h1>
-    <div class="sub">Üretim: 5 Ağustos 2026 · Model: LightGBM (havuzlanmış) · Doğrulama: aylık yeniden eğitimli walk-forward, 2019-01-01 → 2026-08-05</div>
+    <div class="sub">Üretim: 6 Ağustos 2026 · Model: LightGBM (havuzlanmış) · Doğrulama: aylık yeniden eğitimli walk-forward, 2019-01-01 → 2026-08-05</div>
   </div>
 </div>
 
@@ -101,7 +101,7 @@ svg { width:100%; height:auto; display:block }
   <div class="card tile"><div class="tl">Out-of-sample tahmin</div><div class="tv">49,945</div><div class="td">2019-01-01 → 2026-08-05, 25 varlık</div></div>
   <div class="card tile"><div class="tl">Yüksek güvenli çağrı isabeti</div><div class="tv">54,9%</div><div class="td">23,126 çağrı (güven &gt; %55)</div></div>
   <div class="card tile"><div class="tl">Kanıtlanmış kenarlı varlık</div><div class="tv">2 / 25</div><div class="td">USD/TRY &amp; USD/CNY</div></div>
-  <div class="card tile"><div class="tl">Tahmin defteri</div><div class="tv">25</div><div class="td">kayıtlı tahmin · ilk sonuçlar 5 iş günü sonra</div></div>
+  <div class="card tile"><div class="tl">Canlı defter isabeti</div><div class="tv">100,0%</div><div class="td">3 çözülmüş gerçek tahmin</div></div>
 </div>
 
 <div class="card">
@@ -112,203 +112,203 @@ svg { width:100%; height:auto; display:block }
     <tbody><tr>
 <td><span class="aname">USD/TRY</span> <span class="acls">Döviz</span></td>
 <td><span class="dir up">▲ YUKARI</span></td>
-<td class="num"><strong>88,7%</strong></td>
-<td class="num">47,57</td>
-<td class="num muted2">47,47 – 47,67</td>
+<td class="num"><strong>88,9%</strong></td>
+<td class="num">47,59</td>
+<td class="num muted2">47,49 – 47,69</td>
 <td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,639, isabet 65,5% (taban 75,5%)">Kanıtlanmış kenar</span></td>
-<td class="num muted2">05.08.2026 </td>
+<td class="num muted2">06.08.2026 </td>
+</tr><tr>
+<td><span class="aname">Nasdaq 100 ETF</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut">▲ YUKARI</span></td>
+<td class="num"><strong>64,5%</strong></td>
+<td class="num">$700,07</td>
+<td class="num muted2">$670,29 – $731,17</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,506, isabet 57,5% (taban 60,2%)">Kenar yok</span></td>
+<td class="num muted2">03.08.2026 </td>
+</tr><tr>
+<td><span class="aname">Tesla</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut">▲ YUKARI</span></td>
+<td class="num"><strong>62,5%</strong></td>
+<td class="num">$322,08</td>
+<td class="num muted2">$284,49 – $364,64</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,472, isabet 48,7% (taban 51,9%)">Kenar yok</span></td>
+<td class="num muted2">03.08.2026 </td>
 </tr><tr>
 <td><span class="aname">USD/CNY</span> <span class="acls">Döviz</span></td>
 <td><span class="dir dn">▼ AŞAĞI</span></td>
-<td class="num"><strong>62,8%</strong></td>
+<td class="num"><strong>62,1%</strong></td>
 <td class="num">6,7509</td>
 <td class="num muted2">6,7314 – 6,7704</td>
 <td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,552, isabet 53,6% (taban 51,2%)">Kanıtlanmış kenar</span></td>
 <td class="num muted2">31.07.2026 </td>
 </tr><tr>
+<td><span class="aname">Apple</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut">▲ YUKARI</span></td>
+<td class="num"><strong>62,0%</strong></td>
+<td class="num">$303,42</td>
+<td class="num muted2">$283,88 – $324,30</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,475, isabet 55,7% (taban 58,5%)">Kenar yok</span></td>
+<td class="num muted2">03.08.2026 </td>
+</tr><tr>
 <td><span class="aname">S&P 500 ETF</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up mut">▲ YUKARI</span></td>
-<td class="num"><strong>60,0%</strong></td>
-<td class="num">$771,33</td>
-<td class="num muted2">$751,68 – $791,50</td>
+<td class="num"><strong>58,4%</strong></td>
+<td class="num">$769,79</td>
+<td class="num muted2">$750,33 – $789,75</td>
 <td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,503, isabet 59,5% (taban 61,5%)">Kenar yok</span></td>
-<td class="num muted2">04.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Tesla</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut">▲ YUKARI</span></td>
-<td class="num"><strong>59,1%</strong></td>
-<td class="num">$327,35</td>
-<td class="num muted2">$291,61 – $367,47</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,472, isabet 48,7% (taban 51,9%)">Kenar yok</span></td>
-<td class="num muted2">04.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Brent Petrol</span> <span class="acls">Emtia</span></td>
-<td><span class="dir dn mut">▼ AŞAĞI</span></td>
-<td class="num"><strong>55,2%</strong></td>
-<td class="num">$91,82</td>
-<td class="num muted2">$80,20 – $105,12</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,483, isabet 49,8% (taban 54,0%)">Kenar yok</span></td>
-<td class="num muted2">27.07.2026 <span class="chip stale" data-tip="Bu varlığın verisi 9 gün geride — canlı veri hattı kurulunca güncellenecek">9 gün eski</span></td>
+<td class="num muted2">05.08.2026 </td>
 </tr><tr>
 <td><span class="aname">Meta</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up">▲ YUKARI</span></td>
-<td class="num"><strong>54,6%</strong></td>
-<td class="num">$587,94</td>
-<td class="num muted2">$533,60 – $647,81</td>
+<td class="num"><strong>55,9%</strong></td>
+<td class="num">$588,77</td>
+<td class="num muted2">$535,16 – $647,76</td>
 <td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,528, isabet 55,6% (taban 55,3%)">Zayıf sinyal</span></td>
-<td class="num muted2">04.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Doğalgaz (Henry Hub)</span> <span class="acls">Emtia</span></td>
-<td><span class="dir up">▲ YUKARI</span></td>
-<td class="num"><strong>54,6%</strong></td>
-<td class="num">$2,6300</td>
-<td class="num muted2">$2,3238 – $2,9765</td>
-<td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,511, isabet 51,1% (taban 50,6%)">Zayıf sinyal</span></td>
-<td class="num muted2">27.07.2026 <span class="chip stale" data-tip="Bu varlığın verisi 9 gün geride — canlı veri hattı kurulunca güncellenecek">9 gün eski</span></td>
-</tr><tr>
-<td><span class="aname">Nasdaq 100 ETF</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut">▲ YUKARI</span></td>
-<td class="num"><strong>54,2%</strong></td>
-<td class="num">$723,85</td>
-<td class="num muted2">$690,17 – $759,17</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,506, isabet 57,5% (taban 60,2%)">Kenar yok</span></td>
-<td class="num muted2">04.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Nvidia</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut">▲ YUKARI</span></td>
-<td class="num"><strong>54,2%</strong></td>
-<td class="num">$211,94</td>
-<td class="num muted2">$196,08 – $229,09</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,487, isabet 53,7% (taban 58,7%)">Kenar yok</span></td>
-<td class="num muted2">04.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Ham Petrol (WTI)</span> <span class="acls">Emtia</span></td>
-<td><span class="dir dn mut">▼ AŞAĞI</span></td>
-<td class="num"><strong>54,0%</strong></td>
-<td class="num">$84,25</td>
-<td class="num muted2">$76,01 – $93,38</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,480, isabet 48,7% (taban 54,3%)">Kenar yok</span></td>
-<td class="num muted2">27.07.2026 <span class="chip stale" data-tip="Bu varlığın verisi 9 gün geride — canlı veri hattı kurulunca güncellenecek">9 gün eski</span></td>
-</tr><tr>
-<td><span class="aname">Amazon</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut">▼ AŞAĞI</span></td>
-<td class="num"><strong>53,9%</strong></td>
-<td class="num">$277,42</td>
-<td class="num muted2">$249,08 – $308,99</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,494, isabet 52,3% (taban 54,6%)">Kenar yok</span></td>
-<td class="num muted2">04.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Ethereum</span> <span class="acls">Kripto</span></td>
-<td><span class="dir dn mut">▼ AŞAĞI</span></td>
-<td class="num"><strong>53,3%</strong></td>
-<td class="num">$1.876</td>
-<td class="num muted2">$1.776 – $1.981</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,489, isabet 49,5% (taban 52,8%)">Kenar yok</span></td>
 <td class="num muted2">05.08.2026 </td>
 </tr><tr>
-<td><span class="aname">Apple</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut">▲ YUKARI</span></td>
-<td class="num"><strong>53,2%</strong></td>
-<td class="num">$309,38</td>
-<td class="num muted2">$289,27 – $330,89</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,475, isabet 55,7% (taban 58,5%)">Kenar yok</span></td>
-<td class="num muted2">04.08.2026 </td>
-</tr><tr>
 <td><span class="aname">Alphabet</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut">▼ AŞAĞI</span></td>
-<td class="num"><strong>52,5%</strong></td>
-<td class="num">$377,65</td>
-<td class="num muted2">$346,42 – $411,70</td>
+<td><span class="dir up mut">▲ YUKARI</span></td>
+<td class="num"><strong>55,5%</strong></td>
+<td class="num">$362,43</td>
+<td class="num muted2">$331,13 – $396,69</td>
 <td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,496, isabet 56,7% (taban 57,5%)">Kenar yok</span></td>
-<td class="num muted2">04.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Microsoft</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut">▼ AŞAĞI</span></td>
-<td class="num"><strong>52,3%</strong></td>
-<td class="num">$492,81</td>
-<td class="num muted2">$445,13 – $545,60</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,483, isabet 54,5% (taban 58,3%)">Kenar yok</span></td>
-<td class="num muted2">04.08.2026 </td>
+<td class="num muted2">05.08.2026 </td>
 </tr><tr>
 <td><span class="aname">Solana</span> <span class="acls">Kripto</span></td>
 <td><span class="dir dn">▼ AŞAĞI</span></td>
-<td class="num"><strong>52,3%</strong></td>
-<td class="num">$74,02</td>
-<td class="num muted2">$70,44 – $77,78</td>
+<td class="num"><strong>53,8%</strong></td>
+<td class="num">$74,06</td>
+<td class="num muted2">$70,66 – $77,62</td>
 <td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,523, isabet 50,5% (taban 51,4%)">Zayıf sinyal</span></td>
-<td class="num muted2">05.08.2026 </td>
-</tr><tr>
-<td><span class="aname">GBP/USD</span> <span class="acls">Döviz</span></td>
-<td><span class="dir dn mut">▼ AŞAĞI</span></td>
-<td class="num"><strong>52,0%</strong></td>
-<td class="num">0,7424</td>
-<td class="num muted2">0,7334 – 0,7515</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,480, isabet 48,0% (taban 50,1%)">Kenar yok</span></td>
-<td class="num muted2">31.07.2026 </td>
+<td class="num muted2">06.08.2026 </td>
 </tr><tr>
 <td><span class="aname">Broadcom</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut">▼ AŞAĞI</span></td>
-<td class="num"><strong>51,9%</strong></td>
-<td class="num">$418,16</td>
-<td class="num muted2">$384,67 – $454,57</td>
+<td><span class="dir up mut">▲ YUKARI</span></td>
+<td class="num"><strong>53,7%</strong></td>
+<td class="num">$418,28</td>
+<td class="num muted2">$384,94 – $454,51</td>
 <td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,497, isabet 53,1% (taban 56,1%)">Kenar yok</span></td>
-<td class="num muted2">04.08.2026 </td>
+<td class="num muted2">05.08.2026 </td>
+</tr><tr>
+<td><span class="aname">Ethereum</span> <span class="acls">Kripto</span></td>
+<td><span class="dir dn mut">▼ AŞAĞI</span></td>
+<td class="num"><strong>53,2%</strong></td>
+<td class="num">$1.910</td>
+<td class="num muted2">$1.811 – $2.014</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,489, isabet 49,5% (taban 52,8%)">Kenar yok</span></td>
+<td class="num muted2">06.08.2026 </td>
+</tr><tr>
+<td><span class="aname">Microsoft</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut">▲ YUKARI</span></td>
+<td class="num"><strong>52,9%</strong></td>
+<td class="num">$487,46</td>
+<td class="num muted2">$439,90 – $540,17</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,483, isabet 54,5% (taban 58,3%)">Kenar yok</span></td>
+<td class="num muted2">05.08.2026 </td>
 </tr><tr>
 <td><span class="aname">AUD/USD</span> <span class="acls">Döviz</span></td>
 <td><span class="dir dn mut">▼ AŞAĞI</span></td>
-<td class="num"><strong>51,6%</strong></td>
+<td class="num"><strong>52,2%</strong></td>
 <td class="num">1,4233</td>
 <td class="num muted2">1,4057 – 1,4411</td>
 <td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,474, isabet 48,2% (taban 51,5%)">Kenar yok</span></td>
 <td class="num muted2">31.07.2026 </td>
 </tr><tr>
-<td><span class="aname">Bitcoin</span> <span class="acls">Kripto</span></td>
+<td><span class="aname">GBP/USD</span> <span class="acls">Döviz</span></td>
 <td><span class="dir dn mut">▼ AŞAĞI</span></td>
-<td class="num"><strong>51,5%</strong></td>
-<td class="num">$64.286</td>
-<td class="num muted2">$61.862 – $66.804</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,498, isabet 50,8% (taban 53,3%)">Kenar yok</span></td>
-<td class="num muted2">05.08.2026 </td>
-</tr><tr>
-<td><span class="aname">XRP</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up">▲ YUKARI</span></td>
-<td class="num"><strong>51,3%</strong></td>
-<td class="num">$1,0632</td>
-<td class="num muted2">$1,0121 – $1,1169</td>
-<td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,526, isabet 51,1% (taban 52,5%)">Zayıf sinyal</span></td>
-<td class="num muted2">05.08.2026 </td>
+<td class="num"><strong>52,1%</strong></td>
+<td class="num">0,7424</td>
+<td class="num muted2">0,7334 – 0,7515</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,480, isabet 48,0% (taban 50,1%)">Kenar yok</span></td>
+<td class="num muted2">31.07.2026 </td>
 </tr><tr>
 <td><span class="aname">EUR/USD</span> <span class="acls">Döviz</span></td>
 <td><span class="dir up mut">▲ YUKARI</span></td>
-<td class="num"><strong>51,3%</strong></td>
+<td class="num"><strong>52,0%</strong></td>
 <td class="num">0,8681</td>
 <td class="num muted2">0,8596 – 0,8767</td>
 <td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,478, isabet 49,3% (taban 50,0%)">Kenar yok</span></td>
 <td class="num muted2">31.07.2026 </td>
 </tr><tr>
-<td><span class="aname">USD/JPY</span> <span class="acls">Döviz</span></td>
-<td><span class="dir dn mut">▼ AŞAĞI</span></td>
-<td class="num"><strong>51,0%</strong></td>
-<td class="num">159,16</td>
-<td class="num muted2">155,93 – 162,45</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,500, isabet 52,3% (taban 57,4%)">Kenar yok</span></td>
-<td class="num muted2">31.07.2026 </td>
+<td><span class="aname">Doğalgaz (Henry Hub)</span> <span class="acls">Emtia</span></td>
+<td><span class="dir up">▲ YUKARI</span></td>
+<td class="num"><strong>51,8%</strong></td>
+<td class="num">$2,8100</td>
+<td class="num muted2">$2,4502 – $3,2226</td>
+<td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,511, isabet 51,1% (taban 50,6%)">Zayıf sinyal</span></td>
+<td class="num muted2">03.08.2026 </td>
 </tr><tr>
 <td><span class="aname">USD/CHF</span> <span class="acls">Döviz</span></td>
 <td><span class="dir up mut">▲ YUKARI</span></td>
-<td class="num"><strong>50,7%</strong></td>
+<td class="num"><strong>51,1%</strong></td>
 <td class="num">0,8081</td>
 <td class="num muted2">0,7954 – 0,8210</td>
 <td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,492, isabet 49,4% (taban 51,2%)">Kenar yok</span></td>
 <td class="num muted2">31.07.2026 </td>
 </tr><tr>
+<td><span class="aname">Nvidia</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut">▲ YUKARI</span></td>
+<td class="num"><strong>51,1%</strong></td>
+<td class="num">$219,22</td>
+<td class="num muted2">$202,36 – $237,48</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,487, isabet 53,7% (taban 58,7%)">Kenar yok</span></td>
+<td class="num muted2">05.08.2026 </td>
+</tr><tr>
+<td><span class="aname">Bitcoin</span> <span class="acls">Kripto</span></td>
+<td><span class="dir dn mut">▼ AŞAĞI</span></td>
+<td class="num"><strong>50,6%</strong></td>
+<td class="num">$64.811</td>
+<td class="num muted2">$62.420 – $67.293</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,498, isabet 50,8% (taban 53,3%)">Kenar yok</span></td>
+<td class="num muted2">06.08.2026 </td>
+</tr><tr>
+<td><span class="aname">XRP</span> <span class="acls">Kripto</span></td>
+<td><span class="dir dn">▼ AŞAĞI</span></td>
+<td class="num"><strong>50,6%</strong></td>
+<td class="num">$1,0490</td>
+<td class="num muted2">$1,0001 – $1,1003</td>
+<td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,526, isabet 51,1% (taban 52,5%)">Zayıf sinyal</span></td>
+<td class="num muted2">06.08.2026 </td>
+</tr><tr>
+<td><span class="aname">Brent Petrol</span> <span class="acls">Emtia</span></td>
+<td><span class="dir dn mut">▼ AŞAĞI</span></td>
+<td class="num"><strong>50,4%</strong></td>
+<td class="num">$88,90</td>
+<td class="num muted2">$75,55 – $104,60</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,483, isabet 49,8% (taban 54,0%)">Kenar yok</span></td>
+<td class="num muted2">03.08.2026 </td>
+</tr><tr>
+<td><span class="aname">Ham Petrol (WTI)</span> <span class="acls">Emtia</span></td>
+<td><span class="dir dn mut">▼ AŞAĞI</span></td>
+<td class="num"><strong>50,4%</strong></td>
+<td class="num">$81,96</td>
+<td class="num muted2">$73,12 – $91,87</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,480, isabet 48,7% (taban 54,3%)">Kenar yok</span></td>
+<td class="num muted2">03.08.2026 </td>
+</tr><tr>
+<td><span class="aname">USD/JPY</span> <span class="acls">Döviz</span></td>
+<td><span class="dir up mut">▲ YUKARI</span></td>
+<td class="num"><strong>50,3%</strong></td>
+<td class="num">159,16</td>
+<td class="num muted2">155,93 – 162,45</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,500, isabet 52,3% (taban 57,4%)">Kenar yok</span></td>
+<td class="num muted2">31.07.2026 </td>
+</tr><tr>
+<td><span class="aname">Amazon</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut">▲ YUKARI</span></td>
+<td class="num"><strong>50,2%</strong></td>
+<td class="num">$272,65</td>
+<td class="num muted2">$244,56 – $303,97</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,494, isabet 52,3% (taban 54,6%)">Kenar yok</span></td>
+<td class="num muted2">05.08.2026 </td>
+</tr><tr>
 <td><span class="aname">Altın (ons)</span> <span class="acls">Emtia</span></td>
 <td><span class="dir up">▲ YUKARI</span></td>
-<td class="num"><strong>50,7%</strong></td>
-<td class="num">$4.251</td>
-<td class="num muted2">$4.061 – $4.451</td>
+<td class="num"><strong>50,2%</strong></td>
+<td class="num">$4.314</td>
+<td class="num muted2">$4.127 – $4.510</td>
 <td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,511, isabet 55,8% (taban 58,1%)">Zayıf sinyal</span></td>
-<td class="num muted2">05.08.2026 </td>
+<td class="num muted2">06.08.2026 </td>
 </tr></tbody>
   </table></div>
 </div>
