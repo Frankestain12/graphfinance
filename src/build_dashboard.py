@@ -5,6 +5,8 @@ import os
 import numpy as np
 import pandas as pd
 
+from features import FEAT_TR
+
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 REP = os.path.join(ROOT, "reports")
 H = 5
@@ -45,6 +47,58 @@ def edge_class(auc):
     if auc >= 0.51:
         return "weak", "Zayıf sinyal"
     return "none", "Kenar yok"
+
+
+def drivers_tr(dr):
+    """'feat:+|feat:-' -> Türkçe okunur metin."""
+    if not isinstance(dr, str) or not dr:
+        return ""
+    parts = []
+    for tok in dr.split("|"):
+        if ":" not in tok:
+            continue
+        f, sign = tok.rsplit(":", 1)
+        parts.append(f"{FEAT_TR.get(f, f)} {'↑' if sign == '+' else '↓'}")
+    return " · ".join(parts)
+
+
+def compose_yorum(preds, met_idx, yorum, extra_names):
+    """Kural tabanlı Türkçe günlük yorum paragrafı."""
+    cumleler = []
+    vp = yorum.get("vix_pct")
+    if vp is not None:
+        if vp < 0.30:
+            cumleler.append(f"Piyasa rejimi sakin: korku endeksi VIX, son bir yılın en düşük "
+                            f"%{tr_num(100*vp,0)} diliminde.")
+        elif vp > 0.70:
+            cumleler.append(f"Piyasa rejimi gergin: VIX son bir yılın en yüksek "
+                            f"%{tr_num(100*(1-vp),0)} diliminde.")
+        else:
+            cumleler.append("Piyasa rejimi nötr: VIX yıllık aralığının ortasında.")
+    if yorum.get("risk_off"):
+        cumleler.append("Dikkat: riskten kaçış sinyali aktif (VIX yüksek + borsa momentumu negatif).")
+    # kenarlı varlıklardan en belirgin çağrılar
+    strong = []
+    for _, r in preds.iterrows():
+        a = r["asset"]
+        if a in met_idx.index and met_idx.loc[a, "auc"] >= 0.53 and abs(r["p_up"] - 0.5) > 0.05:
+            strong.append(r)
+    for r in strong[:2]:
+        nm = aname(r["asset"], extra_names)[0]
+        yon = "yukarı" if r["p_up"] >= 0.5 else "aşağı"
+        guven = tr_pct(max(r["p_up"], 1 - r["p_up"]))
+        dt = drivers_tr(r.get("drivers", ""))
+        cumleler.append(f"Günün öne çıkan sinyali: {nm} {yon} ({guven} güven)"
+                        + (f" — modeli iten etkenler: {dt}." if dt else "."))
+    if not strong:
+        cumleler.append("Bugün kenarı kanıtlanmış varlıklarda güçlü sinyal yok — "
+                        "sistemin 'işlem yapma' demesi de bir sinyaldir.")
+    sq = [aname(a, extra_names)[0] for a in yorum.get("squeeze_assets", [])][:4]
+    if sq:
+        cumleler.append(f"Sıkışma tespiti: {', '.join(sq)} — oynaklık 3 aylık ortalamanın çok "
+                        f"altında; istatistiksel olarak yakında sert hareket olasılığı artar "
+                        f"(yönünü söylemez).")
+    return " ".join(cumleler)
 
 
 def load():
@@ -166,7 +220,7 @@ AYLAR = ["", "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz",
          "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
 
 
-def build(met, preds, oos, imp, extra_names=None, led=None):
+def build(met, preds, oos, imp, extra_names=None, led=None, yorum=None):
     ps = pooled_stats(oos)
     today = pd.Timestamp.today().normalize()
     gen_date = f"{today.day} {AYLAR[today.month]} {today.year}"
@@ -224,7 +278,9 @@ def build(met, preds, oos, imp, extra_names=None, led=None):
         stale = (f'<span class="chip stale" data-tip="Bu varlığın verisi {days_old} gün geride — '
                  f'canlı veri hattı kurulunca güncellenecek">{days_old} gün eski</span>'
                  if days_old > 7 else "")
-        dir_html = (f'<span class="dir {"up" if up else "dn"}{" mut" if ec=="none" else ""}">'
+        dtx = drivers_tr(r.get("drivers", "")) if "drivers" in preds.columns else ""
+        dtip = f' data-tip="Modeli iten etkenler: {dtx}"' if dtx else ""
+        dir_html = (f'<span class="dir {"up" if up else "dn"}{" mut" if ec=="none" else ""}"{dtip}>'
                     f'{"▲ YUKARI" if up else "▼ AŞAĞI"}</span>')
         rows_html.append(f"""<tr>
 <td><span class="aname">{name}</span> <span class="acls">{CLASS_TR[r["aclass"]]}</span></td>
@@ -238,15 +294,17 @@ def build(met, preds, oos, imp, extra_names=None, led=None):
 
     imp_top = imp.head(6)
     imp_max = imp_top["imp"].max()
-    FEAT_TR = {"vix_z": "VIX korku endeksi (z-skor)", "btc_r21": "BTC 21 günlük momentum",
-               "vol21": "21 günlük oynaklık", "eur_r5": "EUR/USD 5 günlük ivme",
-               "sma200_gap": "200 günlük ortalamaya uzaklık", "oil_r5": "Petrol 5 günlük ivme",
-               "month": "Ay (mevsimsellik)", "hi52_dist": "52 haftalık zirveye uzaklık",
-               "r63": "3 aylık momentum", "vix_chg5": "VIX 5 günlük değişim"}
     imp_html = "".join(
         f'<div class="imp-row"><span class="lbl2">{FEAT_TR.get(f, f)}</span>'
         f'<div class="imp-track"><div class="imp-fill" style="width:{100*v/imp_max:.0f}%"></div></div></div>'
         for f, v in zip(imp_top["feat"], imp_top["imp"]))
+
+    met_idx_y = met.set_index("asset")
+    yorum_html = ""
+    if yorum:
+        ytext = compose_yorum(preds, met_idx_y, yorum, extra_names)
+        yorum_html = (f'<div class="card" style="margin-bottom:18px"><h2>Bugünün yorumu</h2>'
+                      f'<div class="road" style="margin-top:6px">{ytext}</div></div>')
 
     n_proven = int((met["auc"] >= 0.53).sum())
     proven_names = " &amp; ".join(aname(a, extra_names)[0]
@@ -365,6 +423,8 @@ svg {{ width:100%; height:auto; display:block }}
   <div class="card tile"><div class="tl">Kanıtlanmış kenarlı varlık</div><div class="tv">{n_proven} / {met.shape[0]}</div><div class="td">{proven_names}</div></div>
   {ledger_html or f'<div class="card tile"><div class="tl">Tüm çağrılar isabeti</div><div class="tv">{tr_pct(ps["all_hit"])}</div><div class="td">yazı-tura: %50</div></div>'}
 </div>
+
+{yorum_html}
 
 <div class="card">
   <h2>Bugünün tahminleri</h2>
