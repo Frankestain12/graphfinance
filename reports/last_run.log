@@ -27,10 +27,13 @@
   XRP: coinbase kullanildi
   ! BNB: canli kripto yok (tum kaynaklar engelli)
    mirror: 12 varlik | canli: 16 varlik
-   toplam 25 varlik, 141676 satir
-2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-08)
+   toplam 25 varlik, 141684 satir
+2/5 AYLIK dogrulama: sampiyon/rakip A/B testi...
+   base: ort.AUC=0.5034  guvenli-isabet=0.5509  (24 ozellik)
+   ext: ort.AUC=0.5009  guvenli-isabet=0.5509  (43 ozellik)
+   SAMPIYON: base
 3/5 guncel tahminler...
 4/5 tahmin defteri...
-   defter: 44 tahmin, 3 cozuldu, gercek isabet 100.0%
+   defter: 47 tahmin, 3 cozuldu, gercek isabet 100.0%
 5/5 pano...
-bitti — 26s
+bitti — 151s
