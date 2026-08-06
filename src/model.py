@@ -48,8 +48,21 @@ def train_final(df: pd.DataFrame, feat_cols: list[str]) -> lgb.LGBMClassifier:
 
 
 def latest_predictions(df: pd.DataFrame, feat_cols: list[str], model) -> pd.DataFrame:
-    """Her varlığın son gözlem günü için ileriye dönük tahmin."""
+    """Her varlığın son gözlem günü için ileriye dönük tahmin + sürücü açıklamaları."""
     idx = df.groupby("asset")["date"].idxmax()
     last = df.loc[idx].copy()
     last["p_up"] = model.predict_proba(last[feat_cols])[:, 1]
-    return last[["asset", "aclass", "date", "close", "p_up", "vol21"]].sort_values("p_up", ascending=False)
+    last["drivers"] = top_drivers(model, last, feat_cols)
+    return (last[["asset", "aclass", "date", "close", "p_up", "vol21", "drivers"]]
+            .sort_values("p_up", ascending=False))
+
+
+def top_drivers(model, X: pd.DataFrame, feat_cols: list[str], k: int = 3) -> list[str]:
+    """Tahmin başına en etkili k özellik (SHAP benzeri katkı). 'feat:+' / 'feat:-' listesi."""
+    contrib = model.booster_.predict(X[feat_cols].to_numpy(dtype=float), pred_contrib=True)
+    out = []
+    for row in contrib:
+        vals = row[:-1]  # son sütun bias
+        order = np.argsort(-np.abs(vals))[:k]
+        out.append("|".join(f"{feat_cols[i]}:{'+' if vals[i] > 0 else '-'}" for i in order))
+    return out
