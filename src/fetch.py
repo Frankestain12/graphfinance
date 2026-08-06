@@ -4,6 +4,7 @@ Sandbox'tan erişilebilen ücretsiz kaynaklar: raw.githubusercontent.com (datahu
 """
 import io
 import os
+import numpy as np
 import requests
 import pandas as pd
 
@@ -52,7 +53,12 @@ def load_crypto() -> pd.DataFrame:
         if not cands:
             continue
         price_col = max(cands, key=lambda c: df[c].notna().sum())
-        out = df[["time", price_col]].rename(columns={"time": "date", price_col: "close"})
+        cols = {"time": "date", price_col: "close"}
+        vol_col = next((c for c in ("volume_reported_spot_usd_1d", "TxTfrValAdjUSD") if c in df.columns), None)
+        keep = ["time", price_col] + ([vol_col] if vol_col else [])
+        out = df[keep].rename(columns=cols)
+        if vol_col:
+            out = out.rename(columns={vol_col: "volume"})
         out["asset"] = sym.upper()
         out["aclass"] = "crypto"
         frames.append(out.dropna(subset=["close"]))
@@ -94,6 +100,9 @@ def load_panel() -> tuple[pd.DataFrame, pd.Series]:
     panel = pd.concat([load_crypto(), load_datahub(), load_fx()], ignore_index=True)
     panel["date"] = pd.to_datetime(panel["date"])
     panel["close"] = pd.to_numeric(panel["close"], errors="coerce")
+    if "volume" not in panel.columns:
+        panel["volume"] = np.nan
+    panel["volume"] = pd.to_numeric(panel["volume"], errors="coerce")
     panel = (panel.dropna(subset=["close"])
                   .sort_values(["asset", "date"])
                   .drop_duplicates(["asset", "date"], keep="last")
