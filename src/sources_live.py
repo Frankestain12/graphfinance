@@ -18,6 +18,13 @@ STOCKS = [
     ("tsla.us", "TSLA", "Tesla"), ("avgo.us", "AVGO", "Broadcom"),
     ("spy.us", "SPY", "S&P 500 ETF"), ("qqq.us", "QQQ", "Nasdaq 100 ETF"),
 ]
+BIST = [  # (yahoo_sembol, varlik, ad) — TRY cinsinden
+    ("XU100.IS", "XU100", "BIST 100"), ("THYAO.IS", "THYAO", "Türk Hava Yolları"),
+    ("GARAN.IS", "GARAN", "Garanti BBVA"), ("ASELS.IS", "ASELS", "Aselsan"),
+    ("AKBNK.IS", "AKBNK", "Akbank"), ("EREGL.IS", "EREGL", "Ereğli Demir Çelik"),
+    ("TUPRS.IS", "TUPRS", "Tüpraş"), ("BIMAS.IS", "BIMAS", "BİM"),
+    ("SISE.IS", "SISE", "Şişecam"), ("KCHOL.IS", "KCHOL", "Koç Holding"),
+]
 FX_EXTRA = [("xauusd", "XAUUSD", "Altın (ons)"), ("usdtry", "USDTRY", "USD/TRY")]
 YAHOO_FX_FALLBACK = {"XAUUSD": "GC=F", "USDTRY": "TRY=X"}  # altın vadeli, USD/TRY
 # (binance_sym, asset, coinbase_product) — Binance/Bybit ABD sunucularından engelli
@@ -139,6 +146,11 @@ def load_live_panel(log=print) -> pd.DataFrame:
                 log(f"  {asset}: stooq yok ({type(e1).__name__}), yahoo kullanildi")
             except Exception as e2:
                 log(f"  ! {asset}: veri yok ({type(e2).__name__})")
+    for ysym, asset, _name in BIST:
+        try:
+            frames.append(_norm(yahoo_daily(ysym), asset, "stock"))
+        except Exception as e:
+            log(f"  ! {asset}: BIST verisi yok ({type(e).__name__})")
     for sym, asset, _name in FX_EXTRA:
         aclass = "commodity" if asset == "XAUUSD" else "fx"
         try:
@@ -171,4 +183,5 @@ def load_live_panel(log=print) -> pd.DataFrame:
     return pd.concat(frames, ignore_index=True)
 
 
-ASSET_NAMES_LIVE = {a: n for _s, a, n in STOCKS} | {a: n for _s, a, n in FX_EXTRA} | {"BNB": "BNB"}
+ASSET_NAMES_LIVE = ({a: n for _s, a, n in STOCKS} | {a: n for _s, a, n in FX_EXTRA}
+                    | {a: n for _s, a, n in BIST} | {"BNB": "BNB"})
