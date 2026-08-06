@@ -19,6 +19,11 @@ ASSET_TR = {
     "USDTRY": ("USD/TRY", ""), "XAUUSD": ("Altın (ons)", "$"),
     "WTI": ("Ham Petrol (WTI)", "$"), "BRENT": ("Brent Petrol", "$"),
     "NATGAS": ("Doğalgaz (Henry Hub)", "$"),
+    "XU100": ("BIST 100", ""), "THYAO": ("Türk Hava Yolları", "₺"),
+    "GARAN": ("Garanti BBVA", "₺"), "ASELS": ("Aselsan", "₺"),
+    "AKBNK": ("Akbank", "₺"), "EREGL": ("Ereğli Demir Çelik", "₺"),
+    "TUPRS": ("Tüpraş", "₺"), "BIMAS": ("BİM", "₺"),
+    "SISE": ("Şişecam", "₺"), "KCHOL": ("Koç Holding", "₺"),
 }
 CLASS_TR = {"crypto": "Kripto", "fx": "Döviz", "commodity": "Emtia", "stock": "Hisse"}
 COST = {"crypto": 0.0010, "fx": 0.0002, "commodity": 0.0005, "stock": 0.0005}
