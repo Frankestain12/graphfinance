@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 HORIZON = 5  # işlem günü
-FEATURES_VERSION = "v2-grafik"  # değişince aylık doğrulama + A/B yeniden tetiklenir
+FEATURES_VERSION = "v3-bist-karma"  # değişince aylık doğrulama + A/B yeniden tetiklenir
 
 FEAT_TR = {
     "r1": "dünkü getiri", "r5": "5 günlük momentum", "r10": "10 günlük momentum",
@@ -30,7 +30,7 @@ FEAT_TR = {
     "skew21": "getiri çarpıklığı", "kurt63": "kuyruk riski (basıklık)",
     "trendiness": "trend/ortalamaya-dönüş rejimi",
     "corr_spy63": "S&P 500 ile korelasyon", "gold_spy_mom": "altın-borsa makası",
-    "risk_off": "riskten kaçış rejimi",
+    "risk_off": "riskten kaçış rejimi", "try_r5": "dolar/TL ivmesi",
     "is_crypto": "kripto sınıfı", "is_fx": "döviz sınıfı",
     "is_commodity": "emtia sınıfı", "is_stock": "hisse sınıfı",
 }
@@ -49,7 +49,7 @@ CHART_FEATS = [
     # rejim & oruntu
     "squeeze", "streak", "reversal", "skew21", "kurt63", "trendiness",
     # capraz-varlik / piyasa
-    "vix_pct", "corr_spy63", "gold_spy_mom", "risk_off",
+    "vix_pct", "corr_spy63", "gold_spy_mom", "risk_off", "try_r5",
 ]
 EXT_FEATS = BASE_FEATS + CHART_FEATS
 
@@ -135,6 +135,11 @@ def build_features(panel: pd.DataFrame, vix: pd.Series):
                                          ("BTC", "r21", "btc_r21")]:
         df = df.merge(series_of(feat_asset, src_col).rename(colname),
                       left_on="date", right_index=True, how="left")
+    if "USDTRY" in set(df["asset"].unique()):
+        df = df.merge(series_of("USDTRY", "r5").rename("try_r5"),
+                      left_on="date", right_index=True, how="left")
+    else:
+        df["try_r5"] = np.nan
 
     # --- v2: capraz-varlik ---
     have = set(df["asset"].unique())
@@ -163,7 +168,7 @@ def build_features(panel: pd.DataFrame, vix: pd.Series):
     # piyasa özellikleri hafta sonu/tatil boşluklarında son değerle doldurulur (geçmişe bakmaz)
     df = df.sort_values(["asset", "date"])
     for c in ("vix_z", "vix_chg5", "vix_pct", "oil_r5", "eur_r5", "btc_r21",
-              "corr_spy63", "gold_spy_mom"):
+              "corr_spy63", "gold_spy_mom", "try_r5"):
         df[c] = df.groupby("asset")[c].ffill()
 
     df["dow"] = df["date"].dt.dayofweek
