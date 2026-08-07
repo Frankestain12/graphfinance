@@ -2,7 +2,8 @@ name: GraphFinance daily
 
 on:
   schedule:
-    - cron: "0 3 * * *"   # 06:00 Türkiye (UTC+3)
+    - cron: "23 3 * * *"  # 06:23 Türkiye — saat başından kaçır (GitHub tepe saatte cron atlayabiliyor)
+    - cron: "23 5 * * *"  # 08:23 Türkiye — yedek tetik (mükerrer çalışma zararsız)
   workflow_dispatch: {}
 
 permissions:
