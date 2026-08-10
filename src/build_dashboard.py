@@ -24,6 +24,8 @@ ASSET_TR = {
     "AKBNK": ("Akbank", "₺"), "EREGL": ("Ereğli Demir Çelik", "₺"),
     "TUPRS": ("Tüpraş", "₺"), "BIMAS": ("BİM", "₺"),
     "SISE": ("Şişecam", "₺"), "KCHOL": ("Koç Holding", "₺"),
+    "SCHD": ("Temettü ETF (SCHD)", "$"), "JEPI": ("Aylık Gelir ETF (JEPI)", "$"),
+    "O": ("Realty Income", "$"),
 }
 CLASS_TR = {"crypto": "Kripto", "fx": "Döviz", "commodity": "Emtia", "stock": "Hisse"}
 COST = {"crypto": 0.0010, "fx": 0.0002, "commodity": 0.0005, "stock": 0.0005}
@@ -225,7 +227,34 @@ AYLAR = ["", "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz",
          "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
 
 
-def build(met, preds, oos, imp, extra_names=None, led=None, yorum=None):
+def income_card(income, extra_names, usdtry):
+    """Pasif gelir radarı kartı. income boşsa boş string döner."""
+    if income is None or len(income) == 0:
+        return ""
+    rows = []
+    for _, r in income.head(12).iterrows():
+        nm, cur = aname(r["asset"], extra_names)
+        y = r["yield_ttm"]
+        aylik_100k = 100_000 * y / 12  # yatırılan 100.000₺ başına, para birimi bağımsız oran
+        rows.append(f"""<tr>
+<td><span class="aname">{nm}</span></td>
+<td class="num"><strong>{tr_pct(y)}</strong></td>
+<td>{r["freq"]}{' <span class="chip proven" style="margin-left:6px">her ay öder</span>' if r["freq"]=="Aylık" else ''}</td>
+<td class="num">{tr_num(aylik_100k, 0)} ₺</td>
+<td class="num muted2">{r["last_pay"]}</td>
+</tr>""")
+    return f"""<div class="card" style="margin-top:18px">
+  <h2>Pasif gelir radarı <span style="font-weight:400;color:var(--muted);font-size:12px">(son 12 ayda GERÇEKLEŞEN temettüler)</span></h2>
+  <div class="sub" style="margin-bottom:10px">"100.000₺ bu varlıkta dursaydı, geçen yılın temposuyla ayda ortalama ne öderdi" — vergi/stopaj, kur riski ve fiyat değişimi hariç. Geçmiş temettü gelecek garantisi değildir; yatırım tavsiyesi değildir.</div>
+  <div style="overflow-x:auto"><table>
+    <thead><tr><th>Varlık</th><th>Temettü verimi (12A)</th><th>Ödeme sıklığı</th><th>100.000₺ için aylık ort.</th><th>Son ödeme</th></tr></thead>
+    <tbody>{"".join(rows)}</tbody>
+  </table></div>
+</div>"""
+
+
+def build(met, preds, oos, imp, extra_names=None, led=None, yorum=None,
+          income=None, usdtry=None):
     ps = pooled_stats(oos)
     today = pd.Timestamp.today().normalize()
     gen_date = f"{today.day} {AYLAR[today.month]} {today.year}"
@@ -453,6 +482,8 @@ svg {{ width:100%; height:auto; display:block }}
     <div class="sub" style="margin-top:8px">Okuma: %55+ diyen çağrılar gerçekte %53–55 yukarı çıkıyor (zayıf ama gerçek sinyal). %40 altı "düşüş" çağrıları ise ters çalışıyor — piyasalar yukarı sürükleniyor; canlı sürümde düşüş sinyalleri filtrelenir.</div>
   </div>
 </div>
+
+{income_card(income, extra_names, usdtry)}
 
 <div class="grid2">
   {eq_cards}
