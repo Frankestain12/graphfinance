@@ -17,6 +17,10 @@ STOCKS = [
     ("amzn.us", "AMZN", "Amazon"), ("meta.us", "META", "Meta"),
     ("tsla.us", "TSLA", "Tesla"), ("avgo.us", "AVGO", "Broadcom"),
     ("spy.us", "SPY", "S&P 500 ETF"), ("qqq.us", "QQQ", "Nasdaq 100 ETF"),
+    # pasif gelir enstrümanları
+    ("schd.us", "SCHD", "Temettü ETF (SCHD)"),
+    ("jepi.us", "JEPI", "Aylık Gelir ETF (JEPI)"),
+    ("o.us", "O", "Realty Income (aylık temettü)"),
 ]
 BIST = [  # (yahoo_sembol, varlik, ad) — TRY cinsinden
     ("XU100.IS", "XU100", "BIST 100"), ("THYAO.IS", "THYAO", "Türk Hava Yolları"),
