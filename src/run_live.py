@@ -185,6 +185,14 @@ def main():
     else:
         print(f"   defter: {len(led)} tahmin, henuz cozulen yok")
 
+    print("4.5/5 temettu radari...")
+    income_df = pd.DataFrame()
+    try:
+        from income import build_income
+        income_df = build_income(panel)
+    except Exception as e:
+        print(f"   ! temettu modulu atlandi: {type(e).__name__}")
+
     print("5/5 pano...")
     import build_dashboard as BD
     met = pd.read_csv(met_path)
@@ -201,7 +209,12 @@ def main():
         "risk_off": int(last["risk_off"].max()) if last["risk_off"].notna().any() else 0,
         "squeeze_assets": last[last["squeeze"] < 0.6]["asset"].tolist(),
     }
-    html = BD.build(met, preds, oos, imp, extra_names=ASSET_NAMES_LIVE, led=led, yorum=yorum)
+    usdtry_last = None
+    ut = panel[panel["asset"] == "USDTRY"]
+    if len(ut):
+        usdtry_last = float(ut.sort_values("date")["close"].iloc[-1])
+    html = BD.build(met, preds, oos, imp, extra_names=ASSET_NAMES_LIVE, led=led,
+                    yorum=yorum, income=income_df, usdtry=usdtry_last)
     for out in (os.path.join(DOCS, "index.html"),
                 os.path.join(REP, "graphfinance_panosu.html")):
         with open(out, "w", encoding="utf-8") as f:
