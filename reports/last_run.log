@@ -1,12 +1,12 @@
-/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
+/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
   result = getattr(ufunc, method)(*inputs, **kwargs)
-/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
+/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
   result = getattr(ufunc, method)(*inputs, **kwargs)
-/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
+/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
   result = getattr(ufunc, method)(*inputs, **kwargs)
-/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
+/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
   result = getattr(ufunc, method)(*inputs, **kwargs)
-/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
+/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
   result = getattr(ufunc, method)(*inputs, **kwargs)
 1/5 veri katmani...
   AAPL: stooq yok (ValueError), yahoo kullanildi
@@ -30,12 +30,12 @@
   XRP: coinbase kullanildi
   ! BNB: canli kripto yok (tum kaynaklar engelli)
    mirror: 12 varlik | canli: 29 varlik
-   toplam 38 varlik, 170452 satir
+   toplam 38 varlik, 170465 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-08, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
-   defter: 297 tahmin, 140 cozuldu, gercek isabet 57.9%
+   defter: 325 tahmin, 182 cozuldu, gercek isabet 58.2%
 4.5/5 temettu radari...
    temettu radari: 16 varlik
 5/5 pano...
-bitti — 40s
+bitti — 51s

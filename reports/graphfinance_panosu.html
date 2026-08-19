@@ -91,7 +91,7 @@ svg { width:100%; height:auto; display:block }
 <div class="head">
   <div>
     <h1><span class="gf">Graph</span>Finance <span style="font-weight:400;color:var(--muted);font-size:15px">· 5 günlük yön tahmini</span></h1>
-    <div class="sub">Üretim: 18 Ağustos 2026 · Model: LightGBM (havuzlanmış) · Doğrulama: aylık yeniden eğitimli walk-forward, 2019-01-01 → 2026-08-10</div>
+    <div class="sub">Üretim: 19 Ağustos 2026 · Model: LightGBM (havuzlanmış) · Doğrulama: aylık yeniden eğitimli walk-forward, 2019-01-01 → 2026-08-10</div>
   </div>
 </div>
 
@@ -101,10 +101,10 @@ svg { width:100%; height:auto; display:block }
   <div class="card tile"><div class="tl">Out-of-sample tahmin</div><div class="tv">74,265</div><div class="td">2019-01-01 → 2026-08-10, 38 varlık</div></div>
   <div class="card tile"><div class="tl">Yüksek güvenli çağrı isabeti</div><div class="tv">55,7%</div><div class="td">34,787 çağrı (güven &gt; %55)</div></div>
   <div class="card tile"><div class="tl">Kanıtlanmış kenarlı varlık</div><div class="tv">12 / 38</div><div class="td">USD/TRY &amp; BIST 100 &amp; Solana</div></div>
-  <div class="card tile"><div class="tl">Canlı defter isabeti</div><div class="tv">57,9%</div><div class="td">140 çözülmüş gerçek tahmin</div></div>
+  <div class="card tile"><div class="tl">Canlı defter isabeti</div><div class="tv">58,2%</div><div class="td">182 çözülmüş gerçek tahmin</div></div>
 </div>
 
-<div class="card" style="margin-bottom:18px"><h2>Bugünün yorumu</h2><div class="road" style="margin-top:6px">Piyasa rejimi sakin: korku endeksi VIX, son bir yılın en düşük %2 diliminde. Günün öne çıkan sinyali: USD/TRY yukarı (85,8% güven) — modeli iten etkenler: 21 günlük oynaklık ↑ · RSI (aşırı alım/satım) ↑ · 52 haftalık zirveye uzaklık ↑. Günün öne çıkan sinyali: BİM yukarı (64,0% güven) — modeli iten etkenler: trend/ortalamaya-dönüş rejimi ↑ · altın-borsa makası ↑ · VIX korku endeksi (z) ↑. Sıkışma tespiti: Ham Petrol (WTI), GBP/USD, Şişecam, Nasdaq 100 ETF — oynaklık 3 aylık ortalamanın çok altında; istatistiksel olarak yakında sert hareket olasılığı artar (yönünü söylemez).</div></div>
+<div class="card" style="margin-bottom:18px"><h2>Bugünün yorumu</h2><div class="road" style="margin-top:6px">Piyasa rejimi sakin: korku endeksi VIX, son bir yılın en düşük %12 diliminde. Günün öne çıkan sinyali: USD/TRY yukarı (85,0% güven) — modeli iten etkenler: 21 günlük oynaklık ↑ · RSI (aşırı alım/satım) ↑ · 52 haftalık zirveye uzaklık ↑. Günün öne çıkan sinyali: Şişecam yukarı (60,8% güven) — modeli iten etkenler: 20g ortalamaya uzaklık ↑ · VIX korku endeksi (z) ↑ · 5 günlük momentum ↑. Sıkışma tespiti: Ham Petrol (WTI), USD/CNY, USD/CHF, GBP/USD — oynaklık 3 aylık ortalamanın çok altında; istatistiksel olarak yakında sert hareket olasılığı artar (yönünü söylemez).</div></div>
 
 <div class="card">
   <h2>Bugünün tahminleri</h2>
@@ -114,35 +114,19 @@ svg { width:100%; height:auto; display:block }
     <tbody><tr>
 <td><span class="aname">USD/TRY</span> <span class="acls">Döviz</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: 21 günlük oynaklık ↑ · RSI (aşırı alım/satım) ↑ · 52 haftalık zirveye uzaklık ↑">▲ YUKARI</span></td>
-<td class="num"><strong>85,8%</strong></td>
-<td class="num">47,91</td>
-<td class="num muted2">47,79 – 48,04</td>
+<td class="num"><strong>85,0%</strong></td>
+<td class="num">47,93</td>
+<td class="num muted2">47,80 – 48,05</td>
 <td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,660, isabet 69,8% (taban 75,6%)">Kanıtlanmış kenar</span></td>
-<td class="num muted2">18.08.2026 </td>
+<td class="num muted2">19.08.2026 </td>
 </tr><tr>
-<td><span class="aname">BİM</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: trend/ortalamaya-dönüş rejimi ↑ · altın-borsa makası ↑ · VIX korku endeksi (z) ↑">▲ YUKARI</span></td>
-<td class="num"><strong>64,0%</strong></td>
-<td class="num">₺374,75</td>
-<td class="num muted2">₺355,35 – ₺395,20</td>
-<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,534, isabet 55,2% (taban 57,1%)">Kanıtlanmış kenar</span></td>
-<td class="num muted2">14.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Ereğli Demir Çelik</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · VIX korku endeksi (z) ↑ · VIX yıllık yüzdelik dilimi ↑">▲ YUKARI</span></td>
-<td class="num"><strong>62,4%</strong></td>
-<td class="num">₺37,38</td>
-<td class="num muted2">₺34,23 – ₺40,82</td>
-<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,536, isabet 53,9% (taban 55,6%)">Kanıtlanmış kenar</span></td>
-<td class="num muted2">14.08.2026 </td>
-</tr><tr>
-<td><span class="aname">S&P 500 ETF</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: S&P 500 ile korelasyon ↑ · altın-borsa makası ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
-<td class="num"><strong>61,1%</strong></td>
-<td class="num">$776,34</td>
-<td class="num muted2">$757,46 – $795,69</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,503, isabet 58,3% (taban 61,6%)">Kenar yok</span></td>
-<td class="num muted2">14.08.2026 </td>
+<td><span class="aname">Şişecam</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · VIX korku endeksi (z) ↑ · 5 günlük momentum ↑">▲ YUKARI</span></td>
+<td class="num"><strong>60,8%</strong></td>
+<td class="num">₺38,64</td>
+<td class="num muted2">₺36,62 – ₺40,77</td>
+<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,552, isabet 54,4% (taban 53,3%)">Kanıtlanmış kenar</span></td>
+<td class="num muted2">17.08.2026 </td>
 </tr><tr>
 <td><span class="aname">USD/CNY</span> <span class="acls">Döviz</span></td>
 <td><span class="dir dn" data-tip="Modeli iten etkenler: 21 günlük oynaklık ↓ · S&P 500 ile korelasyon ↓ · 20g tepeden düşüş ↓">▼ AŞAĞI</span></td>
@@ -152,29 +136,13 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,538, isabet 52,7% (taban 51,2%)">Kanıtlanmış kenar</span></td>
 <td class="num muted2">14.08.2026 </td>
 </tr><tr>
-<td><span class="aname">XRP</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · VIX yıllık yüzdelik dilimi ↑ · 21 günlük oynaklık ↑">▲ YUKARI</span></td>
-<td class="num"><strong>59,1%</strong></td>
-<td class="num">$0,9944</td>
-<td class="num muted2">$0,9583 – $1,0318</td>
-<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,531, isabet 50,5% (taban 52,6%)">Kanıtlanmış kenar</span></td>
+<td><span class="aname">Tesla</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: petrol ivmesi ↓ · BTC aylık momentumu ↓ · 21 günlük oynaklık ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>59,8%</strong></td>
+<td class="num">$336,87</td>
+<td class="num muted2">$300,27 – $377,93</td>
+<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,533, isabet 53,0% (taban 52,0%)">Kanıtlanmış kenar</span></td>
 <td class="num muted2">18.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Nvidia</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · petrol ivmesi ↓ · VIX yıllık yüzdelik dilimi ↑">▲ YUKARI</span></td>
-<td class="num"><strong>59,0%</strong></td>
-<td class="num">$225,16</td>
-<td class="num muted2">$210,06 – $241,34</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,461, isabet 53,3% (taban 58,7%)">Kenar yok</span></td>
-<td class="num muted2">14.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Tüpraş</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: VIX yıllık yüzdelik dilimi ↑ · altın-borsa makası ↑ · dünkü getiri ↓">▲ YUKARI</span></td>
-<td class="num"><strong>58,8%</strong></td>
-<td class="num">₺361,75</td>
-<td class="num muted2">₺331,69 – ₺394,53</td>
-<td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,510, isabet 53,0% (taban 53,7%)">Zayıf sinyal</span></td>
-<td class="num muted2">14.08.2026 </td>
 </tr><tr>
 <td><span class="aname">Doğalgaz (Henry Hub)</span> <span class="acls">Emtia</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: 52 haftalık zirveye uzaklık ↑ · 200g ortalamaya uzaklık ↑ · 10 günlük momentum ↓">▲ YUKARI</span></td>
@@ -182,39 +150,15 @@ svg { width:100%; height:auto; display:block }
 <td class="num">$2,7900</td>
 <td class="num muted2">$2,5034 – $3,1095</td>
 <td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,521, isabet 51,1% (taban 50,7%)">Zayıf sinyal</span></td>
-<td class="num muted2">11.08.2026 </td>
+<td class="num muted2">11.08.2026 <span class="chip stale" data-tip="Bu varlığın verisi 8 gün geride — canlı veri hattı kurulunca güncellenecek">8 gün eski</span></td>
 </tr><tr>
-<td><span class="aname">Aylık Gelir ETF (JEPI)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · 60g bandındaki konum ↑ · VIX korku endeksi (z) ↑">▲ YUKARI</span></td>
-<td class="num"><strong>57,8%</strong></td>
-<td class="num">$58,02</td>
-<td class="num muted2">$57,32 – $58,73</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,505, isabet 53,6% (taban 54,9%)">Kenar yok</span></td>
-<td class="num muted2">14.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Temettü ETF (SCHD)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · 60g bandındaki konum ↑ · 52 haftalık zirveye uzaklık ↑">▲ YUKARI</span></td>
-<td class="num"><strong>57,7%</strong></td>
-<td class="num">$34,52</td>
-<td class="num muted2">$33,89 – $35,16</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,507, isabet 54,8% (taban 57,4%)">Kenar yok</span></td>
-<td class="num muted2">14.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Koç Holding</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · 60g bandındaki konum ↑ · VIX yıllık yüzdelik dilimi ↑">▲ YUKARI</span></td>
-<td class="num"><strong>57,4%</strong></td>
-<td class="num">₺207,20</td>
-<td class="num muted2">₺194,90 – ₺220,28</td>
-<td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,527, isabet 55,1% (taban 56,0%)">Zayıf sinyal</span></td>
-<td class="num muted2">14.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Şişecam</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · 21 günlük oynaklık ↑ · VIX korku endeksi (z) ↑">▲ YUKARI</span></td>
-<td class="num"><strong>57,3%</strong></td>
-<td class="num">₺41,40</td>
-<td class="num muted2">₺40,01 – ₺42,84</td>
-<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,552, isabet 54,4% (taban 53,3%)">Kanıtlanmış kenar</span></td>
-<td class="num muted2">14.08.2026 </td>
+<td><span class="aname">Ereğli Demir Çelik</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · VIX korku endeksi (z) ↑ · MACD histogramı ↑">▲ YUKARI</span></td>
+<td class="num"><strong>56,8%</strong></td>
+<td class="num">₺37,94</td>
+<td class="num muted2">₺34,90 – ₺41,25</td>
+<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,536, isabet 53,9% (taban 55,6%)">Kanıtlanmış kenar</span></td>
+<td class="num muted2">17.08.2026 </td>
 </tr><tr>
 <td><span class="aname">Brent Petrol</span> <span class="acls">Emtia</span></td>
 <td><span class="dir dn mut" data-tip="Modeli iten etkenler: S&P 500 ile korelasyon ↓ · 52 haftalık zirveye uzaklık ↓ · 21 günlük oynaklık ↓">▼ AŞAĞI</span></td>
@@ -222,23 +166,7 @@ svg { width:100%; height:auto; display:block }
 <td class="num">$93,26</td>
 <td class="num muted2">$79,94 – $108,80</td>
 <td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,501, isabet 50,6% (taban 53,9%)">Kenar yok</span></td>
-<td class="num muted2">11.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Amazon</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: VIX korku endeksi (z) ↑ · petrol ivmesi ↓ · altın-borsa makası ↑">▲ YUKARI</span></td>
-<td class="num"><strong>56,5%</strong></td>
-<td class="num">$262,65</td>
-<td class="num muted2">$235,64 – $292,76</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,490, isabet 52,1% (taban 54,6%)">Kenar yok</span></td>
-<td class="num muted2">14.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Tesla</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: petrol ivmesi ↓ · VIX yıllık yüzdelik dilimi ↑ · altın-borsa makası ↑">▼ AŞAĞI</span></td>
-<td class="num"><strong>56,2%</strong></td>
-<td class="num">$342,27</td>
-<td class="num muted2">$304,52 – $384,70</td>
-<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,533, isabet 53,0% (taban 52,0%)">Kanıtlanmış kenar</span></td>
-<td class="num muted2">14.08.2026 </td>
+<td class="num muted2">11.08.2026 <span class="chip stale" data-tip="Bu varlığın verisi 8 gün geride — canlı veri hattı kurulunca güncellenecek">8 gün eski</span></td>
 </tr><tr>
 <td><span class="aname">AUD/USD</span> <span class="acls">Döviz</span></td>
 <td><span class="dir dn mut" data-tip="Modeli iten etkenler: S&P 500 ile korelasyon ↓ · altın-borsa makası ↑ · oynaklık sıkışması ↑">▼ AŞAĞI</span></td>
@@ -248,52 +176,20 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,447, isabet 44,3% (taban 51,5%)">Kenar yok</span></td>
 <td class="num muted2">14.08.2026 </td>
 </tr><tr>
-<td><span class="aname">Broadcom</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · VIX korku endeksi (z) ↑ · VIX yıllık yüzdelik dilimi ↑">▲ YUKARI</span></td>
-<td class="num"><strong>56,0%</strong></td>
-<td class="num">$392,99</td>
-<td class="num muted2">$364,31 – $423,93</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,489, isabet 52,1% (taban 56,2%)">Kenar yok</span></td>
-<td class="num muted2">14.08.2026 </td>
+<td><span class="aname">Temettü ETF (SCHD)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: 60g bandındaki konum ↑ · 52 haftalık zirveye uzaklık ↑ · 3 aylık momentum ↑">▲ YUKARI</span></td>
+<td class="num"><strong>55,6%</strong></td>
+<td class="num">$34,51</td>
+<td class="num muted2">$33,88 – $35,15</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,507, isabet 54,8% (taban 57,4%)">Kenar yok</span></td>
+<td class="num muted2">18.08.2026 </td>
 </tr><tr>
-<td><span class="aname">Nasdaq 100 ETF</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: S&P 500 ile korelasyon ↑ · petrol ivmesi ↓ · altın-borsa makası ↑">▲ YUKARI</span></td>
-<td class="num"><strong>55,5%</strong></td>
-<td class="num">$731,07</td>
-<td class="num muted2">$700,31 – $763,18</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,496, isabet 57,3% (taban 60,3%)">Kenar yok</span></td>
-<td class="num muted2">14.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Aselsan</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · VIX yıllık yüzdelik dilimi ↑ · 20g dipten yükseliş ↑">▲ YUKARI</span></td>
-<td class="num"><strong>55,5%</strong></td>
-<td class="num">₺387,50</td>
-<td class="num muted2">₺355,92 – ₺421,89</td>
-<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,533, isabet 54,6% (taban 57,8%)">Kanıtlanmış kenar</span></td>
-<td class="num muted2">14.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Türk Hava Yolları</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · VIX korku endeksi (z) ↑ · VIX yıllık yüzdelik dilimi ↑">▲ YUKARI</span></td>
-<td class="num"><strong>54,9%</strong></td>
-<td class="num">₺305,25</td>
-<td class="num muted2">₺289,52 – ₺321,83</td>
-<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,535, isabet 54,4% (taban 54,8%)">Kanıtlanmış kenar</span></td>
-<td class="num muted2">14.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Garanti BBVA</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · psikolojik seviyeye uzaklık ↑ · 10 günlük momentum ↓">▲ YUKARI</span></td>
-<td class="num"><strong>54,8%</strong></td>
-<td class="num">₺131,00</td>
-<td class="num muted2">₺124,72 – ₺137,59</td>
-<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,540, isabet 53,2% (taban 55,6%)">Kanıtlanmış kenar</span></td>
-<td class="num muted2">14.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Solana</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · VIX yıllık yüzdelik dilimi ↑ · 52 haftalık zirveye uzaklık ↓">▲ YUKARI</span></td>
-<td class="num"><strong>54,6%</strong></td>
-<td class="num">$75,68</td>
-<td class="num muted2">$72,84 – $78,64</td>
-<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,553, isabet 53,5% (taban 51,2%)">Kanıtlanmış kenar</span></td>
+<td><span class="aname">S&P 500 ETF</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: S&P 500 ile korelasyon ↑ · petrol ivmesi ↓ · BTC aylık momentumu ↓">▲ YUKARI</span></td>
+<td class="num"><strong>55,1%</strong></td>
+<td class="num">$767,45</td>
+<td class="num muted2">$749,00 – $786,36</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,503, isabet 58,3% (taban 61,6%)">Kenar yok</span></td>
 <td class="num muted2">18.08.2026 </td>
 </tr><tr>
 <td><span class="aname">USD/CHF</span> <span class="acls">Döviz</span></td>
@@ -304,13 +200,29 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,523, isabet 51,6% (taban 51,2%)">Zayıf sinyal</span></td>
 <td class="num muted2">14.08.2026 </td>
 </tr><tr>
-<td><span class="aname">Akbank</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · VIX yıllık yüzdelik dilimi ↑ · 10 günlük momentum ↓">▲ YUKARI</span></td>
-<td class="num"><strong>54,5%</strong></td>
-<td class="num">₺68,80</td>
-<td class="num muted2">₺64,73 – ₺73,12</td>
-<td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,530, isabet 53,6% (taban 54,4%)">Zayıf sinyal</span></td>
-<td class="num muted2">14.08.2026 </td>
+<td><span class="aname">Meta</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · VIX korku endeksi (z) ↑ · 5 günlük momentum ↑">▲ YUKARI</span></td>
+<td class="num"><strong>54,4%</strong></td>
+<td class="num">$543,67</td>
+<td class="num muted2">$499,20 – $592,11</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,505, isabet 53,3% (taban 55,3%)">Kenar yok</span></td>
+<td class="num muted2">18.08.2026 </td>
+</tr><tr>
+<td><span class="aname">Tüpraş</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: 52 haftalık zirveye uzaklık ↑ · 60g bandındaki konum ↑ · 10 günlük momentum ↓">▲ YUKARI</span></td>
+<td class="num"><strong>53,8%</strong></td>
+<td class="num">₺368,75</td>
+<td class="num muted2">₺338,83 – ₺401,32</td>
+<td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,510, isabet 53,0% (taban 53,7%)">Zayıf sinyal</span></td>
+<td class="num muted2">17.08.2026 </td>
+</tr><tr>
+<td><span class="aname">Aylık Gelir ETF (JEPI)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: 60g bandındaki konum ↑ · petrol ivmesi ↓ · VIX yıllık yüzdelik dilimi ↑">▲ YUKARI</span></td>
+<td class="num"><strong>53,7%</strong></td>
+<td class="num">$57,83</td>
+<td class="num muted2">$57,19 – $58,48</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,505, isabet 53,6% (taban 54,9%)">Kenar yok</span></td>
+<td class="num muted2">18.08.2026 </td>
 </tr><tr>
 <td><span class="aname">Ham Petrol (WTI)</span> <span class="acls">Emtia</span></td>
 <td><span class="dir dn" data-tip="Modeli iten etkenler: 21 günlük oynaklık ↓ · S&P 500 ile korelasyon ↓ · VIX korku endeksi (z) ↑">▼ AŞAĞI</span></td>
@@ -318,23 +230,15 @@ svg { width:100%; height:auto; display:block }
 <td class="num">$84,77</td>
 <td class="num muted2">$76,05 – $94,50</td>
 <td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,522, isabet 53,0% (taban 54,1%)">Zayıf sinyal</span></td>
-<td class="num muted2">11.08.2026 </td>
+<td class="num muted2">11.08.2026 <span class="chip stale" data-tip="Bu varlığın verisi 8 gün geride — canlı veri hattı kurulunca güncellenecek">8 gün eski</span></td>
 </tr><tr>
-<td><span class="aname">Alphabet</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · VIX korku endeksi (z) ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
-<td class="num"><strong>53,0%</strong></td>
-<td class="num">$345,90</td>
-<td class="num muted2">$317,47 – $376,87</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,493, isabet 55,0% (taban 57,5%)">Kenar yok</span></td>
-<td class="num muted2">14.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Apple</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · VIX korku endeksi (z) ↑ · VIX yıllık yüzdelik dilimi ↑">▲ YUKARI</span></td>
-<td class="num"><strong>52,8%</strong></td>
-<td class="num">$305,93</td>
-<td class="num muted2">$287,76 – $325,25</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,482, isabet 52,6% (taban 58,4%)">Kenar yok</span></td>
-<td class="num muted2">14.08.2026 </td>
+<td><span class="aname">Microsoft</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: kuyruk riski (basıklık) ↑ · VIX korku endeksi (z) ↑ · 5 günlük momentum ↑">▲ YUKARI</span></td>
+<td class="num"><strong>53,4%</strong></td>
+<td class="num">$481,63</td>
+<td class="num muted2">$433,91 – $534,60</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,490, isabet 54,9% (taban 58,4%)">Kenar yok</span></td>
+<td class="num muted2">18.08.2026 </td>
 </tr><tr>
 <td><span class="aname">GBP/USD</span> <span class="acls">Döviz</span></td>
 <td><span class="dir dn mut" data-tip="Modeli iten etkenler: S&P 500 ile korelasyon ↓ · altın-borsa makası ↑ · VIX yıllık yüzdelik dilimi ↑">▼ AŞAĞI</span></td>
@@ -344,6 +248,22 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,451, isabet 46,4% (taban 50,1%)">Kenar yok</span></td>
 <td class="num muted2">14.08.2026 </td>
 </tr><tr>
+<td><span class="aname">Bitcoin</span> <span class="acls">Kripto</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: 52 haftalık zirveye uzaklık ↓ · 21 günlük oynaklık ↑ · 200g ortalamaya uzaklık ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>52,5%</strong></td>
+<td class="num">$64.262</td>
+<td class="num muted2">$62.240 – $66.350</td>
+<td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,521, isabet 52,3% (taban 53,4%)">Zayıf sinyal</span></td>
+<td class="num muted2">19.08.2026 </td>
+</tr><tr>
+<td><span class="aname">Apple</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn mut" data-tip="Modeli iten etkenler: 20g tepeden düşüş ↓ · dolar/TL ivmesi ↓ · psikolojik seviyeye uzaklık ↑">▼ AŞAĞI</span></td>
+<td class="num"><strong>52,5%</strong></td>
+<td class="num">$310,03</td>
+<td class="num muted2">$291,66 – $329,56</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,482, isabet 52,6% (taban 58,4%)">Kenar yok</span></td>
+<td class="num muted2">18.08.2026 </td>
+</tr><tr>
 <td><span class="aname">EUR/USD</span> <span class="acls">Döviz</span></td>
 <td><span class="dir dn mut" data-tip="Modeli iten etkenler: S&P 500 ile korelasyon ↓ · 20g dipten yükseliş ↓ · psikolojik seviyeye uzaklık ↓">▼ AŞAĞI</span></td>
 <td class="num"><strong>52,4%</strong></td>
@@ -352,61 +272,125 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,442, isabet 45,3% (taban 50,0%)">Kenar yok</span></td>
 <td class="num muted2">14.08.2026 </td>
 </tr><tr>
-<td><span class="aname">Realty Income</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · S&P 500 ile korelasyon ↓ · VIX korku endeksi (z) ↑">▲ YUKARI</span></td>
-<td class="num"><strong>52,2%</strong></td>
-<td class="num">$62,74</td>
-<td class="num muted2">$61,48 – $64,03</td>
-<td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,524, isabet 53,7% (taban 53,9%)">Zayıf sinyal</span></td>
-<td class="num muted2">14.08.2026 </td>
+<td><span class="aname">Amazon</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: petrol ivmesi ↓ · VIX korku endeksi (z) ↑ · kuyruk riski (basıklık) ↑">▲ YUKARI</span></td>
+<td class="num"><strong>52,4%</strong></td>
+<td class="num">$259,45</td>
+<td class="num muted2">$232,82 – $289,13</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,490, isabet 52,1% (taban 54,6%)">Kenar yok</span></td>
+<td class="num muted2">18.08.2026 </td>
 </tr><tr>
-<td><span class="aname">Meta</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · VIX korku endeksi (z) ↑ · 10 günlük momentum ↓">▲ YUKARI</span></td>
-<td class="num"><strong>52,2%</strong></td>
-<td class="num">$589,85</td>
-<td class="num muted2">$544,05 – $639,50</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,505, isabet 53,3% (taban 55,3%)">Kenar yok</span></td>
-<td class="num muted2">14.08.2026 </td>
+<td><span class="aname">Nasdaq 100 ETF</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: S&P 500 ile korelasyon ↑ · petrol ivmesi ↓ · BTC aylık momentumu ↓">▲ YUKARI</span></td>
+<td class="num"><strong>52,4%</strong></td>
+<td class="num">$717,51</td>
+<td class="num muted2">$687,07 – $749,30</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,496, isabet 57,3% (taban 60,3%)">Kenar yok</span></td>
+<td class="num muted2">18.08.2026 </td>
+</tr><tr>
+<td><span class="aname">Broadcom</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: VIX korku endeksi (z) ↑ · petrol ivmesi ↓ · 5 günlük momentum ↑">▲ YUKARI</span></td>
+<td class="num"><strong>52,1%</strong></td>
+<td class="num">$380,00</td>
+<td class="num muted2">$351,64 – $410,65</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,489, isabet 52,1% (taban 56,2%)">Kenar yok</span></td>
+<td class="num muted2">18.08.2026 </td>
+</tr><tr>
+<td><span class="aname">Türk Hava Yolları</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: VIX korku endeksi (z) ↑ · psikolojik seviyeye uzaklık ↓ · 21 günlük oynaklık ↑">▲ YUKARI</span></td>
+<td class="num"><strong>52,0%</strong></td>
+<td class="num">₺301,00</td>
+<td class="num muted2">₺286,40 – ₺316,34</td>
+<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,535, isabet 54,4% (taban 54,8%)">Kanıtlanmış kenar</span></td>
+<td class="num muted2">17.08.2026 </td>
+</tr><tr>
+<td><span class="aname">XRP</span> <span class="acls">Kripto</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: 21 günlük oynaklık ↑ · altın-borsa makası ↑ · psikolojik seviyeye uzaklık ↓">▲ YUKARI</span></td>
+<td class="num"><strong>51,9%</strong></td>
+<td class="num">$0,9990</td>
+<td class="num muted2">$0,9632 – $1,0362</td>
+<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,531, isabet 50,5% (taban 52,6%)">Kanıtlanmış kenar</span></td>
+<td class="num muted2">19.08.2026 </td>
+</tr><tr>
+<td><span class="aname">Garanti BBVA</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: psikolojik seviyeye uzaklık ↑ · 3 aylık momentum ↓ · altın-borsa makası ↑">▲ YUKARI</span></td>
+<td class="num"><strong>51,8%</strong></td>
+<td class="num">₺129,00</td>
+<td class="num muted2">₺122,60 – ₺135,73</td>
+<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,540, isabet 53,2% (taban 55,6%)">Kanıtlanmış kenar</span></td>
+<td class="num muted2">17.08.2026 </td>
+</tr><tr>
+<td><span class="aname">Alphabet</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn mut" data-tip="Modeli iten etkenler: VIX korku endeksi (z) ↑ · petrol ivmesi ↓ · BTC aylık momentumu ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>51,7%</strong></td>
+<td class="num">$344,20</td>
+<td class="num muted2">$316,42 – $374,42</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,493, isabet 55,0% (taban 57,5%)">Kenar yok</span></td>
+<td class="num muted2">18.08.2026 </td>
+</tr><tr>
+<td><span class="aname">BİM</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: trend/ortalamaya-dönüş rejimi ↑ · VIX korku endeksi (z) ↑ · VIX yıllık yüzdelik dilimi ↑">▲ YUKARI</span></td>
+<td class="num"><strong>51,6%</strong></td>
+<td class="num">₺382,00</td>
+<td class="num muted2">₺363,15 – ₺401,82</td>
+<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,534, isabet 55,2% (taban 57,1%)">Kanıtlanmış kenar</span></td>
+<td class="num muted2">17.08.2026 </td>
+</tr><tr>
+<td><span class="aname">Realty Income</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: S&P 500 ile korelasyon ↓ · VIX korku endeksi (z) ↑ · trend/ortalamaya-dönüş rejimi ↑">▲ YUKARI</span></td>
+<td class="num"><strong>51,4%</strong></td>
+<td class="num">$62,21</td>
+<td class="num muted2">$60,98 – $63,47</td>
+<td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,524, isabet 53,7% (taban 53,9%)">Zayıf sinyal</span></td>
+<td class="num muted2">18.08.2026 </td>
+</tr><tr>
+<td><span class="aname">Koç Holding</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: 60g bandındaki konum ↑ · 10 günlük momentum ↓ · VIX 5 günlük değişim ↓">▲ YUKARI</span></td>
+<td class="num"><strong>51,3%</strong></td>
+<td class="num">₺205,60</td>
+<td class="num muted2">₺193,37 – ₺218,61</td>
+<td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,527, isabet 55,1% (taban 56,0%)">Zayıf sinyal</span></td>
+<td class="num muted2">17.08.2026 </td>
 </tr><tr>
 <td><span class="aname">Ethereum</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · 52 haftalık zirveye uzaklık ↓ · 200g ortalamaya uzaklık ↓">▲ YUKARI</span></td>
-<td class="num"><strong>52,1%</strong></td>
-<td class="num">$1.894</td>
-<td class="num muted2">$1.828 – $1.963</td>
+<td><span class="dir dn mut" data-tip="Modeli iten etkenler: 52 haftalık zirveye uzaklık ↓ · altın-borsa makası ↑ · 200g ortalamaya uzaklık ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>51,1%</strong></td>
+<td class="num">$1.910</td>
+<td class="num muted2">$1.844 – $1.978</td>
 <td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,508, isabet 51,0% (taban 52,9%)">Kenar yok</span></td>
+<td class="num muted2">19.08.2026 </td>
+</tr><tr>
+<td><span class="aname">Solana</span> <span class="acls">Kripto</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · 52 haftalık zirveye uzaklık ↓ · 200g ortalamaya uzaklık ↓">▲ YUKARI</span></td>
+<td class="num"><strong>51,0%</strong></td>
+<td class="num">$76,93</td>
+<td class="num muted2">$73,99 – $79,98</td>
+<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,553, isabet 53,5% (taban 51,2%)">Kanıtlanmış kenar</span></td>
+<td class="num muted2">19.08.2026 </td>
+</tr><tr>
+<td><span class="aname">Nvidia</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: petrol ivmesi ↓ · BTC aylık momentumu ↓ · ay (mevsimsellik) ↓">▲ YUKARI</span></td>
+<td class="num"><strong>51,0%</strong></td>
+<td class="num">$219,74</td>
+<td class="num muted2">$204,95 – $235,59</td>
+<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,461, isabet 53,3% (taban 58,7%)">Kenar yok</span></td>
 <td class="num muted2">18.08.2026 </td>
 </tr><tr>
-<td><span class="aname">Bitcoin</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · 21 günlük oynaklık ↑ · 52 haftalık zirveye uzaklık ↓">▲ YUKARI</span></td>
-<td class="num"><strong>52,1%</strong></td>
-<td class="num">$64.159</td>
-<td class="num muted2">$62.150 – $66.233</td>
-<td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,521, isabet 52,3% (taban 53,4%)">Zayıf sinyal</span></td>
-<td class="num muted2">18.08.2026 </td>
+<td><span class="aname">Akbank</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: 3 aylık momentum ↓ · dolar/TL ivmesi ↓ · oynaklık sıkışması ↑">▲ YUKARI</span></td>
+<td class="num"><strong>50,9%</strong></td>
+<td class="num">₺68,00</td>
+<td class="num muted2">₺63,49 – ₺72,83</td>
+<td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,530, isabet 53,6% (taban 54,4%)">Zayıf sinyal</span></td>
+<td class="num muted2">17.08.2026 </td>
 </tr><tr>
-<td><span class="aname">Altın (ons)</span> <span class="acls">Emtia</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · VIX yıllık yüzdelik dilimi ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
-<td class="num"><strong>52,1%</strong></td>
-<td class="num">$4.447</td>
-<td class="num muted2">$4.279 – $4.620</td>
-<td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,517, isabet 54,7% (taban 58,2%)">Zayıf sinyal</span></td>
-<td class="num muted2">18.08.2026 </td>
-</tr><tr>
-<td><span class="aname">BIST 100</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · 10 günlük momentum ↓ · VIX yıllık yüzdelik dilimi ↑">▲ YUKARI</span></td>
-<td class="num"><strong>51,2%</strong></td>
-<td class="num">14.172</td>
-<td class="num muted2">13.693 – 14.668</td>
-<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,560, isabet 59,0% (taban 61,4%)">Kanıtlanmış kenar</span></td>
-<td class="num muted2">14.08.2026 </td>
-</tr><tr>
-<td><span class="aname">Microsoft</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: 60g bandındaki konum ↑ · altın-borsa makası ↑ · 10 günlük momentum ↓">▲ YUKARI</span></td>
-<td class="num"><strong>50,5%</strong></td>
-<td class="num">$495,40</td>
-<td class="num muted2">$446,98 – $549,06</td>
-<td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,490, isabet 54,9% (taban 58,4%)">Kenar yok</span></td>
-<td class="num muted2">14.08.2026 </td>
+<td><span class="aname">Aselsan</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: dolar/TL ivmesi ↓ · 20g dipten yükseliş ↑ · 10 günlük momentum ↓">▲ YUKARI</span></td>
+<td class="num"><strong>50,4%</strong></td>
+<td class="num">₺389,00</td>
+<td class="num muted2">₺357,74 – ₺422,99</td>
+<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,533, isabet 54,6% (taban 57,8%)">Kanıtlanmış kenar</span></td>
+<td class="num muted2">17.08.2026 </td>
 </tr><tr>
 <td><span class="aname">USD/JPY</span> <span class="acls">Döviz</span></td>
 <td><span class="dir up mut" data-tip="Modeli iten etkenler: S&P 500 ile korelasyon ↓ · VIX yıllık yüzdelik dilimi ↑ · altın-borsa makası ↑">▲ YUKARI</span></td>
@@ -415,6 +399,22 @@ svg { width:100%; height:auto; display:block }
 <td class="num muted2">155,87 – 162,62</td>
 <td><span class="chip none" data-tip="7,5 yıllık out-of-sample test: AUC 0,463, isabet 50,0% (taban 57,4%)">Kenar yok</span></td>
 <td class="num muted2">14.08.2026 </td>
+</tr><tr>
+<td><span class="aname">Altın (ons)</span> <span class="acls">Emtia</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: 10 günlük momentum ↓ · oynaklık sıkışması ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
+<td class="num"><strong>50,1%</strong></td>
+<td class="num">$4.366</td>
+<td class="num muted2">$4.196 – $4.543</td>
+<td><span class="chip weak" data-tip="7,5 yıllık out-of-sample test: AUC 0,517, isabet 54,7% (taban 58,2%)">Zayıf sinyal</span></td>
+<td class="num muted2">18.08.2026 </td>
+</tr><tr>
+<td><span class="aname">BIST 100</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: 21 günlük oynaklık ↑ · dolar/TL ivmesi ↓ · VIX 5 günlük değişim ↓">▲ YUKARI</span></td>
+<td class="num"><strong>50,0%</strong></td>
+<td class="num">14.128</td>
+<td class="num muted2">13.684 – 14.586</td>
+<td><span class="chip proven" data-tip="7,5 yıllık out-of-sample test: AUC 0,560, isabet 59,0% (taban 61,4%)">Kanıtlanmış kenar</span></td>
+<td class="num muted2">18.08.2026 </td>
 </tr></tbody>
   </table></div>
 </div>
@@ -442,37 +442,37 @@ svg { width:100%; height:auto; display:block }
 <td><span class="aname">Aylık Gelir ETF (JEPI)</span></td>
 <td class="num"><strong>7,9%</strong></td>
 <td>Aylık <span class="chip proven" style="margin-left:6px">her ay öder</span></td>
-<td class="num">658 ₺</td>
+<td class="num">660 ₺</td>
 <td class="num muted2">2026-08-03</td>
 </tr><tr>
 <td><span class="aname">Realty Income</span></td>
 <td class="num"><strong>5,2%</strong></td>
 <td>Aylık <span class="chip proven" style="margin-left:6px">her ay öder</span></td>
-<td class="num">431 ₺</td>
+<td class="num">435 ₺</td>
 <td class="num muted2">2026-07-31</td>
 </tr><tr>
 <td><span class="aname">Tüpraş</span></td>
-<td class="num"><strong>4,9%</strong></td>
+<td class="num"><strong>4,8%</strong></td>
 <td>Yıllık</td>
-<td class="num">410 ₺</td>
+<td class="num">402 ₺</td>
 <td class="num muted2">2026-03-16</td>
 </tr><tr>
 <td><span class="aname">Garanti BBVA</span></td>
-<td class="num"><strong>4,0%</strong></td>
+<td class="num"><strong>4,1%</strong></td>
 <td>Yıllık</td>
-<td class="num">335 ₺</td>
+<td class="num">340 ₺</td>
 <td class="num muted2">2026-04-07</td>
 </tr><tr>
 <td><span class="aname">Koç Holding</span></td>
 <td class="num"><strong>3,3%</strong></td>
 <td>Yıllık</td>
-<td class="num">275 ₺</td>
+<td class="num">277 ₺</td>
 <td class="num muted2">2026-03-25</td>
 </tr><tr>
 <td><span class="aname">Akbank</span></td>
 <td class="num"><strong>3,2%</strong></td>
 <td>Yıllık</td>
-<td class="num">267 ₺</td>
+<td class="num">270 ₺</td>
 <td class="num muted2">2026-03-26</td>
 </tr><tr>
 <td><span class="aname">Temettü ETF (SCHD)</span></td>
@@ -484,31 +484,31 @@ svg { width:100%; height:auto; display:block }
 <td><span class="aname">BİM</span></td>
 <td class="num"><strong>1,7%</strong></td>
 <td>3 Aylık</td>
-<td class="num">145 ₺</td>
+<td class="num">142 ₺</td>
 <td class="num muted2">2026-06-17</td>
+</tr><tr>
+<td><span class="aname">Şişecam</span></td>
+<td class="num"><strong>1,5%</strong></td>
+<td>Yıllık</td>
+<td class="num">127 ₺</td>
+<td class="num muted2">2026-06-01</td>
 </tr><tr>
 <td><span class="aname">Ereğli Demir Çelik</span></td>
 <td class="num"><strong>1,5%</strong></td>
 <td>Yıllık</td>
-<td class="num">123 ₺</td>
+<td class="num">121 ₺</td>
 <td class="num muted2">2026-06-03</td>
-</tr><tr>
-<td><span class="aname">Şişecam</span></td>
-<td class="num"><strong>1,4%</strong></td>
-<td>Yıllık</td>
-<td class="num">118 ₺</td>
-<td class="num muted2">2026-06-01</td>
 </tr><tr>
 <td><span class="aname">Türk Hava Yolları</span></td>
 <td class="num"><strong>1,1%</strong></td>
 <td>Yıllık</td>
-<td class="num">94 ₺</td>
+<td class="num">95 ₺</td>
 <td class="num muted2">2025-09-02</td>
 </tr><tr>
 <td><span class="aname">S&P 500 ETF</span></td>
 <td class="num"><strong>1,0%</strong></td>
 <td>3 Aylık</td>
-<td class="num">81 ₺</td>
+<td class="num">82 ₺</td>
 <td class="num muted2">2026-06-18</td>
 </tr></tbody>
   </table></div>
