@@ -30,27 +30,22 @@
   XRP: coinbase kullanildi
   ! BNB: canli kripto yok (tum kaynaklar engelli)
    mirror: 12 varlik | canli: 41 varlik
-   toplam 50 varlik, 197595 satir
-2/5 AYLIK dogrulama: sampiyon/rakip A/B testi...
-   base: ort.AUC=0.4995  guvenli-isabet=0.5426  (24 ozellik)
-   ext: ort.AUC=0.5096  guvenli-isabet=0.5474  (44 ozellik)
-   SAMPIYON: ext
+   toplam 50 varlik, 197614 satir
+2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-08, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
    bekci ASKI: ['GOOGL', 'SISE', 'SPY']
    bekci SOGUMA: ['AVGO', 'META', 'NVDA']
-   defter: 482 tahmin, 314 cozuldu, gercek isabet 60.2%
+   defter: 505 tahmin, 327 cozuldu, gercek isabet 59.9%
 4.5/5 temettu radari...
    temettu radari: 16 varlik
 4.6/5 paper trading...
    paper: anahtar yok, atlandi
 4.7/5 balina takibi...
-  balina Berkshire Hathaway — Warren Buffett: 2026-06-30 donemi, 29 pozisyon
   ! balina Bridgewater Associates — Ray Dalio'nun fonu: ParseError
   ! balina Pershing Square — Bill Ackman: ParseError
   ! balina Duquesne Family Office — Stanley Druckenmiller: ParseError
   ! balina Scion Asset Management — Michael Burry: ParseError
-  balina Appaloosa — David Tepper: 2026-06-30 donemi, 25 pozisyon
    balina takibi: 2 fon
 5/5 pano...
-bitti — 202s
+bitti — 65s
