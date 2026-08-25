@@ -172,12 +172,37 @@ def main():
     preds.to_csv(os.path.join(REP, "latest_predictions.csv"), index=False)
 
     print("4/5 tahmin defteri...")
+    met_now = pd.read_csv(met_path).set_index("asset")
+    edge_map = {a: int(met_now.loc[a, "auc"] >= 0.53) for a in met_now.index}
     led = L.load_ledger(LEDGER_PATH)
     led = L.resolve(led, panel)
-    led = L.append_predictions(led, preds[["asset", "aclass", "date", "close", "p_up"]])
+    led = L.append_predictions(led, preds[["asset", "aclass", "date", "close", "p_up", "drivers"]],
+                               edge_map=edge_map)
     led.to_csv(LEDGER_PATH, index=False)
     rh = L.rolling_hit(led)
     rh.to_csv(os.path.join(STORE, "rolling_hit.csv"), index=False)
+
+    # --- CANLI BEKCI (18 gunluk otopsinin dersleri) ---
+    import numpy as np
+    dres = led[led["resolved"] == 1].copy()
+    if len(dres):
+        conf_side = dres["p_up"].where(dres["p_up"] >= 0.5, 1 - dres["p_up"])
+        dd = dres[conf_side > 0.55]
+        g = dd.groupby("asset")["correct"].agg(["size", "mean"])
+        # 1) ASKI: canli sicili cokenler sinyal setinden cikar (backtest ne derse desin)
+        suspended = set(g[(g["size"] >= 4) & (g["mean"] < 0.40)].index)
+        # 2) SOGUMA: son 7 gunde buyuk zarar ettiren varliga yeniden girme (dusen bicak freni)
+        up_res = dres[dres["direction"] == "up"].copy()
+        up_res["net"] = np.exp(up_res["realized_ret"]) - 1
+        recent = up_res[pd.to_datetime(up_res["resolve_date"]) >=
+                        pd.Timestamp.today() - pd.Timedelta(days=7)]
+        cooldown = set(recent[recent["net"] < -0.04]["asset"]) - suspended
+    else:
+        suspended, cooldown = set(), set()
+    if suspended:
+        print(f"   bekci ASKI: {sorted(suspended)}")
+    if cooldown:
+        print(f"   bekci SOGUMA: {sorted(cooldown)}")
     done = led[led["resolved"] == 1]
     if len(done):
         print(f"   defter: {len(led)} tahmin, {len(done)} cozuldu, "
@@ -192,6 +217,22 @@ def main():
         income_df = build_income(panel)
     except Exception as e:
         print(f"   ! temettu modulu atlandi: {type(e).__name__}")
+
+    print("4.6/5 paper trading...")
+    paper = None
+    try:
+        from paper_trade import run_paper
+        paper = run_paper(preds, pd.read_csv(met_path), skip=suspended | cooldown)
+    except Exception as e:
+        print(f"   ! paper modulu atlandi: {type(e).__name__}")
+
+    print("4.7/5 balina takibi...")
+    whale_list = []
+    try:
+        from whales import build_whales
+        whale_list = build_whales()
+    except Exception as e:
+        print(f"   ! balina modulu atlandi: {type(e).__name__}")
 
     print("5/5 pano...")
     import build_dashboard as BD
@@ -214,7 +255,9 @@ def main():
     if len(ut):
         usdtry_last = float(ut.sort_values("date")["close"].iloc[-1])
     html = BD.build(met, preds, oos, imp, extra_names=ASSET_NAMES_LIVE, led=led,
-                    yorum=yorum, income=income_df, usdtry=usdtry_last)
+                    yorum=yorum, income=income_df, usdtry=usdtry_last,
+                    whales=whale_list, paper=paper,
+                    suspended=suspended, cooldown=cooldown)
     for out in (os.path.join(DOCS, "index.html"),
                 os.path.join(REP, "graphfinance_panosu.html")):
         with open(out, "w", encoding="utf-8") as f:
