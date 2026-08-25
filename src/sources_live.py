@@ -22,6 +22,14 @@ STOCKS = [
     ("jepi.us", "JEPI", "Aylık Gelir ETF (JEPI)"),
     ("o.us", "O", "Realty Income (aylık temettü)"),
 ]
+GLOBAL_MARKETS = [  # (yahoo_sembol, varlik, ad) — ülke ETF'leri (USD, işlem yapılabilir) + dev endeksler
+    ("MCHI", "MCHI", "Çin ETF (MCHI)"), ("EWJ", "EWJ", "Japonya ETF (EWJ)"),
+    ("EWG", "EWG", "Almanya ETF (EWG)"), ("EWU", "EWU", "İngiltere ETF (EWU)"),
+    ("EWQ", "EWQ", "Fransa ETF (EWQ)"), ("EWY", "EWY", "G. Kore ETF (EWY)"),
+    ("INDA", "INDA", "Hindistan ETF (INDA)"), ("EWZ", "EWZ", "Brezilya ETF (EWZ)"),
+    ("^N225", "N225", "Nikkei 225"), ("^GDAXI", "DAX", "DAX 40"),
+    ("^HSI", "HSI", "Hang Seng"), ("^FTSE", "FTSE", "FTSE 100"),
+]
 BIST = [  # (yahoo_sembol, varlik, ad) — TRY cinsinden
     ("XU100.IS", "XU100", "BIST 100"), ("THYAO.IS", "THYAO", "Türk Hava Yolları"),
     ("GARAN.IS", "GARAN", "Garanti BBVA"), ("ASELS.IS", "ASELS", "Aselsan"),
@@ -52,7 +60,8 @@ def stooq_daily(sym: str) -> pd.DataFrame:
 
 def yahoo_daily(sym: str) -> pd.DataFrame:
     """Yahoo chart API yedeği (10 yıl, günlük)."""
-    url = (f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}"
+    from urllib.parse import quote
+    url = (f"https://query1.finance.yahoo.com/v8/finance/chart/{quote(sym)}"
            f"?range=10y&interval=1d&events=div%2Csplit")
     r = requests.get(url, headers=H, timeout=45)
     r.raise_for_status()
@@ -150,11 +159,11 @@ def load_live_panel(log=print) -> pd.DataFrame:
                 log(f"  {asset}: stooq yok ({type(e1).__name__}), yahoo kullanildi")
             except Exception as e2:
                 log(f"  ! {asset}: veri yok ({type(e2).__name__})")
-    for ysym, asset, _name in BIST:
+    for ysym, asset, _name in BIST + GLOBAL_MARKETS:
         try:
             frames.append(_norm(yahoo_daily(ysym), asset, "stock"))
         except Exception as e:
-            log(f"  ! {asset}: BIST verisi yok ({type(e).__name__})")
+            log(f"  ! {asset}: veri yok ({type(e).__name__})")
     for sym, asset, _name in FX_EXTRA:
         aclass = "commodity" if asset == "XAUUSD" else "fx"
         try:
@@ -188,4 +197,5 @@ def load_live_panel(log=print) -> pd.DataFrame:
 
 
 ASSET_NAMES_LIVE = ({a: n for _s, a, n in STOCKS} | {a: n for _s, a, n in FX_EXTRA}
-                    | {a: n for _s, a, n in BIST} | {"BNB": "BNB"})
+                    | {a: n for _s, a, n in BIST} | {a: n for _s, a, n in GLOBAL_MARKETS}
+                    | {"BNB": "BNB"})
