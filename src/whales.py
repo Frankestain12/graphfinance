@@ -47,17 +47,9 @@ def latest_13f_list(cik: int):
     return name, out[:2]  # en yeni iki dosyalama
 
 
-def fetch_holdings(cik: int, acc: str) -> dict:
-    """accession -> {cusip: {name, value}} (value: USD)."""
-    accn = acc.replace("-", "")
-    idx = _get(f"https://www.sec.gov/Archives/edgar/data/{cik}/{accn}/index.json").json()
-    cands = [it["name"] for it in idx.get("directory", {}).get("item", [])
-             if it["name"].lower().endswith(".xml") and "primary_doc" not in it["name"].lower()]
-    cands.sort(key=lambda n: ("infotable" not in n.lower(), n))
-    if not cands:
-        raise ValueError("infotable yok")
-    xml = _get(f"https://www.sec.gov/Archives/edgar/data/{cik}/{accn}/{cands[0]}").text
-    xml = re.sub(r'xmlns(:\w+)?="[^"]+"', "", xml, count=10)  # namespace'leri at
+def _parse_infotable(xml: str) -> dict:
+    xml = re.sub(r'\sxmlns(:\w+)?="[^"]+"', "", xml)  # TUM namespace'leri at
+    xml = re.sub(r'<(/?)\w+:', r'<\1', xml)           # ns1: gibi onekleri at
     root = ET.fromstring(xml)
     holdings = {}
     for it in root.iter():
@@ -75,6 +67,28 @@ def fetch_holdings(cik: int, acc: str) -> dict:
         except (KeyError, AttributeError, ValueError):
             continue
     return holdings
+
+
+def fetch_holdings(cik: int, acc: str) -> dict:
+    """accession -> {cusip: {name, value}} (value: USD). Adaylari sirayla dener."""
+    accn = acc.replace("-", "")
+    idx = _get(f"https://www.sec.gov/Archives/edgar/data/{cik}/{accn}/index.json").json()
+    cands = [it["name"] for it in idx.get("directory", {}).get("item", [])
+             if it["name"].lower().endswith(".xml") and "primary_doc" not in it["name"].lower()]
+    cands.sort(key=lambda n: ("infotable" not in n.lower(), "table" not in n.lower(), n))
+    last_err = None
+    for cand in cands:
+        try:
+            xml = _get(f"https://www.sec.gov/Archives/edgar/data/{cik}/{accn}/{cand}").text
+            if "<infoTable" not in xml and ":infoTable" not in xml:
+                continue
+            h = _parse_infotable(xml)
+            if h:
+                return h
+        except Exception as e:
+            last_err = e
+            continue
+    raise ValueError(f"infotable cozulemedi ({type(last_err).__name__ if last_err else 'aday yok'})")
 
 
 def summarize(cur: dict, prev: dict | None):
