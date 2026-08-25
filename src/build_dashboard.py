@@ -26,6 +26,12 @@ ASSET_TR = {
     "SISE": ("Şişecam", "₺"), "KCHOL": ("Koç Holding", "₺"),
     "SCHD": ("Temettü ETF (SCHD)", "$"), "JEPI": ("Aylık Gelir ETF (JEPI)", "$"),
     "O": ("Realty Income", "$"),
+    "MCHI": ("Çin ETF (MCHI)", "$"), "EWJ": ("Japonya ETF (EWJ)", "$"),
+    "EWG": ("Almanya ETF (EWG)", "$"), "EWU": ("İngiltere ETF (EWU)", "$"),
+    "EWQ": ("Fransa ETF (EWQ)", "$"), "EWY": ("G. Kore ETF (EWY)", "$"),
+    "INDA": ("Hindistan ETF (INDA)", "$"), "EWZ": ("Brezilya ETF (EWZ)", "$"),
+    "N225": ("Nikkei 225", ""), "DAX": ("DAX 40", ""),
+    "HSI": ("Hang Seng", ""), "FTSE": ("FTSE 100", ""),
 }
 CLASS_TR = {"crypto": "Kripto", "fx": "Döviz", "commodity": "Emtia", "stock": "Hisse"}
 COST = {"crypto": 0.0010, "fx": 0.0002, "commodity": 0.0005, "stock": 0.0005}
@@ -253,8 +259,121 @@ def income_card(income, extra_names, usdtry):
 </div>"""
 
 
+def portfolio_sim(led, met_idx):
+    """1000₺ sinyal portföyü: kenarlı + yüksek güvenli + YUKARI çağrıları, long-only.
+    Sermaye 5 dilime bölünür (5 günlük örtüşen pozisyonlar için standart yaklaşım);
+    her gün-partisinin ortalama getirisi, maliyet düşülerek 1/5 ağırlıkla bileşiklenir.
+    Dönüş: (tarihler, seri) veya None."""
+    if led is None or len(led) == 0:
+        return None
+    df = led[(led["resolved"] == 1) & (led["p_up"] > 0.55)].copy()
+    if "edge_ok" in df.columns:
+        cur_edge = df["asset"].map(lambda a: 1 if (a in met_idx.index and met_idx.loc[a, "auc"] >= 0.53) else 0)
+        df = df[df["edge_ok"].fillna(cur_edge) >= 1]
+    else:
+        df = df[df["asset"].isin(set(met_idx[met_idx["auc"] >= 0.53].index))]
+    if df.empty:
+        return None
+    df["net"] = np.exp(df["realized_ret"]) - 1 - 2 * df["aclass"].map(lambda c: COST.get(c, 0.0005))
+    batches = (df.groupby(df["resolve_date"].astype(str))["net"].mean().sort_index())
+    eq, dates, vals = 1.0, [], []
+    for d, r in batches.items():
+        eq *= 1 + r / 5
+        dates.append(d[:10]); vals.append(round(eq, 5))
+    return dates, vals
+
+
+def sim_card(led, met_idx):
+    sim = portfolio_sim(led, met_idx)
+    if not sim or len(sim[0]) < 3:
+        return ""
+    dates, vals = sim
+    tl = 1000 * vals[-1]
+    delta = tl - 1000
+    renk = "var(--good-text)" if delta >= 0 else "var(--neg)"
+    flat = [1.0] * len(vals)
+    svg = svg_equity(dates, vals, flat, "Sinyal portföyü")
+    svg = svg.replace("x model", "x sinyaller").replace("x al-tut", "x nakit")
+    return f"""<div class="card" style="margin-bottom:18px">
+  <h2>1.000₺ Sinyal Portföyü <span style="font-weight:400;color:var(--muted);font-size:12px">(defterdeki GERÇEK sinyaller harfiyen uygulansaydı)</span></h2>
+  <div style="display:flex;align-items:baseline;gap:14px;margin:6px 0 2px">
+    <span style="font-size:34px;font-weight:650">{tr_num(tl,0)} ₺</span>
+    <span style="font-size:15px;font-weight:600;color:{renk}">{'+' if delta>=0 else ''}{tr_num(delta,0)} ₺ ({'+' if delta>=0 else ''}{tr_pct(delta/1000)})</span>
+    <span class="sub">başlangıç: 1.000₺ · {dates[0]} → {dates[-1]}</span>
+  </div>
+  {svg}
+  <div class="sub" style="margin-top:8px">Kural: yalnızca kanıtlanmış kenarlı varlıklarda, güven &gt; %55 YUKARI çağrıları; long-only; işlem maliyeti dahil; sermaye 5 dilimde döner (örtüşen 5 günlük pozisyonlar için standart yaklaşım). Bu bir simülasyondur, gerçek para değildir; geçmiş getiri gelecek garantisi değildir.</div>
+</div>"""
+
+
+def paper_card(paper, extra_names):
+    """Alpaca paper trading hesap kartı."""
+    if not paper:
+        return ""
+    pnl = paper["pnl"]
+    renk = "var(--good-text)" if pnl >= 0 else "var(--neg)"
+    halted = ('<div class="notice" style="border-left-color:var(--neg);color:var(--neg);font-weight:600;margin:10px 0 0">'
+              'KILL-SWITCH AKTİF: hesap %10 düşüş sınırına ulaştı, tüm pozisyonlar kapatıldı ve işlem durdu. '
+              'Yeniden başlatma kararı insana aittir.</div>') if paper.get("halted") else ""
+    pos_rows = "".join(
+        f'<tr><td><span class="aname">{aname(p["symbol"], extra_names)[0]}</span></td>'
+        f'<td class="num">{p["qty"]}</td><td class="num">${tr_num(p["value"],0)}</td>'
+        f'<td class="num" style="color:{"var(--good-text)" if p["pnl_pct"]>=0 else "var(--neg)"}">'
+        f'{"+" if p["pnl_pct"]>=0 else ""}{tr_pct(p["pnl_pct"])}</td></tr>'
+        for p in paper.get("positions", []))
+    pos_html = (f'<div style="overflow-x:auto;margin-top:8px"><table><thead><tr>'
+                f'<th>Pozisyon</th><th>Adet</th><th>Değer</th><th>K/Z</th></tr></thead>'
+                f'<tbody>{pos_rows}</tbody></table></div>') if pos_rows else \
+               '<div class="sub" style="margin-top:8px">Şu an açık pozisyon yok — sistem sinyal bekliyor.</div>'
+    orders = paper.get("orders", [])
+    orders_html = (f'<div class="sub" style="margin-top:8px">Bu çalıştırmanın emirleri: '
+                   f'{" · ".join(orders)}</div>') if orders else ""
+    return f"""<div class="card" style="margin-bottom:18px">
+  <h2>Paper Trading Hesabı <span style="font-weight:400;color:var(--muted);font-size:12px">(Alpaca — sahte para, gerçek borsa emirleri)</span></h2>
+  <div style="display:flex;align-items:baseline;gap:14px;margin:6px 0 2px">
+    <span style="font-size:34px;font-weight:650">${tr_num(paper["equity"],0)}</span>
+    <span style="font-size:15px;font-weight:600;color:{renk}">{"+" if pnl>=0 else ""}${tr_num(pnl,0)} ({"+" if pnl>=0 else ""}{tr_pct(paper["pnl_pct"])})</span>
+    <span class="sub">başlangıç: ${tr_num(paper["start_equity"],0)} · {paper["asof"]}</span>
+  </div>
+  {halted}{pos_html}{orders_html}
+  <div class="sub" style="margin-top:8px">Kurallar: kenarlı + güven &gt; %55 yukarı sinyalleri · maks 5 pozisyon · 5 işlem günü tutma · %10 düşüşte tam durdurma. Gerçek para değildir; sistemin canlı sınavıdır.</div>
+</div>"""
+
+
+def whales_card(whales):
+    """Balina takibi bölümü. whales boşsa boş string döner."""
+    if not whales:
+        return ""
+    blocks = []
+    for w in whales:
+        top_html = "".join(
+            f'<div class="imp-row"><span class="lbl2" style="flex:0 0 210px">{t["name"]}</span>'
+            f'<div class="imp-track"><div class="imp-fill" style="width:{min(100, t["pct"]*2.5):.0f}%"></div></div>'
+            f'<span class="val2" style="font-size:12px;min-width:44px;text-align:right">%{tr_num(t["pct"],1)}</span></div>'
+            for t in w["top"])
+        chips = ""
+        if w.get("yeni"):
+            chips += "".join(f'<span class="chip proven" style="margin:2px 4px 2px 0">+ {n}</span>' for n in w["yeni"])
+        if w.get("cikis"):
+            chips += "".join(f'<span class="chip stale" style="margin:2px 4px 2px 0">− {n}</span>' for n in w["cikis"])
+        chips_html = f'<div style="margin-top:8px">{chips}</div>' if chips else ""
+        b = w["total_usd"] / 1e9
+        blocks.append(f"""<div class="card">
+  <h2 style="font-size:14.5px">{w["fund"]}</h2>
+  <div class="sub" style="margin-bottom:8px">{w["report"]} dönemi · {w["n_pos"]} pozisyon · ${tr_num(b,1)} milyar · SEC dosyalama: {w["filed"]}</div>
+  {top_html}{chips_html}
+</div>""")
+    return f"""<div class="sec">
+  <h2 style="margin-bottom:2px">Balina takibi <span style="font-weight:400;color:var(--muted);font-size:12px">(SEC 13F — resmî açıklamalar)</span></h2>
+  <div class="sub" style="margin-bottom:12px">Ünlü fonların son açıkladığı ilk 5 pozisyon; <span class="chip proven">+ yeni giriş</span> <span class="chip stale">− tam çıkış</span> bir önceki çeyreğe göre. Dürüstlük notu: veriler çeyrek sonundan 45 güne kadar gecikmeli gelir, sadece ABD uzun pozisyonlarını gösterir (short'lar görünmez) — kopyalamadan önce bayatlığını hesaba kat.</div>
+  <div class="grid2" style="margin-top:0">{"".join(blocks)}</div>
+</div>"""
+
+
 def build(met, preds, oos, imp, extra_names=None, led=None, yorum=None,
-          income=None, usdtry=None):
+          income=None, usdtry=None, whales=None, paper=None,
+          suspended=None, cooldown=None):
+    suspended, cooldown = suspended or set(), cooldown or set()
     ps = pooled_stats(oos)
     today = pd.Timestamp.today().normalize()
     gen_date = f"{today.day} {AYLAR[today.month]} {today.year}"
@@ -302,6 +421,15 @@ def build(met, preds, oos, imp, extra_names=None, led=None, yorum=None,
             continue
         m = met_idx.loc[a]
         ec, elab = edge_class(m["auc"])
+        if a in suspended:
+            ec, elab = "stale", "Canlı askıda"
+            sicil_tip = "Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek"
+        elif a in cooldown:
+            ec, elab = "none", "Soğumada"
+            sicil_tip = "Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz"
+        else:
+            sicil_tip = (f"Out-of-sample: AUC {tr_num(m['auc'],3)}, isabet {tr_pct(m['hit'])} "
+                         f"(taban {tr_pct(m['base_hit'])})")
         up = r["p_up"] >= 0.5
         prob = max(r["p_up"], 1 - r["p_up"])
         band = 1.28 * r["vol21"] * np.sqrt(H)
@@ -319,10 +447,10 @@ def build(met, preds, oos, imp, extra_names=None, led=None, yorum=None,
         rows_html.append(f"""<tr>
 <td><span class="aname">{name}</span> <span class="acls">{CLASS_TR[r["aclass"]]}</span></td>
 <td>{dir_html}</td>
-<td class="num"><strong>{tr_pct(prob)}</strong></td>
+<td class="num"><strong>{tr_pct(prob)}</strong>{' <span class="chip proven" data-tip="Canlı defterde %60+ güvenli çağrıların isabeti: 32 tahminde %89">GÜÇLÜ</span>' if prob >= 0.60 and ec == "proven" else ''}</td>
 <td class="num">{cur}{tr_num(r["close"], dec)}</td>
 <td class="num muted2">{cur}{tr_num(lo, dec)} – {cur}{tr_num(hi, dec)}</td>
-<td><span class="chip {ec}" data-tip="7,5 yıllık out-of-sample test: AUC {tr_num(m['auc'],3)}, isabet {tr_pct(m['hit'])} (taban {tr_pct(m['base_hit'])})">{elab}</span></td>
+<td><span class="chip {ec}" data-tip="{sicil_tip}">{elab}</span></td>
 <td class="num muted2">{dt} {stale}</td>
 </tr>""")
 
@@ -460,6 +588,10 @@ svg {{ width:100%; height:auto; display:block }}
 
 {yorum_html}
 
+{paper_card(paper, extra_names)}
+
+{sim_card(led, met_idx_y)}
+
 <div class="card">
   <h2>Bugünün tahminleri</h2>
   <div class="sub" style="margin-bottom:10px">Ufuk: 5 işlem günü · "Beklenen aralık" son 21 günlük oynaklıktan (%80 olasılık bandı) · Soluk satırlar: geçmişte kenarı kanıtlanamayan varlıklar — bilgi amaçlı</div>
@@ -484,6 +616,8 @@ svg {{ width:100%; height:auto; display:block }}
 </div>
 
 {income_card(income, extra_names, usdtry)}
+
+{whales_card(whales)}
 
 <div class="grid2">
   {eq_cards}
