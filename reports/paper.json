@@ -1,1 +1,1 @@
-{"equity": 100000.0, "cash": 100000.0, "start_equity": 100000.0, "halted": false, "pnl": 0.0, "pnl_pct": 0.0, "positions": [], "orders": ["AL 51x TSLA (guven %74)", "AL 358x INDA (guven %67)"], "asof": "2026-08-25"}
+{"equity": 99994.38, "cash": 64083.0, "start_equity": 100000.0, "halted": false, "pnl": -5.619999999995343, "pnl_pct": -5.6199999999950734e-05, "positions": [{"symbol": "INDA", "qty": "358", "value": 17978.76, "pnl_pct": -0.0002}, {"symbol": "TSLA", "qty": "51", "value": 17932.62, "pnl_pct": -0.00011}], "orders": [], "asof": "2026-08-25"}

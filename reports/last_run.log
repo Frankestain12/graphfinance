@@ -40,12 +40,12 @@
 4.5/5 temettu radari...
    temettu radari: 16 varlik
 4.6/5 paper trading...
-   paper: hesap $100,000 | 0 pozisyon | 2 emir
+   paper: hesap $99,994 | 2 pozisyon | 0 emir
 4.7/5 balina takibi...
-  ! balina Bridgewater Associates — Ray Dalio'nun fonu: ParseError
-  ! balina Pershing Square — Bill Ackman: ParseError
-  ! balina Duquesne Family Office — Stanley Druckenmiller: ParseError
-  ! balina Scion Asset Management — Michael Burry: ParseError
-   balina takibi: 2 fon
+  balina Bridgewater Associates — Ray Dalio'nun fonu: 2026-06-30 donemi, 997 pozisyon
+  ! balina Pershing Square — Bill Ackman: ValueError
+  ! balina Duquesne Family Office — Stanley Druckenmiller: ValueError
+  ! balina Scion Asset Management — Michael Burry: ValueError
+   balina takibi: 3 fon
 5/5 pano...
-bitti — 55s
+bitti — 40s
