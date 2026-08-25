@@ -2,8 +2,10 @@ name: GraphFinance daily
 
 on:
   schedule:
-    - cron: "23 3 * * *"  # 06:23 Türkiye — saat başından kaçır (GitHub tepe saatte cron atlayabiliyor)
-    - cron: "23 5 * * *"  # 08:23 Türkiye — yedek tetik (mükerrer çalışma zararsız)
+    - cron: "23 3 * * *"   # 06:23 TR — sabah ana çalıştırma
+    - cron: "23 5 * * *"   # 08:23 TR — yedek tetik
+    - cron: "23 15 * * *"  # 18:23 TR — BIST kapanışı sonrası tazeleme
+    - cron: "23 20 * * *"  # 23:23 TR — ABD kapanışı sonrası tazeleme
   workflow_dispatch: {}
 
 permissions:
@@ -29,10 +31,20 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Günlük çalıştırma
+        env:
+          ALPACA_KEY_ID: ${{ secrets.ALPACA_KEY_ID }}
+          ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
         run: |
           mkdir -p reports
           set -o pipefail
           python src/run_live.py 2>&1 | tee reports/last_run.log
+
+      - name: Telegram sabah özeti
+        if: success()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python src/notify.py || true
 
       - name: Çıktıları commit'le
         if: always()
