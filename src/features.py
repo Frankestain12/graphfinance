@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 HORIZON = 5  # işlem günü
-FEATURES_VERSION = "v3-bist-karma"  # değişince aylık doğrulama + A/B yeniden tetiklenir
+FEATURES_VERSION = "v4-global"  # değişince aylık doğrulama + A/B yeniden tetiklenir
 
 FEAT_TR = {
     "r1": "dünkü getiri", "r5": "5 günlük momentum", "r10": "10 günlük momentum",
