@@ -18,7 +18,8 @@ def load_ledger(path: str) -> pd.DataFrame:
     return pd.DataFrame(columns=COLS)
 
 
-def append_predictions(led: pd.DataFrame, preds: pd.DataFrame, horizon: int = 5) -> pd.DataFrame:
+def append_predictions(led: pd.DataFrame, preds: pd.DataFrame, horizon: int = 5,
+                       edge_map: dict | None = None) -> pd.DataFrame:
     new = preds.rename(columns={"date": "made_on"}).copy()
     new["direction"] = np.where(new["p_up"] >= 0.5, "up", "down")
     new["horizon_td"] = horizon
@@ -26,8 +27,18 @@ def append_predictions(led: pd.DataFrame, preds: pd.DataFrame, horizon: int = 5)
     new["resolve_date"] = pd.NaT
     new["realized_ret"] = np.nan
     new["correct"] = np.nan
+    # kenar damgası: tahmin ANINDA varlığın kanıtlanmış kenarı var mıydı (geleceğe dürüstlük)
+    new["edge_ok"] = new["asset"].map(edge_map or {}).fillna(0).astype(int)
+    # surucu damgasi: gelecekteki hata otopsileri icin modelin gerekcesi de kaydedilir
+    if "drivers" not in new.columns:
+        new["drivers"] = ""
+    led = led.copy()
+    for col, default in (("edge_ok", np.nan), ("drivers", "")):
+        if col not in led.columns and len(led):
+            led[col] = default
     new = new[["made_on", "asset", "aclass", "close", "p_up", "direction",
-               "horizon_td", "resolved", "resolve_date", "realized_ret", "correct"]]
+               "horizon_td", "resolved", "resolve_date", "realized_ret", "correct",
+               "edge_ok", "drivers"]]
     # ayni gun ayni varlik icin tekrar ekleme
     key = led["made_on"].astype(str) + "|" + led["asset"] if len(led) else pd.Series(dtype=str)
     new_key = new["made_on"].astype(str) + "|" + new["asset"]
