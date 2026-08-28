@@ -30,21 +30,21 @@
   XRP: coinbase kullanildi
   ! BNB: canli kripto yok (tum kaynaklar engelli)
    mirror: 12 varlik | canli: 41 varlik
-   toplam 50 varlik, 197642 satir
+   toplam 50 varlik, 197649 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-08, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
    bekci ASKI: ['AVGO', 'GOOGL', 'SISE', 'SPY']
    bekci SOGUMA: ['NATGAS', 'XRP']
-   defter: 606 tahmin, 403 cozuldu, gercek isabet 60.8%
+   defter: 607 tahmin, 404 cozuldu, gercek isabet 60.9%
 4.5/5 temettu radari...
    temettu radari: 16 varlik
 4.6/5 paper trading...
-   paper: hesap $99,929 | 2 pozisyon | 0 emir
+   paper: hesap $99,915 | 2 pozisyon | 0 emir
 4.7/5 balina takibi...
   ! balina Pershing Square — Bill Ackman: ValueError
   ! balina Duquesne Family Office — Stanley Druckenmiller: ValueError
   ! balina Scion Asset Management — Michael Burry: ValueError
    balina takibi: 3 fon
 5/5 pano...
-bitti — 39s
+bitti — 44s
