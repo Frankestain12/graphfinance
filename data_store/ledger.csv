@@ -647,3 +647,4 @@ made_on,asset,aclass,close,p_up,direction,horizon_td,resolved,resolve_date,reali
 2026-08-30,XRP,crypto,1.3911,0.5496171308281057,up,5,0,,,,0.0,kurt63:+|vol21:-|gold_spy_mom:+
 2026-08-30,BTC,crypto,78072.55,0.5469994861313183,up,5,0,,,,0.0,gold_spy_mom:+|vix_pct:+|corr_spy63:-
 2026-08-30,SOL,crypto,104.86,0.5363137705437437,up,5,0,,,,1.0,vix_pct:+|vol21:-|r10:-
+2026-08-30,USDTRY,fx,48.23809814453125,0.8734191803894074,up,5,0,,,,1.0,vol21:+|hi52_dist:+|rsi14:+
