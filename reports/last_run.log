@@ -12,7 +12,7 @@
   AAPL: stooq yok (ValueError), yahoo kullanildi
   MSFT: stooq yok (ValueError), yahoo kullanildi
   NVDA: stooq yok (ValueError), yahoo kullanildi
-  ! GOOGL: veri yok (HTTPError)
+  GOOGL: stooq yok (ValueError), yahoo kullanildi
   AMZN: stooq yok (ValueError), yahoo kullanildi
   META: stooq yok (ValueError), yahoo kullanildi
   TSLA: stooq yok (ValueError), yahoo kullanildi
@@ -29,37 +29,34 @@
   SOL: coinbase kullanildi
   XRP: coinbase kullanildi
   ! BNB: canli kripto yok (tum kaynaklar engelli)
-   mirror: 12 varlik | canli: 63 varlik
+   mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
-  ! olay evt_iran: ReadTimeout
-  ! olay evt_sanction: ConnectTimeout
-  ! olay evt_tariff: ReadTimeout
-  ! olay evt_fed: ConnectTimeout
+  ! olay evt_sanction: ReadTimeout
+  ! olay evt_tariff: ConnectTimeout
   ! olay evt_oil: ConnectTimeout
-   olay radari: 1 tema, 3531 gun
+   olay radari: 3 tema, 3531 gun
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 55728 yeni baslik, onbellek 6911 varlik-gun
-   ! haber akisi atlandi: TypeError
-   toplam 72 varlik, 244560 satir
+   haber akisi: 16469 yeni baslik, onbellek 7907 varlik-gun
+   toplam 73 varlik, 246816 satir
 2/5 AYLIK dogrulama: sampiyon/rakip A/B testi...
-   base: ort.AUC=0.4952  guvenli-isabet=0.5377  (24 ozellik)
-   ext: ort.AUC=0.5112  guvenli-isabet=0.5445  (54 ozellik)
+   base: ort.AUC=0.4981  guvenli-isabet=0.5375  (24 ozellik)
+   ext: ort.AUC=0.5168  guvenli-isabet=0.5513  (54 ozellik)
    SAMPIYON: ext
 3/5 guncel tahminler...
 4/5 tahmin defteri...
    bekci ASKI: ['AMZN', 'ETH', 'GOOGL', 'XAUUSD']
    bekci SOGUMA: ['XRP']
-   defter: 760 tahmin, 507 cozuldu, gercek isabet 60.2%
+   defter: 760 tahmin, 508 cozuldu, gercek isabet 60.2%
 4.5/5 temettu radari...
    temettu radari: 19 varlik
 4.55/5 bilanco takvimi...
    bilancoya yakin (4 gun): ['AVGO']
 4.6/5 paper trading...
-   paper: hesap $100,112 | 2 pozisyon | 1 emir
+   paper: hesap $100,274 | 2 pozisyon | 3 emir
 4.7/5 balina takibi...
   ! balina Pershing Square — Bill Ackman: ValueError
   ! balina Duquesne Family Office — Stanley Druckenmiller: ValueError
   ! balina Scion Asset Management — Michael Burry: ValueError
    balina takibi: 3 fon
 5/5 pano...
-bitti — 1050s
+bitti — 684s
