@@ -23,8 +23,33 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 STATE_PATH = os.path.join(ROOT, "data_store", "paper_state.json")
 OUT_PATH = os.path.join(ROOT, "reports", "paper.json")
 
-SLICE = 0.18          # pozisyon basina hesap orani
+SLICE = 0.18          # (eski sabit dilim — artik referans; asil boyut asagida)
 MAX_POS = 5
+RISK_PER_POS = 0.012  # hedef: pozisyon basina gunluk ~%1,2 portfoy oynakligi
+SLICE_MIN, SLICE_MAX = 0.06, 0.25
+CLUSTERS = {  # korelasyon tavani: kume basina en fazla 2 pozisyon
+    "yari_iletken": {"NVDA", "AVGO", "VRT"},
+    "mega_tek": {"AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA"},
+    "endeks": {"SPY", "QQQ"},
+    "ulke": {"MCHI", "EWJ", "EWG", "EWU", "EWQ", "EWY", "INDA", "EWZ"},
+    "sebeke": {"GEV", "ETN", "HUBB", "PWR", "GRID"},
+    "gelir": {"SCHD", "JEPI", "O"},
+    "sektor": {"XLK", "XLE", "XLF", "XLV", "XLU", "XLI", "XLY", "XLP", "XLB", "XLRE", "XLC"},
+    "emtia": {"GLD", "SLV", "URA", "COPX", "LIT", "DBA"},
+}
+MAX_PER_CLUSTER = 2
+
+
+def position_fraction(p_up: float, vol21: float) -> float:
+    """Oynaklik hedefli boyut x guven carpani. vol21: gunluk log-getiri std."""
+    v = float(vol21) if vol21 and vol21 > 0 else 0.02
+    base = RISK_PER_POS / v                      # sakin varlik -> buyuk, cilgin -> kucuk
+    conf_mult = 0.6 + 2.0 * (float(p_up) - 0.55)  # p.55->0.6x, .65->0.8x, .75->1.0x, .85->1.2x
+    return float(min(SLICE_MAX, max(SLICE_MIN, base * conf_mult)))
+
+
+def _cluster_of(sym: str):
+    return next((k for k, v in CLUSTERS.items() if sym in v), None)
 HOLD_TDAYS = 5
 KILL_DD = 0.10        # baslangictan %10 dusus -> tam durdurma
 
@@ -33,6 +58,9 @@ TRADEABLE = {
     "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "TSLA", "AVGO",
     "SPY", "QQQ", "SCHD", "JEPI", "O",
     "MCHI", "EWJ", "EWG", "EWU", "EWQ", "EWY", "INDA", "EWZ",
+    "GEV", "ETN", "VRT", "HUBB", "PWR", "GRID",
+    "XLK", "XLE", "XLF", "XLV", "XLU", "XLI", "XLY", "XLP", "XLB", "XLRE", "XLC",
+    "GLD", "SLV", "URA", "COPX", "LIT", "DBA",
 }
 
 
@@ -120,14 +148,19 @@ def run_paper(preds: pd.DataFrame, met: pd.DataFrame, log=print, skip=None) -> d
                         or r["p_up"] <= 0.55 or a not in met_idx.index
                         or met_idx.loc[a, "auc"] < 0.53):
                     continue
-                qty = int((equity * SLICE) // float(r["close"]))
+                # kume tavani (ayni temaya yigilma)
+                cl = _cluster_of(a)
+                if cl and sum(1 for s in list(positions) + list(st["positions"]) if _cluster_of(s) == cl) >= MAX_PER_CLUSTER:
+                    continue
+                frac = position_fraction(r["p_up"], r.get("vol21", 0.02))
+                qty = int((equity * frac) // float(r["close"]))
                 if qty < 1:
                     continue
                 try:
                     _api("POST", "/v2/orders", json={"symbol": a, "qty": str(qty),
                          "side": "buy", "type": "market", "time_in_force": "day"})
                     st["positions"][a] = {"entry": str(pd.Timestamp.today().date())}
-                    orders_yapilan.append(f"AL {qty}x {a} (guven %{100*r['p_up']:.0f})")
+                    orders_yapilan.append(f"AL {qty}x {a} (guven %{100*r['p_up']:.0f}, boyut %{100*frac:.0f})")
                     slots -= 1
                 except Exception as e:
                     log(f"   paper alis hatasi {a}: {type(e).__name__}")
