@@ -73,9 +73,11 @@ def fetch_holdings(cik: int, acc: str) -> dict:
     """accession -> {cusip: {name, value}} (value: USD). Adaylari sirayla dener."""
     accn = acc.replace("-", "")
     idx = _get(f"https://www.sec.gov/Archives/edgar/data/{cik}/{accn}/index.json").json()
+    # primary_doc SON aday: bazi fonlar (kucuk dosyalayanlar) infotable'i ana belgeye gomer
     cands = [it["name"] for it in idx.get("directory", {}).get("item", [])
-             if it["name"].lower().endswith(".xml") and "primary_doc" not in it["name"].lower()]
-    cands.sort(key=lambda n: ("infotable" not in n.lower(), "table" not in n.lower(), n))
+             if it["name"].lower().endswith(".xml")]
+    cands.sort(key=lambda n: ("infotable" not in n.lower(), "table" not in n.lower(),
+                              "primary_doc" in n.lower(), n))
     last_err = None
     for cand in cands:
         try:
