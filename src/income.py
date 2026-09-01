@@ -16,6 +16,7 @@ REP = os.path.join(ROOT, "reports")
 # (yahoo_sembol, varlik) — temettü taranacaklar
 DIV_UNIVERSE = [
     ("SCHD", "SCHD"), ("JEPI", "JEPI"), ("O", "O"), ("SPY", "SPY"),
+    ("ETN", "ETN"), ("HUBB", "HUBB"), ("GRID", "GRID"),
     ("AAPL", "AAPL"), ("MSFT", "MSFT"), ("AVGO", "AVGO"),
     ("THYAO.IS", "THYAO"), ("GARAN.IS", "GARAN"), ("ASELS.IS", "ASELS"),
     ("AKBNK.IS", "AKBNK"), ("EREGL.IS", "EREGL"), ("TUPRS.IS", "TUPRS"),
