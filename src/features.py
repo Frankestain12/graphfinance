@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 HORIZON = 5  # işlem günü
-FEATURES_VERSION = "v4-global"  # değişince aylık doğrulama + A/B yeniden tetiklenir
+FEATURES_VERSION = "v8-haber"  # değişince aylık doğrulama + A/B yeniden tetiklenir
 
 FEAT_TR = {
     "r1": "dünkü getiri", "r5": "5 günlük momentum", "r10": "10 günlük momentum",
@@ -31,6 +31,11 @@ FEAT_TR = {
     "trendiness": "trend/ortalamaya-dönüş rejimi",
     "corr_spy63": "S&P 500 ile korelasyon", "gold_spy_mom": "altın-borsa makası",
     "risk_off": "riskten kaçış rejimi", "try_r5": "dolar/TL ivmesi",
+    "evt_iran": "İran/Orta Doğu haber ısısı", "evt_china": "Çin ambargo haber ısısı",
+    "evt_sanction": "yaptırım haber ısısı", "evt_tariff": "tarife haber ısısı",
+    "evt_fed": "Fed haber ısısı", "evt_oil": "OPEC/petrol arzı haber ısısı",
+    "news_cnt": "haber yoğunluğu (24s)", "news_cnt_z": "haber yoğunluğu anomalisi",
+    "news_sent1": "haber duygusu (24s)", "news_sent3": "haber duygusu (3g)",
     "is_crypto": "kripto sınıfı", "is_fx": "döviz sınıfı",
     "is_commodity": "emtia sınıfı", "is_stock": "hisse sınıfı",
 }
@@ -50,6 +55,10 @@ CHART_FEATS = [
     "squeeze", "streak", "reversal", "skew21", "kurt63", "trendiness",
     # capraz-varlik / piyasa
     "vix_pct", "corr_spy63", "gold_spy_mom", "risk_off", "try_r5",
+    # haber/olay isisi (GDELT z-skor) — A/B karar verir
+    "evt_iran", "evt_china", "evt_sanction", "evt_tariff", "evt_fed", "evt_oil",
+    # sembol bazli haber akisi (Alpaca/Benzinga, sozluk duygusu)
+    "news_cnt", "news_cnt_z", "news_sent1", "news_sent3",
 ]
 EXT_FEATS = BASE_FEATS + CHART_FEATS
 
@@ -116,7 +125,8 @@ def _asset_feats(g: pd.DataFrame) -> pd.DataFrame:
     return g
 
 
-def build_features(panel: pd.DataFrame, vix: pd.Series):
+def build_features(panel: pd.DataFrame, vix: pd.Series, events: pd.DataFrame | None = None,
+                   news: pd.DataFrame | None = None):
     df = pd.concat([_asset_feats(g) for _, g in panel.groupby("asset")], ignore_index=True)
 
     # --- piyasa genel özellikleri (her tarih için, sadece geçmiş) ---
@@ -126,6 +136,20 @@ def build_features(panel: pd.DataFrame, vix: pd.Series):
     vix_df["vix_pct"] = vix_df["vix"].rolling(252).rank(pct=True)
     df = df.merge(vix_df[["vix_z", "vix_chg5", "vix_pct"]],
                   left_on="date", right_index=True, how="left")
+    EVT = ["evt_iran", "evt_china", "evt_sanction", "evt_tariff", "evt_fed", "evt_oil"]
+    if events is not None and len(events):
+        ev = events.reindex(columns=EVT)
+        df = df.merge(ev, left_on="date", right_index=True, how="left")
+    else:
+        for c in EVT:
+            df[c] = np.nan
+
+    NEWSF = ["news_cnt", "news_cnt_z", "news_sent1", "news_sent3"]
+    if news is not None and len(news):
+        df = df.merge(news[["date", "asset"] + NEWSF], on=["date", "asset"], how="left")
+    else:
+        for c in NEWSF:
+            df[c] = np.nan
 
     def series_of(asset, col):
         s = df[df["asset"] == asset].set_index("date")[col]
@@ -168,7 +192,8 @@ def build_features(panel: pd.DataFrame, vix: pd.Series):
     # piyasa özellikleri hafta sonu/tatil boşluklarında son değerle doldurulur (geçmişe bakmaz)
     df = df.sort_values(["asset", "date"])
     for c in ("vix_z", "vix_chg5", "vix_pct", "oil_r5", "eur_r5", "btc_r21",
-              "corr_spy63", "gold_spy_mom", "try_r5"):
+              "corr_spy63", "gold_spy_mom", "try_r5",
+              "evt_iran", "evt_china", "evt_sanction", "evt_tariff", "evt_fed", "evt_oil"):
         df[c] = df.groupby("asset")[c].ffill()
 
     df["dow"] = df["date"].dt.dayofweek
