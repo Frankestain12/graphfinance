@@ -22,6 +22,24 @@ STOCKS = [
     ("jepi.us", "JEPI", "Aylık Gelir ETF (JEPI)"),
     ("o.us", "O", "Realty Income (aylık temettü)"),
 ]
+AI_INFRA = [  # (yahoo_sembol, varlik, ad) — AI altyapi/sebeke sepeti (26 Agu 2026 tezi)
+    ("GEV", "GEV", "GE Vernova"), ("ETN", "ETN", "Eaton"),
+    ("VRT", "VRT", "Vertiv"), ("HUBB", "HUBB", "Hubbell"),
+    ("PWR", "PWR", "Quanta Services"), ("GRID", "GRID", "Şebeke ETF (GRID)"),
+]
+SECTOR_ETFS = [  # ABD sektorleri (Alpaca'da islem gorur)
+    ("XLK", "XLK", "Teknoloji ETF (XLK)"), ("XLE", "XLE", "Enerji ETF (XLE)"),
+    ("XLF", "XLF", "Finans ETF (XLF)"), ("XLV", "XLV", "Sağlık ETF (XLV)"),
+    ("XLU", "XLU", "Altyapı/Utilities ETF (XLU)"), ("XLI", "XLI", "Sanayi ETF (XLI)"),
+    ("XLY", "XLY", "Tüketim ETF (XLY)"), ("XLP", "XLP", "Temel Tüketim ETF (XLP)"),
+    ("XLB", "XLB", "Hammadde ETF (XLB)"), ("XLRE", "XLRE", "Gayrimenkul ETF (XLRE)"),
+    ("XLC", "XLC", "İletişim ETF (XLC)"),
+]
+COMMODITY_ETFS = [  # olay kitabinin islem yapilabilir karsiliklari
+    ("GLD", "GLD", "Altın ETF (GLD)"), ("SLV", "SLV", "Gümüş ETF (SLV)"),
+    ("URA", "URA", "Uranyum ETF (URA)"), ("COPX", "COPX", "Bakır ETF (COPX)"),
+    ("LIT", "LIT", "Lityum ETF (LIT)"), ("DBA", "DBA", "Tarım ETF (DBA)"),
+]
 GLOBAL_MARKETS = [  # (yahoo_sembol, varlik, ad) — ülke ETF'leri (USD, işlem yapılabilir) + dev endeksler
     ("MCHI", "MCHI", "Çin ETF (MCHI)"), ("EWJ", "EWJ", "Japonya ETF (EWJ)"),
     ("EWG", "EWG", "Almanya ETF (EWG)"), ("EWU", "EWU", "İngiltere ETF (EWU)"),
@@ -159,7 +177,7 @@ def load_live_panel(log=print) -> pd.DataFrame:
                 log(f"  {asset}: stooq yok ({type(e1).__name__}), yahoo kullanildi")
             except Exception as e2:
                 log(f"  ! {asset}: veri yok ({type(e2).__name__})")
-    for ysym, asset, _name in BIST + GLOBAL_MARKETS:
+    for ysym, asset, _name in BIST + GLOBAL_MARKETS + AI_INFRA + SECTOR_ETFS + COMMODITY_ETFS:
         try:
             frames.append(_norm(yahoo_daily(ysym), asset, "stock"))
         except Exception as e:
@@ -197,5 +215,6 @@ def load_live_panel(log=print) -> pd.DataFrame:
 
 
 ASSET_NAMES_LIVE = ({a: n for _s, a, n in STOCKS} | {a: n for _s, a, n in FX_EXTRA}
-                    | {a: n for _s, a, n in BIST} | {a: n for _s, a, n in GLOBAL_MARKETS}
+                    | {a: n for _s, a, n in BIST} | {a: n for _s, a, n in GLOBAL_MARKETS} | {a: n for _s, a, n in AI_INFRA}
+                    | {a: n for _s, a, n in SECTOR_ETFS} | {a: n for _s, a, n in COMMODITY_ETFS}
                     | {"BNB": "BNB"})
