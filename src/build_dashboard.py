@@ -30,6 +30,14 @@ ASSET_TR = {
     "EWG": ("Almanya ETF (EWG)", "$"), "EWU": ("İngiltere ETF (EWU)", "$"),
     "EWQ": ("Fransa ETF (EWQ)", "$"), "EWY": ("G. Kore ETF (EWY)", "$"),
     "INDA": ("Hindistan ETF (INDA)", "$"), "EWZ": ("Brezilya ETF (EWZ)", "$"),
+    "GEV": ("GE Vernova", "$"), "ETN": ("Eaton", "$"), "VRT": ("Vertiv", "$"),
+    "HUBB": ("Hubbell", "$"), "PWR": ("Quanta Services", "$"), "GRID": ("Şebeke ETF (GRID)", "$"),
+    "XLK": ("Teknoloji ETF (XLK)", "$"), "XLE": ("Enerji ETF (XLE)", "$"), "XLF": ("Finans ETF (XLF)", "$"),
+    "XLV": ("Sağlık ETF (XLV)", "$"), "XLU": ("Utilities ETF (XLU)", "$"), "XLI": ("Sanayi ETF (XLI)", "$"),
+    "XLY": ("Tüketim ETF (XLY)", "$"), "XLP": ("Temel Tüketim ETF (XLP)", "$"), "XLB": ("Hammadde ETF (XLB)", "$"),
+    "XLRE": ("Gayrimenkul ETF (XLRE)", "$"), "XLC": ("İletişim ETF (XLC)", "$"),
+    "GLD": ("Altın ETF (GLD)", "$"), "SLV": ("Gümüş ETF (SLV)", "$"), "URA": ("Uranyum ETF (URA)", "$"),
+    "COPX": ("Bakır ETF (COPX)", "$"), "LIT": ("Lityum ETF (LIT)", "$"), "DBA": ("Tarım ETF (DBA)", "$"),
     "N225": ("Nikkei 225", ""), "DAX": ("DAX 40", ""),
     "HSI": ("Hang Seng", ""), "FTSE": ("FTSE 100", ""),
 }
@@ -340,6 +348,68 @@ def paper_card(paper, extra_names):
 </div>"""
 
 
+def events_card(heat, book, extra_names):
+    """Olay radarı (haber ısısı) + olay kitabı (geçmiş tepkiler)."""
+    if not heat and not book:
+        return ""
+    heat_html = ""
+    if heat:
+        rows = []
+        for h in heat:
+            z = h["z"]
+            w = min(100, max(4, (z + 4) / 8 * 100))
+            lvl = "🔥 sıcak" if z >= 1.5 else ("ılık" if z >= 0.5 else ("sakin" if z > -0.5 else "sessiz"))
+            rows.append(f'<div class="imp-row"><span class="lbl2" style="flex:0 0 230px">{h["name"]}</span>'
+                        f'<div class="imp-track"><div class="imp-fill" style="width:{w:.0f}%;background:{"var(--neg)" if z>=1.5 else "var(--acc)"}"></div></div>'
+                        f'<span class="val2" style="font-size:12px;min-width:90px;text-align:right">{lvl} (z {tr_num(z,1)})</span></div>')
+        heat_html = f"""<div class="card">
+  <h2>Olay radarı <span style="font-weight:400;color:var(--muted);font-size:12px">(küresel haber ısısı, bugün)</span></h2>
+  <div class="sub" style="margin-bottom:8px">GDELT küresel haber akışında temanın son 90 güne göre yoğunluğu. Isı, modele özellik olarak da girer — sinyal üretip üretmediğine A/B testi karar verir.</div>
+  {"".join(rows)}
+</div>"""
+    book_html = ""
+    if book:
+        secs = []
+        for e in book:
+            tur = "tırmanma" if e["kind"] == "tirmanma" else "yatışma"
+            cells = []
+            for a, (m, n) in sorted(e["stats"].items(), key=lambda kv: -abs(kv[1][0]))[:6]:
+                nm = aname(a, extra_names)[0]
+                col = "var(--good-text)" if m >= 0 else "var(--neg)"
+                cells.append(f'<span style="display:inline-block;margin:2px 10px 2px 0"><span class="lbl2">{nm}</span> '
+                             f'<strong style="color:{col}">{"+" if m>=0 else ""}{tr_pct(m)}</strong> <span class="muted2">(n={n})</span></span>')
+            secs.append(f'<div style="margin:8px 0"><div style="font-weight:600;font-size:13px">{e["theme"]} — {tur}</div><div>{"".join(cells)}</div></div>')
+        book_html = f"""<div class="card">
+  <h2>Olay kitabı <span style="font-weight:400;color:var(--muted);font-size:12px">(geçmişte ne oldu — kendi verimizden)</span></h2>
+  <div class="sub" style="margin-bottom:6px">Örnek tarihsel olayların ardından 5 günlük ortalama hareket. Az sayıda olay (n) — istatistik değil, hafıza. Yatırım tavsiyesi değildir.</div>
+  {"".join(secs)}
+</div>"""
+    return f'<div class="grid2">{heat_html}{book_html}</div>'
+
+
+def news_card(news_latest, extra_names, bad_news):
+    """Son 24 saatin sembol bazlı haber akışı (Alpaca/Benzinga)."""
+    if not news_latest:
+        return ""
+    items = sorted(news_latest.items(), key=lambda kv: -kv[1].get("cnt", 0))[:8]
+    blocks = []
+    for a, v in items:
+        nm = aname(a, extra_names)[0]
+        s = v.get("sent", 0.0)
+        chip = ('<span class="chip proven">olumlu</span>' if s > 0.15 else
+                ('<span class="chip stale">olumsuz</span>' if s < -0.15 else '<span class="chip none">nötr</span>'))
+        flt = ' <span class="chip stale" data-tip="Son 24 saatte belirgin olumsuz haber akışı — bugün alım yok">alım kapalı</span>' if a in bad_news else ""
+        hl = "".join(f'<div class="sub" style="margin-top:3px">• <a href="{h["u"]}" target="_blank" rel="noopener" style="color:inherit">{h["h"]}</a></div>'
+                     for h in v.get("headlines", [])[:2])
+        blocks.append(f'<div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">{nm}</span> '
+                      f'<span class="muted2">{v.get("cnt",0)} haber</span> {chip}{flt}{hl}</div>')
+    return f"""<div class="card" style="margin-bottom:18px">
+  <h2>Haber akışı <span style="font-weight:400;color:var(--muted);font-size:12px">(son 24 saat · Alpaca/Benzinga · sembol bazlı)</span></h2>
+  <div class="sub" style="margin-bottom:6px">Duygu skoru finans sözlüğüyle hesaplanır (hafif model; FinBERT v9 adayı). Haber yoğunluğu ve duygusu modele özellik olarak da girer — A/B karar verir. Belirgin olumsuz akışta o gün alım yapılmaz.</div>
+  {"".join(blocks)}
+</div>"""
+
+
 def whales_card(whales):
     """Balina takibi bölümü. whales boşsa boş string döner."""
     if not whales:
@@ -372,8 +442,11 @@ def whales_card(whales):
 
 def build(met, preds, oos, imp, extra_names=None, led=None, yorum=None,
           income=None, usdtry=None, whales=None, paper=None,
-          suspended=None, cooldown=None):
+          suspended=None, cooldown=None, heat=None, book=None, earnings_soon=None,
+          news_latest=None, bad_news=None):
+    news_latest, bad_news = news_latest or {}, bad_news or set()
     suspended, cooldown = suspended or set(), cooldown or set()
+    earnings_soon = earnings_soon or set()
     ps = pooled_stats(oos)
     today = pd.Timestamp.today().normalize()
     gen_date = f"{today.day} {AYLAR[today.month]} {today.year}"
@@ -451,7 +524,7 @@ def build(met, preds, oos, imp, extra_names=None, led=None, yorum=None,
 <td class="num">{cur}{tr_num(r["close"], dec)}</td>
 <td class="num muted2">{cur}{tr_num(lo, dec)} – {cur}{tr_num(hi, dec)}</td>
 <td><span class="chip {ec}" data-tip="{sicil_tip}">{elab}</span></td>
-<td class="num muted2">{dt} {stale}</td>
+<td class="num muted2">{dt} {stale}{' <span class="chip stale" data-tip="4 gün içinde bilanço — kural gereği yeni pozisyon açılmaz">bilanço yakın</span>' if a in earnings_soon else ''}</td>
 </tr>""")
 
     imp_top = imp.head(6)
@@ -616,6 +689,10 @@ svg {{ width:100%; height:auto; display:block }}
 </div>
 
 {income_card(income, extra_names, usdtry)}
+
+{news_card(news_latest, extra_names, bad_news)}
+
+{events_card(heat, book, extra_names)}
 
 {whales_card(whales)}
 
