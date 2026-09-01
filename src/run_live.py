@@ -88,7 +88,29 @@ def main():
     panel = merge_panels(gh_panel, live_panel)
     panel.to_parquet(os.path.join(STORE, "panel.parquet"))
 
-    df, feat_cols = build_features(panel, vix)
+    print("1.5/5 olay radari (GDELT)...")
+    ev_z, heat, book = pd.DataFrame(), [], []
+    try:
+        from events import load_event_features, current_heat, playbook
+        ev_z = load_event_features()
+        heat = current_heat(ev_z)
+        book = playbook(panel)
+    except Exception as e:
+        print(f"   ! olay radari atlandi: {type(e).__name__}")
+    print("1.7/5 haber akisi (Alpaca)...")
+    news_daily, news_latest = pd.DataFrame(), {}
+    news_feats = pd.DataFrame()
+    try:
+        from news import update_news, news_features, bad_news_assets
+        news_daily, news_latest = update_news()
+        news_feats = news_features(news_daily)
+        bad_news = bad_news_assets(news_latest)
+        if bad_news:
+            print(f"   kotu haber filtresi: {sorted(bad_news)}")
+    except Exception as e:
+        bad_news = set()
+        print(f"   ! haber akisi atlandi: {type(e).__name__}")
+    df, feat_cols = build_features(panel, vix, events=ev_z, news=news_feats)
     assets = set(df["asset"].unique())
     print(f"   toplam {len(assets)} varlik, {len(df)} satir")
 
@@ -218,11 +240,22 @@ def main():
     except Exception as e:
         print(f"   ! temettu modulu atlandi: {type(e).__name__}")
 
+    print("4.55/5 bilanco takvimi...")
+    earnings_soon = set()
+    try:
+        from earnings import upcoming_earnings
+        earnings_soon = upcoming_earnings(days=4)
+        if earnings_soon:
+            print(f"   bilancoya yakin (4 gun): {sorted(earnings_soon & assets)}")
+    except Exception as e:
+        print(f"   ! bilanco takvimi atlandi: {type(e).__name__}")
+
     print("4.6/5 paper trading...")
     paper = None
     try:
         from paper_trade import run_paper
-        paper = run_paper(preds, pd.read_csv(met_path), skip=suspended | cooldown)
+        paper = run_paper(preds, pd.read_csv(met_path),
+                          skip=suspended | cooldown | earnings_soon | bad_news)
     except Exception as e:
         print(f"   ! paper modulu atlandi: {type(e).__name__}")
 
@@ -257,7 +290,9 @@ def main():
     html = BD.build(met, preds, oos, imp, extra_names=ASSET_NAMES_LIVE, led=led,
                     yorum=yorum, income=income_df, usdtry=usdtry_last,
                     whales=whale_list, paper=paper,
-                    suspended=suspended, cooldown=cooldown)
+                    suspended=suspended, cooldown=cooldown,
+                    heat=heat, book=book, earnings_soon=earnings_soon,
+                    news_latest=news_latest, bad_news=bad_news)
     for out in (os.path.join(DOCS, "index.html"),
                 os.path.join(REP, "graphfinance_panosu.html")):
         with open(out, "w", encoding="utf-8") as f:
