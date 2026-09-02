@@ -5,7 +5,8 @@ Kurallar (sinyal portföyü simülasyonuyla aynı):
   - Sadece kanıtlanmış kenarlı varlıklarda, güven > %55 YUKARI çağrıları
   - Sadece ABD'de işlem gören semboller (Alpaca evreni)
   - Pozisyon: hesap değerinin ~%18'i, en fazla 5 eşzamanlı pozisyon
-  - 5 işlem günü sonra satış
+  - Her koşuda pozisyon gözden geçirme: 5 gün doldu / zarar durdur %4 / sinyal tersine döndü (<%45) /
+    kötü haber / kâr al (%6 + zayıf güven) → sat; aksi halde tut (gerekçe karar günlüğüne yazılır)
   - KILL-SWITCH: hesap başlangıcın %90'ının altına inerse her şeyi sat, dur, panoda kırmızı bant
 
 GÜVENLİK: Bu modül SADECE paper-api.alpaca.markets ile konuşur (sahte para).
@@ -52,6 +53,10 @@ def _cluster_of(sym: str):
     return next((k for k, v in CLUSTERS.items() if sym in v), None)
 HOLD_TDAYS = 5
 KILL_DD = 0.10        # baslangictan %10 dusus -> tam durdurma
+# Pozisyon gozden gecirme (her kosuda; ozellikle acilis 16:50 TR ve kapanis 23:23 TR):
+STOP_LOSS = -0.04     # pozisyon %4 zarardaysa sat (zarar durdur)
+TAKE_PROFIT = 0.06    # %6 kardaysa ve guven artik zayifsa sat (kar al)
+REVERSAL_P = 0.45     # modelin guncel yukari olasiligi bunun altina dustuyse sat (sinyal tersine dondu)
 
 # Alpaca'da islem gorebilen varliklarimiz (ABD borsalari)
 TRADEABLE = {
@@ -96,8 +101,10 @@ def _tdays_since(datestr: str) -> int:
         return 0
 
 
-def run_paper(preds: pd.DataFrame, met: pd.DataFrame, log=print, skip=None) -> dict | None:
+def run_paper(preds: pd.DataFrame, met: pd.DataFrame, log=print, skip=None, bad_news=None) -> dict | None:
     skip = skip or set()
+    bad_news = bad_news or set()
+    decisions = []  # karar gunlugu: pano "neden" sutunu
     if not _hdr()["APCA-API-KEY-ID"]:
         log("   paper: anahtar yok, atlandi")
         return None
@@ -129,16 +136,37 @@ def run_paper(preds: pd.DataFrame, met: pd.DataFrame, log=print, skip=None) -> d
                 if sym not in positions and _tdays_since(st["positions"][sym].get("entry", "")) >= 3:
                     st["positions"].pop(sym, None)
                     log(f"   paper: {sym} emri dolmamis, kayit temizlendi")
+            # --- 1b) POZISYON GOZDEN GECIRME: her acik pozisyon icin sat/tut karari + gerekce ---
+            p_now = preds.set_index("asset")["p_up"].to_dict()
             for sym in list(positions):
                 entry = st["positions"].get(sym, {}).get("entry")
-                if entry and _tdays_since(entry) >= HOLD_TDAYS:
+                days = _tdays_since(entry) if entry else 0
+                plpc = float(positions[sym].get("unrealized_plpc") or 0)
+                p = p_now.get(sym)
+                p_txt = f"guven %{100*p:.0f}" if p is not None else "guven ?"
+                reason = None
+                if entry and days >= HOLD_TDAYS:
+                    reason = f"{HOLD_TDAYS} gun doldu"
+                elif plpc <= STOP_LOSS:
+                    reason = f"zarar durdur ({100*plpc:+.1f}%)"
+                elif p is not None and p < REVERSAL_P:
+                    reason = f"sinyal tersine dondu ({p_txt})"
+                elif sym in skip and sym in (bad_news or set()):
+                    reason = "kotu haber akisi"
+                elif plpc >= TAKE_PROFIT and (p is None or p < 0.55):
+                    reason = f"kar al ({100*plpc:+.1f}%, {p_txt})"
+                if reason:
                     try:
                         _api("POST", "/v2/orders", json={"symbol": sym, "qty": positions[sym]["qty"],
                              "side": "sell", "type": "market", "time_in_force": "day"})
-                        orders_yapilan.append(f"SAT {sym} ({HOLD_TDAYS} gun doldu)")
+                        orders_yapilan.append(f"SAT {sym} ({reason})")
+                        decisions.append(dict(sym=sym, action="SAT", why=reason, plpc=plpc, days=days, p=p))
                         st["positions"].pop(sym, None)
                     except Exception as e:
                         log(f"   paper satis hatasi {sym}: {type(e).__name__}")
+                else:
+                    why = f"{p_txt}, {100*plpc:+.1f}%, {days}/{HOLD_TDAYS} gun"
+                    decisions.append(dict(sym=sym, action="TUT", why=why, plpc=plpc, days=days, p=p))
 
             # --- 2) yeni sinyalleri al ---
             met_idx = met.set_index("asset")
@@ -189,6 +217,8 @@ def run_paper(preds: pd.DataFrame, met: pd.DataFrame, log=print, skip=None) -> d
                          "side": "buy", "type": "market", "time_in_force": "day"})
                     st["positions"][a] = {"entry": str(pd.Timestamp.today().date())}
                     orders_yapilan.append(f"AL {qty}x {a} (guven %{100*r['p_up']:.0f}, boyut %{100*frac:.0f})")
+                    decisions.append(dict(sym=a, action="AL", why=f"guven %{100*r['p_up']:.0f}, boyut %{100*frac:.0f}, {qty} adet",
+                                          plpc=0.0, days=0, p=float(r["p_up"])))
                     slots -= 1
                     cash_left -= qty * float(r["close"])
                 except Exception as e:
@@ -205,7 +235,9 @@ def run_paper(preds: pd.DataFrame, met: pd.DataFrame, log=print, skip=None) -> d
                            "pnl_pct": float(p.get("unrealized_plpc") or 0)}
                           for s, p in positions.items()],
             "orders": orders_yapilan,
+            "decisions": decisions,
             "asof": str(pd.Timestamp.today().date()),
+            "asof_utc": pd.Timestamp.now("UTC").strftime("%Y-%m-%d %H:%M UTC"),
         }
         os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
         json.dump(out, open(OUT_PATH, "w"), ensure_ascii=False)
