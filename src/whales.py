@@ -47,10 +47,35 @@ def latest_13f_list(cik: int):
     return name, out[:2]  # en yeni iki dosyalama
 
 
+def _parse_infotable_regex(xml: str) -> dict:
+    """XML cozumleyici (onek/namespace sorunlari) basarisiz olursa: duz metin desenleriyle oku."""
+    holdings = {}
+    def _tag(block, name):
+        m = re.search(rf"<(?:[\w\-]+:)?{name}[^>]*>\s*([^<]*?)\s*</(?:[\w\-]+:)?{name}>", block, flags=re.I)
+        return m.group(1).strip() if m else ""
+    for blk in re.findall(r"<(?:[\w\-]+:)?infoTable[^>]*>(.*?)</(?:[\w\-]+:)?infoTable>", xml, flags=re.S | re.I):
+        if _tag(blk, "putCall"):
+            continue
+        cusip, name, val = _tag(blk, "cusip"), _tag(blk, "nameOfIssuer"), _tag(blk, "value")
+        try:
+            val = float(val.replace(",", ""))
+        except ValueError:
+            continue
+        if cusip:
+            h = holdings.setdefault(cusip, {"name": name.title(), "value": 0.0})
+            h["value"] += val
+    return holdings
+
+
 def _parse_infotable(xml: str) -> dict:
-    xml = re.sub(r'\sxmlns(:\w+)?="[^"]+"', "", xml)  # TUM namespace'leri at
-    xml = re.sub(r'<(/?)\w+:', r'<\1', xml)           # ns1: gibi onekleri at
-    root = ET.fromstring(xml)
+    xml = xml.lstrip("\ufeff \r\n\t")
+    xml = re.sub(r'\sxmlns(:[\w\-]+)?="[^"]*"', "", xml)   # TUM namespace bildirimlerini at
+    xml = re.sub(r'\s[\w\-]+:[\w\-]+="[^"]*"', "", xml)  # xsi:schemaLocation gibi onekli ozellikleri at
+    xml = re.sub(r'<(/?)[\w\-]+:', r'<\1', xml)            # ns1: gibi etiket oneklerini at
+    try:
+        root = ET.fromstring(xml)
+    except ET.ParseError:
+        return _parse_infotable_regex(xml)
     holdings = {}
     for it in root.iter():
         if not it.tag.endswith("infoTable"):
