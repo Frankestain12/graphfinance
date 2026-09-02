@@ -1,0 +1,47 @@
+name: GraphFinance haber (saatlik)
+
+on:
+  schedule:
+    - cron: "37 * * * *"   # her saat :37 — hafif haber koşusu
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: graphfinance-commit
+  cancel-in-progress: false
+
+jobs:
+  news:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Bağımlılıklar
+        run: pip install -r requirements.txt
+
+      - name: Haber koşusu
+        env:
+          ALPACA_KEY_ID: ${{ secrets.ALPACA_KEY_ID }}
+          ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+        run: |
+          mkdir -p reports data_store
+          set -o pipefail
+          python src/run_news.py 2>&1 | tee reports/last_news_run.log
+
+      - name: Çıktıları commit'le
+        if: always()
+        run: |
+          git config user.name "graphfinance-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data_store docs reports
+          git commit -m "haber kosusu $(date -u +%FT%H:%M)" || echo "değişiklik yok"
+          git pull --rebase origin main || true
+          git push
