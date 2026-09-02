@@ -82,7 +82,7 @@ def fetch_holdings(cik: int, acc: str) -> dict:
     for cand in cands:
         try:
             xml = _get(f"https://www.sec.gov/Archives/edgar/data/{cik}/{accn}/{cand}").text
-            if "<infoTable" not in xml and ":infoTable" not in xml:
+            if "infotable" not in xml.lower():
                 continue
             h = _parse_infotable(xml)
             if h:
@@ -90,7 +90,17 @@ def fetch_holdings(cik: int, acc: str) -> dict:
         except Exception as e:
             last_err = e
             continue
-    raise ValueError(f"infotable cozulemedi ({type(last_err).__name__ if last_err else 'aday yok'})")
+    # son care: tam dosyalama metni (.txt) icindeki <XML> bloklari
+    try:
+        txt = _get(f"https://www.sec.gov/Archives/edgar/data/{cik}/{accn}/{acc}.txt").text
+        for blk in re.findall(r"<XML>(.*?)</XML>", txt, flags=re.S | re.I):
+            if "infotable" in blk.lower():
+                h = _parse_infotable(blk.strip())
+                if h:
+                    return h
+    except Exception as e:
+        last_err = e
+    raise ValueError(f"infotable cozulemedi ({len(cands)} aday; son hata: {type(last_err).__name__ if last_err else 'yok'}: {str(last_err)[:80]})")
 
 
 def summarize(cur: dict, prev: dict | None):
@@ -141,7 +151,7 @@ def build_whales(log=print) -> list:
                 out.append(cache[cik])
                 log(f"  balina {display}: guncellenemedi ({type(e).__name__}), onbellek")
             else:
-                log(f"  ! balina {display}: {type(e).__name__}")
+                log(f"  ! balina {display}: {type(e).__name__} {str(e)[:110]}")
     if out:
         os.makedirs(os.path.dirname(CACHE), exist_ok=True)
         json.dump(out, open(CACHE, "w"), ensure_ascii=False)
