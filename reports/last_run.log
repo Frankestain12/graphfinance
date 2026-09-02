@@ -35,24 +35,24 @@
   ! olay evt_tariff: ReadTimeout
    olay radari: 4 tema, 3532 gun
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 829 yeni baslik, onbellek 8149 varlik-gun
-   toplam 73 varlik, 246849 satir
+   haber akisi: 230 yeni baslik, onbellek 8151 varlik-gun
+   toplam 73 varlik, 246858 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-09, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
-   bekci ASKI: ['AMZN', 'ETH', 'GOOGL', 'XAUUSD']
+   bekci ASKI: ['AMZN', 'ETH', 'GOOGL', 'KCHOL', 'XAUUSD']
    bekci SOGUMA: ['SOL', 'XRP', 'XU100']
-   defter: 780 tahmin, 531 cozuldu, gercek isabet 57.8%
+   defter: 780 tahmin, 540 cozuldu, gercek isabet 57.0%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
    bilancoya yakin (4 gun): ['AVGO']
 4.6/5 paper trading...
-   paper: hesap $100,031 | 2 pozisyon | 4 emir
+   paper: hesap $100,057 | 2 pozisyon | 0 emir
 4.7/5 balina takibi...
   ! balina Pershing Square — Bill Ackman: ValueError infotable cozulemedi (2 aday; son hata: ParseError: unbound prefix: line 2, column 0)
   ! balina Duquesne Family Office — Stanley Druckenmiller: ValueError infotable cozulemedi (2 aday; son hata: ParseError: unbound prefix: line 2, column 0)
   ! balina Scion Asset Management — Michael Burry: ValueError infotable cozulemedi (2 aday; son hata: ParseError: unbound prefix: line 2, column 0)
    balina takibi: 3 fon
 5/5 pano...
-bitti — 926s
+bitti — 642s
