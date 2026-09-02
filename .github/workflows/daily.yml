@@ -4,8 +4,9 @@ on:
   schedule:
     - cron: "23 3 * * *"   # 06:23 TR — sabah ana çalıştırma
     - cron: "23 5 * * *"   # 08:23 TR — yedek tetik
+    - cron: "50 13 * * 1-5" # 16:50 TR — ABD açılışı: dolan emirler + pozisyon gözden geçirme
     - cron: "23 15 * * *"  # 18:23 TR — BIST kapanışı sonrası tazeleme
-    - cron: "23 20 * * *"  # 23:23 TR — ABD kapanışı sonrası tazeleme
+    - cron: "23 20 * * *"  # 23:23 TR — ABD kapanışı sonrası: gün sonu gözden geçirme
   workflow_dispatch: {}
 
 permissions:
