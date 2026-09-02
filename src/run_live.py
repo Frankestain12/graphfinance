@@ -105,6 +105,14 @@ def main():
         news_daily, news_latest = update_news()
         news_feats = news_features(news_daily)
         bad_news = bad_news_assets(news_latest)
+        bn_path = os.path.join(STORE, "bad_news.json")
+        if os.path.exists(bn_path):  # saatlik kosunun daha taze filtresi
+            try:
+                bj = json.load(open(bn_path))
+                if (pd.Timestamp.now('UTC') - pd.Timestamp(bj["asof"])).total_seconds() < 6 * 3600:
+                    bad_news |= set(bj.get("bad_news", []))
+            except Exception:
+                pass
         if bad_news:
             print(f"   kotu haber filtresi: {sorted(bad_news)}")
     except Exception as e:
@@ -287,6 +295,15 @@ def main():
     ut = panel[panel["asset"] == "USDTRY"]
     if len(ut):
         usdtry_last = float(ut.sort_values("date")["close"].iloc[-1])
+    # saatlik haber kosusu (run_news.py) panoyu yeniden kurabilsin diye durum kaydi
+    try:
+        json.dump({"yorum": yorum, "usdtry": usdtry_last,
+                   "suspended": sorted(suspended), "cooldown": sorted(cooldown),
+                   "heat": heat, "book": book, "earnings_soon": sorted(earnings_soon),
+                   "whales": whale_list, "paper": paper, "asof": str(date.today())},
+                  open(os.path.join(REP, "dash_state.json"), "w"), ensure_ascii=False, default=str)
+    except Exception as e:
+        print(f"   ! pano durumu kaydedilemedi: {type(e).__name__}")
     html = BD.build(met, preds, oos, imp, extra_names=ASSET_NAMES_LIVE, led=led,
                     yorum=yorum, income=income_df, usdtry=usdtry_last,
                     whales=whale_list, paper=paper,
