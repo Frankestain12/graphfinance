@@ -73,6 +73,16 @@ def _fetch_symbol(sym: str, start: str, log=print, max_pages: int = 120) -> list
     return out
 
 
+def _typed(df: pd.DataFrame) -> pd.DataFrame:
+    """Bos onbellekten concat sonrasi object dtype kalmasin (ilk calismada TypeError)."""
+    df = df.copy()
+    df["date"] = pd.to_datetime(df["date"])
+    df["asset"] = df["asset"].astype(str)
+    df["cnt"] = pd.to_numeric(df["cnt"], errors="coerce").fillna(0).astype(float)
+    df["sent"] = pd.to_numeric(df["sent"], errors="coerce").fillna(0.0).astype(float)
+    return df
+
+
 def update_news(log=print) -> tuple[pd.DataFrame, dict]:
     """Önbelleği günceller; (gunluk_ozet_df, son_basliklar) döndürür."""
     cache = pd.read_csv(CACHE, parse_dates=["date"]) if os.path.exists(CACHE) else \
@@ -98,8 +108,9 @@ def update_news(log=print) -> tuple[pd.DataFrame, dict]:
     if rows:
         new = pd.DataFrame(rows)
         agg = new.groupby(["date", "asset"]).agg(cnt=("sent", "size"), sent=("sent", "mean")).reset_index()
-        cache = pd.concat([cache, agg], ignore_index=True)
+        cache = pd.concat([cache, agg], ignore_index=True) if len(cache) else agg
         cache = cache.drop_duplicates(["date", "asset"], keep="last").sort_values(["asset", "date"])
+        cache = _typed(cache)
         os.makedirs(os.path.dirname(CACHE), exist_ok=True)
         cache.to_csv(CACHE, index=False)
         cutoff = pd.Timestamp.today().normalize() - pd.Timedelta(days=1)
@@ -117,6 +128,7 @@ def news_features(daily: pd.DataFrame) -> pd.DataFrame:
     """(date, asset) indeksli özellikler. Boş DataFrame olabilir."""
     if daily is None or daily.empty:
         return pd.DataFrame(columns=["date", "asset"] + NEWS_FEATS)
+    daily = _typed(daily)
     out = []
     for a, g in daily.groupby("asset"):
         s = g.set_index("date")[["cnt", "sent"]].sort_index()
