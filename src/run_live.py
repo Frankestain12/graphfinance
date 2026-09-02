@@ -263,7 +263,7 @@ def main():
     try:
         from paper_trade import run_paper
         paper = run_paper(preds, pd.read_csv(met_path),
-                          skip=suspended | cooldown | earnings_soon | bad_news)
+                          skip=suspended | cooldown | earnings_soon | bad_news, bad_news=bad_news)
     except Exception as e:
         print(f"   ! paper modulu atlandi: {type(e).__name__}")
 
