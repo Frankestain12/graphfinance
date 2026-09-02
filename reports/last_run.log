@@ -31,32 +31,31 @@
   ! BNB: canli kripto yok (tum kaynaklar engelli)
    mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
-  ! olay evt_sanction: ReadTimeout
-  ! olay evt_tariff: ConnectTimeout
-  ! olay evt_oil: ConnectTimeout
-   olay radari: 3 tema, 3531 gun
+  olay evt_iran: guncellenemedi (ConnectTimeout), onbellek
+  ! olay evt_sanction: ConnectTimeout
+  ! olay evt_tariff: ReadTimeout
+  olay evt_fed: guncellenemedi (HTTPError), onbellek
+  ! olay evt_oil: HTTPError
+   olay radari: 3 tema, 3532 gun
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 16469 yeni baslik, onbellek 7907 varlik-gun
-   toplam 73 varlik, 246816 satir
-2/5 AYLIK dogrulama: sampiyon/rakip A/B testi...
-   base: ort.AUC=0.4981  guvenli-isabet=0.5375  (24 ozellik)
-   ext: ort.AUC=0.5168  guvenli-isabet=0.5513  (54 ozellik)
-   SAMPIYON: ext
+   haber akisi: 6241 yeni baslik, onbellek 8125 varlik-gun
+   toplam 73 varlik, 246818 satir
+2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-09, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
    bekci ASKI: ['AMZN', 'ETH', 'GOOGL', 'XAUUSD']
-   bekci SOGUMA: ['XRP']
-   defter: 760 tahmin, 508 cozuldu, gercek isabet 60.2%
+   bekci SOGUMA: ['SOL', 'XRP']
+   defter: 780 tahmin, 516 cozuldu, gercek isabet 59.3%
 4.5/5 temettu radari...
-   temettu radari: 19 varlik
+   temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
    bilancoya yakin (4 gun): ['AVGO']
 4.6/5 paper trading...
-   paper: hesap $100,274 | 2 pozisyon | 3 emir
+   paper: hesap $100,031 | 2 pozisyon | 1 emir
 4.7/5 balina takibi...
   ! balina Pershing Square — Bill Ackman: ValueError
   ! balina Duquesne Family Office — Stanley Druckenmiller: ValueError
   ! balina Scion Asset Management — Michael Burry: ValueError
    balina takibi: 3 fon
 5/5 pano...
-bitti — 684s
+bitti — 414s
