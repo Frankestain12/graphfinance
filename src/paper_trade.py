@@ -26,7 +26,7 @@ OUT_PATH = os.path.join(ROOT, "reports", "paper.json")
 SLICE = 0.18          # (eski sabit dilim — artik referans; asil boyut asagida)
 MAX_POS = 5
 RISK_PER_POS = 0.012  # hedef: pozisyon basina gunluk ~%1,2 portfoy oynakligi
-SLICE_MIN, SLICE_MAX = 0.06, 0.25
+SLICE_MIN, SLICE_MAX = 0.06, 0.20  # 5 x %20 = %100, marj yok
 CLUSTERS = {  # korelasyon tavani: kume basina en fazla 2 pozisyon
     "yari_iletken": {"NVDA", "AVGO", "VRT"},
     "mega_tek": {"AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA"},
@@ -125,6 +125,10 @@ def run_paper(preds: pd.DataFrame, met: pd.DataFrame, log=print, skip=None) -> d
             st["halted"] = True
         else:
             # --- 1) suresi dolan pozisyonlari sat ---
+            for sym in list(st["positions"]):  # dolmamis/iptal olmus emir kalintilarini temizle (3 is gunu)
+                if sym not in positions and _tdays_since(st["positions"][sym].get("entry", "")) >= 3:
+                    st["positions"].pop(sym, None)
+                    log(f"   paper: {sym} emri dolmamis, kayit temizlendi")
             for sym in list(positions):
                 entry = st["positions"].get(sym, {}).get("entry")
                 if entry and _tdays_since(entry) >= HOLD_TDAYS:
@@ -138,7 +142,30 @@ def run_paper(preds: pd.DataFrame, met: pd.DataFrame, log=print, skip=None) -> d
 
             # --- 2) yeni sinyalleri al ---
             met_idx = met.set_index("asset")
-            slots = MAX_POS - len(positions)
+            # bekleyen (henuz dolmamis) emirler de slot sayar: kapali piyasada verilen gunluk emirler acilista dolar
+            # acik (dolmamis) emirler: slot sayar, nakitten duser; fazlasi iptal (marja dusmemek icin)
+            try:
+                open_orders = [o for o in _api("GET", "/v2/orders", params={"status": "open", "limit": 100})
+                               if o.get("side") == "buy"]
+            except Exception:
+                open_orders = []
+            open_orders.sort(key=lambda o: o.get("submitted_at", ""))  # eski once
+            cash_left = float(acct.get("cash") or 0)
+            keep = []
+            for o in open_orders:
+                notional = float(o.get("qty") or 0) * float(o.get("limit_price") or preds.set_index("asset")["close"].get(o["symbol"], 0) or 0)
+                if len(positions) + len(keep) < MAX_POS and notional <= cash_left:
+                    keep.append(o["symbol"])
+                    cash_left -= notional
+                else:
+                    try:
+                        _api("DELETE", f"/v2/orders/{o['id']}")
+                        st["positions"].pop(o["symbol"], None)
+                        orders_yapilan.append(f"IPTAL {o['symbol']} (slot/nakit asimi)")
+                    except Exception as e:
+                        log(f"   paper iptal hatasi {o['symbol']}: {type(e).__name__}")
+            held = set(positions) | set(keep)
+            slots = MAX_POS - len(held)
             for _, r in preds.sort_values("p_up", ascending=False).iterrows():
                 if slots <= 0:
                     break
@@ -153,7 +180,8 @@ def run_paper(preds: pd.DataFrame, met: pd.DataFrame, log=print, skip=None) -> d
                 if cl and sum(1 for s in list(positions) + list(st["positions"]) if _cluster_of(s) == cl) >= MAX_PER_CLUSTER:
                     continue
                 frac = position_fraction(r["p_up"], r.get("vol21", 0.02))
-                qty = int((equity * frac) // float(r["close"]))
+                budget = min(equity * frac, cash_left * 0.98)
+                qty = int(budget // float(r["close"]))
                 if qty < 1:
                     continue
                 try:
@@ -162,6 +190,7 @@ def run_paper(preds: pd.DataFrame, met: pd.DataFrame, log=print, skip=None) -> d
                     st["positions"][a] = {"entry": str(pd.Timestamp.today().date())}
                     orders_yapilan.append(f"AL {qty}x {a} (guven %{100*r['p_up']:.0f}, boyut %{100*frac:.0f})")
                     slots -= 1
+                    cash_left -= qty * float(r["close"])
                 except Exception as e:
                     log(f"   paper alis hatasi {a}: {type(e).__name__}")
 
