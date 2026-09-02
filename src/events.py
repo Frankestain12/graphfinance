@@ -51,40 +51,41 @@ PLAYBOOK_ASSETS = ["WTI", "BRENT", "XAUUSD", "SPY", "QQQ", "BTC", "USDTRY", "EUR
                    "EWZ", "MCHI", "XLE", "GLD", "SLV", "URA", "COPX", "LIT", "XLU"]
 
 
-def _timeline_once(query: str, start: str, end: str, tries: int = 3) -> pd.Series:
+GDELT_BUDGET_S = 240      # kosu basina GDELT'e ayrilan toplam sure (asilirsa kalan kisim sonraki kosuya)
+CHUNK_DAYS = 730          # GDELT uzun araliklarda zaman asimina ugrar -> 2 yillik parcalar
+HIST_START = pd.Timestamp("2017-01-01")
+
+
+def _timeline_once(query: str, start: pd.Timestamp, end: pd.Timestamp, tries: int = 2) -> pd.Series:
     last = None
     for k in range(tries):
         try:
             r = requests.get(GDELT, params={"query": query, "mode": "timelinevol", "format": "json",
-                                            "startdatetime": start, "enddatetime": end},
-                             headers=H, timeout=(20, 150))
+                                            "startdatetime": start.strftime("%Y%m%d000000"),
+                                            "enddatetime": end.strftime("%Y%m%d235959")},
+                             headers=H, timeout=(10, 45))
             r.raise_for_status()
             data = r.json().get("timeline", [{}])[0].get("data", [])
             s = pd.Series({pd.to_datetime(d["date"][:8]): float(d["value"]) for d in data})
             return s.groupby(s.index).mean().sort_index()
-        except Exception as e:  # GDELT sik sik yavaslar: bekle, tekrar dene
+        except Exception as e:  # GDELT sik sik yavaslar: kisa bekle, bir kez daha dene
             last = e
-            time.sleep(5 * (k + 1))
+            time.sleep(3)
     raise last
 
 
-def _timeline(query: str, start: str, end: str) -> pd.Series:
-    """Uzun araliklar GDELT'te zaman asimina ugrar -> 2 yillik parcalara bol."""
-    s0, e0 = pd.Timestamp(start[:8]), pd.Timestamp(end[:8])
-    if (e0 - s0).days <= 800:
-        return _timeline_once(query, start, end)
-    parts, cur = [], s0
-    while cur < e0:
-        nxt = min(cur + pd.Timedelta(days=730), e0)
-        parts.append(_timeline_once(query, cur.strftime("%Y%m%d000000"), nxt.strftime("%Y%m%d235959")))
-        cur = nxt + pd.Timedelta(days=1)
-        time.sleep(1.5)
-    s = pd.concat(parts)
+def _merge(a: pd.Series | None, b: pd.Series) -> pd.Series:
+    s = b if a is None or a.empty else pd.concat([a, b])
     return s[~s.index.duplicated(keep="last")].sort_index()
 
 
 def load_event_features(log=print) -> pd.DataFrame:
-    """Tarih indeksli DataFrame: EVENT_FEATS sütunları (z-skor, 90g). Boş olabilir."""
+    """Tarih indeksli DataFrame: EVENT_FEATS sütunları (z-skor, 90g). Boş olabilir.
+
+    Strateji (kosu basina GDELT_BUDGET_S saniye): her tema icin once SON 12 gun (canli isi),
+    sonra butce kaldikca en yeni eksik 2 yillik parcadan geriye dogru doldurma. Her parca
+    hemen onbellege yazilir; yarim kalan gecmis bir sonraki kosuda kaldigi yerden devam eder.
+    """
     cache = None
     if os.path.exists(CACHE):
         try:
@@ -92,35 +93,48 @@ def load_event_features(log=print) -> pd.DataFrame:
         except Exception:
             cache = None
     today = pd.Timestamp.today().normalize()
-    end = today.strftime("%Y%m%d%H%M%S")
-    raw = {}
+    t0 = time.time()
+    raw = {f: (cache[f].dropna() if cache is not None and f in cache.columns else pd.Series(dtype=float))
+           for f in THEMES}
+    budget_left = lambda: time.time() - t0 < GDELT_BUDGET_S
+    # 1) canli isi: son 12 gun (her tema)
     for feat, (q, _tr) in THEMES.items():
+        if not budget_left():
+            break
         try:
-            if cache is not None and feat in cache.columns and cache[feat].notna().sum() > 500:
-                start = (today - pd.Timedelta(days=12)).strftime("%Y%m%d%H%M%S")
-                s_new = _timeline(q, start, end)
-                s = pd.concat([cache[feat].dropna(), s_new])
-                s = s[~s.index.duplicated(keep="last")].sort_index()
-            else:
-                s = _timeline(q, "20170101000000", end)  # tam geriye doldurma
-            raw[feat] = s
-            time.sleep(1.2)  # GDELT nezaket
+            raw[feat] = _merge(raw[feat], _timeline_once(q, today - pd.Timedelta(days=12), today))
+            time.sleep(1.0)
         except Exception as e:
-            if cache is not None and feat in cache.columns:
-                raw[feat] = cache[feat].dropna()
-                log(f"  olay {feat}: guncellenemedi ({type(e).__name__}), onbellek")
-            else:
-                log(f"  ! olay {feat}: {type(e).__name__}")
+            log(f"  olay {feat}: guncel isi alinamadi ({type(e).__name__})")
+    # 2) gecmis: eksik en yeni parcadan geriye (butce bitene kadar, tema basina en fazla 2 parca)
+    for feat, (q, _tr) in THEMES.items():
+        for _ in range(2):
+            if not budget_left():
+                break
+            have = raw[feat]
+            oldest = have.index.min() if len(have) else today - pd.Timedelta(days=12)
+            if oldest <= HIST_START + pd.Timedelta(days=3):
+                break  # tarih tamam
+            c_end = oldest - pd.Timedelta(days=1)
+            c_start = max(HIST_START, c_end - pd.Timedelta(days=CHUNK_DAYS))
+            try:
+                raw[feat] = _merge(raw[feat], _timeline_once(q, c_start, c_end))
+                log(f"  olay {feat}: gecmis {c_start.date()}..{c_end.date()} dolduruldu")
+                time.sleep(1.5)
+            except Exception as e:
+                log(f"  olay {feat}: gecmis parcasi alinamadi ({type(e).__name__}), sonraki kosuda")
+                break
+    raw = {f: s for f, s in raw.items() if len(s)}
     if not raw:
         return pd.DataFrame()
     df = pd.DataFrame(raw).sort_index()
     df = df.asfreq("D").ffill(limit=3)
     os.makedirs(os.path.dirname(CACHE), exist_ok=True)
     df.to_csv(CACHE)
-    # z-skor: log-yogunluk, 90 gunluk pencere
     lg = np.log(df + 1e-4)
     z = (lg - lg.rolling(90, min_periods=30).mean()) / lg.rolling(90, min_periods=30).std()
-    log(f"   olay radari: {len(df.columns)} tema, {len(df)} gun")
+    full = sum(1 for f, s in raw.items() if s.index.min() <= HIST_START + pd.Timedelta(days=3))
+    log(f"   olay radari: {len(df.columns)} tema ({full} tam gecmis), {len(df)} gun, {time.time()-t0:.0f}s")
     return z.clip(-4, 4)
 
 
