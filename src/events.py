@@ -51,13 +51,36 @@ PLAYBOOK_ASSETS = ["WTI", "BRENT", "XAUUSD", "SPY", "QQQ", "BTC", "USDTRY", "EUR
                    "EWZ", "MCHI", "XLE", "GLD", "SLV", "URA", "COPX", "LIT", "XLU"]
 
 
+def _timeline_once(query: str, start: str, end: str, tries: int = 3) -> pd.Series:
+    last = None
+    for k in range(tries):
+        try:
+            r = requests.get(GDELT, params={"query": query, "mode": "timelinevol", "format": "json",
+                                            "startdatetime": start, "enddatetime": end},
+                             headers=H, timeout=(20, 150))
+            r.raise_for_status()
+            data = r.json().get("timeline", [{}])[0].get("data", [])
+            s = pd.Series({pd.to_datetime(d["date"][:8]): float(d["value"]) for d in data})
+            return s.groupby(s.index).mean().sort_index()
+        except Exception as e:  # GDELT sik sik yavaslar: bekle, tekrar dene
+            last = e
+            time.sleep(5 * (k + 1))
+    raise last
+
+
 def _timeline(query: str, start: str, end: str) -> pd.Series:
-    r = requests.get(GDELT, params={"query": query, "mode": "timelinevol", "format": "json",
-                                    "startdatetime": start, "enddatetime": end}, headers=H, timeout=60)
-    r.raise_for_status()
-    data = r.json().get("timeline", [{}])[0].get("data", [])
-    s = pd.Series({pd.to_datetime(d["date"][:8]): float(d["value"]) for d in data})
-    return s.groupby(s.index).mean().sort_index()
+    """Uzun araliklar GDELT'te zaman asimina ugrar -> 2 yillik parcalara bol."""
+    s0, e0 = pd.Timestamp(start[:8]), pd.Timestamp(end[:8])
+    if (e0 - s0).days <= 800:
+        return _timeline_once(query, start, end)
+    parts, cur = [], s0
+    while cur < e0:
+        nxt = min(cur + pd.Timedelta(days=730), e0)
+        parts.append(_timeline_once(query, cur.strftime("%Y%m%d000000"), nxt.strftime("%Y%m%d235959")))
+        cur = nxt + pd.Timedelta(days=1)
+        time.sleep(1.5)
+    s = pd.concat(parts)
+    return s[~s.index.duplicated(keep="last")].sort_index()
 
 
 def load_event_features(log=print) -> pd.DataFrame:
