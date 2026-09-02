@@ -336,6 +336,15 @@ def paper_card(paper, extra_names):
     orders = paper.get("orders", [])
     orders_html = (f'<div class="sub" style="margin-top:8px">Bu çalıştırmanın emirleri: '
                    f'{" · ".join(orders)}</div>') if orders else ""
+    dec = paper.get("decisions", [])
+    if dec:
+        col = {"AL": "var(--good-text)", "SAT": "var(--neg)", "TUT": "var(--muted)"}
+        rows = "".join(f'<tr><td><b style="color:{col.get(d["action"], "inherit")}">{d["action"]}</b></td>'
+                       f'<td><span class="aname">{aname(d["sym"], extra_names)[0]}</span></td>'
+                       f'<td class="sub">{d["why"]}</td></tr>' for d in dec)
+        orders_html += (f'<div style="overflow-x:auto;margin-top:10px"><div class="sub" style="font-weight:600;margin-bottom:4px">'
+                        f'Karar günlüğü ({paper.get("asof_utc", paper["asof"])})</div>'
+                        f'<table><thead><tr><th>Karar</th><th>Varlık</th><th>Gerekçe</th></tr></thead><tbody>{rows}</tbody></table></div>')
     return f"""<div class="card" style="margin-bottom:18px">
   <h2>Paper Trading Hesabı <span style="font-weight:400;color:var(--muted);font-size:12px">(Alpaca — sahte para, gerçek borsa emirleri)</span></h2>
   <div style="display:flex;align-items:baseline;gap:14px;margin:6px 0 2px">
@@ -344,7 +353,7 @@ def paper_card(paper, extra_names):
     <span class="sub">başlangıç: ${tr_num(paper["start_equity"],0)} · {paper["asof"]}</span>
   </div>
   {halted}{pos_html}{orders_html}
-  <div class="sub" style="margin-top:8px">Kurallar: kenarlı + güven &gt; %55 yukarı sinyalleri · maks 5 pozisyon · 5 işlem günü tutma · %10 düşüşte tam durdurma. Gerçek para değildir; sistemin canlı sınavıdır.</div>
+  <div class="sub" style="margin-top:8px">Kurallar: kenarlı + güven &gt; %55 yukarı sinyalleri · maks 5 pozisyon, nakit sınırı · her koşuda gözden geçirme: 5 gün doldu / %4 zarar durdur / sinyal &lt;%45 tersine döndü / kötü haber / %6 kâr al → sat · %10 düşüşte tam durdurma. Gerçek para değildir; sistemin canlı sınavıdır.</div>
 </div>"""
 
 
