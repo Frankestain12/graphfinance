@@ -31,28 +31,31 @@
   ! BNB: canli kripto yok (tum kaynaklar engelli)
    mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
+  olay evt_iran: guncellenemedi (ReadTimeout), onbellek
+  olay evt_china: guncellenemedi (ReadTimeout), onbellek
   ! olay evt_sanction: ConnectTimeout
   ! olay evt_tariff: ReadTimeout
+  olay evt_fed: guncellenemedi (ConnectTimeout), onbellek
    olay radari: 4 tema, 3532 gun
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 230 yeni baslik, onbellek 8151 varlik-gun
-   toplam 73 varlik, 246858 satir
+   haber akisi: 260 yeni baslik, onbellek 8156 varlik-gun
+   toplam 73 varlik, 246900 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-09, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
    bekci ASKI: ['AMZN', 'ETH', 'GOOGL', 'KCHOL', 'XAUUSD']
    bekci SOGUMA: ['SOL', 'XRP', 'XU100']
-   defter: 780 tahmin, 540 cozuldu, gercek isabet 57.0%
+   defter: 824 tahmin, 561 cozuldu, gercek isabet 56.5%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
    bilancoya yakin (4 gun): ['AVGO']
 4.6/5 paper trading...
-   paper: hesap $100,057 | 2 pozisyon | 0 emir
+   paper: hesap $100,219 | 5 pozisyon | 0 emir
 4.7/5 balina takibi...
-  ! balina Pershing Square — Bill Ackman: ValueError infotable cozulemedi (2 aday; son hata: ParseError: unbound prefix: line 2, column 0)
-  ! balina Duquesne Family Office — Stanley Druckenmiller: ValueError infotable cozulemedi (2 aday; son hata: ParseError: unbound prefix: line 2, column 0)
-  ! balina Scion Asset Management — Michael Burry: ValueError infotable cozulemedi (2 aday; son hata: ParseError: unbound prefix: line 2, column 0)
-   balina takibi: 3 fon
+  balina Pershing Square — Bill Ackman: 2026-03-31 donemi, 11 pozisyon
+  balina Duquesne Family Office — Stanley Druckenmiller: 2026-06-30 donemi, 86 pozisyon
+  balina Scion Asset Management — Michael Burry: 2025-09-30 donemi, 4 pozisyon
+   balina takibi: 6 fon
 5/5 pano...
-bitti — 642s
+bitti — 594s
