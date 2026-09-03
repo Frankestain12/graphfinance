@@ -32,30 +32,30 @@
    mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
   olay evt_iran: guncel isi alinamadi (ReadTimeout)
-  olay evt_china: guncel isi alinamadi (ConnectTimeout)
+  olay evt_china: guncel isi alinamadi (ReadTimeout)
   olay evt_sanction: guncel isi alinamadi (ConnectTimeout)
   olay evt_tariff: guncel isi alinamadi (ReadTimeout)
-  olay evt_fed: guncel isi alinamadi (ConnectTimeout)
+  olay evt_fed: guncel isi alinamadi (ReadTimeout)
   olay evt_oil: guncel isi alinamadi (ReadTimeout)
   olay evt_sanction: gecmis parcasi alinamadi (ConnectTimeout), sonraki kosuda
-  olay evt_tariff: gecmis parcasi alinamadi (ConnectTimeout), sonraki kosuda
-   olay radari: 4 tema (4 tam gecmis), 3532 gun, 219s
+  olay evt_tariff: gecmis parcasi alinamadi (ReadTimeout), sonraki kosuda
+   olay radari: 4 tema (4 tam gecmis), 3532 gun, 241s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 319 yeni baslik, onbellek 8170 varlik-gun
-   toplam 73 varlik, 246891 satir
+   haber akisi: 332 yeni baslik, onbellek 8170 varlik-gun
+   toplam 73 varlik, 246922 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-09, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
-   bekci ASKI: ['AMZN', 'BIMAS', 'ETH', 'GOOGL', 'KCHOL', 'SISE', 'THYAO', 'XAUUSD']
+   bekci ASKI: ['AMZN', 'BIMAS', 'ETH', 'EWG', 'EWQ', 'EWU', 'EWY', 'GOOGL', 'KCHOL', 'MCHI', 'O', 'SISE', 'THYAO', 'XAUUSD']
    bekci SOGUMA: ['ASELS', 'SOL', 'XRP', 'XU100']
-   defter: 891 tahmin, 591 cozuldu, gercek isabet 56.2%
+   defter: 891 tahmin, 603 cozuldu, gercek isabet 55.9%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
    bilancoya yakin (4 gun): []
 4.6/5 paper trading...
-   paper: hesap $100,661 | 5 pozisyon | 0 emir
+   paper: hesap $100,679 | 5 pozisyon | 0 emir
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 302s
+bitti — 323s
