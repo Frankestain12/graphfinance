@@ -31,24 +31,24 @@
   ! BNB: canli kripto yok (tum kaynaklar engelli)
    mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
-  olay evt_iran: guncel isi alinamadi (ReadTimeout)
-  olay evt_china: guncel isi alinamadi (ConnectTimeout)
+  olay evt_iran: guncel isi alinamadi (ConnectTimeout)
+  olay evt_china: guncel isi alinamadi (ReadTimeout)
   olay evt_sanction: guncel isi alinamadi (ReadTimeout)
-  olay evt_tariff: guncel isi alinamadi (ConnectTimeout)
+  olay evt_tariff: guncel isi alinamadi (ReadTimeout)
   olay evt_fed: guncel isi alinamadi (ConnectTimeout)
   olay evt_oil: guncel isi alinamadi (ReadTimeout)
   olay evt_sanction: gecmis parcasi alinamadi (ConnectTimeout), sonraki kosuda
-  olay evt_tariff: gecmis parcasi alinamadi (ReadTimeout), sonraki kosuda
-   olay radari: 4 tema (4 tam gecmis), 3532 gun, 231s
+  olay evt_tariff: gecmis parcasi alinamadi (ConnectTimeout), sonraki kosuda
+   olay radari: 4 tema (4 tam gecmis), 3532 gun, 238s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 189 yeni baslik, onbellek 8165 varlik-gun
-   toplam 73 varlik, 246858 satir
+   haber akisi: 202 yeni baslik, onbellek 8166 varlik-gun
+   toplam 73 varlik, 246849 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-09, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
-   bekci ASKI: ['AMZN', 'ETH', 'GOOGL', 'KCHOL', 'XAUUSD']
-   bekci SOGUMA: ['SOL', 'XRP', 'XU100']
-   defter: 847 tahmin, 571 cozuldu, gercek isabet 56.2%
+   bekci ASKI: ['AMZN', 'BIMAS', 'ETH', 'GOOGL', 'KCHOL', 'SISE', 'THYAO', 'XAUUSD']
+   bekci SOGUMA: ['ASELS', 'SOL', 'XRP', 'XU100']
+   defter: 847 tahmin, 580 cozuldu, gercek isabet 55.7%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
@@ -58,4 +58,4 @@
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 303s
+bitti — 304s
