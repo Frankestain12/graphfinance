@@ -654,7 +654,7 @@ made_on,asset,aclass,close,p_up,direction,horizon_td,resolved,resolve_date,reali
 2026-08-31,AKBNK,stock,73.0999984741211,0.6338375029040239,up,5,0,,,,1.0,gold_spy_mom:+|btc_r21:+|corr_spy63:-
 2026-08-31,GARAN,stock,132.6999969482422,0.6336467441719251,up,5,0,,,,0.0,gold_spy_mom:+|btc_r21:+|volu_trend:+
 2026-08-31,SISE,stock,40.08000183105469,0.6193436900138202,up,5,0,,,,1.0,gold_spy_mom:+|btc_r21:+|corr_spy63:-
-2026-08-31,XAUUSD,commodity,4493.39990234375,0.6129828355969955,up,5,0,,,,1.0,btc_r21:+|gold_spy_mom:+|volu_trend:+
+2026-08-31,XAUUSD,commodity,4493.39990234375,0.6129828355969955,up,5,1,2026-09-06,-0.003745780229762452,0.0,1.0,btc_r21:+|gold_spy_mom:+|volu_trend:+
 2026-08-31,THYAO,stock,304.5,0.610981995529787,up,5,0,,,,1.0,gold_spy_mom:+|btc_r21:+|corr_spy63:-
 2026-08-31,KCHOL,stock,216.5,0.610641226343719,up,5,0,,,,1.0,gold_spy_mom:+|btc_r21:+|corr_spy63:-
 2026-08-31,BIMAS,stock,410.5,0.5910460073749658,up,5,0,,,,1.0,gold_spy_mom:+|btc_r21:+|corr_spy63:-
@@ -965,3 +965,4 @@ made_on,asset,aclass,close,p_up,direction,horizon_td,resolved,resolve_date,reali
 2026-09-06,SOL,crypto,105.3,0.555395642834369,up,5,0,,,,0.0,btc_r21:+|evt_china:+|evt_fed:+
 2026-09-06,XRP,crypto,1.4178,0.5534358193363977,up,5,0,,,,0.0,btc_r21:+|evt_china:+|vol21:-
 2026-09-06,ETH,crypto,2496.99,0.5520741773176886,up,5,0,,,,0.0,btc_r21:+|evt_china:+|vol21:-
+2026-09-06,XAUUSD,commodity,4476.60009765625,0.5636703669717154,up,5,0,,,,0.0,btc_r21:+|evt_china:+|corr_spy63:-
