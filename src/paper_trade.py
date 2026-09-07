@@ -2,7 +2,8 @@
 """GraphFinance — Alpaca PAPER trading (sahte para, gerçek borsa mekaniği).
 
 Kurallar (sinyal portföyü simülasyonuyla aynı):
-  - Sadece kanıtlanmış kenarlı varlıklarda, güven > %55 YUKARI çağrıları
+  - Sadece kanıtlanmış kenarlı varlıklarda, güven >= %65 YUKARI çağrıları (v9);
+    göreli seçici aktifse ayrıca sınıf-medyanını geçme olasılığı >= %55; riskten kaçış rejiminde sadece savunma
   - Sadece ABD'de işlem gören semboller (Alpaca evreni)
   - Pozisyon: hesap değerinin ~%18'i, en fazla 5 eşzamanlı pozisyon
   - Her koşuda pozisyon gözden geçirme: 5 gün doldu / zarar durdur %4 / sinyal tersine döndü (<%45) /
@@ -27,6 +28,8 @@ OUT_PATH = os.path.join(ROOT, "reports", "paper.json")
 SLICE = 0.18          # (eski sabit dilim — artik referans; asil boyut asagida)
 MAX_POS = 5
 RISK_PER_POS = 0.012  # hedef: pozisyon basina gunluk ~%1,2 portfoy oynakligi
+MIN_P_UP = 0.65       # v9: 18 gunluk otopsi -> %55-70 dilimi bozuk; kalibrasyon kanitlanana kadar %65
+MIN_P_REL = 0.55      # v9: goreli secici aktifse sinif medyanini gecme olasiligi en az %55
 SLICE_MIN, SLICE_MAX = 0.06, 0.20  # 5 x %20 = %100, marj yok
 CLUSTERS = {  # korelasyon tavani: kume basina en fazla 2 pozisyon
     "yari_iletken": {"NVDA", "AVGO", "VRT"},
@@ -62,7 +65,7 @@ REVERSAL_P = 0.45     # modelin guncel yukari olasiligi bunun altina dustuyse sa
 TRADEABLE = {
     "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "TSLA", "AVGO",
     "SPY", "QQQ", "SCHD", "JEPI", "O",
-    "MCHI", "EWJ", "EWG", "EWU", "EWQ", "EWY", "INDA", "EWZ",
+    "EWJ", "INDA", "EWZ",  # v9: MCHI/EWG/EWU/EWQ/EWY canli sicilde %40 -> kenar kanitlayana kadar alim yok
     "GEV", "ETN", "VRT", "HUBB", "PWR", "GRID",
     "XLK", "XLE", "XLF", "XLV", "XLU", "XLI", "XLY", "XLP", "XLB", "XLRE", "XLC",
     "GLD", "SLV", "URA", "COPX", "LIT", "DBA",
@@ -101,7 +104,8 @@ def _tdays_since(datestr: str) -> int:
         return 0
 
 
-def run_paper(preds: pd.DataFrame, met: pd.DataFrame, log=print, skip=None, bad_news=None) -> dict | None:
+def run_paper(preds: pd.DataFrame, met: pd.DataFrame, log=print, skip=None, bad_news=None,
+              rel_ok: bool = False, risk_off: bool = False) -> dict | None:
     skip = skip or set()
     bad_news = bad_news or set()
     decisions = []  # karar gunlugu: pano "neden" sutunu
@@ -194,15 +198,22 @@ def run_paper(preds: pd.DataFrame, met: pd.DataFrame, log=print, skip=None, bad_
                         log(f"   paper iptal hatasi {o['symbol']}: {type(e).__name__}")
             held = set(positions) | set(keep)
             slots = MAX_POS - len(held)
-            for _, r in preds.sort_values("p_up", ascending=False).iterrows():
+            if risk_off and slots > 0:
+                decisions.append(dict(sym="—", action="BEKLE", why="riskten kaçış rejimi: sadece savunma varlıkları alınır", plpc=0.0, days=0, p=None))
+            order = preds.assign(_k=preds["p_rel"].fillna(0) if (rel_ok and "p_rel" in preds.columns) else preds["p_up"])
+            for _, r in order.sort_values("_k", ascending=False).iterrows():
                 if slots <= 0:
                     break
                 a = r["asset"]
                 if (a not in TRADEABLE or a in positions or a in st["positions"]
                         or a in skip  # canli bekci: aski/soguma listesi
-                        or r["p_up"] <= 0.55 or a not in met_idx.index
+                        or r["p_up"] < MIN_P_UP or a not in met_idx.index
                         or met_idx.loc[a, "auc"] < 0.53):
                     continue
+                if rel_ok and not (float(r.get("p_rel", 0) or 0) >= MIN_P_REL):
+                    continue  # goreli secici: sinifinin medyanini gecmesi beklenmiyor
+                if risk_off and a not in ("GLD", "SLV", "XLU", "XLP", "SCHD", "JEPI", "O", "DBA"):
+                    continue  # riskten kacis rejimi (VIX z>1 & SPY dususte): sadece savunma varliklari
                 # kume tavani (ayni temaya yigilma)
                 cl = _cluster_of(a)
                 if cl and sum(1 for s in list(positions) + list(st["positions"]) if _cluster_of(s) == cl) >= MAX_PER_CLUSTER:
