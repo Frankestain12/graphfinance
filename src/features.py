@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 HORIZON = 5  # işlem günü
-FEATURES_VERSION = "v8-haber"  # değişince aylık doğrulama + A/B yeniden tetiklenir
+FEATURES_VERSION = "v9-goreli"  # değişince aylık doğrulama + A/B yeniden tetiklenir
 
 FEAT_TR = {
     "r1": "dünkü getiri", "r5": "5 günlük momentum", "r10": "10 günlük momentum",
@@ -203,7 +203,19 @@ def build_features(panel: pd.DataFrame, vix: pd.Series, events: pd.DataFrame | N
 
     core = ["r1", "r21", "vol21", "rsi14", "sma200_gap", "hi52_dist"]
     df = df.dropna(subset=core)
-    return df.reset_index(drop=True), list(EXT_FEATS)
+    df = df.reset_index(drop=True)
+    # GORELI HEDEF (v9): ayni gun ayni siniftaki varliklarin medyan getirisine gore
+    # daha iyi mi? Her gun ~yarisi 1, yarisi 0 -> model 'her seye yukari' diyemez, secmek zorunda.
+    # (sinifta <3 varlik varsa tum evrenin medyani kullanilir)
+    fwd = df["fwd_ret"]
+    med_c = df.groupby(["date", "aclass"])["fwd_ret"].transform("median")
+    cnt_c = df.groupby(["date", "aclass"])["fwd_ret"].transform("count")
+    med_g = df.groupby("date")["fwd_ret"].transform("median")
+    bench = med_c.where(cnt_c >= 3, med_g)
+    df["fwd_rel"] = fwd - bench
+    # medyanin kendisi (fwd_rel == 0) etiketlenmez: tek sayili siniflarda 0-sinifi sismesin
+    df["y_rel"] = np.where(fwd.notna() & (df["fwd_rel"] != 0), (df["fwd_rel"] > 0).astype(float), np.nan)
+    return df, list(EXT_FEATS)
 
 
 if __name__ == "__main__":
