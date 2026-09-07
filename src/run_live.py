@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from fetch import load_panel
 from sources_live import load_live_panel, ASSET_NAMES_LIVE
 from features import build_features, BASE_FEATS, EXT_FEATS, FEATURES_VERSION
-from model import walk_forward, train_final, latest_predictions
+from model import walk_forward, train_final, latest_predictions, naive_hit
 from backtest import per_asset_metrics, calibration
 import ledger as L
 
@@ -74,7 +74,12 @@ def routed_predictions(df: pd.DataFrame, bundle: dict) -> pd.DataFrame:
         sub["drivers"] = top_drivers(m, sub, fc)
         parts.append(sub)
     out = pd.concat(parts, ignore_index=True)
-    return (out[["asset", "aclass", "date", "close", "p_up", "vol21", "drivers"]]
+    if "rel" in bundle["models"]:  # goreli secici: sinif medyanini gecme olasiligi
+        mr, fr = bundle["models"]["rel"], bundle["feats"]["rel"]
+        out["p_rel"] = mr.predict_proba(out[fr])[:, 1]
+    else:
+        out["p_rel"] = float("nan")
+    return (out[["asset", "aclass", "date", "close", "p_up", "p_rel", "vol21", "drivers"]]
             .sort_values("p_up", ascending=False))
 
 
@@ -134,16 +139,22 @@ def main():
 
     if need_full:
         print("2/5 AYLIK dogrulama: sampiyon/rakip A/B testi...")
-        ab_rows, results = [], {}
-        for name, feats in (("base", BASE_FEATS), ("ext", EXT_FEATS)):
-            oos_i = walk_forward(df, feats)
+        ab_rows, results, ab_summary = [], {}, {}
+        for name, feats, tgt in (("base", BASE_FEATS, "y"), ("ext", EXT_FEATS, "y"), ("rel", EXT_FEATS, "y_rel")):
+            oos_i = walk_forward(df, feats, target=tgt)
             met_i = per_asset_metrics(oos_i)
             g = oos_i.dropna(subset=["y"])
             conf = g[(g["p_up"] > 0.55) | (g["p_up"] < 0.45)]
             conf_hit = float(((conf["p_up"] > 0.5).astype(int) == conf["y"]).mean())
+            all_hit = float(((g["p_up"] > 0.5).astype(int) == g["y"]).mean())
+            naive = naive_hit(g)  # 'hep cogunluk' tabani (mutlak hedefte ~hep yukari)
+            up_share = float((g["p_up"] > 0.5).mean())
             auc_mean = float(met_i["auc"].mean())
-            results[name] = dict(oos=oos_i, met=met_i, auc=auc_mean, conf=conf_hit)
-            print(f"   {name}: ort.AUC={auc_mean:.4f}  guvenli-isabet={conf_hit:.4f}  ({len(feats)} ozellik)")
+            results[name] = dict(oos=oos_i, met=met_i, auc=auc_mean, conf=conf_hit, edge=all_hit - naive)
+            ab_summary[name] = dict(auc=auc_mean, hit=all_hit, conf_hit=conf_hit, naive=naive,
+                                    edge=all_hit - naive, up_share=up_share, n=int(len(g)), target=tgt)
+            print(f"   {name}: ort.AUC={auc_mean:.4f}  isabet={all_hit:.4f}  taban(hep-cogunluk)={naive:.4f}  "
+                  f"KENAR={all_hit-naive:+.4f}  guvenli-isabet={conf_hit:.4f}  yukari-payi={up_share:.0%}  ({len(feats)} ozellik, hedef {tgt})")
             for _, r in met_i.iterrows():
                 ab_rows.append(dict(model=name, asset=r["asset"], auc=r["auc"], hit=r["hit"]))
         # 1) saf rakip anlamli farkla kazanirsa tahta gecer
@@ -168,8 +179,15 @@ def main():
                     print(f"   karma kabul: {ext_classes} siniflari grafik-paketli modele gecti")
                 else:
                     print(f"   karma denendi ({ext_classes}) ama havuzda base'i yenemedi")
-        print(f"   SAMPIYON: {champion}")
+        # GORELI model (v9): kendi kenari (isabet - 0.5) ve AUC yeterliyse 'secici' olarak devreye girer:
+        # paper alimlari ve pano siralamasi p_rel ile kapilanir. Mutlak sampiyon yon/guven icin kalir.
+        rel_ok = bool(results["rel"]["edge"] >= 0.015 and results["rel"]["auc"] >= 0.52)
+        print(f"   SAMPIYON: {champion}   |   goreli secici: {'AKTIF' if rel_ok else 'pasif'} "
+              f"(kenar {results['rel']['edge']:+.3f}, AUC {results['rel']['auc']:.3f})")
+        ab_summary["champion"], ab_summary["rel_ok"] = champion, rel_ok
+        json.dump(ab_summary, open(os.path.join(REP, "ab_summary.json"), "w"), ensure_ascii=False, indent=1)
         pd.DataFrame(ab_rows).to_csv(os.path.join(REP, "ab_test.csv"), index=False)
+        results["rel"]["met"].to_csv(os.path.join(REP, "metrics_rel.csv"), index=False)
         oos, met = results[champion]["oos"], results[champion]["met"]
         oos.to_parquet(os.path.join(REP, "oos_predictions.parquet"))
         met.to_csv(met_path, index=False)
@@ -179,15 +197,17 @@ def main():
         if champion in ("ext", "mix"):
             models["ext"] = train_final(df, EXT_FEATS)
             feats["ext"] = EXT_FEATS
+        models["rel"] = train_final(df, EXT_FEATS, target="y_rel")
+        feats["rel"] = EXT_FEATS
         bundle = {"models": models, "feats": feats,
-                  "champion": champion, "ext_classes": ext_classes}
+                  "champion": champion, "ext_classes": ext_classes, "rel_ok": rel_ok}
         joblib.dump(bundle, MODEL_PATH)
         imp_key = "ext" if champion == "ext" else "base"
         imp = pd.Series(models[imp_key].feature_importances_,
                         index=feats[imp_key]).sort_values(ascending=False)
         imp.to_csv(os.path.join(REP, "feature_importance.csv"))
         meta = {"validated_month": month_key(), "features_version": FEATURES_VERSION,
-                "champion": champion, "ext_classes": ext_classes,
+                "champion": champion, "ext_classes": ext_classes, "rel_ok": rel_ok,
                 "trained_at": str(date.today()),
                 "n_assets": len(assets), "n_rows": len(df)}
         json.dump(meta, open(META_PATH, "w"))
@@ -206,7 +226,7 @@ def main():
     edge_map = {a: int(met_now.loc[a, "auc"] >= 0.53) for a in met_now.index}
     led = L.load_ledger(LEDGER_PATH)
     led = L.resolve(led, panel)
-    led = L.append_predictions(led, preds[["asset", "aclass", "date", "close", "p_up", "drivers"]],
+    led = L.append_predictions(led, preds[["asset", "aclass", "date", "close", "p_up", "p_rel", "drivers"]],
                                edge_map=edge_map)
     led.to_csv(LEDGER_PATH, index=False)
     rh = L.rolling_hit(led)
@@ -262,8 +282,11 @@ def main():
     paper = None
     try:
         from paper_trade import run_paper
+        _last = df.sort_values("date").groupby("asset").tail(1)
+        _risk_off = bool(_last["risk_off"].max() == 1) if "risk_off" in _last.columns and _last["risk_off"].notna().any() else False
         paper = run_paper(preds, pd.read_csv(met_path),
-                          skip=suspended | cooldown | earnings_soon | bad_news, bad_news=bad_news)
+                          skip=suspended | cooldown | earnings_soon | bad_news, bad_news=bad_news,
+                          rel_ok=bool(bundle.get("rel_ok", False)), risk_off=_risk_off)
     except Exception as e:
         print(f"   ! paper modulu atlandi: {type(e).__name__}")
 
