@@ -31,20 +31,17 @@
   ! BNB: canli kripto yok (tum kaynaklar engelli)
    mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
-  olay evt_iran: guncel isi alinamadi (ReadTimeout)
+  olay evt_iran: guncel isi alinamadi (HTTPError)
   olay evt_china: guncel isi alinamadi (HTTPError)
+  olay evt_sanction: guncel isi alinamadi (HTTPError)
   olay evt_tariff: guncel isi alinamadi (ReadTimeout)
-  olay evt_fed: guncel isi alinamadi (ReadTimeout)
-  olay evt_oil: guncel isi alinamadi (ReadTimeout)
-   olay radari: 6 tema (6 tam gecmis), 3537 gun, 149s
+  olay evt_fed: guncel isi alinamadi (HTTPError)
+  olay evt_oil: guncel isi alinamadi (HTTPError)
+   olay radari: 6 tema (6 tam gecmis), 3537 gun, 160s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 61 yeni baslik, onbellek 8210 varlik-gun
-   toplam 73 varlik, 246985 satir
-2/5 AYLIK dogrulama: sampiyon/rakip A/B testi...
-   base: ort.AUC=0.4944  isabet=0.5209  taban(hep-cogunluk)=0.5523  KENAR=-0.0313  guvenli-isabet=0.5335  yukari-payi=71%  (24 ozellik, hedef y)
-   ext: ort.AUC=0.5121  isabet=0.5280  taban(hep-cogunluk)=0.5523  KENAR=-0.0243  guvenli-isabet=0.5454  yukari-payi=70%  (54 ozellik, hedef y)
-   rel: ort.AUC=0.5083  isabet=0.5149  taban(hep-cogunluk)=0.5001  KENAR=+0.0148  guvenli-isabet=0.5265  yukari-payi=49%  (54 ozellik, hedef y_rel)
-   SAMPIYON: ext   |   goreli secici: pasif (kenar +0.015, AUC 0.508)
+   haber akisi: 80 yeni baslik, onbellek 8210 varlik-gun
+   toplam 73 varlik, 246983 satir
+2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-09, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
    bekci ASKI: ['AKBNK', 'AMZN', 'DAX', 'EWG', 'EWQ', 'FTSE', 'GOOGL', 'MCHI', 'O', 'SISE', 'THYAO', 'XAUUSD', 'XU100']
@@ -59,4 +56,4 @@
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 523s
+bitti — 232s
