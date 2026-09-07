@@ -20,31 +20,43 @@ RETRAIN_MONTHS = 3  # Actions calisma suresi icin ceyreklik yeniden egitim
 
 
 def walk_forward(df: pd.DataFrame, feat_cols: list[str],
-                 oos_start: str = "2019-01-01", min_train: int = 5000) -> pd.DataFrame:
-    """Her çeyrek başında yeniden eğit, o çeyreği tahmin et. OOS tahminleri döndürür."""
+                 oos_start: str = "2019-01-01", min_train: int = 5000,
+                 target: str = "y") -> pd.DataFrame:
+    """Her çeyrek başında yeniden eğit, o çeyreği tahmin et. OOS tahminleri döndürür.
+    target='y' mutlak yön; target='y_rel' göreli (sınıf medyanına göre) yön — çıktı sütunları
+    aynı ('y', 'fwd_ret', 'p_up') ki metrik kodu ortak kalsın; göreli modelde fwd_ret = fwd_rel."""
+    ret_col = "fwd_rel" if target == "y_rel" else "fwd_ret"
     df = df.sort_values("date").reset_index(drop=True)
     months = pd.date_range(oos_start, df["date"].max(), freq=f"{RETRAIN_MONTHS}MS")
     preds = []
     for T in months:
-        train = df[(df["date"] <= T - pd.Timedelta(days=EMBARGO_DAYS)) & df["y"].notna() & df["fwd_ret"].notna()]
+        train = df[(df["date"] <= T - pd.Timedelta(days=EMBARGO_DAYS)) & df[target].notna() & df[ret_col].notna()]
         test = df[(df["date"] >= T) & (df["date"] < T + pd.offsets.MonthBegin(RETRAIN_MONTHS))]
         if len(train) < min_train or test.empty:
             continue
         m = lgb.LGBMClassifier(**PARAMS)
-        m.fit(train[feat_cols], train["y"])
+        m.fit(train[feat_cols], train[target].astype(int))
         p = m.predict_proba(test[feat_cols])[:, 1]
-        out = test[["date", "asset", "aclass", "close", "fwd_ret", "y"]].copy()
+        out = test[["date", "asset", "aclass", "close"]].copy()
+        out["fwd_ret"] = test[ret_col].values
+        out["y"] = test[target].values
         out["p_up"] = p
         preds.append(out)
     return pd.concat(preds, ignore_index=True)
 
 
-def train_final(df: pd.DataFrame, feat_cols: list[str]) -> lgb.LGBMClassifier:
+def train_final(df: pd.DataFrame, feat_cols: list[str], target: str = "y") -> lgb.LGBMClassifier:
     """Güncel tahmin için tüm etiketli veriyle eğit."""
-    train = df[df["y"].notna() & df["fwd_ret"].notna()]
+    train = df[df[target].notna() & df["fwd_ret"].notna()]
     m = lgb.LGBMClassifier(**PARAMS)
-    m.fit(train[feat_cols], train["y"])
+    m.fit(train[feat_cols], train[target].astype(int))
     return m
+
+
+def naive_hit(oos: pd.DataFrame) -> float:
+    """'Hep cogunluk sinifi' tabani: modelin gercek kenari = isabet - bu."""
+    g = oos.dropna(subset=["y"])
+    return float(max(g["y"].mean(), 1 - g["y"].mean())) if len(g) else float("nan")
 
 
 def latest_predictions(df: pd.DataFrame, feat_cols: list[str], model) -> pd.DataFrame:
