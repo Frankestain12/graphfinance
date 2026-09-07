@@ -353,7 +353,7 @@ def paper_card(paper, extra_names):
     <span class="sub">başlangıç: ${tr_num(paper["start_equity"],0)} · {paper["asof"]}</span>
   </div>
   {halted}{pos_html}{orders_html}
-  <div class="sub" style="margin-top:8px">Kurallar: kenarlı + güven &gt; %55 yukarı sinyalleri · maks 5 pozisyon, nakit sınırı · her koşuda gözden geçirme: 5 gün doldu / %4 zarar durdur / sinyal &lt;%45 tersine döndü / kötü haber / %6 kâr al → sat · %10 düşüşte tam durdurma. Gerçek para değildir; sistemin canlı sınavıdır.</div>
+  <div class="sub" style="margin-top:8px">Kurallar: kenarlı + güven ≥ %65 yukarı sinyalleri (+ göreli seçici ≥ %55 aktifse) · riskten kaçış rejiminde sadece savunma · MCHI/EWG/EWU/EWQ/EWY alım dışı · maks 5 pozisyon, nakit sınırı · her koşuda gözden geçirme: 5 gün doldu / %4 zarar durdur / sinyal &lt;%45 tersine döndü / kötü haber / %6 kâr al → sat · %10 düşüşte tam durdurma. Gerçek para değildir; sistemin canlı sınavıdır.</div>
 </div>"""
 
 
@@ -485,9 +485,12 @@ def build(met, preds, oos, imp, extra_names=None, led=None, yorum=None,
     if led is not None and len(led):
         done = led[led["resolved"] == 1]
         if len(done):
+            naive_live = float((done["realized_ret"] > 0).mean())  # 'hep yukari' deseydik
+            edge_live = float(done["correct"].mean()) - naive_live
             ledger_html = (f'<div class="card tile"><div class="tl">Canlı defter isabeti</div>'
                            f'<div class="tv">{tr_pct(done["correct"].mean())}</div>'
-                           f'<div class="td">{len(done)} çözülmüş gerçek tahmin</div></div>')
+                           f'<div class="td">{len(done)} çözülmüş tahmin · "hep yukarı" deseydik {tr_pct(naive_live)} → '
+                           f'gerçek kenar <b style="color:{"var(--good-text)" if edge_live > 0 else "var(--neg)"}">{"+" if edge_live >= 0 else ""}{tr_pct(edge_live)}</b></div></div>')
         else:
             ledger_html = (f'<div class="card tile"><div class="tl">Tahmin defteri</div>'
                            f'<div class="tv">{len(led)}</div>'
@@ -514,6 +517,9 @@ def build(met, preds, oos, imp, extra_names=None, led=None, yorum=None,
                          f"(taban {tr_pct(m['base_hit'])})")
         up = r["p_up"] >= 0.5
         prob = max(r["p_up"], 1 - r["p_up"])
+        _pr = r.get("p_rel", float("nan")) if "p_rel" in preds.columns else float("nan")
+        rel_txt = (f'<span style="color:{"var(--good-text)" if _pr >= 0.55 else ("var(--neg)" if _pr <= 0.45 else "inherit")}">{tr_pct(_pr)}</span>'
+                   if pd.notna(_pr) else "—")
         band = 1.28 * r["vol21"] * np.sqrt(H)
         lo, hi = r["close"] * np.exp(-band), r["close"] * np.exp(band)
         dec = 4 if r["close"] < 20 else (2 if r["close"] < 1000 else 0)
@@ -529,7 +535,8 @@ def build(met, preds, oos, imp, extra_names=None, led=None, yorum=None,
         rows_html.append(f"""<tr>
 <td><span class="aname">{name}</span> <span class="acls">{CLASS_TR[r["aclass"]]}</span></td>
 <td>{dir_html}</td>
-<td class="num"><strong>{tr_pct(prob)}</strong>{' <span class="chip proven" data-tip="Canlı defterde %60+ güvenli çağrıların isabeti: 32 tahminde %89">GÜÇLÜ</span>' if prob >= 0.60 and ec == "proven" else ''}</td>
+<td class="num"><strong>{tr_pct(prob)}</strong>{' <span class="chip proven" data-tip="Güven ≥ %65 ve kanıtlı kenar: paper alım eşiğini geçer">GÜÇLÜ</span>' if prob >= 0.65 and ec == "proven" else ''}</td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)">{rel_txt}</td>
 <td class="num">{cur}{tr_num(r["close"], dec)}</td>
 <td class="num muted2">{cur}{tr_num(lo, dec)} – {cur}{tr_num(hi, dec)}</td>
 <td><span class="chip {ec}" data-tip="{sicil_tip}">{elab}</span></td>
@@ -550,6 +557,29 @@ def build(met, preds, oos, imp, extra_names=None, led=None, yorum=None,
         yorum_html = (f'<div class="card" style="margin-bottom:18px"><h2>Bugünün yorumu</h2>'
                       f'<div class="road" style="margin-top:6px">{ytext}</div></div>')
 
+    ab_html = ""
+    try:
+        import json as _json
+        _abp = os.path.join(REP, "ab_summary.json")
+        if os.path.exists(_abp):
+            ab = _json.load(open(_abp))
+            lab = {"base": "Temel (24 özellik)", "ext": "Grafik+olay+haber", "rel": "GÖRELİ hedef (sınıf medyanını geçer mi?)"}
+            CH, SE = ' <span class="chip proven">şampiyon</span>', ' <span class="chip proven">seçici aktif</span>'
+            rows = "".join(
+                f'<tr><td>{lab.get(k, k)}{CH if ab.get("champion") == k else ""}'
+                f'{SE if k == "rel" and ab.get("rel_ok") else ""}</td>'
+                f'<td class="num">{tr_num(v["auc"],3)}</td><td class="num">{tr_pct(v["hit"])}</td>'
+                f'<td class="num">{tr_pct(v["naive"])}</td>'
+                f'<td class="num" style="color:{"var(--good-text)" if v["edge"] > 0 else "var(--neg)"}"><b>{"+" if v["edge"] >= 0 else ""}{tr_pct(v["edge"])}</b></td>'
+                f'<td class="num">{tr_pct(v["up_share"])}</td></tr>'
+                for k, v in ab.items() if isinstance(v, dict))
+            ab_html = f"""<div class="card" style="margin-bottom:18px">
+  <h2>Modelin gerçek kenarı <span style="font-weight:400;color:var(--muted);font-size:12px">(aylık A/B, out-of-sample 2019→)</span></h2>
+  <div class="sub" style="margin:4px 0 8px">18 günlük otopsinin dersi: isabet tek başına yanıltır, çünkü model çoğunlukla "yukarı" der ve piyasa çoğu hafta yükselir. Asıl ölçü: <b>isabet − "hep çoğunluk sınıfı" tabanı</b>. Göreli hedef modelde taban %50'dir; o model her gün varlıkların yarısını seçmek zorundadır.</div>
+  <div style="overflow-x:auto"><table><thead><tr><th>Model</th><th>AUC</th><th>İsabet</th><th>Taban</th><th>Gerçek kenar</th><th>"Yukarı" payı</th></tr></thead><tbody>{rows}</tbody></table></div>
+</div>"""
+    except Exception:
+        ab_html = ""
     n_proven = int((met["auc"] >= 0.53).sum())
     proven_names = " &amp; ".join(aname(a, extra_names)[0]
                                   for a in met_sorted.head(n_proven)["asset"].head(3)) or "—"
@@ -669,6 +699,7 @@ svg {{ width:100%; height:auto; display:block }}
 </div>
 
 {yorum_html}
+{ab_html}
 
 {paper_card(paper, extra_names)}
 
@@ -678,7 +709,7 @@ svg {{ width:100%; height:auto; display:block }}
   <h2>Bugünün tahminleri</h2>
   <div class="sub" style="margin-bottom:10px">Ufuk: 5 işlem günü · "Beklenen aralık" son 21 günlük oynaklıktan (%80 olasılık bandı) · Soluk satırlar: geçmişte kenarı kanıtlanamayan varlıklar — bilgi amaçlı</div>
   <div style="overflow-x:auto"><table>
-    <thead><tr><th>Varlık</th><th>Yön</th><th>Güven</th><th>Son fiyat</th><th>Beklenen aralık (5g)</th><th>Model sicili</th><th>Veri tarihi</th></tr></thead>
+    <thead><tr><th>Varlık</th><th>Yön</th><th>Güven</th><th>Göreli</th><th>Son fiyat</th><th>Beklenen aralık (5g)</th><th>Model sicili</th><th>Veri tarihi</th></tr></thead>
     <tbody>{"".join(rows_html)}</tbody>
   </table></div>
 </div>
@@ -726,7 +757,7 @@ svg {{ width:100%; height:auto; display:block }}
 
 <div class="foot">
 Veri: CoinMetrics community (kripto) · datahub/Fed H.10 (döviz) · datahub/EIA (emtia) · CBOE VIX — tümü ücretsiz kaynaklar.
-Yöntem: havuzlanmış LightGBM sınıflandırıcı; hedef = 5 işlem günlük yön; aylık yeniden eğitim, 10 gün embargo (sızıntı önleme); işlem maliyeti dahil (kripto 10bp, döviz 2bp, emtia 5bp tek yön). Örtüşmesiz simülasyon.
+Yöntem: havuzlanmış LightGBM sınıflandırıcı; hedef = 5 işlem günlük yön (+ v9: sınıf medyanına göre göreli yön, seçici olarak); aylık yeniden eğitim, 10 gün embargo (sızıntı önleme); işlem maliyeti dahil (kripto 10bp, döviz 2bp, emtia 5bp tek yön). Örtüşmesiz simülasyon.
 Bu pano bilgilendirme amaçlıdır; yatırım tavsiyesi değildir.
 </div>
 
