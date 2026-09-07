@@ -33,12 +33,14 @@ def append_predictions(led: pd.DataFrame, preds: pd.DataFrame, horizon: int = 5,
     if "drivers" not in new.columns:
         new["drivers"] = ""
     led = led.copy()
-    for col, default in (("edge_ok", np.nan), ("drivers", "")):
+    if "p_rel" not in new.columns:
+        new["p_rel"] = np.nan
+    for col, default in (("edge_ok", np.nan), ("drivers", ""), ("p_rel", np.nan)):
         if col not in led.columns and len(led):
             led[col] = default
     new = new[["made_on", "asset", "aclass", "close", "p_up", "direction",
                "horizon_td", "resolved", "resolve_date", "realized_ret", "correct",
-               "edge_ok", "drivers"]]
+               "edge_ok", "drivers", "p_rel"]]
     # ayni gun ayni varlik icin tekrar ekleme
     key = led["made_on"].astype(str) + "|" + led["asset"] if len(led) else pd.Series(dtype=str)
     new_key = new["made_on"].astype(str) + "|" + new["asset"]
