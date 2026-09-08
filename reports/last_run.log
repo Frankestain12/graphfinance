@@ -24,36 +24,33 @@
   O: stooq yok (ValueError), yahoo kullanildi
   XAUUSD: stooq yok, yahoo kullanildi
   USDTRY: stooq yok, yahoo kullanildi
-  BTC: coinbase kullanildi
-  ETH: coinbase kullanildi
-  SOL: coinbase kullanildi
-  XRP: coinbase kullanildi
-  ! BNB: canli kripto yok (tum kaynaklar engelli)
-   mirror: 12 varlik | canli: 64 varlik
+   mirror: 12 varlik | canli: 65 varlik
 1.5/5 olay radari (GDELT)...
-  olay evt_iran: guncel isi alinamadi (ReadTimeout)
-  olay evt_china: guncel isi alinamadi (HTTPError)
-  olay evt_sanction: guncel isi alinamadi (ReadTimeout)
-  olay evt_tariff: guncel isi alinamadi (ReadTimeout)
-  olay evt_fed: guncel isi alinamadi (ReadTimeout)
-  olay evt_oil: guncel isi alinamadi (ReadTimeout)
-   olay radari: 6 tema (6 tam gecmis), 3538 gun, 160s
+  olay evt_china: guncel isi alinamadi (ReadTimeout)
+  olay evt_sanction: guncel isi alinamadi (HTTPError)
+  olay evt_tariff: guncel isi alinamadi (HTTPError)
+  olay evt_fed: guncel isi alinamadi (HTTPError)
+   olay radari: 6 tema (6 tam gecmis), 3538 gun, 161s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 163 yeni baslik, onbellek 8223 varlik-gun
-   toplam 73 varlik, 246941 satir
-2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-09, sampiyon: ext)
+   haber akisi: 182 yeni baslik, onbellek 8224 varlik-gun
+   toplam 74 varlik, 250179 satir
+2/5 AYLIK dogrulama: sampiyon/rakip A/B testi...
+   base: ort.AUC=0.4960  isabet=0.5213  taban(hep-cogunluk)=0.5517  KENAR=-0.0304  guvenli-isabet=0.5380  yukari-payi=72%  (24 ozellik, hedef y)
+   ext: ort.AUC=0.5156  isabet=0.5293  taban(hep-cogunluk)=0.5517  KENAR=-0.0224  guvenli-isabet=0.5493  yukari-payi=69%  (54 ozellik, hedef y)
+   rel: ort.AUC=0.5116  isabet=0.5162  taban(hep-cogunluk)=0.5001  KENAR=+0.0161  guvenli-isabet=0.5310  yukari-payi=49%  (54 ozellik, hedef y_rel)
+   SAMPIYON: ext   |   goreli secici: pasif (kenar +0.016, AUC 0.512)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
    bekci ASKI: ['AKBNK', 'AMZN', 'DAX', 'EWG', 'EWQ', 'GOOGL', 'MCHI', 'O', 'SISE', 'THYAO', 'XAUUSD', 'XU100']
    bekci SOGUMA: ['ASELS', 'AVGO', 'EREGL', 'SOL', 'XRP']
-   defter: 1051 tahmin, 706 cozuldu, gercek isabet 54.2%
+   defter: 1052 tahmin, 707 cozuldu, gercek isabet 54.3%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
    bilancoya yakin (4 gun): []
 4.6/5 paper trading...
-   paper: hesap $100,452 | 1 pozisyon | 0 emir
+   paper: hesap $100,409 | 1 pozisyon | 0 emir
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 226s
+bitti — 507s
