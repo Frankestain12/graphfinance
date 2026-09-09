@@ -31,26 +31,28 @@
   ! BNB: canli kripto yok (tum kaynaklar engelli)
    mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
-  olay evt_iran: guncel isi alinamadi (HTTPError)
-  olay evt_sanction: guncel isi alinamadi (HTTPError)
-  olay evt_oil: guncel isi alinamadi (HTTPError)
-   olay radari: 6 tema (6 tam gecmis), 3539 gun, 137s
+  olay evt_iran: guncel isi alinamadi (ReadTimeout)
+  olay evt_sanction: guncel isi alinamadi (ReadTimeout)
+  olay evt_tariff: guncel isi alinamadi (ReadTimeout)
+  olay evt_fed: guncel isi alinamadi (ReadTimeout)
+  olay evt_oil: guncel isi alinamadi (ReadTimeout)
+   olay radari: 6 tema (6 tam gecmis), 3539 gun, 145s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 165 yeni baslik, onbellek 8233 varlik-gun
-   toplam 73 varlik, 246937 satir
+   haber akisi: 231 yeni baslik, onbellek 8236 varlik-gun
+   toplam 73 varlik, 246979 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-09, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
-   bekci ASKI: ['AMZN', 'DAX', 'EWG', 'EWQ', 'GOOGL', 'HSI', 'MCHI', 'O', 'SISE', 'THYAO', 'XAUUSD']
-   bekci SOGUMA: ['ASELS', 'AVGO', 'EREGL', 'XU100']
-   defter: 1078 tahmin, 732 cozuldu, gercek isabet 55.1%
+   bekci ASKI: ['AMZN', 'AVGO', 'DAX', 'EWG', 'EWQ', 'GOOGL', 'HSI', 'JEPI', 'MCHI', 'O', 'SISE', 'THYAO', 'XAUUSD']
+   bekci SOGUMA: ['AAPL', 'ASELS', 'EREGL', 'XU100']
+   defter: 1122 tahmin, 776 cozuldu, gercek isabet 54.8%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
    bilancoya yakin (4 gun): []
 4.6/5 paper trading...
-   paper: hesap $100,407 | 1 pozisyon | 0 emir
+   paper: hesap $100,448 | 0 pozisyon | 0 emir
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 221s
+bitti — 212s
