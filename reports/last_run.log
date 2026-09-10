@@ -33,20 +33,19 @@
 1.5/5 olay radari (GDELT)...
   olay evt_iran: guncel isi alinamadi (ReadTimeout)
   olay evt_china: guncel isi alinamadi (ReadTimeout)
-  olay evt_sanction: guncel isi alinamadi (ReadTimeout)
-  olay evt_tariff: guncel isi alinamadi (HTTPError)
+  olay evt_tariff: guncel isi alinamadi (ReadTimeout)
   olay evt_fed: guncel isi alinamadi (ReadTimeout)
-  olay evt_oil: guncel isi alinamadi (HTTPError)
-   olay radari: 6 tema (6 tam gecmis), 3540 gun, 160s
+  olay evt_oil: guncel isi alinamadi (ReadTimeout)
+   olay radari: 6 tema (6 tam gecmis), 3540 gun, 152s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 185 yeni baslik, onbellek 8245 varlik-gun
-   toplam 73 varlik, 246945 satir
+   haber akisi: 232 yeni baslik, onbellek 8248 varlik-gun
+   toplam 73 varlik, 246987 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-09, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
-   bekci ASKI: ['AMZN', 'AVGO', 'DAX', 'EWG', 'EWQ', 'GOOGL', 'HSI', 'JEPI', 'MCHI', 'O', 'THYAO', 'XAUUSD']
-   bekci SOGUMA: ['AAPL', 'EREGL', 'XU100']
-   defter: 1142 tahmin, 796 cozuldu, gercek isabet 55.0%
+   bekci ASKI: ['AMZN', 'AVGO', 'DAX', 'EWG', 'EWQ', 'EWU', 'GOOGL', 'HSI', 'JEPI', 'MCHI', 'O', 'THYAO', 'XAUUSD']
+   bekci SOGUMA: ['AAPL', 'EREGL', 'XLB', 'XU100']
+   defter: 1186 tahmin, 840 cozuldu, gercek isabet 53.9%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
@@ -56,4 +55,4 @@
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 231s
+bitti — 221s
