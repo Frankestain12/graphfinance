@@ -1,22 +1,4 @@
 haber kosusu (saatlik)...
-  haber AAPL: HTTPError
-  haber MSFT: HTTPError
-  haber NVDA: HTTPError
-  haber GOOGL: HTTPError
-  haber AMZN: HTTPError
-  haber META: HTTPError
-  haber TSLA: HTTPError
-  haber AVGO: HTTPError
-  haber SPY: HTTPError
-  haber QQQ: HTTPError
-  haber GEV: HTTPError
-  haber ETN: HTTPError
-  haber VRT: HTTPError
-  haber HUBB: HTTPError
-  haber PWR: HTTPError
-  haber JEPI: HTTPError
-  haber O: HTTPError
-  haber SCHD: HTTPError
-   haber akisi: 0 yeni baslik, onbellek 8258 varlik-gun
-   pano tazelendi (0 sembolde haber)
-bitti — 55s
+   haber akisi: 186 yeni baslik, onbellek 8258 varlik-gun
+   pano tazelendi (12 sembolde haber)
+bitti — 8s
