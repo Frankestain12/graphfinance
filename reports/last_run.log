@@ -16,7 +16,7 @@ https://scikit-learn.org/stable/model_persistence.html#security-maintainability-
   MSFT: stooq yok (ValueError), yahoo kullanildi
   NVDA: stooq yok (ValueError), yahoo kullanildi
   GOOGL: stooq yok (ValueError), yahoo kullanildi
-  AMZN: stooq yok (ValueError), yahoo kullanildi
+  ! AMZN: veri yok (ChunkedEncodingError)
   META: stooq yok (ValueError), yahoo kullanildi
   TSLA: stooq yok (ValueError), yahoo kullanildi
   AVGO: stooq yok (ValueError), yahoo kullanildi
@@ -27,23 +27,27 @@ https://scikit-learn.org/stable/model_persistence.html#security-maintainability-
   O: stooq yok (ValueError), yahoo kullanildi
   XAUUSD: stooq yok, yahoo kullanildi
   USDTRY: stooq yok, yahoo kullanildi
-   mirror: 12 varlik | canli: 65 varlik
+  BTC: coinbase kullanildi
+  ETH: coinbase kullanildi
+  SOL: coinbase kullanildi
+  XRP: coinbase kullanildi
+  ! BNB: canli kripto yok (tum kaynaklar engelli)
+   mirror: 12 varlik | canli: 63 varlik
 1.5/5 olay radari (GDELT)...
-  olay evt_iran: guncel isi alinamadi (ReadTimeout)
-  olay evt_china: guncel isi alinamadi (ReadTimeout)
-  olay evt_sanction: guncel isi alinamadi (ReadTimeout)
-  olay evt_fed: guncel isi alinamadi (ReadTimeout)
-  olay evt_oil: guncel isi alinamadi (HTTPError)
-   olay radari: 6 tema (6 tam gecmis), 3543 gun, 163s
+  olay evt_iran: guncel isi alinamadi (HTTPError)
+  olay evt_sanction: guncel isi alinamadi (HTTPError)
+  olay evt_tariff: guncel isi alinamadi (HTTPError)
+  olay evt_oil: guncel isi alinamadi (ReadTimeout)
+   olay radari: 6 tema (6 tam gecmis), 3543 gun, 138s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 132 yeni baslik, onbellek 8297 varlik-gun
-   toplam 74 varlik, 250315 satir
+   haber akisi: 185 yeni baslik, onbellek 8301 varlik-gun
+   toplam 72 varlik, 244801 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-09, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
-   bekci ASKI: ['AMZN', 'AVGO', 'COPX', 'DAX', 'DBA', 'EWG', 'EWQ', 'EWU', 'FTSE', 'GLD', 'GOOGL', 'HSI', 'JEPI', 'LIT', 'MCHI', 'O', 'SCHD', 'SLV', 'VRT', 'XAUUSD', 'XLB', 'XLC', 'XLF', 'XLI', 'XLY']
+   bekci ASKI: ['AMZN', 'AVGO', 'COPX', 'DAX', 'DBA', 'EWG', 'EWQ', 'EWU', 'FTSE', 'GLD', 'GOOGL', 'HSI', 'JEPI', 'LIT', 'MCHI', 'O', 'SCHD', 'SPY', 'VRT', 'XAUUSD', 'XLB', 'XLC', 'XLF', 'XLI', 'XLY']
    bekci SOGUMA: ['AAPL', 'ASELS', 'BNB', 'EWY', 'GEV', 'N225', 'NVDA', 'SOL', 'TSLA', 'URA', 'XLV', 'XRP']
-   defter: 1355 tahmin, 1015 cozuldu, gercek isabet 51.9%
+   defter: 1398 tahmin, 1058 cozuldu, gercek isabet 52.8%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
