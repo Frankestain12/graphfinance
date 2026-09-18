@@ -34,17 +34,20 @@ https://scikit-learn.org/stable/model_persistence.html#security-maintainability-
   ! BNB: canli kripto yok (tum kaynaklar engelli)
    mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
+  olay evt_iran: guncel isi alinamadi (ReadTimeout)
+  olay evt_china: guncel isi alinamadi (HTTPError)
+  olay evt_tariff: guncel isi alinamadi (HTTPError)
   olay evt_oil: guncel isi alinamadi (HTTPError)
-   olay radari: 6 tema (6 tam gecmis), 3543 gun, 137s
+   olay radari: 6 tema (6 tam gecmis), 3543 gun, 168s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 227 yeni baslik, onbellek 8323 varlik-gun
-   toplam 73 varlik, 243682 satir
+   haber akisi: 199 yeni baslik, onbellek 8327 varlik-gun
+   toplam 73 varlik, 243705 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-09, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
    bekci ASKI: ['AMZN', 'AVGO', 'DAX', 'DBA', 'EWG', 'EWQ', 'EWU', 'FTSE', 'GLD', 'GOOGL', 'HSI', 'JEPI', 'LIT', 'MCHI', 'O', 'SCHD', 'SLV', 'SPY', 'XAUUSD', 'XLB', 'XLC', 'XLF', 'XLI', 'XLY']
-   bekci SOGUMA: ['AKBNK', 'ASELS', 'BNB', 'COPX', 'EREGL', 'EWY', 'GARAN', 'GEV', 'KCHOL', 'N225', 'NVDA', 'SOL', 'THYAO', 'TSLA', 'URA', 'VRT', 'XLV', 'XRP', 'XU100']
-   defter: 1532 tahmin, 1192 cozuldu, gercek isabet 52.9%
+   bekci SOGUMA: ['AKBNK', 'ASELS', 'BNB', 'COPX', 'EREGL', 'EWY', 'GARAN', 'GEV', 'KCHOL', 'N225', 'NVDA', 'THYAO', 'URA', 'VRT', 'XRP', 'XU100']
+   defter: 1552 tahmin, 1203 cozuldu, gercek isabet 52.6%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
@@ -54,4 +57,4 @@ https://scikit-learn.org/stable/model_persistence.html#security-maintainability-
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 222s
+bitti — 234s
