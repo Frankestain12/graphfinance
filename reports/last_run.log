@@ -38,17 +38,17 @@ https://scikit-learn.org/stable/model_persistence.html#security-maintainability-
   olay evt_china: guncel isi alinamadi (HTTPError)
   olay evt_sanction: guncel isi alinamadi (HTTPError)
   olay evt_tariff: guncel isi alinamadi (HTTPError)
-  olay evt_oil: guncel isi alinamadi (HTTPError)
-   olay radari: 6 tema (6 tam gecmis), 3543 gun, 143s
+  olay evt_fed: guncel isi alinamadi (ReadTimeout)
+   olay radari: 6 tema (6 tam gecmis), 3543 gun, 164s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 207 yeni baslik, onbellek 8335 varlik-gun
-   toplam 73 varlik, 243746 satir
+   haber akisi: 199 yeni baslik, onbellek 8338 varlik-gun
+   toplam 73 varlik, 243754 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-09, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
    bekci ASKI: ['AMZN', 'DAX', 'EWG', 'EWQ', 'EWU', 'FTSE', 'GLD', 'GOOGL', 'HSI', 'JEPI', 'LIT', 'MCHI', 'O', 'SLV', 'SPY', 'XAUUSD', 'XLB', 'XLI', 'XLRE', 'XLV', 'XLY']
    bekci SOGUMA: ['AKBNK', 'ASELS', 'BNB', 'COPX', 'EREGL', 'EWY', 'GARAN', 'GEV', 'KCHOL', 'N225', 'NVDA', 'THYAO', 'URA', 'VRT', 'XRP', 'XU100']
-   defter: 1596 tahmin, 1248 cozuldu, gercek isabet 53.5%
+   defter: 1600 tahmin, 1252 cozuldu, gercek isabet 53.6%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
@@ -58,4 +58,4 @@ https://scikit-learn.org/stable/model_persistence.html#security-maintainability-
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 212s
+bitti — 244s
