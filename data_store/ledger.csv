@@ -1279,7 +1279,7 @@ made_on,asset,aclass,close,p_up,direction,horizon_td,resolved,resolve_date,reali
 2026-09-14,SOL,crypto,101.45,0.4623852408410938,down,5,1,2026-09-19,0.0967876486768825,0.0,0.0,hi52_dist:-|oil_r5:-|macd_hist:+,0.4685964631652412
 2026-09-14,THYAO,stock,296.75,0.4581496757540303,down,5,0,,,,0.0,oil_r5:-|evt_china:-|gold_spy_mom:-,0.5111305337401323
 2026-09-14,ASELS,stock,378.25,0.4540415953850987,down,5,0,,,,0.0,oil_r5:-|gold_spy_mom:-|evt_china:-,0.5039635185477387
-2026-09-14,XAUUSD,commodity,4347.10009765625,0.4526315643878359,down,5,0,,,,0.0,oil_r5:-|gold_spy_mom:-|evt_china:-,0.4149751170244333
+2026-09-14,XAUUSD,commodity,4347.10009765625,0.4526315643878359,down,5,1,2026-09-20,0.015385598781922164,0.0,0.0,oil_r5:-|gold_spy_mom:-|evt_china:-,0.4149751170244333
 2026-09-14,DAX,stock,25412.109375,0.4401274953364578,down,5,0,,,,0.0,oil_r5:-|gold_spy_mom:-|btc_r21:-,0.5182182473358814
 2026-09-14,HSI,stock,24917.599609375,0.4375091946877089,down,5,0,,,,0.0,oil_r5:-|gold_spy_mom:-|evt_china:-,0.4974472599606171
 2026-09-14,SISE,stock,44.08000183105469,0.4084835262050467,down,5,0,,,,0.0,vol21:-|oil_r5:-|btc_r21:-,0.4936331031799252
@@ -1604,3 +1604,4 @@ made_on,asset,aclass,close,p_up,direction,horizon_td,resolved,resolve_date,reali
 2026-09-20,BTC,crypto,80300.52,0.5146075375316205,up,5,0,,,,0.0,evt_china:-|evt_fed:+|try_r5:+,0.4988491260687377
 2026-09-20,SOL,crypto,108.13,0.5018605463397405,up,5,0,,,,0.0,vol21:-|evt_china:-|evt_fed:+,0.5175093096833647
 2026-09-20,XRP,crypto,1.3792,0.4648778650695904,down,5,0,,,,0.0,hi52_dist:-|vol21:-|evt_china:-,0.4895198544168007
+2026-09-20,XAUUSD,commodity,4414.5,0.44474841847388286,down,5,0,,,,0.0,evt_china:-|gold_spy_mom:-|oil_r5:-,0.4305926857377713
