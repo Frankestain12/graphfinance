@@ -101,10 +101,10 @@ svg { width:100%; height:auto; display:block }
   <div class="card tile"><div class="tl">Out-of-sample tahmin</div><div class="tv">143,877</div><div class="td">2019-01-01 → 2026-09-08, 74 varlık</div></div>
   <div class="card tile"><div class="tl">Yüksek güvenli çağrı isabeti</div><div class="tv">54,9%</div><div class="td">75,660 çağrı (güven &gt; %55)</div></div>
   <div class="card tile"><div class="tl">Kanıtlanmış kenarlı varlık</div><div class="tv">10 / 74</div><div class="td">USD/TRY &amp; Fransa ETF (EWQ) &amp; Lityum ETF (LIT)</div></div>
-  <div class="card tile"><div class="tl">Canlı defter isabeti</div><div class="tv">53,0%</div><div class="td">1359 çözülmüş tahmin · "hep yukarı" deseydik 46,9% → gerçek kenar <b style="color:var(--good-text)">+6,0%</b></div></div>
+  <div class="card tile"><div class="tl">Canlı defter isabeti</div><div class="tv">52,5%</div><div class="td">1403 çözülmüş tahmin · "hep yukarı" deseydik 47,6% → gerçek kenar <b style="color:var(--good-text)">+4,8%</b></div></div>
 </div>
 
-<div class="card" style="margin-bottom:18px"><h2>Bugünün yorumu</h2><div class="road" style="margin-top:6px">Piyasa rejimi sakin: korku endeksi VIX, son bir yılın en düşük %7 diliminde. Günün öne çıkan sinyali: USD/TRY yukarı (83,0% güven) — modeli iten etkenler: 21 günlük oynaklık ↑ · RSI (aşırı alım/satım) ↑ · 52 haftalık zirveye uzaklık ↑. Günün öne çıkan sinyali: Gümüş ETF (SLV) aşağı (55,4% güven) — modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · 52 haftalık zirveye uzaklık ↓. Sıkışma tespiti: Nikkei 225, AUD/USD, USD/JPY, Sanayi ETF (XLI) — oynaklık 3 aylık ortalamanın çok altında; istatistiksel olarak yakında sert hareket olasılığı artar (yönünü söylemez).</div></div>
+<div class="card" style="margin-bottom:18px"><h2>Bugünün yorumu</h2><div class="road" style="margin-top:6px">Piyasa rejimi sakin: korku endeksi VIX, son bir yılın en düşük %7 diliminde. Günün öne çıkan sinyali: USD/TRY yukarı (83,9% güven) — modeli iten etkenler: 21 günlük oynaklık ↑ · RSI (aşırı alım/satım) ↑ · 52 haftalık zirveye uzaklık ↑. Günün öne çıkan sinyali: Gümüş ETF (SLV) aşağı (56,9% güven) — modeli iten etkenler: Çin ambargo haber ısısı ↓ · 52 haftalık zirveye uzaklık ↓ · petrol ivmesi ↓. Sıkışma tespiti: USD/JPY, Nikkei 225, AUD/USD, Vertiv — oynaklık 3 aylık ortalamanın çok altında; istatistiksel olarak yakında sert hareket olasılığı artar (yönünü söylemez).</div></div>
 <div class="card" style="margin-bottom:18px">
   <h2>Modelin gerçek kenarı <span style="font-weight:400;color:var(--muted);font-size:12px">(aylık A/B, out-of-sample 2019→)</span></h2>
   <div class="sub" style="margin:4px 0 8px">18 günlük otopsinin dersi: isabet tek başına yanıltır, çünkü model çoğunlukla "yukarı" der ve piyasa çoğu hafta yükselir. Asıl ölçü: <b>isabet − "hep çoğunluk sınıfı" tabanı</b>. Göreli hedef modelde taban %50'dir; o model her gün varlıkların yarısını seçmek zorundadır.</div>
@@ -141,10 +141,10 @@ svg { width:100%; height:auto; display:block }
     <tbody><tr>
 <td><span class="aname">USD/TRY</span> <span class="acls">Döviz</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: 21 günlük oynaklık ↑ · RSI (aşırı alım/satım) ↑ · 52 haftalık zirveye uzaklık ↑">▲ YUKARI</span></td>
-<td class="num"><strong>83,0%</strong> <span class="chip proven" data-tip="Güven ≥ %65 ve kanıtlı kenar: paper alım eşiğini geçer">GÜÇLÜ</span></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">64,5%</span></td>
-<td class="num">48,80</td>
-<td class="num muted2">48,60 – 49,01</td>
+<td class="num"><strong>83,9%</strong> <span class="chip proven" data-tip="Güven ≥ %65 ve kanıtlı kenar: paper alım eşiğini geçer">GÜÇLÜ</span></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">64,9%</span></td>
+<td class="num">48,82</td>
+<td class="num muted2">48,61 – 49,02</td>
 <td><span class="chip proven" data-tip="Out-of-sample: AUC 0,658, isabet 69,8% (taban 75,8%)">Kanıtlanmış kenar</span></td>
 <td class="num muted2">22.09.2026 </td>
 </tr><tr>
@@ -157,6 +157,24 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,520, isabet 51,9% (taban 51,7%)">Zayıf sinyal</span></td>
 <td class="num muted2">18.09.2026 </td>
 </tr><tr>
+<td><span class="aname">Uranyum ETF (URA)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · petrol ivmesi ↓ · altın-borsa makası ↑">▼ AŞAĞI</span></td>
+<td class="num"><strong>57,2%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--neg)">43,2%</span></td>
+<td class="num">$43,46</td>
+<td class="num muted2">$40,05 – $47,15</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Gümüş ETF (SLV)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · 52 haftalık zirveye uzaklık ↓ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>56,9%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--neg)">44,3%</span></td>
+<td class="num">$59,73</td>
+<td class="num muted2">$55,89 – $63,83</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
 <td><span class="aname">Doğalgaz (Henry Hub)</span> <span class="acls">Emtia</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↑ · 52 haftalık zirveye uzaklık ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
 <td class="num"><strong>56,9%</strong></td>
@@ -166,32 +184,14 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,516, isabet 49,8% (taban 50,5%)">Zayıf sinyal</span></td>
 <td class="num muted2">15.09.2026 </td>
 </tr><tr>
-<td><span class="aname">Amazon</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · kuyruk riski (basıklık) ↑">▲ YUKARI</span></td>
-<td class="num"><strong>56,3%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">54,3%</span></td>
-<td class="num">$258,45</td>
-<td class="num muted2">$246,46 – $271,02</td>
+<td><span class="aname">Vertiv</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · petrol ivmesi ↓ · 52 haftalık zirveye uzaklık ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>55,8%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">53,4%</span></td>
+<td class="num">$253,71</td>
+<td class="num muted2">$226,03 – $284,78</td>
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Microsoft</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · kuyruk riski (basıklık) ↑ · altın-borsa makası ↑">▲ YUKARI</span></td>
-<td class="num"><strong>56,3%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">54,1%</span></td>
-<td class="num">$501,61</td>
-<td class="num muted2">$482,11 – $521,90</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,507, isabet 53,3% (taban 58,4%)">Kenar yok</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Uranyum ETF (URA)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>55,7%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">45,4%</span></td>
-<td class="num">$42,98</td>
-<td class="num muted2">$39,37 – $46,92</td>
-<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">21.09.2026 </td>
+<td class="num muted2">22.09.2026 </td>
 </tr><tr>
 <td><span class="aname">USD/CHF</span> <span class="acls">Döviz</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: S&P 500 ile korelasyon ↓ · 52 haftalık zirveye uzaklık ↑ · Çin ambargo haber ısısı ↑">▲ YUKARI</span></td>
@@ -203,30 +203,48 @@ svg { width:100%; height:auto; display:block }
 <td class="num muted2">18.09.2026 </td>
 </tr><tr>
 <td><span class="aname">Realty Income</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · Çin ambargo haber ısısı ↓ · 200g ortalamaya uzaklık ↓">▲ YUKARI</span></td>
-<td class="num"><strong>55,6%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,4%</span></td>
-<td class="num">$56,65</td>
-<td class="num muted2">$55,36 – $57,96</td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
+<td class="num"><strong>55,5%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,3%</span></td>
+<td class="num">$56,60</td>
+<td class="num muted2">$55,31 – $57,91</td>
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">21.09.2026 </td>
+<td class="num muted2">22.09.2026 </td>
 </tr><tr>
-<td><span class="aname">Gümüş ETF (SLV)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · 52 haftalık zirveye uzaklık ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>55,4%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">45,1%</span></td>
-<td class="num">$59,63</td>
-<td class="num muted2">$55,74 – $63,79</td>
+<td><span class="aname">Altın ETF (GLD)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · petrol ivmesi ↓ · altın-borsa makası ↑">▼ AŞAĞI</span></td>
+<td class="num"><strong>55,3%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--neg)">41,1%</span></td>
+<td class="num">$397,83</td>
+<td class="num muted2">$381,86 – $414,46</td>
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">21.09.2026 </td>
+<td class="num muted2">22.09.2026 </td>
 </tr><tr>
-<td><span class="aname">Ethereum</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · kuyruk riski (basıklık) ↑ · altın-borsa makası ↑">▲ YUKARI</span></td>
+<td><span class="aname">Microsoft</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · kuyruk riski (basıklık) ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
 <td class="num"><strong>55,2%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">58,1%</span></td>
-<td class="num">$2.748</td>
-<td class="num muted2">$2.550 – $2.962</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,489, isabet 49,6% (taban 52,9%)">Kenar yok</span></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">55,5%</span></td>
+<td class="num">$497,42</td>
+<td class="num muted2">$477,85 – $517,79</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,507, isabet 53,3% (taban 58,4%)">Kenar yok</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Şebeke ETF (GRID)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · petrol ivmesi ↓ · ay (mevsimsellik) ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>55,0%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,5%</span></td>
+<td class="num">$182,10</td>
+<td class="num muted2">$174,33 – $190,22</td>
+<td><span class="chip proven" data-tip="Out-of-sample: AUC 0,533, isabet 56,3% (taban 59,0%)">Kanıtlanmış kenar</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Lityum ETF (LIT)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · petrol ivmesi ↓ · altın-borsa makası ↑">▼ AŞAĞI</span></td>
+<td class="num"><strong>54,9%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">46,8%</span></td>
+<td class="num">$71,01</td>
+<td class="num muted2">$68,82 – $73,27</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
 <td class="num muted2">22.09.2026 </td>
 </tr><tr>
 <td><span class="aname">Brent Petrol</span> <span class="acls">Emtia</span></td>
@@ -238,94 +256,85 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,515, isabet 51,5% (taban 53,9%)">Zayıf sinyal</span></td>
 <td class="num muted2">15.09.2026 </td>
 </tr><tr>
+<td><span class="aname">Altın (ons)</span> <span class="acls">Emtia</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>54,8%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--neg)">40,6%</span></td>
+<td class="num">$4.374</td>
+<td class="num muted2">$4.225 – $4.528</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
 <td><span class="aname">Aselsan</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · 20g tepeden düşüş ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>54,5%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,7%</span></td>
-<td class="num">₺377,75</td>
-<td class="num muted2">₺351,18 – ₺406,33</td>
-<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">22.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Enerji ETF (XLE)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · Çin ambargo haber ısısı ↓ · hacim trendi ↑">▲ YUKARI</span></td>
-<td class="num"><strong>54,3%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">55,8%</span></td>
-<td class="num">$62,46</td>
-<td class="num muted2">$60,08 – $64,93</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,509, isabet 52,3% (taban 55,1%)">Kenar yok</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Meta</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · RSI (aşırı alım/satım) ↑">▲ YUKARI</span></td>
-<td class="num"><strong>54,2%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,7%</span></td>
-<td class="num">$741,25</td>
-<td class="num muted2">$684,00 – $803,29</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,507, isabet 52,0% (taban 55,4%)">Kenar yok</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Vertiv</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · 52 haftalık zirveye uzaklık ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>54,2%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,0%</span></td>
-<td class="num">$250,86</td>
-<td class="num muted2">$223,53 – $281,53</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,478, isabet 51,2% (taban 57,5%)">Kenar yok</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">BİM</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · hacim trendi ↑">▲ YUKARI</span></td>
-<td class="num"><strong>53,9%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,6%</span></td>
-<td class="num">₺434,75</td>
-<td class="num muted2">₺414,78 – ₺455,68</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,528, isabet 54,5% (taban 57,0%)">Zayıf sinyal</span></td>
-<td class="num muted2">22.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Apple</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · 52 haftalık zirveye uzaklık ↑">▲ YUKARI</span></td>
-<td class="num"><strong>53,9%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,5%</span></td>
-<td class="num">$338,98</td>
-<td class="num muted2">$326,24 – $352,22</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,523, isabet 54,9% (taban 58,5%)">Zayıf sinyal</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">İletişim ETF (XLC)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · hacim trendi ↑">▲ YUKARI</span></td>
-<td class="num"><strong>53,8%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,8%</span></td>
-<td class="num">$114,75</td>
-<td class="num muted2">$110,59 – $119,07</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,528, isabet 54,8% (taban 57,5%)">Zayıf sinyal</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Bakır ETF (COPX)</span> <span class="acls">Hisse</span></td>
 <td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>53,7%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,8%</span></td>
-<td class="num">$87,49</td>
-<td class="num muted2">$80,94 – $94,57</td>
+<td class="num"><strong>54,1%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,1%</span></td>
+<td class="num">₺374,50</td>
+<td class="num muted2">₺348,12 – ₺402,88</td>
 <td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">21.09.2026 </td>
+<td class="num muted2">22.09.2026 </td>
 </tr><tr>
 <td><span class="aname">Şişecam</span> <span class="acls">Hisse</span></td>
 <td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>53,5%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,0%</span></td>
-<td class="num">₺40,46</td>
-<td class="num muted2">₺36,17 – ₺45,26</td>
+<td class="num"><strong>53,9%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,7%</span></td>
+<td class="num">₺40,26</td>
+<td class="num muted2">₺35,99 – ₺45,04</td>
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,518, isabet 52,6% (taban 53,1%)">Zayıf sinyal</span></td>
 <td class="num muted2">22.09.2026 </td>
 </tr><tr>
-<td><span class="aname">Altın (ons)</span> <span class="acls">Emtia</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>53,4%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--neg)">41,1%</span></td>
-<td class="num">$4.367</td>
-<td class="num muted2">$4.218 – $4.521</td>
+<td><span class="aname">Ethereum</span> <span class="acls">Kripto</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · kuyruk riski (basıklık) ↑ · 60g bandındaki konum ↑">▲ YUKARI</span></td>
+<td class="num"><strong>53,8%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">59,4%</span></td>
+<td class="num">$2.748</td>
+<td class="num muted2">$2.550 – $2.962</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,489, isabet 49,6% (taban 52,9%)">Kenar yok</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">BIST 100</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · S&P 500 ile korelasyon ↑">▲ YUKARI</span></td>
+<td class="num"><strong>53,6%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">55,3%</span></td>
+<td class="num">13.199</td>
+<td class="num muted2">12.541 – 13.891</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Çin ETF (MCHI)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · petrol ivmesi ↓ · altın-borsa makası ↑">▼ AŞAĞI</span></td>
+<td class="num"><strong>53,6%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">45,5%</span></td>
+<td class="num">$54,15</td>
+<td class="num muted2">$52,76 – $55,56</td>
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">İngiltere ETF (EWU)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>53,6%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,0%</span></td>
+<td class="num">$47,62</td>
+<td class="num muted2">$46,68 – $48,59</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Bakır ETF (COPX)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>53,5%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">45,1%</span></td>
+<td class="num">$89,15</td>
+<td class="num muted2">$83,01 – $95,75</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Japonya ETF (EWJ)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · petrol ivmesi ↓ · 52 haftalık zirveye uzaklık ↑">▼ AŞAĞI</span></td>
+<td class="num"><strong>53,5%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,4%</span></td>
+<td class="num">$98,53</td>
+<td class="num muted2">$96,03 – $101,10</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,524, isabet 53,8% (taban 55,2%)">Zayıf sinyal</span></td>
 <td class="num muted2">22.09.2026 </td>
 </tr><tr>
 <td><span class="aname">EUR/USD</span> <span class="acls">Döviz</span></td>
@@ -337,103 +346,130 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip none" data-tip="Out-of-sample: AUC 0,482, isabet 47,2% (taban 50,2%)">Kenar yok</span></td>
 <td class="num muted2">18.09.2026 </td>
 </tr><tr>
-<td><span class="aname">Aylık Gelir ETF (JEPI)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>53,2%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,1%</span></td>
-<td class="num">$56,65</td>
-<td class="num muted2">$55,88 – $57,44</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Temel Tüketim ETF (XLP)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: altın-borsa makası ↑ · Çin ambargo haber ısısı ↓ · petrol ivmesi ↓">▲ YUKARI</span></td>
-<td class="num"><strong>53,1%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">54,5%</span></td>
-<td class="num">$81,92</td>
-<td class="num muted2">$80,02 – $83,87</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,512, isabet 52,5% (taban 56,3%)">Zayıf sinyal</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Altın ETF (GLD)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>53,0%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--neg)">43,3%</span></td>
-<td class="num">$398,38</td>
-<td class="num muted2">$381,51 – $415,99</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Utilities ETF (XLU)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
-<td class="num"><strong>52,9%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,9%</span></td>
-<td class="num">$40,66</td>
-<td class="num muted2">$39,54 – $41,81</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,504, isabet 51,6% (taban 55,5%)">Kenar yok</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Lityum ETF (LIT)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>52,9%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,4%</span></td>
-<td class="num">$70,83</td>
-<td class="num muted2">$68,29 – $73,46</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Almanya ETF (EWG)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>52,8%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,0%</span></td>
-<td class="num">$42,60</td>
-<td class="num muted2">$41,65 – $43,58</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">GE Vernova</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · hacim trendi ↑">▲ YUKARI</span></td>
-<td class="num"><strong>52,8%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,5%</span></td>
-<td class="num">$946,22</td>
-<td class="num muted2">$866,49 – $1.033,28</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,492, isabet 52,0% (taban 59,2%)">Kenar yok</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Koç Holding</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · 52 haftalık zirveye uzaklık ↑">▲ YUKARI</span></td>
-<td class="num"><strong>52,8%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,1%</span></td>
-<td class="num">₺222,60</td>
-<td class="num muted2">₺208,30 – ₺237,88</td>
+<td><span class="aname">Enerji ETF (XLE)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · EUR/USD ivmesi ↑">▲ YUKARI</span></td>
+<td class="num"><strong>53,3%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,4%</span></td>
+<td class="num">$62,51</td>
+<td class="num muted2">$60,12 – $64,98</td>
 <td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
 <td class="num muted2">22.09.2026 </td>
 </tr><tr>
 <td><span class="aname">S&P 500 ETF</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · S&P 500 ile korelasyon ↑ · altın-borsa makası ↑">▲ YUKARI</span></td>
-<td class="num"><strong>52,8%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">54,3%</span></td>
-<td class="num">$773,50</td>
-<td class="num muted2">$759,12 – $788,15</td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · S&P 500 ile korelasyon ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
+<td class="num"><strong>53,2%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">57,5%</span></td>
+<td class="num">$773,49</td>
+<td class="num muted2">$759,21 – $788,04</td>
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">21.09.2026 </td>
+<td class="num muted2">22.09.2026 </td>
 </tr><tr>
-<td><span class="aname">Eaton</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · hacim trendi ↑">▲ YUKARI</span></td>
-<td class="num"><strong>52,7%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">45,8%</span></td>
-<td class="num">$435,43</td>
-<td class="num muted2">$401,08 – $472,72</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,492, isabet 53,1% (taban 57,9%)">Kenar yok</span></td>
-<td class="num muted2">21.09.2026 </td>
+<td><span class="aname">Finans ETF (XLF)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
+<td class="num"><strong>53,2%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">54,6%</span></td>
+<td class="num">$54,94</td>
+<td class="num muted2">$53,60 – $56,30</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,523, isabet 53,6% (taban 57,3%)">Zayıf sinyal</span></td>
+<td class="num muted2">22.09.2026 </td>
 </tr><tr>
-<td><span class="aname">Türk Hava Yolları</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · ay (mevsimsellik) ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>52,6%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,5%</span></td>
-<td class="num">₺297,75</td>
-<td class="num muted2">₺278,41 – ₺318,43</td>
+<td><span class="aname">G. Kore ETF (EWY)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · petrol ivmesi ↓ · ay (mevsimsellik) ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>53,1%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,4%</span></td>
+<td class="num">$190,96</td>
+<td class="num muted2">$175,88 – $207,33</td>
 <td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Almanya ETF (EWG)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>53,0%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,5%</span></td>
+<td class="num">$42,47</td>
+<td class="num muted2">$41,54 – $43,42</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Tüketim ETF (XLY)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>53,0%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,1%</span></td>
+<td class="num">$112,39</td>
+<td class="num muted2">$109,35 – $115,53</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Hindistan ETF (INDA)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>53,0%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">45,3%</span></td>
+<td class="num">$48,25</td>
+<td class="num muted2">$47,01 – $49,52</td>
+<td><span class="chip proven" data-tip="Out-of-sample: AUC 0,536, isabet 53,8% (taban 53,9%)">Kanıtlanmış kenar</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Hubbell</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · petrol ivmesi ↓ · ay (mevsimsellik) ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>52,9%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,6%</span></td>
+<td class="num">$456,68</td>
+<td class="num muted2">$435,43 – $478,96</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,511, isabet 53,2% (taban 56,6%)">Zayıf sinyal</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Meta</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · RSI (aşırı alım/satım) ↑ · hacim trendi ↑">▲ YUKARI</span></td>
+<td class="num"><strong>52,9%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,6%</span></td>
+<td class="num">$740,60</td>
+<td class="num muted2">$683,08 – $802,96</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,507, isabet 52,0% (taban 55,4%)">Kenar yok</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Koç Holding</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · hacim trendi ↑">▲ YUKARI</span></td>
+<td class="num"><strong>52,9%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">54,2%</span></td>
+<td class="num">₺221,10</td>
+<td class="num muted2">₺206,87 – ₺236,31</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Apple</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · 52 haftalık zirveye uzaklık ↑ · S&P 500 ile korelasyon ↑">▲ YUKARI</span></td>
+<td class="num"><strong>52,8%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,6%</span></td>
+<td class="num">$341,44</td>
+<td class="num muted2">$328,80 – $354,57</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,523, isabet 54,9% (taban 58,5%)">Zayıf sinyal</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Aylık Gelir ETF (JEPI)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · petrol ivmesi ↓ · altın-borsa makası ↑">▼ AŞAĞI</span></td>
+<td class="num"><strong>52,7%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">46,6%</span></td>
+<td class="num">$56,74</td>
+<td class="num muted2">$55,98 – $57,52</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Hammadde ETF (XLB)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>52,6%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,1%</span></td>
+<td class="num">$50,38</td>
+<td class="num muted2">$49,17 – $51,61</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Teknoloji ETF (XLK)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · petrol ivmesi ↓ · ay (mevsimsellik) ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>52,6%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,9%</span></td>
+<td class="num">$195,67</td>
+<td class="num muted2">$187,93 – $203,72</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,484, isabet 54,2% (taban 59,9%)">Kenar yok</span></td>
 <td class="num muted2">22.09.2026 </td>
 </tr><tr>
 <td><span class="aname">Ham Petrol (WTI)</span> <span class="acls">Emtia</span></td>
@@ -454,203 +490,95 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip none" data-tip="Out-of-sample: AUC 0,479, isabet 47,5% (taban 50,2%)">Kenar yok</span></td>
 <td class="num muted2">18.09.2026 </td>
 </tr><tr>
-<td><span class="aname">Bitcoin</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · hacim trendi ↑">▲ YUKARI</span></td>
-<td class="num"><strong>52,4%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">57,7%</span></td>
-<td class="num">$86.163</td>
-<td class="num muted2">$80.237 – $92.526</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,515, isabet 52,4% (taban 53,7%)">Zayıf sinyal</span></td>
-<td class="num muted2">22.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Nasdaq 100 ETF</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
-<td class="num"><strong>52,4%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,1%</span></td>
-<td class="num">$741,47</td>
-<td class="num muted2">$720,56 – $762,98</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,505, isabet 56,4% (taban 60,2%)">Kenar yok</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">İngiltere ETF (EWU)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>52,4%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,4%</span></td>
-<td class="num">$47,69</td>
-<td class="num muted2">$46,71 – $48,69</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Temettü ETF (SCHD)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · Fed haber ısısı ↑">▲ YUKARI</span></td>
-<td class="num"><strong>52,4%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,4%</span></td>
-<td class="num">$33,72</td>
-<td class="num muted2">$33,15 – $34,30</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,502, isabet 53,1% (taban 57,5%)">Kenar yok</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Nvidia</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
-<td class="num"><strong>52,3%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,7%</span></td>
-<td class="num">$227,38</td>
-<td class="num muted2">$209,54 – $246,74</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,509, isabet 53,9% (taban 58,9%)">Kenar yok</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Japonya ETF (EWJ)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>52,1%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,8%</span></td>
-<td class="num">$97,96</td>
-<td class="num muted2">$95,44 – $100,55</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,524, isabet 53,8% (taban 55,2%)">Zayıf sinyal</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Broadcom</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
-<td class="num"><strong>52,1%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,1%</span></td>
-<td class="num">$362,66</td>
-<td class="num muted2">$341,26 – $385,40</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">FTSE 100</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
-<td class="num"><strong>52,0%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,3%</span></td>
-<td class="num">10.750</td>
-<td class="num muted2">10.553 – 10.951</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">22.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Şebeke ETF (GRID)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>51,8%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,9%</span></td>
-<td class="num">$181,08</td>
-<td class="num muted2">$173,37 – $189,13</td>
-<td><span class="chip proven" data-tip="Out-of-sample: AUC 0,533, isabet 56,3% (taban 59,0%)">Kanıtlanmış kenar</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
 <td><span class="aname">Tüpraş</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · ay (mevsimsellik) ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>51,8%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">53,3%</span></td>
-<td class="num">₺408,75</td>
-<td class="num muted2">₺381,06 – ₺438,45</td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>52,2%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">53,1%</span></td>
+<td class="num">₺397,00</td>
+<td class="num muted2">₺368,32 – ₺427,92</td>
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,515, isabet 52,6% (taban 53,8%)">Zayıf sinyal</span></td>
 <td class="num muted2">22.09.2026 </td>
 </tr><tr>
-<td><span class="aname">Hammadde ETF (XLB)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
-<td class="num"><strong>51,7%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,5%</span></td>
-<td class="num">$49,71</td>
-<td class="num muted2">$48,39 – $51,06</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">21.09.2026 </td>
+<td><span class="aname">Utilities ETF (XLU)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
+<td class="num"><strong>52,1%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,6%</span></td>
+<td class="num">$40,65</td>
+<td class="num muted2">$39,65 – $41,67</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,504, isabet 51,6% (taban 55,5%)">Kenar yok</span></td>
+<td class="num muted2">22.09.2026 </td>
 </tr><tr>
-<td><span class="aname">BIST 100</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · 20g ortalamaya uzaklık ↑">▲ YUKARI</span></td>
-<td class="num"><strong>51,6%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">54,3%</span></td>
-<td class="num">13.270</td>
-<td class="num muted2">12.611 – 13.964</td>
-<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td><span class="aname">Amazon</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · kuyruk riski (basıklık) ↑ · altın-borsa makası ↑">▲ YUKARI</span></td>
+<td class="num"><strong>52,1%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">55,0%</span></td>
+<td class="num">$254,48</td>
+<td class="num muted2">$242,47 – $267,09</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
 <td class="num muted2">22.09.2026 </td>
 </tr><tr>
 <td><span class="aname">Garanti BBVA</span> <span class="acls">Hisse</span></td>
 <td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · hacim trendi ↑">▼ AŞAĞI</span></td>
-<td class="num"><strong>51,6%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,2%</span></td>
-<td class="num">₺133,50</td>
-<td class="num muted2">₺123,00 – ₺144,89</td>
+<td class="num"><strong>52,0%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,7%</span></td>
+<td class="num">₺133,90</td>
+<td class="num muted2">₺123,36 – ₺145,34</td>
 <td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
 <td class="num muted2">22.09.2026 </td>
 </tr><tr>
-<td><span class="aname">Hang Seng</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>51,6%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">46,1%</span></td>
-<td class="num">25.088</td>
-<td class="num muted2">24.572 – 25.614</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td><span class="aname">Türk Hava Yolları</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · ay (mevsimsellik) ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>51,9%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,7%</span></td>
+<td class="num">₺298,00</td>
+<td class="num muted2">₺278,63 – ₺318,72</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
 <td class="num muted2">22.09.2026 </td>
 </tr><tr>
-<td><span class="aname">Tesla</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · trend/ortalamaya-dönüş rejimi ↑">▲ YUKARI</span></td>
-<td class="num"><strong>51,6%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,0%</span></td>
-<td class="num">$375,30</td>
-<td class="num muted2">$343,78 – $409,71</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,521, isabet 52,0% (taban 52,4%)">Zayıf sinyal</span></td>
-<td class="num muted2">21.09.2026 </td>
+<td><span class="aname">BİM</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · hacim trendi ↑ · 52 haftalık zirveye uzaklık ↑">▲ YUKARI</span></td>
+<td class="num"><strong>51,8%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,2%</span></td>
+<td class="num">₺430,25</td>
+<td class="num muted2">₺410,36 – ₺451,11</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,528, isabet 54,5% (taban 57,0%)">Zayıf sinyal</span></td>
+<td class="num muted2">22.09.2026 </td>
 </tr><tr>
-<td><span class="aname">Teknoloji ETF (XLK)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
+<td><span class="aname">Nasdaq 100 ETF</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · petrol ivmesi ↓ · hacim trendi ↑">▲ YUKARI</span></td>
 <td class="num"><strong>51,6%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,7%</span></td>
-<td class="num">$194,85</td>
-<td class="num muted2">$187,14 – $202,87</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,484, isabet 54,2% (taban 59,9%)">Kenar yok</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Solana</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · hacim trendi ↑">▲ YUKARI</span></td>
-<td class="num"><strong>51,6%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">56,3%</span></td>
-<td class="num">$117,26</td>
-<td class="num muted2">$105,57 – $130,24</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,516, isabet 49,1% (taban 50,3%)">Zayıf sinyal</span></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,5%</span></td>
+<td class="num">$745,41</td>
+<td class="num muted2">$724,35 – $767,08</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,505, isabet 56,4% (taban 60,2%)">Kenar yok</span></td>
 <td class="num muted2">22.09.2026 </td>
 </tr><tr>
 <td><span class="aname">Ereğli Demir Çelik</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · ay (mevsimsellik) ↓">▼ AŞAĞI</span></td>
+<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · hacim trendi ↑">▼ AŞAĞI</span></td>
 <td class="num"><strong>51,5%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,2%</span></td>
-<td class="num">₺37,52</td>
-<td class="num muted2">₺34,51 – ₺40,79</td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,6%</span></td>
+<td class="num">₺37,82</td>
+<td class="num muted2">₺34,78 – ₺41,13</td>
 <td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
 <td class="num muted2">22.09.2026 </td>
 </tr><tr>
-<td><span class="aname">Tarım ETF (DBA)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
-<td class="num"><strong>51,5%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">46,5%</span></td>
-<td class="num">$28,68</td>
-<td class="num muted2">$27,95 – $29,43</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,525, isabet 53,6% (taban 55,5%)">Zayıf sinyal</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Çin ETF (MCHI)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>51,5%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">46,8%</span></td>
-<td class="num">$54,00</td>
-<td class="num muted2">$52,62 – $55,41</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Finans ETF (XLF)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
+<td><span class="aname">Eaton</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · hacim trendi ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
 <td class="num"><strong>51,4%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,8%</span></td>
-<td class="num">$55,90</td>
-<td class="num muted2">$54,60 – $57,23</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,523, isabet 53,6% (taban 57,3%)">Zayıf sinyal</span></td>
-<td class="num muted2">21.09.2026 </td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,0%</span></td>
+<td class="num">$439,93</td>
+<td class="num muted2">$405,21 – $477,62</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,492, isabet 53,1% (taban 57,9%)">Kenar yok</span></td>
+<td class="num muted2">22.09.2026 </td>
 </tr><tr>
-<td><span class="aname">Gayrimenkul ETF (XLRE)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · Fed haber ısısı ↑">▲ YUKARI</span></td>
-<td class="num"><strong>51,3%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">54,5%</span></td>
-<td class="num">$42,59</td>
-<td class="num muted2">$41,83 – $43,37</td>
+<td><span class="aname">Sanayi ETF (XLI)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>51,4%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,6%</span></td>
+<td class="num">$169,80</td>
+<td class="num muted2">$165,93 – $173,76</td>
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">21.09.2026 </td>
+<td class="num muted2">22.09.2026 </td>
 </tr><tr>
 <td><span class="aname">AUD/USD</span> <span class="acls">Döviz</span></td>
 <td><span class="dir dn mut" data-tip="Modeli iten etkenler: S&P 500 ile korelasyon ↓ · Çin ambargo haber ısısı ↑ · BTC aylık momentumu ↑">▼ AŞAĞI</span></td>
@@ -661,14 +589,41 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip none" data-tip="Out-of-sample: AUC 0,474, isabet 48,8% (taban 51,9%)">Kenar yok</span></td>
 <td class="num muted2">18.09.2026 </td>
 </tr><tr>
-<td><span class="aname">Sağlık ETF (XLV)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
+<td><span class="aname">Hang Seng</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
 <td class="num"><strong>51,3%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,3%</span></td>
-<td class="num">$169,01</td>
-<td class="num muted2">$164,76 – $173,36</td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">46,8%</span></td>
+<td class="num">25.043</td>
+<td class="num muted2">24.459 – 25.641</td>
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
 <td class="num muted2">21.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Tesla</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · trend/ortalamaya-dönüş rejimi ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>51,3%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,7%</span></td>
+<td class="num">$377,92</td>
+<td class="num muted2">$348,02 – $410,39</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,521, isabet 52,0% (taban 52,4%)">Zayıf sinyal</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Sağlık ETF (XLV)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
+<td class="num"><strong>51,2%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,5%</span></td>
+<td class="num">$170,10</td>
+<td class="num muted2">$166,02 – $174,29</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Alphabet</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · petrol ivmesi ↓ · ay (mevsimsellik) ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>51,2%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,5%</span></td>
+<td class="num">$351,98</td>
+<td class="num muted2">$337,63 – $366,94</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">22.09.2026 </td>
 </tr><tr>
 <td><span class="aname">Nikkei 225</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↑ · altın-borsa makası ↓ · petrol ivmesi ↓">▲ YUKARI</span></td>
@@ -688,112 +643,157 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip none" data-tip="Out-of-sample: AUC 0,489, isabet 52,5% (taban 57,3%)">Kenar yok</span></td>
 <td class="num muted2">18.09.2026 </td>
 </tr><tr>
-<td><span class="aname">Hindistan ETF (INDA)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>50,9%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,0%</span></td>
-<td class="num">$48,50</td>
-<td class="num muted2">$47,26 – $49,77</td>
-<td><span class="chip proven" data-tip="Out-of-sample: AUC 0,536, isabet 53,8% (taban 53,9%)">Kanıtlanmış kenar</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Tüketim ETF (XLY)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
-<td class="num"><strong>50,8%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,5%</span></td>
-<td class="num">$112,23</td>
-<td class="num muted2">$109,05 – $115,50</td>
+<td><span class="aname">DAX 40</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · hacim trendi ↑">▼ AŞAĞI</span></td>
+<td class="num"><strong>51,1%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,0%</span></td>
+<td class="num">25.579</td>
+<td class="num muted2">24.992 – 26.179</td>
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">21.09.2026 </td>
+<td class="num muted2">22.09.2026 </td>
 </tr><tr>
-<td><span class="aname">Brezilya ETF (EWZ)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · Fed haber ısısı ↑">▲ YUKARI</span></td>
-<td class="num"><strong>50,8%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,1%</span></td>
-<td class="num">$38,07</td>
-<td class="num muted2">$36,55 – $39,66</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,506, isabet 50,8% (taban 51,3%)">Kenar yok</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Quanta Services</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · kuyruk riski (basıklık) ↑">▲ YUKARI</span></td>
-<td class="num"><strong>50,7%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,3%</span></td>
-<td class="num">$642,61</td>
-<td class="num muted2">$599,31 – $689,04</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,516, isabet 56,4% (taban 59,9%)">Zayıf sinyal</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Alphabet</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · ay (mevsimsellik) ↓">▲ YUKARI</span></td>
-<td class="num"><strong>50,6%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,5%</span></td>
-<td class="num">$354,97</td>
-<td class="num muted2">$340,47 – $370,08</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Sanayi ETF (XLI)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
-<td class="num"><strong>50,5%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,6%</span></td>
-<td class="num">$169,98</td>
-<td class="num muted2">$166,07 – $173,99</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">21.09.2026 </td>
-</tr><tr>
-<td><span class="aname">Hubbell</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · 3 aylık momentum ↑">▼ AŞAĞI</span></td>
-<td class="num"><strong>50,5%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,4%</span></td>
-<td class="num">$457,49</td>
-<td class="num muted2">$436,20 – $479,82</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,511, isabet 53,2% (taban 56,6%)">Zayıf sinyal</span></td>
-<td class="num muted2">21.09.2026 </td>
+<td><span class="aname">Solana</span> <span class="acls">Kripto</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · hacim trendi ↑ · 21 günlük oynaklık ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>51,0%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">55,3%</span></td>
+<td class="num">$117,71</td>
+<td class="num muted2">$106,01 – $130,70</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,516, isabet 49,1% (taban 50,3%)">Zayıf sinyal</span></td>
+<td class="num muted2">22.09.2026 </td>
 </tr><tr>
 <td><span class="aname">Fransa ETF (EWQ)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · hacim trendi ↑">▲ YUKARI</span></td>
-<td class="num"><strong>50,5%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,3%</span></td>
-<td class="num">$44,22</td>
-<td class="num muted2">$43,27 – $45,19</td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>50,9%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,0%</span></td>
+<td class="num">$44,15</td>
+<td class="num muted2">$43,22 – $45,10</td>
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">21.09.2026 </td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Brezilya ETF (EWZ)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>50,8%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,8%</span></td>
+<td class="num">$37,95</td>
+<td class="num muted2">$36,51 – $39,44</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,506, isabet 50,8% (taban 51,3%)">Kenar yok</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Gayrimenkul ETF (XLRE)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
+<td class="num"><strong>50,8%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,9%</span></td>
+<td class="num">$42,52</td>
+<td class="num muted2">$41,76 – $43,29</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Quanta Services</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · kuyruk riski (basıklık) ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>50,7%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,3%</span></td>
+<td class="num">$644,05</td>
+<td class="num muted2">$602,87 – $688,06</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,516, isabet 56,4% (taban 59,9%)">Zayıf sinyal</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Temettü ETF (SCHD)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>50,7%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,3%</span></td>
+<td class="num">$33,78</td>
+<td class="num muted2">$33,25 – $34,33</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,502, isabet 53,1% (taban 57,5%)">Kenar yok</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Nvidia</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · petrol ivmesi ↓ · ay (mevsimsellik) ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>50,6%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,1%</span></td>
+<td class="num">$228,88</td>
+<td class="num muted2">$211,00 – $248,27</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,509, isabet 53,9% (taban 58,9%)">Kenar yok</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">İletişim ETF (XLC)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · hacim trendi ↑ · altın-borsa makası ↑">▲ YUKARI</span></td>
+<td class="num"><strong>50,6%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,5%</span></td>
+<td class="num">$113,73</td>
+<td class="num muted2">$109,56 – $118,06</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,528, isabet 54,8% (taban 57,5%)">Zayıf sinyal</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">FTSE 100</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▲ YUKARI</span></td>
+<td class="num"><strong>50,5%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,9%</span></td>
+<td class="num">10.708</td>
+<td class="num muted2">10.512 – 10.909</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Tarım ETF (DBA)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>50,5%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,0%</span></td>
+<td class="num">$28,61</td>
+<td class="num muted2">$27,88 – $29,36</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,525, isabet 53,6% (taban 55,5%)">Zayıf sinyal</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Temel Tüketim ETF (XLP)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>50,4%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,6%</span></td>
+<td class="num">$82,78</td>
+<td class="num muted2">$80,81 – $84,78</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,512, isabet 52,5% (taban 56,3%)">Zayıf sinyal</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">Broadcom</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · petrol ivmesi ↓ · psikolojik seviyeye uzaklık ↑">▲ YUKARI</span></td>
+<td class="num"><strong>50,3%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,8%</span></td>
+<td class="num">$363,93</td>
+<td class="num muted2">$342,62 – $386,57</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">22.09.2026 </td>
+</tr><tr>
+<td><span class="aname">GE Vernova</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · petrol ivmesi ↓ · hacim trendi ↑">▲ YUKARI</span></td>
+<td class="num"><strong>50,2%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,1%</span></td>
+<td class="num">$952,55</td>
+<td class="num muted2">$872,34 – $1.040,13</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,492, isabet 52,0% (taban 59,2%)">Kenar yok</span></td>
+<td class="num muted2">22.09.2026 </td>
 </tr><tr>
 <td><span class="aname">Akbank</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · ay (mevsimsellik) ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>50,4%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,2%</span></td>
-<td class="num">₺72,70</td>
-<td class="num muted2">₺66,73 – ₺79,20</td>
+<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · hacim trendi ↑">▼ AŞAĞI</span></td>
+<td class="num"><strong>50,2%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,1%</span></td>
+<td class="num">₺73,10</td>
+<td class="num muted2">₺67,09 – ₺79,65</td>
 <td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
 <td class="num muted2">22.09.2026 </td>
 </tr><tr>
-<td><span class="aname">G. Kore ETF (EWY)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>50,2%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,0%</span></td>
-<td class="num">$189,16</td>
-<td class="num muted2">$174,24 – $205,35</td>
-<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">21.09.2026 </td>
+<td><span class="aname">Bitcoin</span> <span class="acls">Kripto</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · hacim trendi ↑ · RSI (aşırı alım/satım) ↑">▲ YUKARI</span></td>
+<td class="num"><strong>50,1%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">54,9%</span></td>
+<td class="num">$86.447</td>
+<td class="num muted2">$80.515 – $92.816</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,515, isabet 52,4% (taban 53,7%)">Zayıf sinyal</span></td>
+<td class="num muted2">22.09.2026 </td>
 </tr><tr>
 <td><span class="aname">XRP</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · hacim trendi ↑">▲ YUKARI</span></td>
-<td class="num"><strong>50,1%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">53,5%</span></td>
-<td class="num">$1,5371</td>
-<td class="num muted2">$1,3592 – $1,7383</td>
+<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · 21 günlük oynaklık ↓ · hacim trendi ↑">▼ AŞAĞI</span></td>
+<td class="num"><strong>50,0%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">54,7%</span></td>
+<td class="num">$1,5660</td>
+<td class="num muted2">$1,3844 – $1,7714</td>
 <td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">22.09.2026 </td>
-</tr><tr>
-<td><span class="aname">DAX 40</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↓ · altın-borsa makası ↑ · hacim trendi ↑">▲ YUKARI</span></td>
-<td class="num"><strong>50,1%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,7%</span></td>
-<td class="num">25.647</td>
-<td class="num muted2">25.056 – 26.252</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
 <td class="num muted2">22.09.2026 </td>
 </tr></tbody>
   </table></div>
@@ -822,7 +822,7 @@ svg { width:100%; height:auto; display:block }
 <td><span class="aname">Aylık Gelir ETF (JEPI)</span></td>
 <td class="num"><strong>8,1%</strong></td>
 <td>Aylık <span class="chip proven" style="margin-left:6px">her ay öder</span></td>
-<td class="num">674 ₺</td>
+<td class="num">673 ₺</td>
 <td class="num muted2">2026-09-01</td>
 </tr><tr>
 <td><span class="aname">Realty Income</span></td>
@@ -832,52 +832,52 @@ svg { width:100%; height:auto; display:block }
 <td class="num muted2">2026-08-31</td>
 </tr><tr>
 <td><span class="aname">Tüpraş</span></td>
-<td class="num"><strong>4,4%</strong></td>
+<td class="num"><strong>4,5%</strong></td>
 <td>Yıllık</td>
-<td class="num">363 ₺</td>
+<td class="num">374 ₺</td>
 <td class="num muted2">2026-03-16</td>
 </tr><tr>
 <td><span class="aname">Garanti BBVA</span></td>
 <td class="num"><strong>3,9%</strong></td>
 <td>Yıllık</td>
-<td class="num">329 ₺</td>
+<td class="num">328 ₺</td>
 <td class="num muted2">2026-04-07</td>
 </tr><tr>
 <td><span class="aname">Temettü ETF (SCHD)</span></td>
 <td class="num"><strong>3,1%</strong></td>
 <td>3 Aylık</td>
-<td class="num">259 ₺</td>
+<td class="num">258 ₺</td>
 <td class="num muted2">2026-06-24</td>
 </tr><tr>
 <td><span class="aname">Koç Holding</span></td>
 <td class="num"><strong>3,1%</strong></td>
 <td>Yıllık</td>
-<td class="num">256 ₺</td>
+<td class="num">257 ₺</td>
 <td class="num muted2">2026-03-25</td>
 </tr><tr>
 <td><span class="aname">Akbank</span></td>
 <td class="num"><strong>3,0%</strong></td>
 <td>Yıllık</td>
-<td class="num">252 ₺</td>
+<td class="num">251 ₺</td>
 <td class="num muted2">2026-03-26</td>
 </tr><tr>
 <td><span class="aname">BİM</span></td>
 <td class="num"><strong>1,6%</strong></td>
 <td>3 Aylık</td>
-<td class="num">134 ₺</td>
+<td class="num">136 ₺</td>
 <td class="num muted2">2026-09-16</td>
-</tr><tr>
-<td><span class="aname">Ereğli Demir Çelik</span></td>
-<td class="num"><strong>1,5%</strong></td>
-<td>Yıllık</td>
-<td class="num">122 ₺</td>
-<td class="num muted2">2026-06-03</td>
 </tr><tr>
 <td><span class="aname">Şişecam</span></td>
 <td class="num"><strong>1,5%</strong></td>
 <td>Yıllık</td>
-<td class="num">121 ₺</td>
+<td class="num">122 ₺</td>
 <td class="num muted2">2026-06-01</td>
+</tr><tr>
+<td><span class="aname">Ereğli Demir Çelik</span></td>
+<td class="num"><strong>1,5%</strong></td>
+<td>Yıllık</td>
+<td class="num">121 ₺</td>
+<td class="num muted2">2026-06-03</td>
 </tr><tr>
 <td><span class="aname">Hubbell</span></td>
 <td class="num"><strong>1,2%</strong></td>
@@ -888,7 +888,7 @@ svg { width:100%; height:auto; display:block }
 <td><span class="aname">Eaton</span></td>
 <td class="num"><strong>1,0%</strong></td>
 <td>3 Aylık</td>
-<td class="num">83 ₺</td>
+<td class="num">82 ₺</td>
 <td class="num muted2">2026-08-07</td>
 </tr></tbody>
   </table></div>
@@ -897,13 +897,13 @@ svg { width:100%; height:auto; display:block }
 <div class="card" style="margin-bottom:18px">
   <h2>Haber akışı <span style="font-weight:400;color:var(--muted);font-size:12px">(son 24 saat · Alpaca/Benzinga · sembol bazlı)</span></h2>
   <div class="sub" style="margin-bottom:6px">Duygu skoru finans sözlüğüyle hesaplanır (hafif model; FinBERT v9 adayı). Haber yoğunluğu ve duygusu modele özellik olarak da girer — A/B karar verir. Belirgin olumsuz akışta o gün alım yapılmaz.</div>
-  <div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Meta</span> <span class="muted2">29 haber</span> <span class="chip proven">olumlu</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/trading-ideas/long-ideas/26/09/61924135/meta-amazon-ai-commerce" target="_blank" rel="noopener" style="color:inherit">Meta vs. Amazon: The Battle to Own E-Commerce’s 'Invisible Layer'</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/09/61924091/meta-stock-runs-overbought-into-connect-wall-street-still-targets-800" target="_blank" rel="noopener" style="color:inherit">Meta Stock Runs Overbought Into Connect — Wall Street Still Targets $800+</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Alphabet</span> <span class="muted2">19 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/equities/26/09/61921031/dan-ives-says-tech-stocks-are-in-a-1997-moment-as-tom-lee-predicts-probability-of-a-massive-rally-ahead" target="_blank" rel="noopener" style="color:inherit">Dan Ives Says Tech Stocks Are in a '1997 Moment' as Tom Lee Predicts: ‘Probability of a Massive Rally’ Ahead</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/09/61919954/sovereign-ai-isnt-so-sovereign-metas-llama-powers-38-of-adapted-models" target="_blank" rel="noopener" style="color:inherit">Sovereign AI Isn’t so Sovereign: Meta’s Llama Powers 38% of Adapted Models</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Nvidia</span> <span class="muted2">18 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/09/61919954/sovereign-ai-isnt-so-sovereign-metas-llama-powers-38-of-adapted-models" target="_blank" rel="noopener" style="color:inherit">Sovereign AI Isn’t so Sovereign: Meta’s Llama Powers 38% of Adapted Models</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/crypto/cryptocurrency/26/09/61918726/nvidia-crypto-trading-rails" target="_blank" rel="noopener" style="color:inherit">QUICK SPARK: Wall Street Is Moving Nvidia Onto Crypto Rails. 24/7 Trading Is Next</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Amazon</span> <span class="muted2">16 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/trading-ideas/long-ideas/26/09/61924135/meta-amazon-ai-commerce" target="_blank" rel="noopener" style="color:inherit">Meta vs. Amazon: The Battle to Own E-Commerce’s 'Invisible Layer'</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/equities/26/09/61921031/dan-ives-says-tech-stocks-are-in-a-1997-moment-as-tom-lee-predicts-probability-of-a-massive-rally-ahead" target="_blank" rel="noopener" style="color:inherit">Dan Ives Says Tech Stocks Are in a '1997 Moment' as Tom Lee Predicts: ‘Probability of a Massive Rally’ Ahead</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Microsoft</span> <span class="muted2">16 haber</span> <span class="chip proven">olumlu</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/trading-ideas/movers/26/09/61923311/analyst-sees-more-upside-for-microsoft-stock-following-management-meeting" target="_blank" rel="noopener" style="color:inherit">Analyst Sees More Upside for Microsoft Stock Following Management Meeting</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/equities/26/09/61921031/dan-ives-says-tech-stocks-are-in-a-1997-moment-as-tom-lee-predicts-probability-of-a-massive-rally-ahead" target="_blank" rel="noopener" style="color:inherit">Dan Ives Says Tech Stocks Are in a '1997 Moment' as Tom Lee Predicts: ‘Probability of a Massive Rally’ Ahead</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">S&P 500 ETF</span> <span class="muted2">12 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/equities/26/09/61913270/stock-market-today-sp-500-futures-gain-nasdaq-100-slips-as-trump-administration-targets-iranian-airlines-len-grml-acn-in-focus" target="_blank" rel="noopener" style="color:inherit">Stock Market Today: S&P 500, Dow, Futures Gain Nasdaq 100 Slips as Trump Administration Targets Iranian Airlines— Lennar, Greenland Mines, A</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/market-summary/26/09/61912560/sp-500-nears-record-high-but-breadth-flashes-rare-1929-1999-signal-analyst-says-weve-never-in-almost-100-years-seen-breadth-this-bad" target="_blank" rel="noopener" style="color:inherit">S&P 500 Nears Record High But Breadth Flashes Rare 1929, 1999 Signal — Analyst Says ‘We’ve Never in Almost 100 Years Seen Breadth This Bad’</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Tesla</span> <span class="muted2">12 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/trading-ideas/long-ideas/26/09/61922028/tesla-cybercab-strategy-robotaxi-revenue-split-question" target="_blank" rel="noopener" style="color:inherit">Tesla’s Cybercab Strategy Hinges on One Giant, Unanswered Question</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/prediction-markets/26/09/61919777/china-humanoid-robot-ipos-unitree-tesla" target="_blank" rel="noopener" style="color:inherit">China Slams Brakes on Humanoid Robot IPOs After Unitree’s 55% Plunge — Tesla Optimus Faces Commercialization Test</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Nasdaq 100 ETF</span> <span class="muted2">11 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/equities/26/09/61913270/stock-market-today-sp-500-futures-gain-nasdaq-100-slips-as-trump-administration-targets-iranian-airlines-len-grml-acn-in-focus" target="_blank" rel="noopener" style="color:inherit">Stock Market Today: S&P 500, Dow, Futures Gain Nasdaq 100 Slips as Trump Administration Targets Iranian Airlines— Lennar, Greenland Mines, A</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/market-summary/26/09/61912560/sp-500-nears-record-high-but-breadth-flashes-rare-1929-1999-signal-analyst-says-weve-never-in-almost-100-years-seen-breadth-this-bad" target="_blank" rel="noopener" style="color:inherit">S&P 500 Nears Record High But Breadth Flashes Rare 1929, 1999 Signal — Analyst Says ‘We’ve Never in Almost 100 Years Seen Breadth This Bad’</a></div></div>
+  <div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Meta</span> <span class="muted2">36 haber</span> <span class="chip proven">olumlu</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/options/26/09/61929691/4-communication-services-stocks-whale-activity-today-s-session" target="_blank" rel="noopener" style="color:inherit">4 Communication Services Stocks Whale Activity In Today’s Session</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/trading-ideas/movers/26/09/61929328/paypal-stock-is-rising-whats-going-on-today" target="_blank" rel="noopener" style="color:inherit">PayPal Stock Is Rising: What's Going On Today?</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Nvidia</span> <span class="muted2">23 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/Opinion/26/09/61928535/commodity-etf-delivers-double-nvidias-ytd-returns-muse-ignites-cpu-fever" target="_blank" rel="noopener" style="color:inherit">Commodity ETF Delivers Double Nvidia’s YTD Returns; Muse Ignites CPU Fever</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/prediction-markets/26/09/61927022/small-ai-model-gpt-4-1-forecasting-olas" target="_blank" rel="noopener" style="color:inherit">EXCLUSIVE: Small AI Model Matches GPT-4.1 at Forecasting as Olas Founding Member Says Frontier Models Face ‘Increasing Economic Pressure’</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Alphabet</span> <span class="muted2">21 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/options/26/09/61929691/4-communication-services-stocks-whale-activity-today-s-session" target="_blank" rel="noopener" style="color:inherit">4 Communication Services Stocks Whale Activity In Today’s Session</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/ipos/26/09/61926156/spacex-openai-anthropic-ipo-market" target="_blank" rel="noopener" style="color:inherit">SpaceX, OpenAI, Anthropic Are Making the IPO Market Look Small</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Amazon</span> <span class="muted2">17 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/Opinion/26/09/61928535/commodity-etf-delivers-double-nvidias-ytd-returns-muse-ignites-cpu-fever" target="_blank" rel="noopener" style="color:inherit">Commodity ETF Delivers Double Nvidia’s YTD Returns; Muse Ignites CPU Fever</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/trading-ideas/long-ideas/26/09/61924135/meta-amazon-ai-commerce" target="_blank" rel="noopener" style="color:inherit">Meta vs. Amazon: The Battle to Own E-Commerce’s 'Invisible Layer'</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Microsoft</span> <span class="muted2">17 haber</span> <span class="chip proven">olumlu</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/Opinion/26/09/61928535/commodity-etf-delivers-double-nvidias-ytd-returns-muse-ignites-cpu-fever" target="_blank" rel="noopener" style="color:inherit">Commodity ETF Delivers Double Nvidia’s YTD Returns; Muse Ignites CPU Fever</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/trading-ideas/movers/26/09/61923311/analyst-sees-more-upside-for-microsoft-stock-following-management-meeting" target="_blank" rel="noopener" style="color:inherit">Analyst Sees More Upside for Microsoft Stock Following Management Meeting</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">S&P 500 ETF</span> <span class="muted2">14 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/Opinion/26/09/61928535/commodity-etf-delivers-double-nvidias-ytd-returns-muse-ignites-cpu-fever" target="_blank" rel="noopener" style="color:inherit">Commodity ETF Delivers Double Nvidia’s YTD Returns; Muse Ignites CPU Fever</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/trading-ideas/long-ideas/26/09/61925693/no-warren-buffett-no-problem-former-hedge-funder-says-berkshire-stock-likely-to-beat-the-sp-500-over-the-next-five-years" target="_blank" rel="noopener" style="color:inherit">No Warren Buffett, No Problem: Former Hedge Funder Says Berkshire Stock ‘Likely to Beat the S&P 500 Over the Next Five Years’</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Tesla</span> <span class="muted2">14 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/Opinion/26/09/61928535/commodity-etf-delivers-double-nvidias-ytd-returns-muse-ignites-cpu-fever" target="_blank" rel="noopener" style="color:inherit">Commodity ETF Delivers Double Nvidia’s YTD Returns; Muse Ignites CPU Fever</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/ipos/26/09/61926156/spacex-openai-anthropic-ipo-market" target="_blank" rel="noopener" style="color:inherit">SpaceX, OpenAI, Anthropic Are Making the IPO Market Look Small</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Apple</span> <span class="muted2">13 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/Opinion/26/09/61928535/commodity-etf-delivers-double-nvidias-ytd-returns-muse-ignites-cpu-fever" target="_blank" rel="noopener" style="color:inherit">Commodity ETF Delivers Double Nvidia’s YTD Returns; Muse Ignites CPU Fever</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/09/61927717/apples-new-macs-are-faster-smarter-and-built-for-ai" target="_blank" rel="noopener" style="color:inherit">Apple’s New Macs Are Faster, Smarter and Built for AI</a></div></div>
 </div>
 
 <div class="grid2"><div class="card">
   <h2>Olay radarı <span style="font-weight:400;color:var(--muted);font-size:12px">(küresel haber ısısı, bugün)</span></h2>
   <div class="sub" style="margin-bottom:8px">GDELT küresel haber akışında temanın son 90 güne göre yoğunluğu. Isı, modele özellik olarak da girer — sinyal üretip üretmediğine A/B testi karar verir.</div>
-  <div class="imp-row"><span class="lbl2" style="flex:0 0 230px">Çin ambargo / ihracat kısıtı</span><div class="imp-track"><div class="imp-fill" style="width:84%;background:var(--neg)"></div></div><span class="val2" style="font-size:12px;min-width:90px;text-align:right">🔥 sıcak (z 2,7)</span></div><div class="imp-row"><span class="lbl2" style="flex:0 0 230px">Fed / faiz</span><div class="imp-track"><div class="imp-fill" style="width:64%;background:var(--acc)"></div></div><span class="val2" style="font-size:12px;min-width:90px;text-align:right">ılık (z 1,1)</span></div><div class="imp-row"><span class="lbl2" style="flex:0 0 230px">OPEC / petrol arzı</span><div class="imp-track"><div class="imp-fill" style="width:61%;background:var(--acc)"></div></div><span class="val2" style="font-size:12px;min-width:90px;text-align:right">ılık (z 0,9)</span></div><div class="imp-row"><span class="lbl2" style="flex:0 0 230px">Tarife / ticaret savaşı</span><div class="imp-track"><div class="imp-fill" style="width:61%;background:var(--acc)"></div></div><span class="val2" style="font-size:12px;min-width:90px;text-align:right">ılık (z 0,8)</span></div><div class="imp-row"><span class="lbl2" style="flex:0 0 230px">ABD/AB yaptırımları</span><div class="imp-track"><div class="imp-fill" style="width:58%;background:var(--acc)"></div></div><span class="val2" style="font-size:12px;min-width:90px;text-align:right">ılık (z 0,6)</span></div><div class="imp-row"><span class="lbl2" style="flex:0 0 230px">İran / Orta Doğu gerilimi</span><div class="imp-track"><div class="imp-fill" style="width:48%;background:var(--acc)"></div></div><span class="val2" style="font-size:12px;min-width:90px;text-align:right">sakin (z -0,1)</span></div>
+  <div class="imp-row"><span class="lbl2" style="flex:0 0 230px">Çin ambargo / ihracat kısıtı</span><div class="imp-track"><div class="imp-fill" style="width:84%;background:var(--neg)"></div></div><span class="val2" style="font-size:12px;min-width:90px;text-align:right">🔥 sıcak (z 2,7)</span></div><div class="imp-row"><span class="lbl2" style="flex:0 0 230px">OPEC / petrol arzı</span><div class="imp-track"><div class="imp-fill" style="width:65%;background:var(--acc)"></div></div><span class="val2" style="font-size:12px;min-width:90px;text-align:right">ılık (z 1,2)</span></div><div class="imp-row"><span class="lbl2" style="flex:0 0 230px">Fed / faiz</span><div class="imp-track"><div class="imp-fill" style="width:64%;background:var(--acc)"></div></div><span class="val2" style="font-size:12px;min-width:90px;text-align:right">ılık (z 1,1)</span></div><div class="imp-row"><span class="lbl2" style="flex:0 0 230px">Tarife / ticaret savaşı</span><div class="imp-track"><div class="imp-fill" style="width:61%;background:var(--acc)"></div></div><span class="val2" style="font-size:12px;min-width:90px;text-align:right">ılık (z 0,9)</span></div><div class="imp-row"><span class="lbl2" style="flex:0 0 230px">ABD/AB yaptırımları</span><div class="imp-track"><div class="imp-fill" style="width:58%;background:var(--acc)"></div></div><span class="val2" style="font-size:12px;min-width:90px;text-align:right">ılık (z 0,6)</span></div><div class="imp-row"><span class="lbl2" style="flex:0 0 230px">İran / Orta Doğu gerilimi</span><div class="imp-track"><div class="imp-fill" style="width:48%;background:var(--acc)"></div></div><span class="val2" style="font-size:12px;min-width:90px;text-align:right">sakin (z -0,1)</span></div>
 </div><div class="card">
   <h2>Olay kitabı <span style="font-weight:400;color:var(--muted);font-size:12px">(geçmişte ne oldu — kendi verimizden)</span></h2>
   <div class="sub" style="margin-bottom:6px">Örnek tarihsel olayların ardından 5 günlük ortalama hareket. Az sayıda olay (n) — istatistik değil, hafıza. Yatırım tavsiyesi değildir.</div>
