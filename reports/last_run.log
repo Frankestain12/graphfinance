@@ -37,17 +37,19 @@ https://scikit-learn.org/stable/model_persistence.html#security-maintainability-
   olay evt_iran: guncel isi alinamadi (ReadTimeout)
   olay evt_china: guncel isi alinamadi (ReadTimeout)
   olay evt_sanction: guncel isi alinamadi (ReadTimeout)
+  olay evt_tariff: guncel isi alinamadi (ReadTimeout)
   olay evt_fed: guncel isi alinamadi (ReadTimeout)
-   olay radari: 6 tema (6 tam gecmis), 3553 gun, 148s
+  olay evt_oil: guncel isi alinamadi (ReadTimeout)
+   olay radari: 6 tema (6 tam gecmis), 3553 gun, 166s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 235 yeni baslik, onbellek 8389 varlik-gun
-   toplam 73 varlik, 243726 satir
+   haber akisi: 393 yeni baslik, onbellek 8392 varlik-gun
+   toplam 73 varlik, 243690 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-09, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
    bekci ASKI: ['AMZN', 'AVGO', 'DAX', 'EWG', 'EWQ', 'EWU', 'FTSE', 'GLD', 'GOOGL', 'HSI', 'JEPI', 'LIT', 'MCHI', 'O', 'SLV', 'SPY', 'VRT', 'XAUUSD', 'XLB', 'XLI', 'XLRE', 'XLV', 'XLY']
-   bekci SOGUMA: ['AKBNK', 'ASELS', 'EREGL', 'KCHOL', 'THYAO', 'XLE', 'XU100']
-   defter: 1802 tahmin, 1419 cozuldu, gercek isabet 52.3%
+   bekci SOGUMA: ['AKBNK', 'ASELS', 'BIMAS', 'EREGL', 'KCHOL', 'THYAO', 'XLE', 'XU100']
+   defter: 1802 tahmin, 1436 cozuldu, gercek isabet 52.2%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
@@ -57,4 +59,4 @@ https://scikit-learn.org/stable/model_persistence.html#security-maintainability-
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 212s
+bitti — 250s
