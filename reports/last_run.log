@@ -34,21 +34,22 @@ https://scikit-learn.org/stable/model_persistence.html#security-maintainability-
   ! BNB: canli kripto yok (tum kaynaklar engelli)
    mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
-  olay evt_iran: guncel isi alinamadi (HTTPError)
-  olay evt_sanction: guncel isi alinamadi (HTTPError)
+  olay evt_iran: guncel isi alinamadi (ReadTimeout)
+  olay evt_china: guncel isi alinamadi (ReadTimeout)
+  olay evt_sanction: guncel isi alinamadi (ReadTimeout)
   olay evt_tariff: guncel isi alinamadi (ReadTimeout)
   olay evt_fed: guncel isi alinamadi (ReadTimeout)
   olay evt_oil: guncel isi alinamadi (ReadTimeout)
-   olay radari: 6 tema (6 tam gecmis), 3554 gun, 150s
+   olay radari: 6 tema (6 tam gecmis), 3554 gun, 171s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 234 yeni baslik, onbellek 8402 varlik-gun
-   toplam 73 varlik, 243720 satir
+   haber akisi: 327 yeni baslik, onbellek 8404 varlik-gun
+   toplam 73 varlik, 243762 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-09, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
-   bekci ASKI: ['AKBNK', 'AMZN', 'AVGO', 'DAX', 'EWG', 'EWQ', 'EWU', 'FTSE', 'GLD', 'GOOGL', 'HSI', 'JEPI', 'LIT', 'MCHI', 'O', 'SLV', 'SPY', 'VRT', 'XAUUSD', 'XLB', 'XLI', 'XLRE', 'XLV', 'XLY']
-   bekci SOGUMA: ['ASELS', 'EREGL', 'KCHOL', 'WTI', 'XLE']
-   defter: 1825 tahmin, 1461 cozuldu, gercek isabet 52.1%
+   bekci ASKI: ['AKBNK', 'AMZN', 'AVGO', 'DAX', 'EWG', 'EWQ', 'FTSE', 'GLD', 'GOOGL', 'HSI', 'JEPI', 'LIT', 'MCHI', 'O', 'SLV', 'SPY', 'VRT', 'XAUUSD', 'XLI', 'XLRE', 'XLV', 'XLY']
+   bekci SOGUMA: ['ASELS', 'BIMAS', 'EREGL', 'KCHOL', 'WTI', 'XLE']
+   defter: 1869 tahmin, 1505 cozuldu, gercek isabet 52.4%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
@@ -58,4 +59,4 @@ https://scikit-learn.org/stable/model_persistence.html#security-maintainability-
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 223s
+bitti — 242s
