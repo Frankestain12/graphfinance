@@ -37,12 +37,12 @@ https://scikit-learn.org/stable/model_persistence.html#security-maintainability-
   olay evt_iran: guncel isi alinamadi (ReadTimeout)
   olay evt_china: guncel isi alinamadi (ReadTimeout)
   olay evt_sanction: guncel isi alinamadi (ReadTimeout)
-  olay evt_tariff: guncel isi alinamadi (ReadTimeout)
-  olay evt_fed: guncel isi alinamadi (ReadTimeout)
-  olay evt_oil: guncel isi alinamadi (ReadTimeout)
-   olay radari: 6 tema (6 tam gecmis), 3554 gun, 171s
+  olay evt_tariff: guncel isi alinamadi (HTTPError)
+  olay evt_fed: guncel isi alinamadi (HTTPError)
+  olay evt_oil: guncel isi alinamadi (HTTPError)
+   olay radari: 6 tema (6 tam gecmis), 3554 gun, 162s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 327 yeni baslik, onbellek 8404 varlik-gun
+   haber akisi: 347 yeni baslik, onbellek 8404 varlik-gun
    toplam 73 varlik, 243762 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-09, sampiyon: ext)
 3/5 guncel tahminler...
@@ -59,4 +59,4 @@ https://scikit-learn.org/stable/model_persistence.html#security-maintainability-
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 242s
+bitti — 227s
