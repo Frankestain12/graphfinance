@@ -12,19 +12,19 @@
 https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
   warnings.warn(
 1/5 veri katmani...
-  AAPL: stooq yok (ValueError), yahoo kullanildi
-  MSFT: stooq yok (ValueError), yahoo kullanildi
-  NVDA: stooq yok (ValueError), yahoo kullanildi
-  GOOGL: stooq yok (ValueError), yahoo kullanildi
-  AMZN: stooq yok (ValueError), yahoo kullanildi
-  META: stooq yok (ValueError), yahoo kullanildi
-  TSLA: stooq yok (ValueError), yahoo kullanildi
-  AVGO: stooq yok (ValueError), yahoo kullanildi
-  SPY: stooq yok (ValueError), yahoo kullanildi
-  QQQ: stooq yok (ValueError), yahoo kullanildi
-  SCHD: stooq yok (ValueError), yahoo kullanildi
-  JEPI: stooq yok (ValueError), yahoo kullanildi
-  O: stooq yok (ValueError), yahoo kullanildi
+  AAPL: stooq yok (ConnectTimeout), yahoo kullanildi
+  MSFT: stooq yok (ConnectTimeout), yahoo kullanildi
+  NVDA: stooq yok (ConnectTimeout), yahoo kullanildi
+  GOOGL: stooq yok (ConnectTimeout), yahoo kullanildi
+  AMZN: stooq yok (ConnectTimeout), yahoo kullanildi
+  META: stooq yok (ConnectTimeout), yahoo kullanildi
+  TSLA: stooq yok (ConnectTimeout), yahoo kullanildi
+  AVGO: stooq yok (ConnectTimeout), yahoo kullanildi
+  SPY: stooq yok (ConnectTimeout), yahoo kullanildi
+  QQQ: stooq yok (ConnectTimeout), yahoo kullanildi
+  SCHD: stooq yok (ConnectTimeout), yahoo kullanildi
+  JEPI: stooq yok (ConnectTimeout), yahoo kullanildi
+  O: stooq yok (ConnectTimeout), yahoo kullanildi
   XAUUSD: stooq yok, yahoo kullanildi
   USDTRY: stooq yok, yahoo kullanildi
   BTC: coinbase kullanildi
@@ -34,17 +34,19 @@ https://scikit-learn.org/stable/model_persistence.html#security-maintainability-
   ! BNB: canli kripto yok (tum kaynaklar engelli)
    mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
-  olay evt_china: guncel isi alinamadi (ReadTimeout)
-  olay evt_fed: guncel isi alinamadi (ReadTimeout)
-   olay radari: 6 tema (6 tam gecmis), 3555 gun, 132s
+  olay evt_china: guncel isi alinamadi (HTTPError)
+  olay evt_sanction: guncel isi alinamadi (HTTPError)
+  olay evt_tariff: guncel isi alinamadi (HTTPError)
+  olay evt_fed: guncel isi alinamadi (HTTPError)
+   olay radari: 6 tema (6 tam gecmis), 3555 gun, 149s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 298 yeni baslik, onbellek 8418 varlik-gun
+   haber akisi: 310 yeni baslik, onbellek 8418 varlik-gun
    toplam 73 varlik, 243857 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-09, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
    bekci ASKI: ['AKBNK', 'AMZN', 'AVGO', 'DAX', 'EWG', 'EWQ', 'FTSE', 'GOOGL', 'HSI', 'JEPI', 'MCHI', 'O', 'SLV', 'SPY', 'THYAO', 'VRT', 'XAUUSD', 'XLI', 'XLRE', 'XLV']
-   bekci SOGUMA: ['ASELS', 'EREGL', 'KCHOL', 'WTI', 'XLE']
+   bekci SOGUMA: ['ASELS', 'BIMAS', 'EREGL', 'KCHOL', 'WTI', 'XLE']
    defter: 1933 tahmin, 1601 cozuldu, gercek isabet 52.7%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
@@ -55,4 +57,4 @@ https://scikit-learn.org/stable/model_persistence.html#security-maintainability-
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 191s
+bitti — 1557s
