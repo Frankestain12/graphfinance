@@ -35,17 +35,20 @@ https://scikit-learn.org/stable/model_persistence.html#security-maintainability-
    mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
   olay evt_iran: guncel isi alinamadi (ReadTimeout)
-  olay evt_tariff: guncel isi alinamadi (HTTPError)
-   olay radari: 6 tema (6 tam gecmis), 3558 gun, 172s
+  olay evt_china: guncel isi alinamadi (ReadTimeout)
+  olay evt_tariff: guncel isi alinamadi (ReadTimeout)
+  olay evt_fed: guncel isi alinamadi (ReadTimeout)
+  olay evt_oil: guncel isi alinamadi (ReadTimeout)
+   olay radari: 6 tema (6 tam gecmis), 3558 gun, 160s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 73 yeni baslik, onbellek 8440 varlik-gun
-   toplam 73 varlik, 243855 satir
+   haber akisi: 184 yeni baslik, onbellek 8442 varlik-gun
+   toplam 73 varlik, 243778 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-09, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
    bekci ASKI: ['AKBNK', 'AMZN', 'AVGO', 'DAX', 'EWG', 'EWQ', 'FTSE', 'GOOGL', 'HSI', 'JEPI', 'MCHI', 'O', 'SLV', 'SPY', 'THYAO', 'VRT', 'XLI', 'XLRE', 'XLV']
    bekci SOGUMA: ['BTC', 'WTI', 'XLE', 'XRP']
-   defter: 1963 tahmin, 1630 cozuldu, gercek isabet 52.6%
+   defter: 2007 tahmin, 1675 cozuldu, gercek isabet 53.2%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
@@ -55,4 +58,4 @@ https://scikit-learn.org/stable/model_persistence.html#security-maintainability-
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 236s
+bitti — 237s
