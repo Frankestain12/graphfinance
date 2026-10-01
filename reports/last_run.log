@@ -31,26 +31,21 @@
   ! BNB: canli kripto yok (tum kaynaklar engelli)
    mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
-  olay evt_iran: guncel isi alinamadi (HTTPError)
+  olay evt_iran: guncel isi alinamadi (ReadTimeout)
   olay evt_china: guncel isi alinamadi (ReadTimeout)
-  olay evt_sanction: guncel isi alinamadi (ReadTimeout)
   olay evt_tariff: guncel isi alinamadi (ReadTimeout)
   olay evt_fed: guncel isi alinamadi (ReadTimeout)
-  olay evt_oil: guncel isi alinamadi (ReadTimeout)
-   olay radari: 6 tema (6 tam gecmis), 3560 gun, 164s
+  olay evt_oil: guncel isi alinamadi (HTTPError)
+   olay radari: 6 tema (6 tam gecmis), 3561 gun, 164s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 415 yeni baslik, onbellek 8466 varlik-gun
-   toplam 73 varlik, 243811 satir
-2/5 AYLIK dogrulama: sampiyon/rakip A/B testi...
-   base: ort.AUC=0.4942  isabet=0.5190  taban(hep-cogunluk)=0.5513  KENAR=-0.0323  guvenli-isabet=0.5301  yukari-payi=71%  (24 ozellik, hedef y)
-   ext: ort.AUC=0.5153  isabet=0.5288  taban(hep-cogunluk)=0.5513  KENAR=-0.0225  guvenli-isabet=0.5501  yukari-payi=70%  (54 ozellik, hedef y)
-   rel: ort.AUC=0.5105  isabet=0.5177  taban(hep-cogunluk)=0.5001  KENAR=+0.0176  guvenli-isabet=0.5299  yukari-payi=50%  (54 ozellik, hedef y_rel)
-   SAMPIYON: ext   |   goreli secici: pasif (kenar +0.018, AUC 0.510)
+   haber akisi: 243 yeni baslik, onbellek 8477 varlik-gun
+   toplam 73 varlik, 243844 satir
+2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-10, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
    bekci ASKI: ['AKBNK', 'AMZN', 'AVGO', 'DAX', 'EWG', 'EWQ', 'FTSE', 'GOOGL', 'HSI', 'JEPI', 'MCHI', 'O', 'SPY', 'THYAO', 'VRT', 'XLI', 'XLRE', 'XLV']
-   bekci SOGUMA: ['ASELS', 'BTC', 'GARAN', 'SISE', 'TSLA', 'TUPRS', 'XRP', 'XU100']
-   defter: 2141 tahmin, 1809 cozuldu, gercek isabet 53.0%
+   bekci SOGUMA: ['ASELS', 'BTC', 'GARAN', 'KCHOL', 'SISE', 'TSLA', 'TUPRS', 'XRP', 'XU100']
+   defter: 2163 tahmin, 1830 cozuldu, gercek isabet 52.8%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
@@ -60,4 +55,4 @@
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 543s
+bitti — 225s
