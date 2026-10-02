@@ -32,12 +32,12 @@
    mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
   olay evt_iran: guncel isi alinamadi (HTTPError)
+  olay evt_china: guncel isi alinamadi (HTTPError)
   olay evt_tariff: guncel isi alinamadi (HTTPError)
-  olay evt_fed: guncel isi alinamadi (HTTPError)
   olay evt_oil: guncel isi alinamadi (HTTPError)
-   olay radari: 6 tema (6 tam gecmis), 3562 gun, 135s
+   olay radari: 6 tema (6 tam gecmis), 3562 gun, 147s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 222 yeni baslik, onbellek 8488 varlik-gun
+   haber akisi: 239 yeni baslik, onbellek 8490 varlik-gun
    toplam 73 varlik, 243907 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-10, sampiyon: ext)
 3/5 guncel tahminler...
@@ -50,8 +50,8 @@
 4.55/5 bilanco takvimi...
    bilancoya yakin (4 gun): []
 4.6/5 paper trading...
-   paper: hesap $100,508 | 1 pozisyon | 0 emir
+   paper: hesap $100,529 | 1 pozisyon | 0 emir
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 210s
+bitti — 216s
