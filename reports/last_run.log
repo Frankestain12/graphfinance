@@ -1,12 +1,12 @@
-/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
   result = getattr(ufunc, method)(*inputs, **kwargs)
-/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
   result = getattr(ufunc, method)(*inputs, **kwargs)
-/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
   result = getattr(ufunc, method)(*inputs, **kwargs)
-/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
   result = getattr(ufunc, method)(*inputs, **kwargs)
-/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
   result = getattr(ufunc, method)(*inputs, **kwargs)
 1/5 veri katmani...
   AAPL: stooq yok (ValueError), yahoo kullanildi
@@ -32,19 +32,20 @@
    mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
   olay evt_iran: guncel isi alinamadi (HTTPError)
-  olay evt_sanction: guncel isi alinamadi (HTTPError)
-  olay evt_tariff: guncel isi alinamadi (HTTPError)
-  olay evt_oil: guncel isi alinamadi (ReadTimeout)
-   olay radari: 6 tema (6 tam gecmis), 3566 gun, 140s
+  olay evt_china: guncel isi alinamadi (HTTPError)
+  olay evt_sanction: guncel isi alinamadi (ReadTimeout)
+  olay evt_tariff: guncel isi alinamadi (ReadTimeout)
+  olay evt_fed: guncel isi alinamadi (HTTPError)
+   olay radari: 6 tema (6 tam gecmis), 3566 gun, 164s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 311 yeni baslik, onbellek 8536 varlik-gun
-   toplam 73 varlik, 243948 satir
+   haber akisi: 331 yeni baslik, onbellek 8536 varlik-gun
+   toplam 73 varlik, 243909 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-10, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
    bekci ASKI: ['AKBNK', 'AMZN', 'AVGO', 'DAX', 'EWG', 'EWQ', 'EWU', 'FTSE', 'GOOGL', 'HSI', 'JEPI', 'MCHI', 'O', 'SCHD', 'SPY', 'THYAO', 'VRT', 'XLI', 'XLRE', 'XLV', 'XU100']
    bekci SOGUMA: ['ASELS', 'BIMAS', 'GARAN', 'KCHOL', 'META', 'SISE', 'TSLA', 'TUPRS']
-   defter: 2416 tahmin, 2082 cozuldu, gercek isabet 52.6%
+   defter: 2416 tahmin, 2083 cozuldu, gercek isabet 52.6%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
@@ -54,4 +55,4 @@
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 213s
+bitti — 249s
