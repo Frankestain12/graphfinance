@@ -9,19 +9,19 @@
 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: invalid value encountered in log
   result = getattr(ufunc, method)(*inputs, **kwargs)
 1/5 veri katmani...
-  AAPL: stooq yok (ValueError), yahoo kullanildi
-  MSFT: stooq yok (ValueError), yahoo kullanildi
-  NVDA: stooq yok (ValueError), yahoo kullanildi
-  GOOGL: stooq yok (ValueError), yahoo kullanildi
-  AMZN: stooq yok (ValueError), yahoo kullanildi
-  META: stooq yok (ValueError), yahoo kullanildi
-  TSLA: stooq yok (ValueError), yahoo kullanildi
-  AVGO: stooq yok (ValueError), yahoo kullanildi
-  SPY: stooq yok (ValueError), yahoo kullanildi
-  QQQ: stooq yok (ValueError), yahoo kullanildi
-  SCHD: stooq yok (ValueError), yahoo kullanildi
-  JEPI: stooq yok (ValueError), yahoo kullanildi
-  O: stooq yok (ValueError), yahoo kullanildi
+  AAPL: stooq yok (ConnectTimeout), yahoo kullanildi
+  MSFT: stooq yok (ConnectTimeout), yahoo kullanildi
+  NVDA: stooq yok (ConnectTimeout), yahoo kullanildi
+  GOOGL: stooq yok (ConnectTimeout), yahoo kullanildi
+  AMZN: stooq yok (ConnectTimeout), yahoo kullanildi
+  META: stooq yok (ConnectTimeout), yahoo kullanildi
+  TSLA: stooq yok (ConnectTimeout), yahoo kullanildi
+  AVGO: stooq yok (ConnectTimeout), yahoo kullanildi
+  SPY: stooq yok (ConnectTimeout), yahoo kullanildi
+  QQQ: stooq yok (ConnectTimeout), yahoo kullanildi
+  SCHD: stooq yok (ConnectTimeout), yahoo kullanildi
+  JEPI: stooq yok (ConnectTimeout), yahoo kullanildi
+  O: stooq yok (ConnectTimeout), yahoo kullanildi
   XAUUSD: stooq yok, yahoo kullanildi
   USDTRY: stooq yok, yahoo kullanildi
   BTC: coinbase kullanildi
@@ -31,19 +31,20 @@
   ! BNB: canli kripto yok (tum kaynaklar engelli)
    mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
-  olay evt_iran: guncel isi alinamadi (ReadTimeout)
-  olay evt_sanction: guncel isi alinamadi (HTTPError)
+  olay evt_sanction: guncel isi alinamadi (ReadTimeout)
+  olay evt_tariff: guncel isi alinamadi (ReadTimeout)
   olay evt_fed: guncel isi alinamadi (ReadTimeout)
-   olay radari: 6 tema (6 tam gecmis), 3566 gun, 151s
+  olay evt_oil: guncel isi alinamadi (ReadTimeout)
+   olay radari: 6 tema (6 tam gecmis), 3566 gun, 149s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 338 yeni baslik, onbellek 8573 varlik-gun
-   toplam 73 varlik, 244015 satir
+   haber akisi: 339 yeni baslik, onbellek 8573 varlik-gun
+   toplam 73 varlik, 243964 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-10, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
    bekci ASKI: ['AMZN', 'AVGO', 'DAX', 'DBA', 'EWG', 'EWQ', 'EWU', 'FTSE', 'GOOGL', 'HSI', 'HUBB', 'JEPI', 'MCHI', 'O', 'SCHD', 'THYAO', 'XAUUSD', 'XLC', 'XLI', 'XLP', 'XLRE', 'XLV', 'XU100']
    bekci SOGUMA: ['ASELS', 'BIMAS', 'ETH', 'EWY', 'NATGAS']
-   defter: 2611 tahmin, 2281 cozuldu, gercek isabet 52.5%
+   defter: 2615 tahmin, 2285 cozuldu, gercek isabet 52.6%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
@@ -53,4 +54,4 @@
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 223s
+bitti — 1566s
