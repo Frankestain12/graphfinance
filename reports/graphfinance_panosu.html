@@ -101,10 +101,10 @@ svg { width:100%; height:auto; display:block }
   <div class="card tile"><div class="tl">Out-of-sample tahmin</div><div class="tv">141,970</div><div class="td">2019-01-01 → 2026-09-30, 73 varlık</div></div>
   <div class="card tile"><div class="tl">Yüksek güvenli çağrı isabeti</div><div class="tv">55,0%</div><div class="td">75,245 çağrı (güven &gt; %55)</div></div>
   <div class="card tile"><div class="tl">Kanıtlanmış kenarlı varlık</div><div class="tv">12 / 73</div><div class="td">USD/TRY &amp; Gümüş ETF (SLV) &amp; Fransa ETF (EWQ)</div></div>
-  <div class="card tile"><div class="tl">Canlı defter isabeti</div><div class="tv">52,6%</div><div class="td">2285 çözülmüş tahmin · "hep yukarı" deseydik 47,0% → gerçek kenar <b style="color:var(--good-text)">+5,6%</b></div></div>
+  <div class="card tile"><div class="tl">Canlı defter isabeti</div><div class="tv">52,7%</div><div class="td">2289 çözülmüş tahmin · "hep yukarı" deseydik 47,0% → gerçek kenar <b style="color:var(--good-text)">+5,7%</b></div></div>
 </div>
 
-<div class="card" style="margin-bottom:18px"><h2>Bugünün yorumu</h2><div class="road" style="margin-top:6px">Piyasa rejimi sakin: korku endeksi VIX, son bir yılın en düşük %2 diliminde. Günün öne çıkan sinyali: USD/TRY yukarı (85,0% güven) — modeli iten etkenler: 21 günlük oynaklık ↑ · RSI (aşırı alım/satım) ↑ · 52 haftalık zirveye uzaklık ↑. Günün öne çıkan sinyali: USD/CNY aşağı (56,6% güven) — modeli iten etkenler: 21 günlük oynaklık ↓ · S&P 500 ile korelasyon ↓ · Fed haber ısısı ↑. Sıkışma tespiti: USD/JPY, Ham Petrol (WTI), Tesla, Türk Hava Yolları — oynaklık 3 aylık ortalamanın çok altında; istatistiksel olarak yakında sert hareket olasılığı artar (yönünü söylemez).</div></div>
+<div class="card" style="margin-bottom:18px"><h2>Bugünün yorumu</h2><div class="road" style="margin-top:6px">Piyasa rejimi sakin: korku endeksi VIX, son bir yılın en düşük %2 diliminde. Günün öne çıkan sinyali: USD/TRY yukarı (85,0% güven) — modeli iten etkenler: 21 günlük oynaklık ↑ · RSI (aşırı alım/satım) ↑ · 52 haftalık zirveye uzaklık ↑. Günün öne çıkan sinyali: USD/CNY aşağı (56,6% güven) — modeli iten etkenler: 21 günlük oynaklık ↓ · S&P 500 ile korelasyon ↓ · Fed haber ısısı ↑. Sıkışma tespiti: USD/JPY, Ham Petrol (WTI), Apple, Şişecam — oynaklık 3 aylık ortalamanın çok altında; istatistiksel olarak yakında sert hareket olasılığı artar (yönünü söylemez).</div></div>
 <div class="card" style="margin-bottom:18px">
   <h2>Modelin gerçek kenarı <span style="font-weight:400;color:var(--muted);font-size:12px">(aylık A/B, out-of-sample 2019→)</span></h2>
   <div class="sub" style="margin:4px 0 8px">18 günlük otopsinin dersi: isabet tek başına yanıltır, çünkü model çoğunlukla "yukarı" der ve piyasa çoğu hafta yükselir. Asıl ölçü: <b>isabet − "hep çoğunluk sınıfı" tabanı</b>. Göreli hedef modelde taban %50'dir; o model her gün varlıkların yarısını seçmek zorundadır.</div>
@@ -116,7 +116,7 @@ svg { width:100%; height:auto; display:block }
   <div style="display:flex;align-items:baseline;gap:14px;margin:6px 0 2px">
     <span style="font-size:34px;font-weight:650">$100.460</span>
     <span style="font-size:15px;font-weight:600;color:var(--good-text)">+$460 (+0,5%)</span>
-    <span class="sub">başlangıç: $100.000 · 2026-10-10</span>
+    <span class="sub">başlangıç: $100.000 · 2026-10-11</span>
   </div>
   <div class="sub" style="margin-top:8px">Şu an açık pozisyon yok — sistem sinyal bekliyor.</div>
   <div class="sub" style="margin-top:8px">Kurallar: kenarlı + güven ≥ %65 yukarı sinyalleri (+ göreli seçici ≥ %55 aktifse) · riskten kaçış rejiminde sadece savunma · MCHI/EWG/EWU/EWQ/EWY alım dışı · maks 5 pozisyon, nakit sınırı · her koşuda gözden geçirme: 5 gün doldu / %4 zarar durdur / sinyal &lt;%45 tersine döndü / kötü haber / %6 kâr al → sat · %10 düşüşte tam durdurma. Gerçek para değildir; sistemin canlı sınavıdır.</div>
@@ -157,15 +157,6 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip none" data-tip="Out-of-sample: AUC 0,471, isabet 47,8% (taban 50,0%)">Kenar yok</span></td>
 <td class="num muted2">02.10.2026 <span class="chip stale" data-tip="Bu varlığın verisi 9 gün geride — canlı veri hattı kurulunca güncellenecek">9 gün eski</span></td>
 </tr><tr>
-<td><span class="aname">Bitcoin</span> <span class="acls">Kripto</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: Fed haber ısısı ↓ · altın-borsa makası ↓ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>57,2%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,7%</span></td>
-<td class="num">$82.963</td>
-<td class="num muted2">$78.691 – $87.467</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,519, isabet 52,6% (taban 53,3%)">Zayıf sinyal</span></td>
-<td class="num muted2">10.10.2026 </td>
-</tr><tr>
 <td><span class="aname">Teknoloji ETF (XLK)</span> <span class="acls">Hisse</span></td>
 <td><span class="dir dn mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↑ · OPEC/petrol arzı haber ısısı ↓ · İran/Orta Doğu haber ısısı ↓">▼ AŞAĞI</span></td>
 <td class="num"><strong>57,1%</strong></td>
@@ -192,6 +183,15 @@ svg { width:100%; height:auto; display:block }
 <td class="num muted2">6,6905 – 6,7171</td>
 <td><span class="chip proven" data-tip="Out-of-sample: AUC 0,534, isabet 52,4% (taban 51,9%)">Kanıtlanmış kenar</span></td>
 <td class="num muted2">02.10.2026 <span class="chip stale" data-tip="Bu varlığın verisi 9 gün geride — canlı veri hattı kurulunca güncellenecek">9 gün eski</span></td>
+</tr><tr>
+<td><span class="aname">Bitcoin</span> <span class="acls">Kripto</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Fed haber ısısı ↓ · altın-borsa makası ↓ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>56,6%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,2%</span></td>
+<td class="num">$82.994</td>
+<td class="num muted2">$78.723 – $87.497</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,519, isabet 52,6% (taban 53,3%)">Zayıf sinyal</span></td>
+<td class="num muted2">11.10.2026 </td>
 </tr><tr>
 <td><span class="aname">BIST 100</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↑ · OPEC/petrol arzı haber ısısı ↓ · petrol ivmesi ↓">▲ YUKARI</span></td>
@@ -274,15 +274,6 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,516, isabet 53,3% (taban 56,8%)">Zayıf sinyal</span></td>
 <td class="num muted2">09.10.2026 </td>
 </tr><tr>
-<td><span class="aname">Ethereum</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: MACD histogramı ↑ · kuyruk riski (basıklık) ↑ · 20g ortalamaya uzaklık ↑">▲ YUKARI</span></td>
-<td class="num"><strong>54,7%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,3%</span></td>
-<td class="num">$2.505</td>
-<td class="num muted2">$2.370 – $2.647</td>
-<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">10.10.2026 </td>
-</tr><tr>
 <td><span class="aname">Aselsan</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up mut" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↑ · OPEC/petrol arzı haber ısısı ↓ · İran/Orta Doğu haber ısısı ↓">▲ YUKARI</span></td>
 <td class="num"><strong>54,6%</strong></td>
@@ -349,7 +340,7 @@ svg { width:100%; height:auto; display:block }
 <td><span class="aname">Altın (ons)</span> <span class="acls">Emtia</span></td>
 <td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↑ · OPEC/petrol arzı haber ısısı ↓ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
 <td class="num"><strong>53,7%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,5%</span></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,3%</span></td>
 <td class="num">$4.216</td>
 <td class="num muted2">$4.086 – $4.351</td>
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
@@ -508,6 +499,15 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,511, isabet 55,2% (taban 58,9%)">Zayıf sinyal</span></td>
 <td class="num muted2">09.10.2026 </td>
 </tr><tr>
+<td><span class="aname">Ethereum</span> <span class="acls">Kripto</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: MACD histogramı ↑ · kuyruk riski (basıklık) ↑ · altın-borsa makası ↓">▲ YUKARI</span></td>
+<td class="num"><strong>52,4%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,2%</span></td>
+<td class="num">$2.502</td>
+<td class="num muted2">$2.367 – $2.643</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">11.10.2026 </td>
+</tr><tr>
 <td><span class="aname">Ham Petrol (WTI)</span> <span class="acls">Emtia</span></td>
 <td><span class="dir dn" data-tip="Modeli iten etkenler: S&P 500 ile korelasyon ↓ · Çin ambargo haber ısısı ↑ · altın-borsa makası ↑">▼ AŞAĞI</span></td>
 <td class="num"><strong>52,4%</strong></td>
@@ -634,6 +634,15 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
 <td class="num muted2">09.10.2026 </td>
 </tr><tr>
+<td><span class="aname">Solana</span> <span class="acls">Kripto</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: MACD histogramı ↑ · 20g ortalamaya uzaklık ↑ · altın-borsa makası ↓">▲ YUKARI</span></td>
+<td class="num"><strong>51,4%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">53,5%</span></td>
+<td class="num">$109,42</td>
+<td class="num muted2">$101,47 – $117,99</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,522, isabet 51,0% (taban 50,6%)">Zayıf sinyal</span></td>
+<td class="num muted2">11.10.2026 </td>
+</tr><tr>
 <td><span class="aname">DAX 40</span> <span class="acls">Hisse</span></td>
 <td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↑ · OPEC/petrol arzı haber ısısı ↓ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
 <td class="num"><strong>51,4%</strong></td>
@@ -670,15 +679,6 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
 <td class="num muted2">09.10.2026 </td>
 </tr><tr>
-<td><span class="aname">Solana</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: MACD histogramı ↑ · 20g ortalamaya uzaklık ↑ · altın-borsa makası ↓">▲ YUKARI</span></td>
-<td class="num"><strong>51,1%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">54,0%</span></td>
-<td class="num">$110,00</td>
-<td class="num muted2">$102,01 – $118,61</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,522, isabet 51,0% (taban 50,6%)">Zayıf sinyal</span></td>
-<td class="num muted2">10.10.2026 </td>
-</tr><tr>
 <td><span class="aname">Lityum ETF (LIT)</span> <span class="acls">Hisse</span></td>
 <td><span class="dir dn" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↑ · OPEC/petrol arzı haber ısısı ↓ · İran/Orta Doğu haber ısısı ↓">▼ AŞAĞI</span></td>
 <td class="num"><strong>51,0%</strong></td>
@@ -705,15 +705,6 @@ svg { width:100%; height:auto; display:block }
 <td class="num muted2">$45,50 – $47,57</td>
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
 <td class="num muted2">09.10.2026 </td>
-</tr><tr>
-<td><span class="aname">XRP</span> <span class="acls">Kripto</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: MACD histogramı ↑ · 20g ortalamaya uzaklık ↑ · Fed haber ısısı ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>50,7%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,6%</span></td>
-<td class="num">$1,4027</td>
-<td class="num muted2">$1,2923 – $1,5226</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,526, isabet 51,6% (taban 52,8%)">Zayıf sinyal</span></td>
-<td class="num muted2">10.10.2026 </td>
 </tr><tr>
 <td><span class="aname">Akbank</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↑ · OPEC/petrol arzı haber ısısı ↓ · petrol ivmesi ↓">▲ YUKARI</span></td>
@@ -786,6 +777,15 @@ svg { width:100%; height:auto; display:block }
 <td class="num muted2">$39,93 – $42,01</td>
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
 <td class="num muted2">09.10.2026 </td>
+</tr><tr>
+<td><span class="aname">XRP</span> <span class="acls">Kripto</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: MACD histogramı ↑ · 20g ortalamaya uzaklık ↑ · altın-borsa makası ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>50,3%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,4%</span></td>
+<td class="num">$1,3923</td>
+<td class="num muted2">$1,2826 – $1,5113</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,526, isabet 51,6% (taban 52,8%)">Zayıf sinyal</span></td>
+<td class="num muted2">11.10.2026 </td>
 </tr><tr>
 <td><span class="aname">FTSE 100</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: Çin ambargo haber ısısı ↑ · OPEC/petrol arzı haber ısısı ↓ · petrol ivmesi ↓">▲ YUKARI</span></td>
@@ -897,7 +897,7 @@ svg { width:100%; height:auto; display:block }
 <div class="card" style="margin-bottom:18px">
   <h2>Haber akışı <span style="font-weight:400;color:var(--muted);font-size:12px">(son 24 saat · Alpaca/Benzinga · sembol bazlı)</span></h2>
   <div class="sub" style="margin-bottom:6px">Duygu skoru finans sözlüğüyle hesaplanır (hafif model; FinBERT v9 adayı). Haber yoğunluğu ve duygusu modele özellik olarak da girer — A/B karar verir. Belirgin olumsuz akışta o gün alım yapılmaz.</div>
-  <div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Nvidia</span> <span class="muted2">8 haber</span> <span class="chip proven">olumlu</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/news/politics/26/10/62289023/ro-khanna-defends-californias-proposed-billionaire-tax-as-an-innovative-economic-solution-for-a-changing-economy-not-class-warfare-or-punitive" target="_blank" rel="noopener" style="color:inherit">Ro Khanna Defends California’s Proposed Billionaire Tax as ‘An Innovative Economic Solution’ for a Changing Economy: ‘Not Class Warfare or P</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/m-a/26/10/62288564/report-nvidia-eyes-reflection-ai-takeover-as-the-ai-arms-race-heats-up" target="_blank" rel="noopener" style="color:inherit">Report: Nvidia Eyes Reflection AI Takeover as the AI Arms Race Heats Up</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Amazon</span> <span class="muted2">4 haber</span> <span class="chip stale">olumsuz</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/10/62288970/bernie-sanders-demands-congress-pause-advanced-ai-development-now-theyre-racing-to-build-a-technology-they-cant-control" target="_blank" rel="noopener" style="color:inherit">Bernie Sanders Demands Congress Pause Advanced AI Development Now: 'They’re Racing to Build a Technology They Can’t Control'</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/news/26/10/62288461/jeff-bezos-is-closing-the-net-worth-gap-with-elon-musk-thanks-to-blue-origin" target="_blank" rel="noopener" style="color:inherit">Jeff Bezos Is Closing the Net Worth Gap With Elon Musk, Thanks to Blue Origin</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Microsoft</span> <span class="muted2">4 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/10/62288970/bernie-sanders-demands-congress-pause-advanced-ai-development-now-theyre-racing-to-build-a-technology-they-cant-control" target="_blank" rel="noopener" style="color:inherit">Bernie Sanders Demands Congress Pause Advanced AI Development Now: 'They’re Racing to Build a Technology They Can’t Control'</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/10/62288865/nadella-urges-stricter-ai-security-controls" target="_blank" rel="noopener" style="color:inherit">Microsoft CEO Satya Nadella Says AI Systems Should Be Built to ‘Trust the Model the Least’</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Apple</span> <span class="muted2">3 haber</span> <span class="chip proven">olumlu</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/10/62289059/gary-black-tesla-marketing-apple-comparison" target="_blank" rel="noopener" style="color:inherit">Gary Black Says Tesla Needs to Follow Apple’s Playbook: TSLA Has Been ‘Underinvested in Marketing Forever’</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/news/politics/26/10/62287169/lawmaker-funding-restrictions-chinese-schools" target="_blank" rel="noopener" style="color:inherit">John Moolenaar Urges Defense Department to Add 120 Chinese Schools and Tech Labs to US Research Funding Watchlist</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Tesla</span> <span class="muted2">3 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/10/62289059/gary-black-tesla-marketing-apple-comparison" target="_blank" rel="noopener" style="color:inherit">Gary Black Says Tesla Needs to Follow Apple’s Playbook: TSLA Has Been ‘Underinvested in Marketing Forever’</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/10/62288944/ai-nuclear-conflict-human-extinction-risks" target="_blank" rel="noopener" style="color:inherit">AI Misuse, Nuclear War Could Cause Human Extinction by 2100, New Report Warns</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Alphabet</span> <span class="muted2">1 haber</span> <span class="chip stale">olumsuz</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/10/62288970/bernie-sanders-demands-congress-pause-advanced-ai-development-now-theyre-racing-to-build-a-technology-they-cant-control" target="_blank" rel="noopener" style="color:inherit">Bernie Sanders Demands Congress Pause Advanced AI Development Now: 'They’re Racing to Build a Technology They Can’t Control'</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Meta</span> <span class="muted2">1 haber</span> <span class="chip stale">olumsuz</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/10/62288970/bernie-sanders-demands-congress-pause-advanced-ai-development-now-theyre-racing-to-build-a-technology-they-cant-control" target="_blank" rel="noopener" style="color:inherit">Bernie Sanders Demands Congress Pause Advanced AI Development Now: 'They’re Racing to Build a Technology They Can’t Control'</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">S&P 500 ETF</span> <span class="muted2">1 haber</span> <span class="chip proven">olumlu</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/equities/26/10/62288537/sp-500-earnings-preview-will-strong-profits-fuel-the-next-rally" target="_blank" rel="noopener" style="color:inherit">S&P 500 Earnings Preview: Will Strong Profits Fuel the Next Rally?</a></div></div>
+  <div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Nvidia</span> <span class="muted2">8 haber</span> <span class="chip proven">olumlu</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/news/politics/26/10/62289023/ro-khanna-defends-californias-proposed-billionaire-tax-as-an-innovative-economic-solution-for-a-changing-economy-not-class-warfare-or-punitive" target="_blank" rel="noopener" style="color:inherit">Ro Khanna Defends California’s Proposed Billionaire Tax as ‘An Innovative Economic Solution’ for a Changing Economy: ‘Not Class Warfare or P</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/m-a/26/10/62288564/report-nvidia-eyes-reflection-ai-takeover-as-the-ai-arms-race-heats-up" target="_blank" rel="noopener" style="color:inherit">Report: Nvidia Eyes Reflection AI Takeover as the AI Arms Race Heats Up</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Amazon</span> <span class="muted2">6 haber</span> <span class="chip stale">olumsuz</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/macro-economic-events/26/10/62289149/weekend-top-stories-ai-taxes-debt-energy" target="_blank" rel="noopener" style="color:inherit">Jeff Bezos’ Three-Day Week, Scaramucci’s Debt Warning, New Nord Stream Twist and More: This Week in Economy</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/10/62289119/aws-ceo-matt-garman-defends-data-centers-amid-backlash-we-need-to-be-more-vocal" target="_blank" rel="noopener" style="color:inherit">AWS CEO Matt Garman Defends Data Centers Amid Backlash: ‘We Need To Be More Vocal’</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Microsoft</span> <span class="muted2">4 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/10/62288970/bernie-sanders-demands-congress-pause-advanced-ai-development-now-theyre-racing-to-build-a-technology-they-cant-control" target="_blank" rel="noopener" style="color:inherit">Bernie Sanders Demands Congress Pause Advanced AI Development Now: 'They’re Racing to Build a Technology They Can’t Control'</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/10/62288865/nadella-urges-stricter-ai-security-controls" target="_blank" rel="noopener" style="color:inherit">Microsoft CEO Satya Nadella Says AI Systems Should Be Built to ‘Trust the Model the Least’</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Apple</span> <span class="muted2">3 haber</span> <span class="chip proven">olumlu</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/10/62289059/gary-black-tesla-marketing-apple-comparison" target="_blank" rel="noopener" style="color:inherit">Gary Black Says Tesla Needs to Follow Apple’s Playbook: TSLA Has Been ‘Underinvested in Marketing Forever’</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/news/politics/26/10/62287169/lawmaker-funding-restrictions-chinese-schools" target="_blank" rel="noopener" style="color:inherit">John Moolenaar Urges Defense Department to Add 120 Chinese Schools and Tech Labs to US Research Funding Watchlist</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Tesla</span> <span class="muted2">3 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/10/62289059/gary-black-tesla-marketing-apple-comparison" target="_blank" rel="noopener" style="color:inherit">Gary Black Says Tesla Needs to Follow Apple’s Playbook: TSLA Has Been ‘Underinvested in Marketing Forever’</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/10/62288944/ai-nuclear-conflict-human-extinction-risks" target="_blank" rel="noopener" style="color:inherit">AI Misuse, Nuclear War Could Cause Human Extinction by 2100, New Report Warns</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Alphabet</span> <span class="muted2">1 haber</span> <span class="chip stale">olumsuz</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/10/62288970/bernie-sanders-demands-congress-pause-advanced-ai-development-now-theyre-racing-to-build-a-technology-they-cant-control" target="_blank" rel="noopener" style="color:inherit">Bernie Sanders Demands Congress Pause Advanced AI Development Now: 'They’re Racing to Build a Technology They Can’t Control'</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Meta</span> <span class="muted2">1 haber</span> <span class="chip stale">olumsuz</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/tech/26/10/62288970/bernie-sanders-demands-congress-pause-advanced-ai-development-now-theyre-racing-to-build-a-technology-they-cant-control" target="_blank" rel="noopener" style="color:inherit">Bernie Sanders Demands Congress Pause Advanced AI Development Now: 'They’re Racing to Build a Technology They Can’t Control'</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">S&P 500 ETF</span> <span class="muted2">1 haber</span> <span class="chip proven">olumlu</span><div class="sub" style="margin-top:3px">• <a href="https://www.benzinga.com/markets/equities/26/10/62288537/sp-500-earnings-preview-will-strong-profits-fuel-the-next-rally" target="_blank" rel="noopener" style="color:inherit">S&P 500 Earnings Preview: Will Strong Profits Fuel the Next Rally?</a></div></div>
 </div>
 
 <div class="grid2"><div class="card">
