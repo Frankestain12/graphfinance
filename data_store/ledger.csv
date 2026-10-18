@@ -2958,3 +2958,4 @@ made_on,asset,aclass,close,p_up,direction,horizon_td,resolved,resolve_date,reali
 2026-10-18,SOL,crypto,103.04,0.5778364438898973,up,5,0,,,,0.0,sma20_gap:+|macd_hist:+|is_crypto:-,0.5111635029561251
 2026-10-18,ETH,crypto,2406.53,0.5192144813486085,up,5,0,,,,0.0,kurt63:+|is_crypto:-|sma20_gap:+,0.4748571687011779
 2026-10-18,BTC,crypto,81583.34,0.4950632856064468,down,5,0,,,,0.0,vol21:+|gold_spy_mom:+|evt_china:-,0.461237291769706
+2026-10-18,USDTRY,fx,49.51599884033203,0.8304910009850434,up,5,0,,,,1.0,vol21:+|rsi14:+|hi52_dist:+,0.6398072971693465
