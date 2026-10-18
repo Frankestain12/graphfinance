@@ -101,10 +101,10 @@ svg { width:100%; height:auto; display:block }
   <div class="card tile"><div class="tl">Out-of-sample tahmin</div><div class="tv">145,839</div><div class="td">2019-01-01 → 2026-10-14, 74 varlık</div></div>
   <div class="card tile"><div class="tl">Yüksek güvenli çağrı isabeti</div><div class="tv">54,5%</div><div class="td">76,021 çağrı (güven &gt; %55)</div></div>
   <div class="card tile"><div class="tl">Kanıtlanmış kenarlı varlık</div><div class="tv">10 / 74</div><div class="td">USD/TRY &amp; Ham Petrol (WTI) &amp; XRP</div></div>
-  <div class="card tile"><div class="tl">Canlı defter isabeti</div><div class="tv">52,1%</div><div class="td">2629 çözülmüş tahmin · "hep yukarı" deseydik 46,5% → gerçek kenar <b style="color:var(--good-text)">+5,7%</b></div></div>
+  <div class="card tile"><div class="tl">Canlı defter isabeti</div><div class="tv">52,2%</div><div class="td">2630 çözülmüş tahmin · "hep yukarı" deseydik 46,5% → gerçek kenar <b style="color:var(--good-text)">+5,7%</b></div></div>
 </div>
 
-<div class="card" style="margin-bottom:18px"><h2>Bugünün yorumu</h2><div class="road" style="margin-top:6px">Piyasa rejimi sakin: korku endeksi VIX, son bir yılın en düşük %2 diliminde. Günün öne çıkan sinyali: USD/TRY yukarı (83,0% güven) — modeli iten etkenler: 21 günlük oynaklık ↑ · RSI (aşırı alım/satım) ↑ · 52 haftalık zirveye uzaklık ↑. Günün öne çıkan sinyali: XRP yukarı (56,9% güven) — modeli iten etkenler: 20g ortalamaya uzaklık ↑ · MACD histogramı ↑ · kripto sınıfı ↓. Sıkışma tespiti: USD/JPY, Brent Petrol, Ham Petrol (WTI), Realty Income — oynaklık 3 aylık ortalamanın çok altında; istatistiksel olarak yakında sert hareket olasılığı artar (yönünü söylemez).</div></div>
+<div class="card" style="margin-bottom:18px"><h2>Bugünün yorumu</h2><div class="road" style="margin-top:6px">Piyasa rejimi sakin: korku endeksi VIX, son bir yılın en düşük %2 diliminde. Günün öne çıkan sinyali: USD/TRY yukarı (82,6% güven) — modeli iten etkenler: 21 günlük oynaklık ↑ · RSI (aşırı alım/satım) ↑ · 52 haftalık zirveye uzaklık ↑. Günün öne çıkan sinyali: XRP yukarı (57,7% güven) — modeli iten etkenler: 20g ortalamaya uzaklık ↑ · MACD histogramı ↑ · kripto sınıfı ↓. Sıkışma tespiti: USD/JPY, Ham Petrol (WTI), Brent Petrol, Realty Income — oynaklık 3 aylık ortalamanın çok altında; istatistiksel olarak yakında sert hareket olasılığı artar (yönünü söylemez).</div></div>
 <div class="card" style="margin-bottom:18px">
   <h2>Modelin gerçek kenarı <span style="font-weight:400;color:var(--muted);font-size:12px">(aylık A/B, out-of-sample 2019→)</span></h2>
   <div class="sub" style="margin:4px 0 8px">18 günlük otopsinin dersi: isabet tek başına yanıltır, çünkü model çoğunlukla "yukarı" der ve piyasa çoğu hafta yükselir. Asıl ölçü: <b>isabet − "hep çoğunluk sınıfı" tabanı</b>. Göreli hedef modelde taban %50'dir; o model her gün varlıkların yarısını seçmek zorundadır.</div>
@@ -141,10 +141,10 @@ svg { width:100%; height:auto; display:block }
     <tbody><tr>
 <td><span class="aname">USD/TRY</span> <span class="acls">Döviz</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: 21 günlük oynaklık ↑ · RSI (aşırı alım/satım) ↑ · 52 haftalık zirveye uzaklık ↑">▲ YUKARI</span></td>
-<td class="num"><strong>83,0%</strong> <span class="chip proven" data-tip="Güven ≥ %65 ve kanıtlı kenar: paper alım eşiğini geçer">GÜÇLÜ</span></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">64,0%</span></td>
+<td class="num"><strong>82,6%</strong> <span class="chip proven" data-tip="Güven ≥ %65 ve kanıtlı kenar: paper alım eşiğini geçer">GÜÇLÜ</span></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">63,8%</span></td>
 <td class="num">49,52</td>
-<td class="num muted2">49,40 – 49,63</td>
+<td class="num muted2">49,41 – 49,63</td>
 <td><span class="chip proven" data-tip="Out-of-sample: AUC 0,659, isabet 68,7% (taban 76,1%)">Kanıtlanmış kenar</span></td>
 <td class="num muted2">18.10.2026 </td>
 </tr><tr>
@@ -274,6 +274,15 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,521, isabet 54,6% (taban 58,6%)">Zayıf sinyal</span></td>
 <td class="num muted2">16.10.2026 </td>
 </tr><tr>
+<td><span class="aname">XRP</span> <span class="acls">Kripto</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · MACD histogramı ↑ · kripto sınıfı ↓">▲ YUKARI</span></td>
+<td class="num"><strong>57,7%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,9%</span></td>
+<td class="num">$1,2965</td>
+<td class="num muted2">$1,2267 – $1,3703</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">18.10.2026 </td>
+</tr><tr>
 <td><span class="aname">EUR/USD</span> <span class="acls">Döviz</span></td>
 <td><span class="dir dn mut" data-tip="Modeli iten etkenler: Fed haber ısısı ↓ · OPEC/petrol arzı haber ısısı ↓ · S&P 500 ile korelasyon ↓">▼ AŞAĞI</span></td>
 <td class="num"><strong>57,3%</strong></td>
@@ -285,28 +294,10 @@ svg { width:100%; height:auto; display:block }
 </tr><tr>
 <td><span class="aname">Solana</span> <span class="acls">Kripto</span></td>
 <td><span class="dir up mut" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · MACD histogramı ↑ · kripto sınıfı ↓">▲ YUKARI</span></td>
-<td class="num"><strong>57,2%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,1%</span></td>
-<td class="num">$102,10</td>
-<td class="num muted2">$96,21 – $108,35</td>
-<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">18.10.2026 </td>
-</tr><tr>
-<td><span class="aname">XRP</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · MACD histogramı ↑ · kripto sınıfı ↓">▲ YUKARI</span></td>
-<td class="num"><strong>56,9%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">53,7%</span></td>
-<td class="num">$1,2716</td>
-<td class="num muted2">$1,2034 – $1,3437</td>
-<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">18.10.2026 </td>
-</tr><tr>
-<td><span class="aname">Ethereum</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · MACD histogramı ↑ · kripto sınıfı ↓">▲ YUKARI</span></td>
-<td class="num"><strong>56,8%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,8%</span></td>
-<td class="num">$2.365</td>
-<td class="num muted2">$2.242 – $2.495</td>
+<td class="num"><strong>57,1%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,2%</span></td>
+<td class="num">$103,17</td>
+<td class="num muted2">$97,21 – $109,50</td>
 <td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
 <td class="num muted2">18.10.2026 </td>
 </tr><tr>
@@ -625,14 +616,14 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,510, isabet 53,0% (taban 57,3%)">Zayıf sinyal</span></td>
 <td class="num muted2">16.10.2026 </td>
 </tr><tr>
-<td><span class="aname">Altın (ons)</span> <span class="acls">Emtia</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · altın-borsa makası ↑ · Çin ambargo haber ısısı ↓">▲ YUKARI</span></td>
-<td class="num"><strong>51,7%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,0%</span></td>
-<td class="num">$4.181</td>
-<td class="num muted2">$4.047 – $4.320</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">16.10.2026 </td>
+<td><span class="aname">Ethereum</span> <span class="acls">Kripto</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · kripto sınıfı ↓ · Fed haber ısısı ↑">▲ YUKARI</span></td>
+<td class="num"><strong>51,8%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,1%</span></td>
+<td class="num">$2.385</td>
+<td class="num muted2">$2.262 – $2.516</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">18.10.2026 </td>
 </tr><tr>
 <td><span class="aname">Aylık Gelir ETF (JEPI)</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · Çin ambargo haber ısısı ↓ · petrol ivmesi ↓">▲ YUKARI</span></td>
@@ -688,6 +679,15 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
 <td class="num muted2">16.10.2026 </td>
 </tr><tr>
+<td><span class="aname">Altın (ons)</span> <span class="acls">Emtia</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · altın-borsa makası ↑ · dolar/TL ivmesi ↓">▲ YUKARI</span></td>
+<td class="num"><strong>50,8%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,9%</span></td>
+<td class="num">$4.196</td>
+<td class="num muted2">$4.062 – $4.334</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">18.10.2026 </td>
+</tr><tr>
 <td><span class="aname">Finans ETF (XLF)</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · Çin ambargo haber ısısı ↓ · petrol ivmesi ↓">▲ YUKARI</span></td>
 <td class="num"><strong>50,8%</strong></td>
@@ -705,6 +705,15 @@ svg { width:100%; height:auto; display:block }
 <td class="num muted2">₺63,64 – ₺70,23</td>
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,510, isabet 52,5% (taban 54,3%)">Zayıf sinyal</span></td>
 <td class="num muted2">16.10.2026 </td>
+</tr><tr>
+<td><span class="aname">Bitcoin</span> <span class="acls">Kripto</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: 21 günlük oynaklık ↑ · Fed haber ısısı ↑ · altın-borsa makası ↑">▼ AŞAĞI</span></td>
+<td class="num"><strong>50,6%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,6%</span></td>
+<td class="num">$81.470</td>
+<td class="num muted2">$78.471 – $84.583</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,517, isabet 51,5% (taban 53,5%)">Zayıf sinyal</span></td>
+<td class="num muted2">18.10.2026 </td>
 </tr><tr>
 <td><span class="aname">İngiltere ETF (EWU)</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · Çin ambargo haber ısısı ↓ · petrol ivmesi ↓">▲ YUKARI</span></td>
@@ -750,15 +759,6 @@ svg { width:100%; height:auto; display:block }
 <td class="num muted2">₺193,07 – ₺215,55</td>
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,518, isabet 52,6% (taban 56,0%)">Zayıf sinyal</span></td>
 <td class="num muted2">16.10.2026 </td>
-</tr><tr>
-<td><span class="aname">Bitcoin</span> <span class="acls">Kripto</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: 21 günlük oynaklık ↑ · altın-borsa makası ↑ · yaptırım haber ısısı ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>50,2%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,5%</span></td>
-<td class="num">$81.077</td>
-<td class="num muted2">$78.094 – $84.173</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,517, isabet 51,5% (taban 53,5%)">Zayıf sinyal</span></td>
-<td class="num muted2">18.10.2026 </td>
 </tr><tr>
 <td><span class="aname">Hindistan ETF (INDA)</span> <span class="acls">Hisse</span></td>
 <td><span class="dir dn" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · Çin ambargo haber ısısı ↓ · petrol ivmesi ↓">▼ AŞAĞI</span></td>
