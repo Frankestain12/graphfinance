@@ -31,20 +31,21 @@
   ! BNB: canli kripto yok (tum kaynaklar engelli)
    mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
-  olay evt_sanction: guncel isi alinamadi (ReadTimeout)
+  olay evt_china: guncel isi alinamadi (HTTPError)
+  olay evt_sanction: guncel isi alinamadi (HTTPError)
   olay evt_tariff: guncel isi alinamadi (HTTPError)
-  olay evt_fed: guncel isi alinamadi (HTTPError)
-  olay evt_oil: guncel isi alinamadi (HTTPError)
-   olay radari: 6 tema (6 tam gecmis), 3582 gun, 155s
+  olay evt_fed: guncel isi alinamadi (ReadTimeout)
+  olay evt_oil: guncel isi alinamadi (ReadTimeout)
+   olay radari: 6 tema (6 tam gecmis), 3582 gun, 142s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 491 yeni baslik, onbellek 8725 varlik-gun
-   toplam 73 varlik, 244132 satir
+   haber akisi: 526 yeni baslik, onbellek 8726 varlik-gun
+   toplam 73 varlik, 244121 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-10, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
    bekci ASKI: ['AMZN', 'AVGO', 'DAX', 'EWU', 'FTSE', 'GOOGL', 'HSI', 'JEPI', 'MCHI', 'SCHD', 'SPY', 'VRT', 'XAUUSD', 'XLE', 'XLP', 'XLRE', 'XLV', 'XU100']
    bekci SOGUMA: ['ASELS', 'BIMAS', 'COPX', 'EREGL', 'ETN', 'EWY', 'GEV', 'KCHOL', 'LIT', 'NVDA', 'PWR', 'QQQ', 'SISE', 'THYAO', 'TSLA', 'TUPRS', 'URA', 'XLK', 'XRP']
-   defter: 3225 tahmin, 2883 cozuldu, gercek isabet 51.9%
+   defter: 3225 tahmin, 2885 cozuldu, gercek isabet 51.9%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
@@ -54,4 +55,4 @@
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 222s
+bitti — 229s
