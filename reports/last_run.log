@@ -34,12 +34,11 @@
   olay evt_iran: guncel isi alinamadi (ReadTimeout)
   olay evt_china: guncel isi alinamadi (ReadTimeout)
   olay evt_sanction: guncel isi alinamadi (ReadTimeout)
-  olay evt_tariff: guncel isi alinamadi (ReadTimeout)
-  olay evt_fed: guncel isi alinamadi (ReadTimeout)
-  olay evt_oil: guncel isi alinamadi (ReadTimeout)
-   olay radari: 6 tema (6 tam gecmis), 3584 gun, 159s
+  olay evt_fed: guncel isi alinamadi (HTTPError)
+  olay evt_oil: guncel isi alinamadi (HTTPError)
+   olay radari: 6 tema (6 tam gecmis), 3585 gun, 151s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 157 yeni baslik, onbellek 8757 varlik-gun
+   haber akisi: 119 yeni baslik, onbellek 8757 varlik-gun
    toplam 73 varlik, 244206 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-10, sampiyon: ext)
 3/5 guncel tahminler...
@@ -56,4 +55,4 @@
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 223s
+bitti — 224s
