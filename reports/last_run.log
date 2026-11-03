@@ -24,26 +24,26 @@
   O: stooq yok (ValueError), yahoo kullanildi
   XAUUSD: stooq yok, yahoo kullanildi
   USDTRY: stooq yok, yahoo kullanildi
-  BTC: coinbase kullanildi
-  ETH: coinbase kullanildi
-  SOL: coinbase kullanildi
-  XRP: coinbase kullanildi
-  ! BNB: canli kripto yok (tum kaynaklar engelli)
-   mirror: 12 varlik | canli: 64 varlik
+   mirror: 12 varlik | canli: 65 varlik
 1.5/5 olay radari (GDELT)...
   olay evt_iran: guncel isi alinamadi (HTTPError)
-  olay evt_china: guncel isi alinamadi (HTTPError)
-  olay evt_tariff: guncel isi alinamadi (HTTPError)
-   olay radari: 6 tema (6 tam gecmis), 3594 gun, 150s
+  olay evt_sanction: guncel isi alinamadi (ReadTimeout)
+  olay evt_fed: guncel isi alinamadi (ReadTimeout)
+  olay evt_oil: guncel isi alinamadi (HTTPError)
+   olay radari: 6 tema (6 tam gecmis), 3594 gun, 151s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 312 yeni baslik, onbellek 8882 varlik-gun
-   toplam 73 varlik, 246003 satir
-2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-11, sampiyon: ext)
+   haber akisi: 433 yeni baslik, onbellek 8885 varlik-gun
+   toplam 74 varlik, 249390 satir
+2/5 AYLIK dogrulama: sampiyon/rakip A/B testi...
+   base: ort.AUC=0.4902  isabet=0.5157  taban(hep-cogunluk)=0.5494  KENAR=-0.0337  guvenli-isabet=0.5261  yukari-payi=70%  (24 ozellik, hedef y)
+   ext: ort.AUC=0.5166  isabet=0.5275  taban(hep-cogunluk)=0.5494  KENAR=-0.0219  guvenli-isabet=0.5480  yukari-payi=69%  (54 ozellik, hedef y)
+   rel: ort.AUC=0.5078  isabet=0.5152  taban(hep-cogunluk)=0.5001  KENAR=+0.0151  guvenli-isabet=0.5258  yukari-payi=49%  (54 ozellik, hedef y_rel)
+   SAMPIYON: ext   |   goreli secici: pasif (kenar +0.015, AUC 0.508)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
-   bekci ASKI: ['AMZN', 'DAX', 'EWU', 'FTSE', 'GOOGL', 'JEPI', 'MCHI', 'SCHD', 'SPY', 'XAUUSD', 'XLE', 'XLP', 'XLRE', 'XLV', 'XU100']
-   bekci SOGUMA: ['AKBNK', 'BIMAS', 'EREGL', 'EWZ', 'GARAN', 'GEV', 'HUBB', 'META', 'MSFT', 'NVDA', 'QQQ', 'SISE', 'SLV', 'SOL', 'THYAO', 'TUPRS', 'URA', 'XLC', 'XLK', 'XRP']
-   defter: 3717 tahmin, 3385 cozuldu, gercek isabet 51.2%
+   bekci ASKI: ['AMZN', 'DAX', 'ETN', 'EWU', 'FTSE', 'GOOGL', 'JEPI', 'MCHI', 'SCHD', 'SPY', 'XAUUSD', 'XLE', 'XLF', 'XLP', 'XLRE', 'XLV', 'XU100']
+   bekci SOGUMA: ['AAPL', 'AKBNK', 'BIMAS', 'EREGL', 'EWZ', 'GARAN', 'GEV', 'HUBB', 'META', 'MSFT', 'NVDA', 'QQQ', 'SISE', 'SLV', 'SOL', 'THYAO', 'TUPRS', 'URA', 'XLC', 'XLK', 'XRP']
+   defter: 3762 tahmin, 3430 cozuldu, gercek isabet 51.1%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
@@ -53,4 +53,4 @@
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 223s
+bitti — 606s
