@@ -24,21 +24,19 @@
   O: stooq yok (ValueError), yahoo kullanildi
   XAUUSD: stooq yok, yahoo kullanildi
   USDTRY: stooq yok, yahoo kullanildi
-   mirror: 12 varlik | canli: 65 varlik
+  BTC: coinbase kullanildi
+  ETH: coinbase kullanildi
+  SOL: coinbase kullanildi
+  XRP: coinbase kullanildi
+  ! BNB: canli kripto yok (tum kaynaklar engelli)
+   mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
-  olay evt_iran: guncel isi alinamadi (HTTPError)
-  olay evt_sanction: guncel isi alinamadi (ReadTimeout)
-  olay evt_fed: guncel isi alinamadi (ReadTimeout)
   olay evt_oil: guncel isi alinamadi (HTTPError)
-   olay radari: 6 tema (6 tam gecmis), 3594 gun, 151s
+   olay radari: 6 tema (6 tam gecmis), 3594 gun, 144s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 433 yeni baslik, onbellek 8885 varlik-gun
-   toplam 74 varlik, 249390 satir
-2/5 AYLIK dogrulama: sampiyon/rakip A/B testi...
-   base: ort.AUC=0.4902  isabet=0.5157  taban(hep-cogunluk)=0.5494  KENAR=-0.0337  guvenli-isabet=0.5261  yukari-payi=70%  (24 ozellik, hedef y)
-   ext: ort.AUC=0.5166  isabet=0.5275  taban(hep-cogunluk)=0.5494  KENAR=-0.0219  guvenli-isabet=0.5480  yukari-payi=69%  (54 ozellik, hedef y)
-   rel: ort.AUC=0.5078  isabet=0.5152  taban(hep-cogunluk)=0.5001  KENAR=+0.0151  guvenli-isabet=0.5258  yukari-payi=49%  (54 ozellik, hedef y_rel)
-   SAMPIYON: ext   |   goreli secici: pasif (kenar +0.015, AUC 0.508)
+   haber akisi: 436 yeni baslik, onbellek 8885 varlik-gun
+   toplam 73 varlik, 245996 satir
+2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-11, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
    bekci ASKI: ['AMZN', 'DAX', 'ETN', 'EWU', 'FTSE', 'GOOGL', 'JEPI', 'MCHI', 'SCHD', 'SPY', 'XAUUSD', 'XLE', 'XLF', 'XLP', 'XLRE', 'XLV', 'XU100']
@@ -49,8 +47,8 @@
 4.55/5 bilanco takvimi...
    bilancoya yakin (4 gun): ['ETN']
 4.6/5 paper trading...
-   paper: hesap $100,460 | 0 pozisyon | 0 emir
+   paper: hesap $100,460 | 0 pozisyon | 1 emir
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 606s
+bitti — 201s
