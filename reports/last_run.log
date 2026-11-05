@@ -1,82 +1,59 @@
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:438: RuntimeWarning: invalid value encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:438: RuntimeWarning: invalid value encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:438: RuntimeWarning: invalid value encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:438: RuntimeWarning: invalid value encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arraylike.py:438: RuntimeWarning: invalid value encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
 1/5 veri katmani...
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/urllib3/connectionpool.py", line 540, in _make_request
-    response = conn.getresponse()
-               ^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/urllib3/connection.py", line 638, in getresponse
-    httplib_response = super().getresponse()
-                       ^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/http/client.py", line 1443, in getresponse
-    response.begin()
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/http/client.py", line 337, in begin
-    version, status, reason = self._read_status()
-                              ^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/http/client.py", line 298, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/socket.py", line 718, in readinto
-    return self._sock.recv_into(b)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/ssl.py", line 1327, in recv_into
-    return self.read(nbytes, buffer)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/ssl.py", line 1179, in read
-    return self._sslobj.read(len, buffer)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TimeoutError: The read operation timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/requests/adapters.py", line 696, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/urllib3/connectionpool.py", line 847, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/urllib3/util/retry.py", line 510, in increment
-    raise reraise(type(error), error, _stacktrace)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/urllib3/util/util.py", line 39, in reraise
-    raise value
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/urllib3/connectionpool.py", line 793, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/urllib3/connectionpool.py", line 542, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/urllib3/connectionpool.py", line 373, in _raise_timeout
-    raise ReadTimeoutError(
-urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Read timed out. (read timeout=60)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/runner/work/graphfinance/graphfinance/src/run_live.py", line 344, in <module>
-    main()
-  File "/home/runner/work/graphfinance/graphfinance/src/run_live.py", line 89, in main
-    gh_panel, vix = load_panel()
-                    ^^^^^^^^^^^^
-  File "/home/runner/work/graphfinance/graphfinance/src/fetch.py", line 100, in load_panel
-    panel = pd.concat([load_crypto(), load_datahub(), load_fx()], ignore_index=True)
-                                                      ^^^^^^^^^
-  File "/home/runner/work/graphfinance/graphfinance/src/fetch.py", line 82, in load_fx
-    txt = _get(FX_URL, "fx_daily.csv")
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/graphfinance/graphfinance/src/fetch.py", line 35, in _get
-    r = requests.get(url, headers=H, timeout=60)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/requests/api.py", line 87, in get
-    return request("get", url, params=params, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/requests/api.py", line 71, in request
-    return session.request(method=method, url=url, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/requests/sessions.py", line 651, in request
-    resp = self.send(prep, **send_kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/requests/sessions.py", line 784, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/requests/adapters.py", line 742, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Read timed out. (read timeout=60)
+  AAPL: stooq yok (ValueError), yahoo kullanildi
+  MSFT: stooq yok (ValueError), yahoo kullanildi
+  NVDA: stooq yok (ValueError), yahoo kullanildi
+  GOOGL: stooq yok (ValueError), yahoo kullanildi
+  AMZN: stooq yok (ValueError), yahoo kullanildi
+  META: stooq yok (ValueError), yahoo kullanildi
+  TSLA: stooq yok (ValueError), yahoo kullanildi
+  AVGO: stooq yok (ValueError), yahoo kullanildi
+  SPY: stooq yok (ValueError), yahoo kullanildi
+  QQQ: stooq yok (ValueError), yahoo kullanildi
+  SCHD: stooq yok (ValueError), yahoo kullanildi
+  JEPI: stooq yok (ValueError), yahoo kullanildi
+  O: stooq yok (ValueError), yahoo kullanildi
+  XAUUSD: stooq yok, yahoo kullanildi
+  USDTRY: stooq yok, yahoo kullanildi
+  BTC: coinbase kullanildi
+  ETH: coinbase kullanildi
+  SOL: coinbase kullanildi
+  XRP: coinbase kullanildi
+  ! BNB: canli kripto yok (tum kaynaklar engelli)
+   mirror: 12 varlik | canli: 64 varlik
+1.5/5 olay radari (GDELT)...
+  olay evt_iran: guncel isi alinamadi (ReadTimeout)
+  olay evt_china: guncel isi alinamadi (HTTPError)
+  olay evt_sanction: guncel isi alinamadi (HTTPError)
+  olay evt_tariff: guncel isi alinamadi (HTTPError)
+  olay evt_fed: guncel isi alinamadi (HTTPError)
+  olay evt_oil: guncel isi alinamadi (ReadTimeout)
+   olay radari: 6 tema (6 tam gecmis), 3594 gun, 154s
+1.7/5 haber akisi (Alpaca)...
+   haber akisi: 442 yeni baslik, onbellek 8899 varlik-gun
+   toplam 73 varlik, 246005 satir
+2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-11, sampiyon: ext)
+3/5 guncel tahminler...
+4/5 tahmin defteri...
+   bekci ASKI: ['AMZN', 'DAX', 'EWG', 'EWU', 'FTSE', 'GOOGL', 'JEPI', 'MCHI', 'SCHD', 'SPY', 'XLE', 'XLF', 'XLP', 'XLRE', 'XLV', 'XU100']
+   bekci SOGUMA: ['AAPL', 'AKBNK', 'BIMAS', 'EREGL', 'EWZ', 'GARAN', 'GEV', 'HUBB', 'META', 'MSFT', 'NVDA', 'QQQ', 'SISE', 'SLV', 'SOL', 'THYAO', 'TUPRS', 'URA', 'XLC', 'XLK', 'XRP']
+   defter: 3833 tahmin, 3499 cozuldu, gercek isabet 51.1%
+4.5/5 temettu radari...
+   temettu radari: 18 varlik
+4.55/5 bilanco takvimi...
+   bilancoya yakin (4 gun): []
+4.6/5 paper trading...
+   paper: hesap $100,423 | 1 pozisyon | 0 emir
+4.7/5 balina takibi...
+   balina takibi: 6 fon
+5/5 pano...
+bitti — 224s
