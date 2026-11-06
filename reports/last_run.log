@@ -36,24 +36,24 @@
   olay evt_sanction: guncel isi alinamadi (ReadTimeout)
   olay evt_tariff: guncel isi alinamadi (ReadTimeout)
   olay evt_fed: guncel isi alinamadi (ReadTimeout)
-  olay evt_oil: guncel isi alinamadi (HTTPError)
-   olay radari: 6 tema (6 tam gecmis), 3594 gun, 162s
+  olay evt_oil: guncel isi alinamadi (ReadTimeout)
+   olay radari: 6 tema (6 tam gecmis), 3594 gun, 170s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 447 yeni baslik, onbellek 8912 varlik-gun
-   toplam 73 varlik, 244298 satir
+   haber akisi: 422 yeni baslik, onbellek 8915 varlik-gun
+   toplam 73 varlik, 244302 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-11, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
    bekci ASKI: ['AMZN', 'DAX', 'EWG', 'EWU', 'FTSE', 'GOOGL', 'HSI', 'JEPI', 'MCHI', 'SCHD', 'SPY', 'XAUUSD', 'XLE', 'XLF', 'XLP', 'XLRE', 'XLV', 'XU100']
-   bekci SOGUMA: ['AAPL', 'AKBNK', 'BIMAS', 'EREGL', 'EWZ', 'GARAN', 'GEV', 'HUBB', 'META', 'MSFT', 'NATGAS', 'NVDA', 'QQQ', 'SISE', 'SLV', 'SOL', 'THYAO', 'TUPRS', 'URA', 'XLC', 'XLK', 'XRP']
-   defter: 3893 tahmin, 3561 cozuldu, gercek isabet 51.1%
+   bekci SOGUMA: ['AAPL', 'BIMAS', 'EREGL', 'EWZ', 'GEV', 'HUBB', 'META', 'MSFT', 'NATGAS', 'NVDA', 'QQQ', 'SLV', 'SOL', 'TUPRS', 'URA', 'XLK']
+   defter: 3900 tahmin, 3567 cozuldu, gercek isabet 51.1%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
    bilancoya yakin (4 gun): []
 4.6/5 paper trading...
-   paper: hesap $99,841 | 3 pozisyon | 0 emir
+   paper: hesap $99,676 | 3 pozisyon | 0 emir
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 239s
+bitti — 253s
