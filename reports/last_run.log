@@ -33,10 +33,10 @@
 1.5/5 olay radari (GDELT)...
   olay evt_iran: guncel isi alinamadi (HTTPError)
   olay evt_china: guncel isi alinamadi (HTTPError)
-  olay evt_tariff: guncel isi alinamadi (HTTPError)
-  olay evt_fed: guncel isi alinamadi (HTTPError)
+  olay evt_sanction: guncel isi alinamadi (HTTPError)
+  olay evt_fed: guncel isi alinamadi (ReadTimeout)
   olay evt_oil: guncel isi alinamadi (HTTPError)
-   olay radari: 6 tema (6 tam gecmis), 3598 gun, 127s
+   olay radari: 6 tema (6 tam gecmis), 3598 gun, 148s
 1.7/5 haber akisi (Alpaca)...
    haber akisi: 348 yeni baslik, onbellek 8931 varlik-gun
    toplam 73 varlik, 244378 satir
@@ -51,8 +51,8 @@
 4.55/5 bilanco takvimi...
    bilancoya yakin (4 gun): []
 4.6/5 paper trading...
-   paper: hesap $100,206 | 3 pozisyon | 1 emir
+   paper: hesap $100,206 | 3 pozisyon | 0 emir
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 194s
+bitti — 220s
