@@ -3965,3 +3965,4 @@ made_on,asset,aclass,close,p_up,direction,horizon_td,resolved,resolve_date,reali
 2026-11-08,XRP,crypto,1.1577,0.5047409160477586,up,5,0,,,,1.0,sma20_gap:+|r63:+|btc_r21:-,0.5155520985218947
 2026-11-08,ETH,crypto,2230.63,0.4381528459099531,down,5,0,,,,0.0,is_crypto:-|evt_china:-|btc_r21:-,0.5047938473585729
 2026-11-08,BTC,crypto,75731.71,0.4229563506753008,down,5,0,,,,0.0,btc_r21:-|is_crypto:-|evt_china:-,0.5056976775425747
+2026-11-08,USDTRY,fx,50.14590072631836,0.7913083716419214,up,5,0,,,,1.0,rsi14:+|vol21:+|hi52_dist:+,0.6705986324001156
