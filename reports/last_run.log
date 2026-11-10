@@ -31,12 +31,15 @@
   ! BNB: canli kripto yok (tum kaynaklar engelli)
    mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
+  olay evt_china: guncel isi alinamadi (HTTPError)
   olay evt_sanction: guncel isi alinamadi (HTTPError)
+  olay evt_tariff: guncel isi alinamadi (HTTPError)
+  olay evt_fed: guncel isi alinamadi (ReadTimeout)
   olay evt_oil: guncel isi alinamadi (HTTPError)
-   olay radari: 6 tema (6 tam gecmis), 3601 gun, 156s
+   olay radari: 6 tema (6 tam gecmis), 3601 gun, 160s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 389 yeni baslik, onbellek 8970 varlik-gun
-   toplam 73 varlik, 244370 satir
+   haber akisi: 405 yeni baslik, onbellek 8970 varlik-gun
+   toplam 73 varlik, 244320 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-11, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
@@ -48,8 +51,8 @@
 4.55/5 bilanco takvimi...
    bilancoya yakin (4 gun): []
 4.6/5 paper trading...
-   paper: hesap $101,104 | 1 pozisyon | 0 emir
+   paper: hesap $101,168 | 1 pozisyon | 0 emir
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 233s
+bitti — 226s
