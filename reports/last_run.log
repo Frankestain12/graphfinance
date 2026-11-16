@@ -31,14 +31,11 @@
   ! BNB: canli kripto yok (tum kaynaklar engelli)
    mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
-  olay evt_iran: guncel isi alinamadi (HTTPError)
-  olay evt_china: guncel isi alinamadi (ReadTimeout)
-  olay evt_sanction: guncel isi alinamadi (HTTPError)
-  olay evt_fed: guncel isi alinamadi (ReadTimeout)
-  olay evt_oil: guncel isi alinamadi (HTTPError)
-   olay radari: 6 tema (6 tam gecmis), 3606 gun, 156s
+  olay evt_tariff: guncel isi alinamadi (ReadTimeout)
+  olay evt_fed: guncel isi alinamadi (HTTPError)
+   olay radari: 6 tema (6 tam gecmis), 3606 gun, 140s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 37 yeni baslik, onbellek 9045 varlik-gun
+   haber akisi: 35 yeni baslik, onbellek 9045 varlik-gun
    toplam 73 varlik, 244378 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-11, sampiyon: ext)
 3/5 guncel tahminler...
@@ -53,10 +50,6 @@
 4.6/5 paper trading...
    paper: hesap $100,870 | 0 pozisyon | 0 emir
 4.7/5 balina takibi...
-  balina Berkshire Hathaway — Warren Buffett: 2026-09-30 donemi, 30 pozisyon
-  balina Bridgewater Associates — Ray Dalio'nun fonu: 2026-09-30 donemi, 974 pozisyon
-  balina Duquesne Family Office — Stanley Druckenmiller: 2026-09-30 donemi, 60 pozisyon
-  balina Appaloosa — David Tepper: 2026-09-30 donemi, 24 pozisyon
    balina takibi: 6 fon
 5/5 pano...
-bitti — 243s
+bitti — 223s
