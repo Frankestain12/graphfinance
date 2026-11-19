@@ -91,7 +91,7 @@ svg { width:100%; height:auto; display:block }
 <div class="head">
   <div>
     <h1><span class="gf">Graph</span>Finance <span style="font-weight:400;color:var(--muted);font-size:15px">· 5 günlük yön tahmini</span></h1>
-    <div class="sub">Üretim: 18 Kasım 2026 · Model: LightGBM (havuzlanmış) · Doğrulama: aylık yeniden eğitimli walk-forward, 2019-01-01 → 2026-11-03</div>
+    <div class="sub">Üretim: 19 Kasım 2026 · Model: LightGBM (havuzlanmış) · Doğrulama: aylık yeniden eğitimli walk-forward, 2019-01-01 → 2026-11-03</div>
   </div>
 </div>
 
@@ -101,10 +101,10 @@ svg { width:100%; height:auto; display:block }
   <div class="card tile"><div class="tl">Out-of-sample tahmin</div><div class="tv">146,908</div><div class="td">2019-01-01 → 2026-11-03, 74 varlık</div></div>
   <div class="card tile"><div class="tl">Yüksek güvenli çağrı isabeti</div><div class="tv">54,8%</div><div class="td">76,748 çağrı (güven &gt; %55)</div></div>
   <div class="card tile"><div class="tl">Kanıtlanmış kenarlı varlık</div><div class="tv">13 / 74</div><div class="td">USD/TRY &amp; Lityum ETF (LIT) &amp; Gümüş ETF (SLV)</div></div>
-  <div class="card tile"><div class="tl">Canlı defter isabeti</div><div class="tv">51,7%</div><div class="td">4167 çözülmüş tahmin · "hep yukarı" deseydik 45,1% → gerçek kenar <b style="color:var(--good-text)">+6,6%</b></div></div>
+  <div class="card tile"><div class="tl">Canlı defter isabeti</div><div class="tv">51,6%</div><div class="td">4172 çözülmüş tahmin · "hep yukarı" deseydik 45,0% → gerçek kenar <b style="color:var(--good-text)">+6,6%</b></div></div>
 </div>
 
-<div class="card" style="margin-bottom:18px"><h2>Bugünün yorumu</h2><div class="road" style="margin-top:6px">Piyasa rejimi sakin: korku endeksi VIX, son bir yılın en düşük %2 diliminde. Günün öne çıkan sinyali: USD/TRY yukarı (75,4% güven) — modeli iten etkenler: RSI (aşırı alım/satım) ↑ · 21 günlük oynaklık ↑ · İran/Orta Doğu haber ısısı ↓. Günün öne çıkan sinyali: XRP yukarı (60,1% güven) — modeli iten etkenler: 20g ortalamaya uzaklık ↑ · Fed haber ısısı ↓ · 10 günlük momentum ↑. Sıkışma tespiti: USD/JPY, Garanti BBVA, BIST 100, Türk Hava Yolları — oynaklık 3 aylık ortalamanın çok altında; istatistiksel olarak yakında sert hareket olasılığı artar (yönünü söylemez).</div></div>
+<div class="card" style="margin-bottom:18px"><h2>Bugünün yorumu</h2><div class="road" style="margin-top:6px">Piyasa rejimi sakin: korku endeksi VIX, son bir yılın en düşük %2 diliminde. Günün öne çıkan sinyali: USD/TRY yukarı (77,4% güven) — modeli iten etkenler: RSI (aşırı alım/satım) ↑ · 21 günlük oynaklık ↑ · 52 haftalık zirveye uzaklık ↑. Günün öne çıkan sinyali: Gümüş ETF (SLV) yukarı (60,9% güven) — modeli iten etkenler: 3 aylık momentum ↑ · 20g ortalamaya uzaklık ↑ · Fed haber ısısı ↑. Sıkışma tespiti: USD/JPY, Realty Income, Türk Hava Yolları, Garanti BBVA — oynaklık 3 aylık ortalamanın çok altında; istatistiksel olarak yakında sert hareket olasılığı artar (yönünü söylemez).</div></div>
 <div class="card" style="margin-bottom:18px">
   <h2>Modelin gerçek kenarı <span style="font-weight:400;color:var(--muted);font-size:12px">(aylık A/B, out-of-sample 2019→)</span></h2>
   <div class="sub" style="margin:4px 0 8px">18 günlük otopsinin dersi: isabet tek başına yanıltır, çünkü model çoğunlukla "yukarı" der ve piyasa çoğu hafta yükselir. Asıl ölçü: <b>isabet − "hep çoğunluk sınıfı" tabanı</b>. Göreli hedef modelde taban %50'dir; o model her gün varlıkların yarısını seçmek zorundadır.</div>
@@ -116,7 +116,7 @@ svg { width:100%; height:auto; display:block }
   <div style="display:flex;align-items:baseline;gap:14px;margin:6px 0 2px">
     <span style="font-size:34px;font-weight:650">$100.870</span>
     <span style="font-size:15px;font-weight:600;color:var(--good-text)">+$870 (+0,9%)</span>
-    <span class="sub">başlangıç: $100.000 · 2026-11-18</span>
+    <span class="sub">başlangıç: $100.000 · 2026-11-19</span>
   </div>
   <div class="sub" style="margin-top:8px">Şu an açık pozisyon yok — sistem sinyal bekliyor.</div>
   <div class="sub" style="margin-top:8px">Kurallar: kenarlı + güven ≥ %65 yukarı sinyalleri (+ göreli seçici ≥ %55 aktifse) · riskten kaçış rejiminde sadece savunma · MCHI/EWG/EWU/EWQ/EWY alım dışı · maks 5 pozisyon, nakit sınırı · her koşuda gözden geçirme: 5 gün doldu / %4 zarar durdur / sinyal &lt;%45 tersine döndü / kötü haber / %6 kâr al → sat · %10 düşüşte tam durdurma. Gerçek para değildir; sistemin canlı sınavıdır.</div>
@@ -125,11 +125,11 @@ svg { width:100%; height:auto; display:block }
 <div class="card" style="margin-bottom:18px">
   <h2>1.000₺ Sinyal Portföyü <span style="font-weight:400;color:var(--muted);font-size:12px">(defterdeki GERÇEK sinyaller harfiyen uygulansaydı)</span></h2>
   <div style="display:flex;align-items:baseline;gap:14px;margin:6px 0 2px">
-    <span style="font-size:34px;font-weight:650">1.209 ₺</span>
-    <span style="font-size:15px;font-weight:600;color:var(--good-text)">+209 ₺ (+20,9%)</span>
-    <span class="sub">başlangıç: 1.000₺ · 2026-08-13 → 2026-11-18</span>
+    <span style="font-size:34px;font-weight:650">1.210 ₺</span>
+    <span style="font-size:15px;font-weight:600;color:var(--good-text)">+210 ₺ (+21,0%)</span>
+    <span class="sub">başlangıç: 1.000₺ · 2026-08-13 → 2026-11-19</span>
   </div>
-  <svg viewBox="0 0 560 260" role="img" aria-label="Sinyal portföyü strateji eğrisi" class="eqsvg" data-dates="2026-08-13,2026-08-14,2026-08-17,2026-08-18,2026-08-19,2026-08-20,2026-08-21,2026-08-22,2026-08-23,2026-08-25,2026-08-26,2026-08-28,2026-08-31,2026-09-01,2026-09-02,2026-09-03,2026-09-04,2026-09-05,2026-09-06,2026-09-07,2026-09-08,2026-09-09,2026-09-10,2026-09-11,2026-09-14,2026-09-15,2026-09-16,2026-09-17,2026-09-18,2026-09-21,2026-09-22,2026-09-23,2026-09-24,2026-09-25,2026-09-28,2026-09-29,2026-09-30,2026-10-01,2026-10-02,2026-10-05,2026-10-06,2026-10-07,2026-10-08,2026-10-09,2026-10-12,2026-10-13,2026-10-14,2026-10-15,2026-10-16,2026-10-19,2026-10-20,2026-10-21,2026-10-22,2026-10-23,2026-10-27,2026-10-28,2026-10-29,2026-10-30,2026-11-01,2026-11-02,2026-11-03,2026-11-04,2026-11-05,2026-11-06,2026-11-07,2026-11-10,2026-11-11,2026-11-12,2026-11-13,2026-11-14,2026-11-15,2026-11-16,2026-11-17,2026-11-18" data-strat="1.00075,0.99989,0.9992,1.00176,1.00361,1.00938,1.02112,1.13513,1.24525,1.24662,1.25627,1.2587,1.25969,1.25863,1.25067,1.249,1.24556,1.24313,1.24195,1.2395,1.23778,1.24546,1.24471,1.24338,1.243,1.2438,1.24513,1.24565,1.24634,1.24718,1.24805,1.24896,1.25001,1.25071,1.25195,1.2528,1.25363,1.25415,1.2551,1.25564,1.25635,1.25443,1.25475,1.25569,1.25653,1.25614,1.25694,1.25897,1.26175,1.25624,1.24836,1.2479,1.24976,1.25342,1.25495,1.25658,1.25627,1.25549,1.25629,1.25393,1.25488,1.25569,1.2567,1.26237,1.26311,1.26628,1.26049,1.25879,1.26001,1.24185,1.24259,1.22271,1.2152,1.20922" data-bh="1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0" data-l="46" data-r="96" data-w="560" data-h="260"><line x1="46" y1="218.4" x2="464" y2="218.4" stroke="var(--grid)" stroke-width="1"/><text x="40" y="222.4" text-anchor="end" class="ax">1,00x</text><line x1="46" y1="154.1" x2="464" y2="154.1" stroke="var(--grid)" stroke-width="1"/><text x="40" y="158.1" text-anchor="end" class="ax">1,09x</text><line x1="46" y1="89.9" x2="464" y2="89.9" stroke="var(--grid)" stroke-width="1"/><text x="40" y="93.9" text-anchor="end" class="ax">1,18x</text><line x1="46" y1="25.6" x2="464" y2="25.6" stroke="var(--grid)" stroke-width="1"/><text x="40" y="29.6" text-anchor="end" class="ax">1,27x</text><path d="M46.0 217.9 L51.7 217.9 L57.5 217.9 L63.2 217.9 L68.9 217.9 L74.6 217.9 L80.4 217.9 L86.1 217.9 L91.8 217.9 L97.5 217.9 L103.3 217.9 L109.0 217.9 L114.7 217.9 L120.4 217.9 L126.2 217.9 L131.9 217.9 L137.6 217.9 L143.3 217.9 L149.1 217.9 L154.8 217.9 L160.5 217.9 L166.2 217.9 L172.0 217.9 L177.7 217.9 L183.4 217.9 L189.2 217.9 L194.9 217.9 L200.6 217.9 L206.3 217.9 L212.1 217.9 L217.8 217.9 L223.5 217.9 L229.2 217.9 L235.0 217.9 L240.7 217.9 L246.4 217.9 L252.1 217.9 L257.9 217.9 L263.6 217.9 L269.3 217.9 L275.0 217.9 L280.8 217.9 L286.5 217.9 L292.2 217.9 L297.9 217.9 L303.7 217.9 L309.4 217.9 L315.1 217.9 L320.8 217.9 L326.6 217.9 L332.3 217.9 L338.0 217.9 L343.8 217.9 L349.5 217.9 L355.2 217.9 L360.9 217.9 L366.7 217.9 L372.4 217.9 L378.1 217.9 L383.8 217.9 L389.6 217.9 L395.3 217.9 L401.0 217.9 L406.7 217.9 L412.5 217.9 L418.2 217.9 L423.9 217.9 L429.6 217.9 L435.4 217.9 L441.1 217.9 L446.8 217.9 L452.5 217.9 L458.3 217.9 L464.0 217.9" fill="none" stroke="var(--ctx)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><path d="M46.0 217.3 L51.7 217.9 L57.5 218.4 L63.2 216.6 L68.9 215.2 L74.6 211.1 L80.4 202.6 L86.1 120.3 L91.8 40.8 L97.5 39.8 L103.3 32.8 L109.0 31.0 L114.7 30.3 L120.4 31.1 L126.2 36.8 L131.9 38.0 L137.6 40.5 L143.3 42.3 L149.1 43.1 L154.8 44.9 L160.5 46.2 L166.2 40.6 L172.0 41.1 L177.7 42.1 L183.4 42.4 L189.2 41.8 L194.9 40.8 L200.6 40.5 L206.3 40.0 L212.1 39.4 L217.8 38.7 L223.5 38.1 L229.2 37.3 L235.0 36.8 L240.7 35.9 L246.4 35.3 L252.1 34.7 L257.9 34.3 L263.6 33.6 L269.3 33.3 L275.0 32.7 L280.8 34.1 L286.5 33.9 L292.2 33.2 L297.9 32.6 L303.7 32.9 L309.4 32.3 L315.1 30.8 L320.8 28.8 L326.6 32.8 L332.3 38.5 L338.0 38.8 L343.8 37.5 L349.5 34.9 L355.2 33.8 L360.9 32.6 L366.7 32.8 L372.4 33.4 L378.1 32.8 L383.8 34.5 L389.6 33.8 L395.3 33.2 L401.0 32.5 L406.7 28.4 L412.5 27.9 L418.2 25.6 L423.9 29.8 L429.6 31.0 L435.4 30.1 L441.1 43.2 L446.8 42.7 L452.5 57.0 L458.3 62.5 L464.0 66.8" fill="none" stroke="var(--acc)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="464.0" cy="66.8" r="4" fill="var(--acc)" stroke="var(--surface-1)" stroke-width="2"/><circle cx="464.0" cy="217.9" r="4" fill="var(--ctx)" stroke="var(--surface-1)" stroke-width="2"/><text x="472.0" y="70.8" class="val">1,2x sinyaller</text><text x="472.0" y="221.9" class="val2">1,0x nakit</text><line class="xh" x1="-9" y1="14" x2="-9" y2="230" stroke="var(--baseline)" stroke-width="1" opacity="0"/></svg>
+  <svg viewBox="0 0 560 260" role="img" aria-label="Sinyal portföyü strateji eğrisi" class="eqsvg" data-dates="2026-08-13,2026-08-14,2026-08-17,2026-08-18,2026-08-19,2026-08-20,2026-08-21,2026-08-22,2026-08-23,2026-08-25,2026-08-26,2026-08-28,2026-08-31,2026-09-01,2026-09-02,2026-09-03,2026-09-04,2026-09-05,2026-09-06,2026-09-07,2026-09-08,2026-09-09,2026-09-10,2026-09-11,2026-09-14,2026-09-15,2026-09-16,2026-09-17,2026-09-18,2026-09-21,2026-09-22,2026-09-23,2026-09-24,2026-09-25,2026-09-28,2026-09-29,2026-09-30,2026-10-01,2026-10-02,2026-10-05,2026-10-06,2026-10-07,2026-10-08,2026-10-09,2026-10-12,2026-10-13,2026-10-14,2026-10-15,2026-10-16,2026-10-19,2026-10-20,2026-10-21,2026-10-22,2026-10-23,2026-10-27,2026-10-28,2026-10-29,2026-10-30,2026-11-01,2026-11-02,2026-11-03,2026-11-04,2026-11-05,2026-11-06,2026-11-07,2026-11-10,2026-11-11,2026-11-12,2026-11-13,2026-11-14,2026-11-15,2026-11-16,2026-11-17,2026-11-18,2026-11-19" data-strat="1.00075,0.99989,0.9992,1.00176,1.00361,1.00938,1.02112,1.13513,1.24525,1.24662,1.25627,1.2587,1.25969,1.25863,1.25067,1.249,1.24556,1.24313,1.24195,1.2395,1.23778,1.24546,1.24471,1.24338,1.243,1.2438,1.24513,1.24565,1.24634,1.24718,1.24805,1.24896,1.25001,1.25071,1.25195,1.2528,1.25363,1.25415,1.2551,1.25564,1.25635,1.25443,1.25475,1.25569,1.25653,1.25614,1.25694,1.25897,1.26175,1.25624,1.24836,1.2479,1.24976,1.25342,1.25495,1.25658,1.25627,1.25549,1.25629,1.25393,1.25488,1.25569,1.2567,1.26237,1.26311,1.26628,1.26049,1.25879,1.26001,1.24185,1.24259,1.22271,1.2152,1.20922,1.21018" data-bh="1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0" data-l="46" data-r="96" data-w="560" data-h="260"><line x1="46" y1="218.4" x2="464" y2="218.4" stroke="var(--grid)" stroke-width="1"/><text x="40" y="222.4" text-anchor="end" class="ax">1,00x</text><line x1="46" y1="154.1" x2="464" y2="154.1" stroke="var(--grid)" stroke-width="1"/><text x="40" y="158.1" text-anchor="end" class="ax">1,09x</text><line x1="46" y1="89.9" x2="464" y2="89.9" stroke="var(--grid)" stroke-width="1"/><text x="40" y="93.9" text-anchor="end" class="ax">1,18x</text><line x1="46" y1="25.6" x2="464" y2="25.6" stroke="var(--grid)" stroke-width="1"/><text x="40" y="29.6" text-anchor="end" class="ax">1,27x</text><path d="M46.0 217.9 L51.6 217.9 L57.3 217.9 L62.9 217.9 L68.6 217.9 L74.2 217.9 L79.9 217.9 L85.5 217.9 L91.2 217.9 L96.8 217.9 L102.5 217.9 L108.1 217.9 L113.8 217.9 L119.4 217.9 L125.1 217.9 L130.7 217.9 L136.4 217.9 L142.0 217.9 L147.7 217.9 L153.3 217.9 L159.0 217.9 L164.6 217.9 L170.3 217.9 L175.9 217.9 L181.6 217.9 L187.2 217.9 L192.9 217.9 L198.5 217.9 L204.2 217.9 L209.8 217.9 L215.5 217.9 L221.1 217.9 L226.8 217.9 L232.4 217.9 L238.1 217.9 L243.7 217.9 L249.4 217.9 L255.0 217.9 L260.6 217.9 L266.3 217.9 L271.9 217.9 L277.6 217.9 L283.2 217.9 L288.9 217.9 L294.5 217.9 L300.2 217.9 L305.8 217.9 L311.5 217.9 L317.1 217.9 L322.8 217.9 L328.4 217.9 L334.1 217.9 L339.7 217.9 L345.4 217.9 L351.0 217.9 L356.7 217.9 L362.3 217.9 L368.0 217.9 L373.6 217.9 L379.3 217.9 L384.9 217.9 L390.6 217.9 L396.2 217.9 L401.9 217.9 L407.5 217.9 L413.2 217.9 L418.8 217.9 L424.5 217.9 L430.1 217.9 L435.8 217.9 L441.4 217.9 L447.1 217.9 L452.7 217.9 L458.4 217.9 L464.0 217.9" fill="none" stroke="var(--ctx)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><path d="M46.0 217.3 L51.6 217.9 L57.3 218.4 L62.9 216.6 L68.6 215.2 L74.2 211.1 L79.9 202.6 L85.5 120.3 L91.2 40.8 L96.8 39.8 L102.5 32.8 L108.1 31.0 L113.8 30.3 L119.4 31.1 L125.1 36.8 L130.7 38.0 L136.4 40.5 L142.0 42.3 L147.7 43.1 L153.3 44.9 L159.0 46.2 L164.6 40.6 L170.3 41.1 L175.9 42.1 L181.6 42.4 L187.2 41.8 L192.9 40.8 L198.5 40.5 L204.2 40.0 L209.8 39.4 L215.5 38.7 L221.1 38.1 L226.8 37.3 L232.4 36.8 L238.1 35.9 L243.7 35.3 L249.4 34.7 L255.0 34.3 L260.6 33.6 L266.3 33.3 L271.9 32.7 L277.6 34.1 L283.2 33.9 L288.9 33.2 L294.5 32.6 L300.2 32.9 L305.8 32.3 L311.5 30.8 L317.1 28.8 L322.8 32.8 L328.4 38.5 L334.1 38.8 L339.7 37.5 L345.4 34.9 L351.0 33.8 L356.7 32.6 L362.3 32.8 L368.0 33.4 L373.6 32.8 L379.3 34.5 L384.9 33.8 L390.6 33.2 L396.2 32.5 L401.9 28.4 L407.5 27.9 L413.2 25.6 L418.8 29.8 L424.5 31.0 L430.1 30.1 L435.8 43.2 L441.4 42.7 L447.1 57.0 L452.7 62.5 L458.4 66.8 L464.0 66.1" fill="none" stroke="var(--acc)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="464.0" cy="66.1" r="4" fill="var(--acc)" stroke="var(--surface-1)" stroke-width="2"/><circle cx="464.0" cy="217.9" r="4" fill="var(--ctx)" stroke="var(--surface-1)" stroke-width="2"/><text x="472.0" y="70.1" class="val">1,2x sinyaller</text><text x="472.0" y="221.9" class="val2">1,0x nakit</text><line class="xh" x1="-9" y1="14" x2="-9" y2="230" stroke="var(--baseline)" stroke-width="1" opacity="0"/></svg>
   <div class="sub" style="margin-top:8px">Kural: yalnızca kanıtlanmış kenarlı varlıklarda, güven &gt; %55 YUKARI çağrıları; long-only; işlem maliyeti dahil; sermaye 5 dilimde döner (örtüşen 5 günlük pozisyonlar için standart yaklaşım). Bu bir simülasyondur, gerçek para değildir; geçmiş getiri gelecek garantisi değildir.</div>
 </div>
 
@@ -140,85 +140,112 @@ svg { width:100%; height:auto; display:block }
     <thead><tr><th>Varlık</th><th>Yön</th><th>Güven</th><th>Göreli</th><th>Son fiyat</th><th>Beklenen aralık (5g)</th><th>Model sicili</th><th>Veri tarihi</th></tr></thead>
     <tbody><tr>
 <td><span class="aname">USD/TRY</span> <span class="acls">Döviz</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: RSI (aşırı alım/satım) ↑ · 21 günlük oynaklık ↑ · İran/Orta Doğu haber ısısı ↓">▲ YUKARI</span></td>
-<td class="num"><strong>75,4%</strong> <span class="chip proven" data-tip="Güven ≥ %65 ve kanıtlı kenar: paper alım eşiğini geçer">GÜÇLÜ</span></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">68,9%</span></td>
-<td class="num">50,45</td>
-<td class="num muted2">50,34 – 50,57</td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: RSI (aşırı alım/satım) ↑ · 21 günlük oynaklık ↑ · 52 haftalık zirveye uzaklık ↑">▲ YUKARI</span></td>
+<td class="num"><strong>77,4%</strong> <span class="chip proven" data-tip="Güven ≥ %65 ve kanıtlı kenar: paper alım eşiğini geçer">GÜÇLÜ</span></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">68,7%</span></td>
+<td class="num">50,46</td>
+<td class="num muted2">50,35 – 50,58</td>
 <td><span class="chip proven" data-tip="Out-of-sample: AUC 0,668, isabet 70,8% (taban 76,3%)">Kanıtlanmış kenar</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Ethereum</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · Fed haber ısısı ↓ · MACD histogramı ↑">▲ YUKARI</span></td>
-<td class="num"><strong>62,7%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">55,9%</span></td>
-<td class="num">$1.754</td>
-<td class="num muted2">$1.583 – $1.945</td>
-<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Bitcoin</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · Fed haber ısısı ↓ · MACD histogramı ↑">▲ YUKARI</span></td>
-<td class="num"><strong>62,0%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,4%</span></td>
-<td class="num">$62.163</td>
-<td class="num muted2">$57.634 – $67.047</td>
-<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Solana</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · Fed haber ısısı ↓ · 10 günlük momentum ↑">▲ YUKARI</span></td>
-<td class="num"><strong>61,7%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">54,4%</span></td>
-<td class="num">$72,48</td>
-<td class="num muted2">$65,16 – $80,62</td>
-<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td class="num muted2">19.11.2026 </td>
 </tr><tr>
 <td><span class="aname">Nvidia</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · MACD histogramı ↑ · 20g ortalamaya uzaklık ↑">▲ YUKARI</span></td>
-<td class="num"><strong>61,0%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">72,9%</span></td>
-<td class="num">$150,96</td>
-<td class="num muted2">$137,29 – $166,00</td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: MACD histogramı ↑ · 20g ortalamaya uzaklık ↑ · Fed haber ısısı ↑">▲ YUKARI</span></td>
+<td class="num"><strong>66,2%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">68,2%</span></td>
+<td class="num">$155,46</td>
+<td class="num muted2">$141,37 – $170,95</td>
 <td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Eaton</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · 10 günlük momentum ↑ · Fed haber ısısı ↑">▲ YUKARI</span></td>
+<td class="num"><strong>65,3%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">54,2%</span></td>
+<td class="num">$337,11</td>
+<td class="num muted2">$296,93 – $382,72</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,507, isabet 52,9% (taban 57,6%)">Kenar yok</span></td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">G. Kore ETF (EWY)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · 20g ortalamaya uzaklık ↑ · 3 aylık momentum ↑">▲ YUKARI</span></td>
+<td class="num"><strong>63,0%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">55,4%</span></td>
+<td class="num">$135,32</td>
+<td class="num muted2">$118,78 – $154,17</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,528, isabet 52,0% (taban 54,2%)">Zayıf sinyal</span></td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Vertiv</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · 20g ortalamaya uzaklık ↑ · 10 günlük momentum ↑">▲ YUKARI</span></td>
+<td class="num"><strong>62,9%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">57,3%</span></td>
+<td class="num">$190,37</td>
+<td class="num muted2">$154,88 – $233,99</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,486, isabet 51,7% (taban 57,1%)">Kenar yok</span></td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
 <td><span class="aname">Bakır ETF (COPX)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · MACD histogramı ↑ · 20g ortalamaya uzaklık ↑">▲ YUKARI</span></td>
-<td class="num"><strong>60,6%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">57,5%</span></td>
-<td class="num">$61,19</td>
-<td class="num muted2">$55,34 – $67,65</td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · 3 aylık momentum ↑ · Fed haber ısısı ↑">▲ YUKARI</span></td>
+<td class="num"><strong>61,3%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">53,6%</span></td>
+<td class="num">$65,31</td>
+<td class="num muted2">$59,44 – $71,77</td>
 <td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
-<td><span class="aname">XRP</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · Fed haber ısısı ↓ · 10 günlük momentum ↑">▲ YUKARI</span></td>
-<td class="num"><strong>60,1%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">56,3%</span></td>
-<td class="num">$0,9583</td>
-<td class="num muted2">$0,8600 – $1,0678</td>
+<td><span class="aname">Gümüş ETF (SLV)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: 3 aylık momentum ↑ · 20g ortalamaya uzaklık ↑ · Fed haber ısısı ↑">▲ YUKARI</span></td>
+<td class="num"><strong>60,9%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">53,8%</span></td>
+<td class="num">$42,64</td>
+<td class="num muted2">$39,40 – $46,15</td>
 <td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
-<td><span class="aname">Almanya ETF (EWG)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · Fed haber ısısı ↑">▼ AŞAĞI</span></td>
+<td><span class="aname">Uranyum ETF (URA)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: 3 aylık momentum ↑ · 20g ortalamaya uzaklık ↑ · Fed haber ısısı ↑">▲ YUKARI</span></td>
+<td class="num"><strong>60,4%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,2%</span></td>
+<td class="num">$30,04</td>
+<td class="num muted2">$27,37 – $32,97</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Bitcoin</span> <span class="acls">Kripto</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: Fed haber ısısı ↓ · 20g ortalamaya uzaklık ↑ · MACD histogramı ↑">▲ YUKARI</span></td>
+<td class="num"><strong>59,6%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">53,0%</span></td>
+<td class="num">$62.658</td>
+<td class="num muted2">$58.359 – $67.274</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">19.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Lityum ETF (LIT)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: 3 aylık momentum ↑ · Fed haber ısısı ↑ · petrol ivmesi ↑">▲ YUKARI</span></td>
+<td class="num"><strong>58,6%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,2%</span></td>
+<td class="num">$56,42</td>
+<td class="num muted2">$53,37 – $59,64</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">GE Vernova</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · Fed haber ısısı ↑ · petrol ivmesi ↑">▲ YUKARI</span></td>
 <td class="num"><strong>58,1%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">45,8%</span></td>
-<td class="num">$41,03</td>
-<td class="num muted2">$39,25 – $42,89</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">57,8%</span></td>
+<td class="num">$779,91</td>
+<td class="num muted2">$676,51 – $899,12</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,525, isabet 55,3% (taban 59,3%)">Zayıf sinyal</span></td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
-<td><span class="aname">Amazon</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · BTC aylık momentumu ↓ · VIX 5 günlük değişim ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>58,0%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,2%</span></td>
-<td class="num">$267,74</td>
-<td class="num muted2">$248,53 – $288,43</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td><span class="aname">Ethereum</span> <span class="acls">Kripto</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: Fed haber ısısı ↓ · 20g ortalamaya uzaklık ↑ · 10 günlük momentum ↑">▲ YUKARI</span></td>
+<td class="num"><strong>58,1%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">55,4%</span></td>
+<td class="num">$1.773</td>
+<td class="num muted2">$1.605 – $1.960</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">19.11.2026 </td>
 </tr><tr>
 <td><span class="aname">USD/CNY</span> <span class="acls">Döviz</span></td>
 <td><span class="dir dn" data-tip="Modeli iten etkenler: 21 günlük oynaklık ↓ · Fed haber ısısı ↑ · İran/Orta Doğu haber ısısı ↓">▼ AŞAĞI</span></td>
@@ -229,68 +256,23 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,529, isabet 52,2% (taban 52,3%)">Zayıf sinyal</span></td>
 <td class="num muted2">13.11.2026 </td>
 </tr><tr>
-<td><span class="aname">Tesla</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · BTC aylık momentumu ↓ · VIX 5 günlük değişim ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>57,7%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--neg)">43,7%</span></td>
-<td class="num">$383,72</td>
-<td class="num muted2">$344,92 – $426,89</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,510, isabet 51,2% (taban 52,5%)">Zayıf sinyal</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Quanta Services</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · altın-borsa makası ↓ · BTC aylık momentumu ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>57,4%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,7%</span></td>
-<td class="num">$602,60</td>
-<td class="num muted2">$512,23 – $708,92</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,526, isabet 57,2% (taban 59,9%)">Zayıf sinyal</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Aylık Gelir ETF (JEPI)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · BTC aylık momentumu ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>57,0%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,3%</span></td>
-<td class="num">$56,58</td>
-<td class="num muted2">$54,84 – $58,37</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
 <td><span class="aname">Nikkei 225</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · İran/Orta Doğu haber ısısı ↓ · petrol ivmesi ↑">▲ YUKARI</span></td>
-<td class="num"><strong>56,9%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">54,3%</span></td>
-<td class="num">58.860</td>
-<td class="num muted2">55.539 – 62.380</td>
+<td class="num"><strong>57,8%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">53,9%</span></td>
+<td class="num">58.846</td>
+<td class="num muted2">55.522 – 62.369</td>
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,523, isabet 53,5% (taban 56,7%)">Zayıf sinyal</span></td>
+<td class="num muted2">19.11.2026 </td>
+</tr><tr>
+<td><span class="aname">S&P 500 ETF</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: S&P 500 ile korelasyon ↑ · İran/Orta Doğu haber ısısı ↓ · petrol ivmesi ↑">▲ YUKARI</span></td>
+<td class="num"><strong>57,2%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,7%</span></td>
+<td class="num">$732,44</td>
+<td class="num muted2">$702,98 – $763,14</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
 <td class="num muted2">17.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Utilities ETF (XLU)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · BTC aylık momentumu ↓ · VIX 5 günlük değişim ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>56,9%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,1%</span></td>
-<td class="num">$43,55</td>
-<td class="num muted2">$42,49 – $44,64</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,503, isabet 51,8% (taban 55,5%)">Kenar yok</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Microsoft</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · Fed haber ısısı ↑">▼ AŞAĞI</span></td>
-<td class="num"><strong>56,8%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,6%</span></td>
-<td class="num">$508,29</td>
-<td class="num muted2">$475,96 – $542,82</td>
-<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Meta</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · Fed haber ısısı ↑">▼ AŞAĞI</span></td>
-<td class="num"><strong>56,5%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,2%</span></td>
-<td class="num">$616,38</td>
-<td class="num muted2">$572,65 – $663,45</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,495, isabet 52,3% (taban 55,3%)">Kenar yok</span></td>
-<td class="num muted2">18.11.2026 </td>
 </tr><tr>
 <td><span class="aname">USD/JPY</span> <span class="acls">Döviz</span></td>
 <td><span class="dir up mut" data-tip="Modeli iten etkenler: kuyruk riski (basıklık) ↑ · İran/Orta Doğu haber ısısı ↓ · psikolojik seviyeye uzaklık ↑">▲ YUKARI</span></td>
@@ -301,14 +283,32 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip none" data-tip="Out-of-sample: AUC 0,510, isabet 54,1% (taban 57,3%)">Kenar yok</span></td>
 <td class="num muted2">13.11.2026 </td>
 </tr><tr>
-<td><span class="aname">Broadcom</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · BTC aylık momentumu ↓ · altın-borsa makası ↓">▼ AŞAĞI</span></td>
+<td><span class="aname">Brezilya ETF (EWZ)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: kuyruk riski (basıklık) ↓ · 20g ortalamaya uzaklık ↑ · Fed haber ısısı ↑">▲ YUKARI</span></td>
 <td class="num"><strong>56,5%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,5%</span></td>
-<td class="num">$354,05</td>
-<td class="num muted2">$311,12 – $402,91</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,523, isabet 53,4% (taban 55,5%)">Zayıf sinyal</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,5%</span></td>
+<td class="num">$31,02</td>
+<td class="num muted2">$26,86 – $35,82</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Altın (ons)</span> <span class="acls">Emtia</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · Fed haber ısısı ↑ · 3 aylık momentum ↑">▲ YUKARI</span></td>
+<td class="num"><strong>56,5%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">53,5%</span></td>
+<td class="num">$3.754</td>
+<td class="num muted2">$3.580 – $3.937</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">19.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Altın ETF (GLD)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: 3 aylık momentum ↑ · Fed haber ısısı ↑ · petrol ivmesi ↑">▲ YUKARI</span></td>
+<td class="num"><strong>56,4%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,1%</span></td>
+<td class="num">$352,48</td>
+<td class="num muted2">$335,50 – $370,32</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
 <td><span class="aname">Doğalgaz (Henry Hub)</span> <span class="acls">Emtia</span></td>
 <td><span class="dir dn" data-tip="Modeli iten etkenler: Fed haber ısısı ↓ · İran/Orta Doğu haber ısısı ↑ · dolar/TL ivmesi ↓">▼ AŞAĞI</span></td>
@@ -317,115 +317,52 @@ svg { width:100%; height:auto; display:block }
 <td class="num">$3,0000</td>
 <td class="num muted2">$2,5644 – $3,5096</td>
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,521, isabet 51,3% (taban 50,4%)">Zayıf sinyal</span></td>
-<td class="num muted2">11.11.2026 </td>
+<td class="num muted2">11.11.2026 <span class="chip stale" data-tip="Bu varlığın verisi 8 gün geride — canlı veri hattı kurulunca güncellenecek">8 gün eski</span></td>
 </tr><tr>
-<td><span class="aname">Gümüş ETF (SLV)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · 3 aylık momentum ↑ · 20g ortalamaya uzaklık ↑">▲ YUKARI</span></td>
+<td><span class="aname">Şebeke ETF (GRID)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · petrol ivmesi ↑ · 3 aylık momentum ↑">▲ YUKARI</span></td>
 <td class="num"><strong>56,2%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,3%</span></td>
-<td class="num">$40,70</td>
-<td class="num muted2">$37,52 – $44,15</td>
-<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,1%</span></td>
+<td class="num">$155,15</td>
+<td class="num muted2">$144,32 – $166,80</td>
+<td><span class="chip proven" data-tip="Out-of-sample: AUC 0,544, isabet 55,8% (taban 58,7%)">Kanıtlanmış kenar</span></td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
-<td><span class="aname">DAX 40</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · BTC aylık momentumu ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>56,2%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,0%</span></td>
-<td class="num">25.736</td>
-<td class="num muted2">24.888 – 26.613</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td><span class="aname">Teknoloji ETF (XLK)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · İran/Orta Doğu haber ısısı ↓ · petrol ivmesi ↑">▲ YUKARI</span></td>
+<td class="num"><strong>56,0%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">53,3%</span></td>
+<td class="num">$163,26</td>
+<td class="num muted2">$150,49 – $177,12</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,486, isabet 54,2% (taban 59,7%)">Kenar yok</span></td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
-<td><span class="aname">Hindistan ETF (INDA)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · BTC aylık momentumu ↓ · VIX 5 günlük değişim ↓">▼ AŞAĞI</span></td>
+<td><span class="aname">Hubbell</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: petrol ivmesi ↑ · Fed haber ısısı ↑ · BTC aylık momentumu ↑">▲ YUKARI</span></td>
 <td class="num"><strong>55,9%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">53,8%</span></td>
-<td class="num">$51,46</td>
-<td class="num muted2">$50,00 – $52,96</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,516, isabet 51,6% (taban 53,5%)">Zayıf sinyal</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,3%</span></td>
+<td class="num">$424,82</td>
+<td class="num muted2">$394,55 – $457,41</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,530, isabet 53,8% (taban 56,3%)">Zayıf sinyal</span></td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
 <td><span class="aname">Alphabet</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · Fed haber ısısı ↑">▼ AŞAĞI</span></td>
-<td class="num"><strong>55,9%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--neg)">44,1%</span></td>
-<td class="num">$282,44</td>
-<td class="num muted2">$256,21 – $311,35</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,483, isabet 51,5% (taban 56,8%)">Kenar yok</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Nasdaq 100 ETF</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · altın-borsa makası ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>55,8%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">45,2%</span></td>
-<td class="num">$659,51</td>
-<td class="num muted2">$618,36 – $703,40</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,490, isabet 55,3% (taban 59,9%)">Kenar yok</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Fransa ETF (EWQ)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · altın-borsa makası ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>55,7%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,8%</span></td>
-<td class="num">$42,45</td>
-<td class="num muted2">$41,01 – $43,94</td>
-<td><span class="chip proven" data-tip="Out-of-sample: AUC 0,541, isabet 53,8% (taban 55,0%)">Kanıtlanmış kenar</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Sanayi ETF (XLI)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · Fed haber ısısı ↑">▼ AŞAĞI</span></td>
-<td class="num"><strong>55,5%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,8%</span></td>
-<td class="num">$164,66</td>
-<td class="num muted2">$157,27 – $172,40</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,518, isabet 54,3% (taban 56,8%)">Zayıf sinyal</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Finans ETF (XLF)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · BTC aylık momentumu ↓">▼ AŞAĞI</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · Fed haber ısısı ↑ · petrol ivmesi ↑">▲ YUKARI</span></td>
 <td class="num"><strong>55,2%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,1%</span></td>
-<td class="num">$56,42</td>
-<td class="num muted2">$54,17 – $58,76</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--neg)">42,9%</span></td>
+<td class="num">$280,20</td>
+<td class="num muted2">$254,34 – $308,69</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,483, isabet 51,5% (taban 56,8%)">Kenar yok</span></td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
 <td><span class="aname">İngiltere ETF (EWU)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · Fed haber ısısı ↑">▼ AŞAĞI</span></td>
-<td class="num"><strong>55,1%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,4%</span></td>
-<td class="num">$46,09</td>
-<td class="num muted2">$44,40 – $47,85</td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: BTC aylık momentumu ↑ · Fed haber ısısı ↑ · petrol ivmesi ↑">▲ YUKARI</span></td>
+<td class="num"><strong>54,7%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,3%</span></td>
+<td class="num">$46,94</td>
+<td class="num muted2">$45,26 – $48,68</td>
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Hammadde ETF (XLB)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · Fed haber ısısı ↑">▼ AŞAĞI</span></td>
-<td class="num"><strong>54,9%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">46,5%</span></td>
-<td class="num">$50,46</td>
-<td class="num muted2">$48,57 – $52,42</td>
-<td><span class="chip proven" data-tip="Out-of-sample: AUC 0,530, isabet 52,9% (taban 54,5%)">Kanıtlanmış kenar</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Tüketim ETF (XLY)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · BTC aylık momentumu ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>54,7%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,4%</span></td>
-<td class="num">$119,20</td>
-<td class="num muted2">$113,46 – $125,23</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,500, isabet 51,7% (taban 56,3%)">Kenar yok</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Realty Income</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · BTC aylık momentumu ↓ · VIX 5 günlük değişim ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>54,7%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--neg)">44,5%</span></td>
-<td class="num">$58,28</td>
-<td class="num muted2">$56,27 – $60,37</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,519, isabet 52,2% (taban 53,6%)">Zayıf sinyal</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
 <td><span class="aname">Ham Petrol (WTI)</span> <span class="acls">Emtia</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: Fed haber ısısı ↓ · MACD histogramı ↑ · 20g ortalamaya uzaklık ↑">▲ YUKARI</span></td>
@@ -434,16 +371,34 @@ svg { width:100%; height:auto; display:block }
 <td class="num">$89,62</td>
 <td class="num muted2">$80,15 – $100,21</td>
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,519, isabet 51,9% (taban 54,4%)">Zayıf sinyal</span></td>
-<td class="num muted2">11.11.2026 </td>
+<td class="num muted2">11.11.2026 <span class="chip stale" data-tip="Bu varlığın verisi 8 gün geride — canlı veri hattı kurulunca güncellenecek">8 gün eski</span></td>
 </tr><tr>
-<td><span class="aname">Gayrimenkul ETF (XLRE)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · BTC aylık momentumu ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>54,4%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,5%</span></td>
-<td class="num">$43,62</td>
-<td class="num muted2">$42,16 – $45,13</td>
+<td><span class="aname">Solana</span> <span class="acls">Kripto</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: Fed haber ısısı ↓ · 20g ortalamaya uzaklık ↑ · 10 günlük momentum ↑">▲ YUKARI</span></td>
+<td class="num"><strong>54,6%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">53,0%</span></td>
+<td class="num">$73,33</td>
+<td class="num muted2">$66,37 – $81,02</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">19.11.2026 </td>
+</tr><tr>
+<td><span class="aname">İletişim ETF (XLC)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: petrol ivmesi ↑ · Fed haber ısısı ↑ · İran/Orta Doğu haber ısısı ↓">▲ YUKARI</span></td>
+<td class="num"><strong>54,5%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,7%</span></td>
+<td class="num">$105,26</td>
+<td class="num muted2">$101,03 – $109,67</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,516, isabet 52,9% (taban 56,9%)">Zayıf sinyal</span></td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Amazon</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: petrol ivmesi ↑ · Fed haber ısısı ↑ · İran/Orta Doğu haber ısısı ↓">▲ YUKARI</span></td>
+<td class="num"><strong>54,5%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,7%</span></td>
+<td class="num">$257,89</td>
+<td class="num muted2">$240,34 – $276,72</td>
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
 <td><span class="aname">Ereğli Demir Çelik</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · Fed haber ısısı ↑ · petrol ivmesi ↑">▲ YUKARI</span></td>
@@ -454,113 +409,59 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip proven" data-tip="Out-of-sample: AUC 0,532, isabet 52,6% (taban 55,2%)">Kanıtlanmış kenar</span></td>
 <td class="num muted2">17.11.2026 </td>
 </tr><tr>
-<td><span class="aname">Lityum ETF (LIT)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · 3 aylık momentum ↑ · 20g ortalamaya uzaklık ↑">▲ YUKARI</span></td>
-<td class="num"><strong>54,3%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,2%</span></td>
-<td class="num">$55,57</td>
-<td class="num muted2">$52,56 – $58,76</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Uranyum ETF (URA)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · 3 aylık momentum ↑ · 20g ortalamaya uzaklık ↑">▲ YUKARI</span></td>
-<td class="num"><strong>54,3%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,4%</span></td>
-<td class="num">$29,42</td>
-<td class="num muted2">$26,79 – $32,30</td>
-<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">İletişim ETF (XLC)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · altın-borsa makası ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>54,2%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,0%</span></td>
-<td class="num">$105,58</td>
-<td class="num muted2">$101,33 – $110,01</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,516, isabet 52,9% (taban 56,9%)">Zayıf sinyal</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Hubbell</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · Fed haber ısısı ↑">▼ AŞAĞI</span></td>
-<td class="num"><strong>54,2%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--neg)">44,9%</span></td>
-<td class="num">$426,47</td>
-<td class="num muted2">$396,09 – $459,18</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,530, isabet 53,8% (taban 56,3%)">Zayıf sinyal</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Japonya ETF (EWJ)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · kuyruk riski (basıklık) ↑">▼ AŞAĞI</span></td>
-<td class="num"><strong>54,1%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,4%</span></td>
-<td class="num">$88,04</td>
-<td class="num muted2">$83,47 – $92,86</td>
-<td><span class="chip proven" data-tip="Out-of-sample: AUC 0,540, isabet 54,4% (taban 54,9%)">Kanıtlanmış kenar</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">FTSE 100</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · Fed haber ısısı ↑">▼ AŞAĞI</span></td>
+<td><span class="aname">XRP</span> <span class="acls">Kripto</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: Fed haber ısısı ↓ · 20g ortalamaya uzaklık ↑ · kripto sınıfı ↓">▲ YUKARI</span></td>
 <td class="num"><strong>53,9%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,6%</span></td>
-<td class="num">10.551</td>
-<td class="num muted2">10.303 – 10.805</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,4%</span></td>
+<td class="num">$0,9614</td>
+<td class="num muted2">$0,8682 – $1,0646</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">19.11.2026 </td>
 </tr><tr>
-<td><span class="aname">G. Kore ETF (EWY)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · 3 aylık momentum ↑ · 20g ortalamaya uzaklık ↑">▲ YUKARI</span></td>
-<td class="num"><strong>53,8%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,5%</span></td>
-<td class="num">$136,73</td>
-<td class="num muted2">$119,98 – $155,82</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,528, isabet 52,0% (taban 54,2%)">Zayıf sinyal</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td><span class="aname">Fransa ETF (EWQ)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: petrol ivmesi ↑ · Fed haber ısısı ↑ · İran/Orta Doğu haber ısısı ↓">▲ YUKARI</span></td>
+<td class="num"><strong>53,4%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,7%</span></td>
+<td class="num">$42,96</td>
+<td class="num muted2">$41,53 – $44,43</td>
+<td><span class="chip proven" data-tip="Out-of-sample: AUC 0,541, isabet 53,8% (taban 55,0%)">Kanıtlanmış kenar</span></td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
 <td><span class="aname">Temettü ETF (SCHD)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · Fed haber ısısı ↑">▼ AŞAĞI</span></td>
-<td class="num"><strong>53,7%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">45,0%</span></td>
-<td class="num">$34,70</td>
-<td class="num muted2">$33,59 – $35,85</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Temel Tüketim ETF (XLP)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · BTC aylık momentumu ↓ · VIX 5 günlük değişim ↓">▼ AŞAĞI</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: petrol ivmesi ↑ · Fed haber ısısı ↑ · VIX 5 günlük değişim ↓">▲ YUKARI</span></td>
 <td class="num"><strong>53,4%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,8%</span></td>
-<td class="num">$91,18</td>
-<td class="num muted2">$87,37 – $95,16</td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--neg)">43,7%</span></td>
+<td class="num">$35,31</td>
+<td class="num muted2">$34,22 – $36,43</td>
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
-<td><span class="aname">Teknoloji ETF (XLK)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · BTC aylık momentumu ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>53,3%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">54,2%</span></td>
-<td class="num">$163,81</td>
-<td class="num muted2">$150,97 – $177,75</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,486, isabet 54,2% (taban 59,7%)">Kenar yok</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td><span class="aname">Meta</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · İran/Orta Doğu haber ısısı ↓ · petrol ivmesi ↑">▲ YUKARI</span></td>
+<td class="num"><strong>53,1%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,7%</span></td>
+<td class="num">$618,87</td>
+<td class="num muted2">$574,81 – $666,31</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,495, isabet 52,3% (taban 55,3%)">Kenar yok</span></td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
-<td><span class="aname">Apple</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · BTC aylık momentumu ↓ · altın-borsa makası ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>53,3%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,2%</span></td>
-<td class="num">$352,45</td>
-<td class="num muted2">$335,80 – $369,92</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,519, isabet 54,3% (taban 58,7%)">Zayıf sinyal</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Sağlık ETF (XLV)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · 5 günlük momentum ↑">▼ AŞAĞI</span></td>
+<td><span class="aname">Almanya ETF (EWG)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · petrol ivmesi ↑ · VIX yıllık yüzdelik dilimi ↓">▲ YUKARI</span></td>
 <td class="num"><strong>52,9%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,5%</span></td>
-<td class="num">$181,17</td>
-<td class="num muted2">$174,32 – $188,29</td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,2%</span></td>
+<td class="num">$41,67</td>
+<td class="num muted2">$39,89 – $43,52</td>
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Nasdaq 100 ETF</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · petrol ivmesi ↑ · Fed haber ısısı ↑">▲ YUKARI</span></td>
+<td class="num"><strong>52,9%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">46,9%</span></td>
+<td class="num">$656,95</td>
+<td class="num muted2">$616,07 – $700,55</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,490, isabet 55,3% (taban 59,9%)">Kenar yok</span></td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
 <td><span class="aname">AUD/USD</span> <span class="acls">Döviz</span></td>
 <td><span class="dir dn mut" data-tip="Modeli iten etkenler: S&P 500 ile korelasyon ↓ · İran/Orta Doğu haber ısısı ↓ · ay (mevsimsellik) ↓">▼ AŞAĞI</span></td>
@@ -571,32 +472,122 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip none" data-tip="Out-of-sample: AUC 0,470, isabet 46,6% (taban 52,0%)">Kenar yok</span></td>
 <td class="num muted2">13.11.2026 </td>
 </tr><tr>
-<td><span class="aname">Tarım ETF (DBA)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · Fed haber ısısı ↑">▼ AŞAĞI</span></td>
-<td class="num"><strong>52,4%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,0%</span></td>
-<td class="num">$26,02</td>
-<td class="num muted2">$25,57 – $26,48</td>
-<td><span class="chip proven" data-tip="Out-of-sample: AUC 0,534, isabet 53,1% (taban 54,8%)">Kanıtlanmış kenar</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td><span class="aname">Çin ETF (MCHI)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · İran/Orta Doğu haber ısısı ↓ · petrol ivmesi ↑">▲ YUKARI</span></td>
+<td class="num"><strong>52,7%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,8%</span></td>
+<td class="num">$48,41</td>
+<td class="num muted2">$46,60 – $50,29</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
-<td><span class="aname">Eaton</span> <span class="acls">Hisse</span></td>
+<td><span class="aname">Temel Tüketim ETF (XLP)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · Fed haber ısısı ↑ · VIX 5 günlük değişim ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>52,7%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,8%</span></td>
+<td class="num">$91,46</td>
+<td class="num muted2">$87,64 – $95,44</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Hang Seng</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · BTC aylık momentumu ↑ · petrol ivmesi ↑">▲ YUKARI</span></td>
+<td class="num"><strong>52,6%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">54,1%</span></td>
+<td class="num">22.975</td>
+<td class="num muted2">22.030 – 23.961</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">19.11.2026 </td>
+</tr><tr>
+<td><span class="aname">DAX 40</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: petrol ivmesi ↑ · Fed haber ısısı ↑ · İran/Orta Doğu haber ısısı ↓">▲ YUKARI</span></td>
+<td class="num"><strong>52,6%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">46,5%</span></td>
+<td class="num">26.045</td>
+<td class="num muted2">25.213 – 26.905</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Finans ETF (XLF)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: petrol ivmesi ↑ · Fed haber ısısı ↑ · VIX 5 günlük değişim ↓">▲ YUKARI</span></td>
+<td class="num"><strong>52,5%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,5%</span></td>
+<td class="num">$57,07</td>
+<td class="num muted2">$54,81 – $59,42</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Tüketim ETF (XLY)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: petrol ivmesi ↑ · Fed haber ısısı ↑ · İran/Orta Doğu haber ısısı ↓">▲ YUKARI</span></td>
+<td class="num"><strong>52,5%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,4%</span></td>
+<td class="num">$117,10</td>
+<td class="num muted2">$111,56 – $122,92</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,500, isabet 51,7% (taban 56,3%)">Kenar yok</span></td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Enerji ETF (XLE)</span> <span class="acls">Hisse</span></td>
 <td><span class="dir dn mut" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · Fed haber ısısı ↑ · VIX 5 günlük değişim ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>52,1%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">58,4%</span></td>
-<td class="num">$338,34</td>
-<td class="num muted2">$298,13 – $383,98</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,507, isabet 52,9% (taban 57,6%)">Kenar yok</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td class="num"><strong>52,4%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,5%</span></td>
+<td class="num">$63,36</td>
+<td class="num muted2">$59,95 – $66,96</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,502, isabet 52,1% (taban 55,3%)">Kenar yok</span></td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
-<td><span class="aname">Vertiv</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · 3 aylık momentum ↑ · VIX 5 günlük değişim ↓">▼ AŞAĞI</span></td>
+<td><span class="aname">Hammadde ETF (XLB)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: petrol ivmesi ↑ · Fed haber ısısı ↑ · BTC aylık momentumu ↑">▲ YUKARI</span></td>
+<td class="num"><strong>52,4%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">47,0%</span></td>
+<td class="num">$50,84</td>
+<td class="num muted2">$48,94 – $52,81</td>
+<td><span class="chip proven" data-tip="Out-of-sample: AUC 0,530, isabet 52,9% (taban 54,5%)">Kanıtlanmış kenar</span></td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Broadcom</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · petrol ivmesi ↑ · Fed haber ısısı ↑">▲ YUKARI</span></td>
+<td class="num"><strong>52,2%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,5%</span></td>
+<td class="num">$341,60</td>
+<td class="num muted2">$300,73 – $388,03</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,523, isabet 53,4% (taban 55,5%)">Zayıf sinyal</span></td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Sağlık ETF (XLV)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: petrol ivmesi ↑ · Fed haber ısısı ↑ · İran/Orta Doğu haber ısısı ↓">▲ YUKARI</span></td>
+<td class="num"><strong>52,1%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,3%</span></td>
+<td class="num">$185,24</td>
+<td class="num muted2">$178,30 – $192,45</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Gayrimenkul ETF (XLRE)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: petrol ivmesi ↑ · Fed haber ısısı ↑ · İran/Orta Doğu haber ısısı ↓">▲ YUKARI</span></td>
+<td class="num"><strong>51,9%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,1%</span></td>
+<td class="num">$43,59</td>
+<td class="num muted2">$42,08 – $45,16</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Hindistan ETF (INDA)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: RSI (aşırı alım/satım) ↑ · İran/Orta Doğu haber ısısı ↓ · Fed haber ısısı ↑">▲ YUKARI</span></td>
+<td class="num"><strong>51,9%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">54,0%</span></td>
+<td class="num">$51,90</td>
+<td class="num muted2">$50,48 – $53,36</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,516, isabet 51,6% (taban 53,5%)">Zayıf sinyal</span></td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Utilities ETF (XLU)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn mut" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · İran/Orta Doğu haber ısısı ↓ · petrol ivmesi ↑">▼ AŞAĞI</span></td>
 <td class="num"><strong>51,8%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,7%</span></td>
-<td class="num">$194,48</td>
-<td class="num muted2">$158,14 – $239,17</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,486, isabet 51,7% (taban 57,1%)">Kenar yok</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--neg)">44,9%</span></td>
+<td class="num">$43,42</td>
+<td class="num muted2">$42,32 – $44,54</td>
+<td><span class="chip none" data-tip="Out-of-sample: AUC 0,503, isabet 51,8% (taban 55,5%)">Kenar yok</span></td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
 <td><span class="aname">Şişecam</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up mut" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · İran/Orta Doğu haber ısısı ↓ · petrol ivmesi ↑">▲ YUKARI</span></td>
@@ -605,6 +596,15 @@ svg { width:100%; height:auto; display:block }
 <td class="num">₺34,30</td>
 <td class="num muted2">₺31,77 – ₺37,04</td>
 <td><span class="chip none" data-tip="Out-of-sample: AUC 0,507, isabet 50,6% (taban 52,5%)">Kenar yok</span></td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Realty Income</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · 5 günlük momentum ↑ · İran/Orta Doğu haber ısısı ↓">▲ YUKARI</span></td>
+<td class="num"><strong>51,7%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">45,4%</span></td>
+<td class="num">$58,04</td>
+<td class="num muted2">$55,98 – $60,17</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,519, isabet 52,2% (taban 53,6%)">Zayıf sinyal</span></td>
 <td class="num muted2">17.11.2026 </td>
 </tr><tr>
 <td><span class="aname">BİM</span> <span class="acls">Hisse</span></td>
@@ -616,32 +616,23 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,514, isabet 53,7% (taban 56,6%)">Zayıf sinyal</span></td>
 <td class="num muted2">17.11.2026 </td>
 </tr><tr>
-<td><span class="aname">Altın (ons)</span> <span class="acls">Emtia</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · 3 aylık momentum ↑">▲ YUKARI</span></td>
-<td class="num"><strong>51,6%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">53,7%</span></td>
-<td class="num">$3.728</td>
-<td class="num muted2">$3.549 – $3.916</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td><span class="aname">Sanayi ETF (XLI)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: petrol ivmesi ↑ · Fed haber ısısı ↑ · İran/Orta Doğu haber ısısı ↓">▲ YUKARI</span></td>
+<td class="num"><strong>51,7%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,5%</span></td>
+<td class="num">$164,75</td>
+<td class="num muted2">$157,35 – $172,50</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,518, isabet 54,3% (taban 56,8%)">Zayıf sinyal</span></td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
-<td><span class="aname">Enerji ETF (XLE)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · Fed haber ısısı ↑">▲ YUKARI</span></td>
-<td class="num"><strong>51,4%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">54,5%</span></td>
-<td class="num">$61,29</td>
-<td class="num muted2">$57,83 – $64,96</td>
-<td><span class="chip none" data-tip="Out-of-sample: AUC 0,502, isabet 52,1% (taban 55,3%)">Kenar yok</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Çin ETF (MCHI)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · 3 aylık momentum ↑">▼ AŞAĞI</span></td>
-<td class="num"><strong>51,3%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,3%</span></td>
-<td class="num">$47,79</td>
-<td class="num muted2">$45,98 – $49,67</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td><span class="aname">Japonya ETF (EWJ)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · petrol ivmesi ↑ · VIX 5 günlük değişim ↓">▲ YUKARI</span></td>
+<td class="num"><strong>51,2%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,2%</span></td>
+<td class="num">$88,69</td>
+<td class="num muted2">$84,07 – $93,57</td>
+<td><span class="chip proven" data-tip="Out-of-sample: AUC 0,540, isabet 54,4% (taban 54,9%)">Kanıtlanmış kenar</span></td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
 <td><span class="aname">BIST 100</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · Fed haber ısısı ↑ · 3 aylık momentum ↑">▲ YUKARI</span></td>
@@ -651,15 +642,6 @@ svg { width:100%; height:auto; display:block }
 <td class="num muted2">11.029 – 12.330</td>
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
 <td class="num muted2">17.11.2026 </td>
-</tr><tr>
-<td><span class="aname">GE Vernova</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · Fed haber ısısı ↑">▲ YUKARI</span></td>
-<td class="num"><strong>51,1%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">56,9%</span></td>
-<td class="num">$772,22</td>
-<td class="num muted2">$669,99 – $890,04</td>
-<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,525, isabet 55,3% (taban 59,3%)">Zayıf sinyal</span></td>
-<td class="num muted2">18.11.2026 </td>
 </tr><tr>
 <td><span class="aname">Aselsan</span> <span class="acls">Hisse</span></td>
 <td><span class="dir dn" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · 3 aylık momentum ↑ · İran/Orta Doğu haber ısısı ↓">▼ AŞAĞI</span></td>
@@ -679,14 +661,32 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,520, isabet 51,5% (taban 50,7%)">Zayıf sinyal</span></td>
 <td class="num muted2">13.11.2026 </td>
 </tr><tr>
-<td><span class="aname">Brezilya ETF (EWZ)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · kuyruk riski (basıklık) ↓ · 20g ortalamaya uzaklık ↑">▼ AŞAĞI</span></td>
+<td><span class="aname">Quanta Services</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · Fed haber ısısı ↑ · petrol ivmesi ↑">▲ YUKARI</span></td>
 <td class="num"><strong>50,9%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,0%</span></td>
-<td class="num">$30,07</td>
-<td class="num muted2">$26,09 – $34,66</td>
-<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">48,7%</span></td>
+<td class="num">$598,53</td>
+<td class="num muted2">$507,96 – $705,25</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,526, isabet 57,2% (taban 59,9%)">Zayıf sinyal</span></td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Tesla</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: petrol ivmesi ↑ · Fed haber ısısı ↑ · İran/Orta Doğu haber ısısı ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>50,9%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">45,9%</span></td>
+<td class="num">$380,11</td>
+<td class="num muted2">$341,59 – $422,97</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,510, isabet 51,2% (taban 52,5%)">Zayıf sinyal</span></td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Apple</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · petrol ivmesi ↑ · İran/Orta Doğu haber ısısı ↓">▲ YUKARI</span></td>
+<td class="num"><strong>50,8%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">46,7%</span></td>
+<td class="num">$351,91</td>
+<td class="num muted2">$335,10 – $369,57</td>
+<td><span class="chip weak" data-tip="Out-of-sample: AUC 0,519, isabet 54,3% (taban 58,7%)">Zayıf sinyal</span></td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
 <td><span class="aname">EUR/USD</span> <span class="acls">Döviz</span></td>
 <td><span class="dir up mut" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · Fed haber ısısı ↑ · ay (mevsimsellik) ↓">▲ YUKARI</span></td>
@@ -706,15 +706,6 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,517, isabet 52,7% (taban 55,7%)">Zayıf sinyal</span></td>
 <td class="num muted2">17.11.2026 </td>
 </tr><tr>
-<td><span class="aname">Şebeke ETF (GRID)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · 3 aylık momentum ↑ · VIX 5 günlük değişim ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>50,7%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,7%</span></td>
-<td class="num">$155,18</td>
-<td class="num muted2">$144,34 – $166,84</td>
-<td><span class="chip proven" data-tip="Out-of-sample: AUC 0,544, isabet 55,8% (taban 58,7%)">Kanıtlanmış kenar</span></td>
-<td class="num muted2">18.11.2026 </td>
-</tr><tr>
 <td><span class="aname">Akbank</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · Fed haber ısısı ↑ · petrol ivmesi ↑">▲ YUKARI</span></td>
 <td class="num"><strong>50,5%</strong></td>
@@ -733,6 +724,15 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip none" data-tip="Out-of-sample: AUC 0,485, isabet 48,9% (taban 50,1%)">Kenar yok</span></td>
 <td class="num muted2">13.11.2026 </td>
 </tr><tr>
+<td><span class="aname">Microsoft</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn mut" data-tip="Modeli iten etkenler: BTC aylık momentumu ↑ · Fed haber ısısı ↑ · İran/Orta Doğu haber ısısı ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>50,4%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">49,2%</span></td>
+<td class="num">$506,24</td>
+<td class="num muted2">$474,10 – $540,56</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">17.11.2026 </td>
+</tr><tr>
 <td><span class="aname">Türk Hava Yolları</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · Fed haber ısısı ↑ · altın-borsa makası ↓">▲ YUKARI</span></td>
 <td class="num"><strong>50,4%</strong></td>
@@ -742,14 +742,14 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,511, isabet 50,4% (taban 54,0%)">Zayıf sinyal</span></td>
 <td class="num muted2">17.11.2026 </td>
 </tr><tr>
-<td><span class="aname">Altın ETF (GLD)</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn mut" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓ · 3 aylık momentum ↑">▼ AŞAĞI</span></td>
+<td><span class="aname">FTSE 100</span> <span class="acls">Hisse</span></td>
+<td><span class="dir up" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · petrol ivmesi ↑ · İran/Orta Doğu haber ısısı ↓">▲ YUKARI</span></td>
 <td class="num"><strong>50,3%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,5%</span></td>
-<td class="num">$341,19</td>
-<td class="num muted2">$323,71 – $359,62</td>
-<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">18.11.2026 </td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">46,0%</span></td>
+<td class="num">10.690</td>
+<td class="num muted2">10.452 – 10.933</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
 <td><span class="aname">Tüpraş</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up mut" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · İran/Orta Doğu haber ısısı ↓ · petrol ivmesi ↑">▲ YUKARI</span></td>
@@ -760,23 +760,14 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip none" data-tip="Out-of-sample: AUC 0,509, isabet 51,5% (taban 53,4%)">Kenar yok</span></td>
 <td class="num muted2">17.11.2026 </td>
 </tr><tr>
-<td><span class="aname">Hang Seng</span> <span class="acls">Hisse</span></td>
-<td><span class="dir up" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · petrol ivmesi ↑ · İran/Orta Doğu haber ısısı ↓">▲ YUKARI</span></td>
+<td><span class="aname">Tarım ETF (DBA)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: Fed haber ısısı ↑ · İran/Orta Doğu haber ısısı ↓ · petrol ivmesi ↑">▼ AŞAĞI</span></td>
 <td class="num"><strong>50,2%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--neg)">44,8%</span></td>
-<td class="num">23.508</td>
-<td class="num muted2">22.577 – 24.478</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,3%</span></td>
+<td class="num">$26,38</td>
+<td class="num muted2">$25,95 – $26,82</td>
+<td><span class="chip proven" data-tip="Out-of-sample: AUC 0,534, isabet 53,1% (taban 54,8%)">Kanıtlanmış kenar</span></td>
 <td class="num muted2">17.11.2026 </td>
-</tr><tr>
-<td><span class="aname">S&P 500 ETF</span> <span class="acls">Hisse</span></td>
-<td><span class="dir dn" data-tip="Modeli iten etkenler: S&P 500 ile korelasyon ↑ · İran/Orta Doğu haber ısısı ↓ · VIX 5 günlük değişim ↓">▼ AŞAĞI</span></td>
-<td class="num"><strong>50,2%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,6%</span></td>
-<td class="num">$730,20</td>
-<td class="num muted2">$700,94 – $760,68</td>
-<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
-<td class="num muted2">18.11.2026 </td>
 </tr><tr>
 <td><span class="aname">Brent Petrol</span> <span class="acls">Emtia</span></td>
 <td><span class="dir up mut" data-tip="Modeli iten etkenler: Fed haber ısısı ↓ · S&P 500 ile korelasyon ↓ · 20g ortalamaya uzaklık ↑">▲ YUKARI</span></td>
@@ -785,7 +776,16 @@ svg { width:100%; height:auto; display:block }
 <td class="num">$92,14</td>
 <td class="num muted2">$79,16 – $107,25</td>
 <td><span class="chip none" data-tip="Out-of-sample: AUC 0,503, isabet 50,2% (taban 54,1%)">Kenar yok</span></td>
-<td class="num muted2">11.11.2026 </td>
+<td class="num muted2">11.11.2026 <span class="chip stale" data-tip="Bu varlığın verisi 8 gün geride — canlı veri hattı kurulunca güncellenecek">8 gün eski</span></td>
+</tr><tr>
+<td><span class="aname">Aylık Gelir ETF (JEPI)</span> <span class="acls">Hisse</span></td>
+<td><span class="dir dn" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · petrol ivmesi ↑ · VIX 5 günlük değişim ↓">▼ AŞAĞI</span></td>
+<td class="num"><strong>50,1%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">46,4%</span></td>
+<td class="num">$56,64</td>
+<td class="num muted2">$54,89 – $58,45</td>
+<td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
+<td class="num muted2">17.11.2026 </td>
 </tr><tr>
 <td><span class="aname">Garanti BBVA</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: İran/Orta Doğu haber ısısı ↓ · Fed haber ısısı ↑ · 5 günlük momentum ↑">▲ YUKARI</span></td>
@@ -828,7 +828,7 @@ svg { width:100%; height:auto; display:block }
 <td><span class="aname">Realty Income</span></td>
 <td class="num"><strong>5,6%</strong></td>
 <td>Aylık <span class="chip proven" style="margin-left:6px">her ay öder</span></td>
-<td class="num">465 ₺</td>
+<td class="num">467 ₺</td>
 <td class="num muted2">2026-10-30</td>
 </tr><tr>
 <td><span class="aname">Tüpraş</span></td>
@@ -858,7 +858,7 @@ svg { width:100%; height:auto; display:block }
 <td><span class="aname">Temettü ETF (SCHD)</span></td>
 <td class="num"><strong>3,0%</strong></td>
 <td>3 Aylık</td>
-<td class="num">253 ₺</td>
+<td class="num">249 ₺</td>
 <td class="num muted2">2026-09-23</td>
 </tr><tr>
 <td><span class="aname">BİM</span></td>
@@ -888,7 +888,7 @@ svg { width:100%; height:auto; display:block }
 <td><span class="aname">Eaton</span></td>
 <td class="num"><strong>1,3%</strong></td>
 <td>3 Aylık</td>
-<td class="num">108 ₺</td>
+<td class="num">109 ₺</td>
 <td class="num muted2">2026-11-10</td>
 </tr></tbody>
   </table></div>
@@ -897,7 +897,7 @@ svg { width:100%; height:auto; display:block }
 <div class="card" style="margin-bottom:18px">
   <h2>Haber akışı <span style="font-weight:400;color:var(--muted);font-size:12px">(son 24 saat · Alpaca/Benzinga · sembol bazlı)</span></h2>
   <div class="sub" style="margin-bottom:6px">Duygu skoru finans sözlüğüyle hesaplanır (hafif model; FinBERT v9 adayı). Haber yoğunluğu ve duygusu modele özellik olarak da girer — A/B karar verir. Belirgin olumsuz akışta o gün alım yapılmaz.</div>
-  <div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Microsoft</span> <span class="muted2">10 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.globenewswire.com/news-release/2026/11/18/3406049/0/en/splashtop-joins-microsoft-virus-initiative-strengthening-protection-for-microsoft-environments.html" target="_blank" rel="noopener" style="color:inherit">Splashtop Joins Microsoft Virus Initiative</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.globenewswire.com/news-release/2026/11/18/3405850/0/en/ema-ai-employees-for-hr-it-and-finance-now-available-in-microsoft-marketplace.html" target="_blank" rel="noopener" style="color:inherit">Ema Launches AI Employees for HR, IT, and Finance on Microsoft Marketplace</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Meta</span> <span class="muted2">9 haber</span> <span class="chip stale">olumsuz</span><div class="sub" style="margin-top:3px">• <a href="https://newsfilter.io/articles/minister-says-discussions-with-meta-confidential-following-reports-of-possible-d88ccd8ccd8c5cc388ed918f1cc8b03a" target="_blank" rel="noopener" style="color:inherit">Reports Indicate Meta Proposed Ending News Blackout in Canada</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.moomoo.com/stock/META-US?chain_id=Name1K9-3FXPhg.1lfrtdg&global_content=%7B%22promote_id%22%3A%22%22%2C%22sub_promote_id%22%3A64%2C%22subpromote_id%22%3A%22%22%2C%22f%22%3A%22www.moomoo.com%2Fcommunity%2Fprofile%2Fequity-investor-74339429%2Fpost%2Fall%22%7D" target="_blank" rel="noopener" style="color:inherit">UBS Adjusts Meta Platforms Price Target</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Apple</span> <span class="muted2">8 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://appleosophy.com/wire/gwm546z/" target="_blank" rel="noopener" style="color:inherit">Apple Releases HomeView Software 27.2.1 Update</a></div><div class="sub" style="margin-top:3px">• <a href="https://appleosophy.com/wire/oy1ri1h/" target="_blank" rel="noopener" style="color:inherit">Apple Announces Finalists for 2026 App Store Awards</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Amazon</span> <span class="muted2">8 haber</span> <span class="chip proven">olumlu</span><div class="sub" style="margin-top:3px">• <a href="https://energydigital.com/news/amazon-to-invest-us-7bn-in-renewable-energy-in-india-by-2030" target="_blank" rel="noopener" style="color:inherit">Amazon Announces $7 Billion Renewable Energy Investment in India</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.globenewswire.com/news-release/2026/11/18/3405750/0/en/infoblox-brings-preemptive-threat-protection-to-amazon-route-53-dns-firewall.html" target="_blank" rel="noopener" style="color:inherit">Infoblox Integrates Threat Defense with Amazon Route 53 DNS Firewall</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Nvidia</span> <span class="muted2">8 haber</span> <span class="chip stale">olumsuz</span><div class="sub" style="margin-top:3px">• <a href="https://supplychaindigital.com/news/nvidia-extends-ai-supply-chain-with-long-term-supply-deals" target="_blank" rel="noopener" style="color:inherit">NVIDIA Announces Expanded Multiyear Supply Chain Commitments</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.morningstar.com/news/marketwatch/2026111879/why-nvidia-broke-with-its-usual-practice-in-holding-back-its-quarterly-sec-report" target="_blank" rel="noopener" style="color:inherit">NVIDIA Faces SEC Investigation and Delays Quarterly 10-Q Filing</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">GE Vernova</span> <span class="muted2">7 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.moomoo.com/stock/GEV-US?chain_id=Name1K9-3FXPhg.1lfkhs0&global_content=%7B%22promote_id%22%3A13764%2C%22sub_promote_id%22%3A57%2C%22f%22%3A%22www.moomoo.com%2Fstock%2FDHR-US%2Fearnings%22%7D" target="_blank" rel="noopener" style="color:inherit">GE Vernova Secures New Wind Energy Order from wpd in Germany</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.marketscreener.com/news/erste-group-downgrades-ge-vernova-to-hold-from-buy-ce785edddb8af52c" target="_blank" rel="noopener" style="color:inherit">Erste Group Downgrades GE Vernova to Hold From Buy</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Tesla</span> <span class="muted2">6 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.globenewswire.com/news-release/2026/11/18/3406023/0/en/roamly-announces-insurance-for-tesla-cybercab.html" target="_blank" rel="noopener" style="color:inherit">Roamly Announces Insurance Coverage for Tesla Cybercab</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.moomoo.com/stock/TSLA-US?chain_id=Name1K9-3FXPhg.1lfqtp0&global_content=%7B%22promote_id%22%3A%22%22%2C%22sub_promote_id%22%3A64%2C%22subpromote_id%22%3A%22%22%2C%22f%22%3A%22www.moomoo.com%2Fcommunity%2Fprofile%2Fjosh-spence-ao-73464826%22%7D" target="_blank" rel="noopener" style="color:inherit">Barclays Maintains Tesla Buy Rating</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Quanta Services</span> <span class="muted2">4 haber</span> <span class="chip stale">olumsuz</span><div class="sub" style="margin-top:3px">• <a href="https://www.investegate.co.uk/announcement/rns/power-probe-plc--pwr/director-pdmr-shareholding/9880568" target="_blank" rel="noopener" style="color:inherit">Director/PDMR Shareholding: Ip Foo Wing</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.marketscreener.com/news/morgan-stanley-initiates-coverage-on-quanta-services-with-equal-weight-rating-ce785edcd88bf727" target="_blank" rel="noopener" style="color:inherit">Morgan Stanley Initiates Coverage on Quanta Services with Equal Weight Rating</a></div></div>
+  <div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Amazon</span> <span class="muted2">6 haber</span> <span class="chip proven">olumlu</span><div class="sub" style="margin-top:3px">• <a href="https://energydigital.com/news/amazon-to-invest-us-7bn-in-renewable-energy-in-india-by-2030" target="_blank" rel="noopener" style="color:inherit">Amazon Announces $7 Billion Renewable Energy Investment in India</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.globenewswire.com/news-release/2026/11/18/3405750/0/en/infoblox-brings-preemptive-threat-protection-to-amazon-route-53-dns-firewall.html" target="_blank" rel="noopener" style="color:inherit">Infoblox Integrates Threat Defense with Amazon Route 53 DNS Firewall</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Microsoft</span> <span class="muted2">6 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.globenewswire.com/news-release/2026/11/18/3406049/0/en/splashtop-joins-microsoft-virus-initiative-strengthening-protection-for-microsoft-environments.html" target="_blank" rel="noopener" style="color:inherit">Splashtop Joins Microsoft Virus Initiative</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.globenewswire.com/news-release/2026/11/18/3405850/0/en/ema-ai-employees-for-hr-it-and-finance-now-available-in-microsoft-marketplace.html" target="_blank" rel="noopener" style="color:inherit">Ema Launches AI Employees for HR, IT, and Finance on Microsoft Marketplace</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Apple</span> <span class="muted2">5 haber</span> <span class="chip stale">olumsuz</span><div class="sub" style="margin-top:3px">• <a href="https://appleosophy.com/wire/gwm546z/" target="_blank" rel="noopener" style="color:inherit">Apple Releases HomeView Software 27.2.1 Update</a></div><div class="sub" style="margin-top:3px">• <a href="https://appleosophy.com/wire/oy1ri1h/" target="_blank" rel="noopener" style="color:inherit">Apple Announces Finalists for 2026 App Store Awards</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Meta</span> <span class="muted2">5 haber</span> <span class="chip stale">olumsuz</span><div class="sub" style="margin-top:3px">• <a href="https://newsfilter.io/articles/minister-says-discussions-with-meta-confidential-following-reports-of-possible-d88ccd8ccd8c5cc388ed918f1cc8b03a" target="_blank" rel="noopener" style="color:inherit">Reports Indicate Meta Proposed Ending News Blackout in Canada</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.moomoo.com/stock/META-US?chain_id=Name1K9-3FXPhg.1lfrtdg&global_content=%7B%22promote_id%22%3A%22%22%2C%22sub_promote_id%22%3A64%2C%22subpromote_id%22%3A%22%22%2C%22f%22%3A%22www.moomoo.com%2Fcommunity%2Fprofile%2Fequity-investor-74339429%2Fpost%2Fall%22%7D" target="_blank" rel="noopener" style="color:inherit">UBS Adjusts Meta Platforms Price Target</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Nvidia</span> <span class="muted2">5 haber</span> <span class="chip stale">olumsuz</span><div class="sub" style="margin-top:3px">• <a href="https://supplychaindigital.com/news/nvidia-extends-ai-supply-chain-with-long-term-supply-deals" target="_blank" rel="noopener" style="color:inherit">NVIDIA Announces Expanded Multiyear Supply Chain Commitments</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.morningstar.com/news/marketwatch/2026111879/why-nvidia-broke-with-its-usual-practice-in-holding-back-its-quarterly-sec-report" target="_blank" rel="noopener" style="color:inherit">NVIDIA Faces SEC Investigation and Delays Quarterly 10-Q Filing</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Tesla</span> <span class="muted2">4 haber</span> <span class="chip stale">olumsuz</span><div class="sub" style="margin-top:3px">• <a href="https://www.globenewswire.com/news-release/2026/11/18/3406023/0/en/roamly-announces-insurance-for-tesla-cybercab.html" target="_blank" rel="noopener" style="color:inherit">Roamly Announces Insurance Coverage for Tesla Cybercab</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.moomoo.com/stock/TSLA-US?chain_id=Name1K9-3FXPhg.1lfqtp0&global_content=%7B%22promote_id%22%3A%22%22%2C%22sub_promote_id%22%3A64%2C%22subpromote_id%22%3A%22%22%2C%22f%22%3A%22www.moomoo.com%2Fcommunity%2Fprofile%2Fjosh-spence-ao-73464826%22%7D" target="_blank" rel="noopener" style="color:inherit">Barclays Maintains Tesla Buy Rating</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Eaton</span> <span class="muted2">3 haber</span> <span class="chip stale">olumsuz</span><div class="sub" style="margin-top:3px">• <a href="https://www.moomoo.com/stock/ETN-US?chain_id=Name1K9-3FXPhg.1lfs7v0&global_content=%7B%22promote_id%22%3A13764%2C%22sub_promote_id%22%3A107%2C%22f%22%3A%22www.moomoo.com%2Fetfs%2FYANG-US%22%7D" target="_blank" rel="noopener" style="color:inherit">BofA Securities Maintains Buy Rating on Eaton</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.moomoo.com/stock/ETN-US?chain_id=Name1K9-3FXPhg.1lfris0&global_content=%7B%22promote_id%22%3A13764%2C%22sub_promote_id%22%3A107%2C%22f%22%3A%22www.moomoo.com%2Fetfs%2FHYG-US%22%7D" target="_blank" rel="noopener" style="color:inherit">Erste Group Downgrades Eaton to Hold</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">GE Vernova</span> <span class="muted2">3 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.moomoo.com/stock/GEV-US?chain_id=Name1K9-3FXPhg.1lfkhs0&global_content=%7B%22promote_id%22%3A13764%2C%22sub_promote_id%22%3A57%2C%22f%22%3A%22www.moomoo.com%2Fstock%2FDHR-US%2Fearnings%22%7D" target="_blank" rel="noopener" style="color:inherit">GE Vernova Secures New Wind Energy Order from wpd in Germany</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.marketscreener.com/news/erste-group-downgrades-ge-vernova-to-hold-from-buy-ce785edddb8af52c" target="_blank" rel="noopener" style="color:inherit">Erste Group Downgrades GE Vernova to Hold From Buy</a></div></div>
 </div>
 
 <div class="grid2"><div class="card">
