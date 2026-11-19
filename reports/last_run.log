@@ -31,21 +31,21 @@
   ! BNB: canli kripto yok (tum kaynaklar engelli)
    mirror: 12 varlik | canli: 64 varlik
 1.5/5 olay radari (GDELT)...
-  olay evt_iran: guncel isi alinamadi (HTTPError)
-  olay evt_sanction: guncel isi alinamadi (HTTPError)
-  olay evt_tariff: guncel isi alinamadi (HTTPError)
-  olay evt_fed: guncel isi alinamadi (HTTPError)
-  olay evt_oil: guncel isi alinamadi (HTTPError)
-   olay radari: 6 tema (6 tam gecmis), 3606 gun, 153s
+  olay evt_iran: guncel isi alinamadi (ReadTimeout)
+  olay evt_china: guncel isi alinamadi (ReadTimeout)
+  olay evt_sanction: guncel isi alinamadi (ReadTimeout)
+  olay evt_tariff: guncel isi alinamadi (ReadTimeout)
+  olay evt_fed: guncel isi alinamadi (ReadTimeout)
+   olay radari: 6 tema (6 tam gecmis), 3606 gun, 150s
 1.7/5 haber akisi (Alpaca)...
-   haber akisi: 75 yeni baslik, onbellek 9067 varlik-gun
-   toplam 73 varlik, 244447 satir
+   haber akisi: 79 yeni baslik, onbellek 9072 varlik-gun
+   toplam 73 varlik, 244471 satir
 2/5 gunluk mod: kayitli model kullaniliyor (dogrulama: 2026-11, sampiyon: ext)
 3/5 guncel tahminler...
 4/5 tahmin defteri...
-   bekci ASKI: ['AMZN', 'DAX', 'EWG', 'EWU', 'FTSE', 'HSI', 'JEPI', 'LIT', 'MCHI', 'SCHD', 'SPY', 'XAUUSD', 'XLF', 'XLP', 'XLRE', 'XLV', 'XU100']
-   bekci SOGUMA: ['AKBNK', 'BTC', 'COPX', 'ETH', 'EWZ', 'GLD', 'KCHOL', 'MSFT', 'NVDA', 'SISE', 'SLV', 'SOL', 'TUPRS', 'URA', 'XRP']
-   defter: 4528 tahmin, 4187 cozuldu, gercek isabet 51.5%
+   bekci ASKI: ['AMZN', 'DAX', 'EWG', 'EWU', 'FTSE', 'HSI', 'JEPI', 'LIT', 'MCHI', 'SCHD', 'SPY', 'XAUUSD', 'XLC', 'XLF', 'XLP', 'XLRE', 'XLV', 'XLY', 'XU100']
+   bekci SOGUMA: ['AKBNK', 'BTC', 'COPX', 'ETH', 'ETN', 'EWZ', 'GLD', 'KCHOL', 'MSFT', 'NVDA', 'SISE', 'SLV', 'SOL', 'TUPRS', 'URA', 'VRT', 'XLE', 'XRP']
+   defter: 4552 tahmin, 4211 cozuldu, gercek isabet 51.2%
 4.5/5 temettu radari...
    temettu radari: 18 varlik
 4.55/5 bilanco takvimi...
@@ -55,4 +55,4 @@
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 237s
+bitti — 222s
