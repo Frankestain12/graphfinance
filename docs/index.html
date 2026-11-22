@@ -91,7 +91,7 @@ svg { width:100%; height:auto; display:block }
 <div class="head">
   <div>
     <h1><span class="gf">Graph</span>Finance <span style="font-weight:400;color:var(--muted);font-size:15px">· 5 günlük yön tahmini</span></h1>
-    <div class="sub">Üretim: 21 Kasım 2026 · Model: LightGBM (havuzlanmış) · Doğrulama: aylık yeniden eğitimli walk-forward, 2019-01-01 → 2026-11-03</div>
+    <div class="sub">Üretim: 22 Kasım 2026 · Model: LightGBM (havuzlanmış) · Doğrulama: aylık yeniden eğitimli walk-forward, 2019-01-01 → 2026-11-03</div>
   </div>
 </div>
 
@@ -101,10 +101,10 @@ svg { width:100%; height:auto; display:block }
   <div class="card tile"><div class="tl">Out-of-sample tahmin</div><div class="tv">146,908</div><div class="td">2019-01-01 → 2026-11-03, 74 varlık</div></div>
   <div class="card tile"><div class="tl">Yüksek güvenli çağrı isabeti</div><div class="tv">54,8%</div><div class="td">76,748 çağrı (güven &gt; %55)</div></div>
   <div class="card tile"><div class="tl">Kanıtlanmış kenarlı varlık</div><div class="tv">13 / 74</div><div class="td">USD/TRY &amp; Lityum ETF (LIT) &amp; Gümüş ETF (SLV)</div></div>
-  <div class="card tile"><div class="tl">Canlı defter isabeti</div><div class="tv">51,1%</div><div class="td">4301 çözülmüş tahmin · "hep yukarı" deseydik 43,9% → gerçek kenar <b style="color:var(--good-text)">+7,2%</b></div></div>
+  <div class="card tile"><div class="tl">Canlı defter isabeti</div><div class="tv">51,0%</div><div class="td">4305 çözülmüş tahmin · "hep yukarı" deseydik 43,8% → gerçek kenar <b style="color:var(--good-text)">+7,2%</b></div></div>
 </div>
 
-<div class="card" style="margin-bottom:18px"><h2>Bugünün yorumu</h2><div class="road" style="margin-top:6px">Piyasa rejimi sakin: korku endeksi VIX, son bir yılın en düşük %2 diliminde. Günün öne çıkan sinyali: USD/TRY yukarı (78,5% güven) — modeli iten etkenler: RSI (aşırı alım/satım) ↑ · 21 günlük oynaklık ↑ · 52 haftalık zirveye uzaklık ↑. Günün öne çıkan sinyali: Gümüş ETF (SLV) yukarı (65,2% güven) — modeli iten etkenler: 3 aylık momentum ↑ · MACD histogramı ↑ · 20g ortalamaya uzaklık ↑. Sıkışma tespiti: USD/JPY, Ham Petrol (WTI), Brent Petrol, Hammadde ETF (XLB) — oynaklık 3 aylık ortalamanın çok altında; istatistiksel olarak yakında sert hareket olasılığı artar (yönünü söylemez).</div></div>
+<div class="card" style="margin-bottom:18px"><h2>Bugünün yorumu</h2><div class="road" style="margin-top:6px">Piyasa rejimi sakin: korku endeksi VIX, son bir yılın en düşük %2 diliminde. Günün öne çıkan sinyali: USD/TRY yukarı (78,5% güven) — modeli iten etkenler: RSI (aşırı alım/satım) ↑ · 21 günlük oynaklık ↑ · 52 haftalık zirveye uzaklık ↑. Günün öne çıkan sinyali: Gümüş ETF (SLV) yukarı (65,2% güven) — modeli iten etkenler: 3 aylık momentum ↑ · MACD histogramı ↑ · 20g ortalamaya uzaklık ↑. Sıkışma tespiti: USD/JPY, Ham Petrol (WTI), Brent Petrol, Finans ETF (XLF) — oynaklık 3 aylık ortalamanın çok altında; istatistiksel olarak yakında sert hareket olasılığı artar (yönünü söylemez).</div></div>
 <div class="card" style="margin-bottom:18px">
   <h2>Modelin gerçek kenarı <span style="font-weight:400;color:var(--muted);font-size:12px">(aylık A/B, out-of-sample 2019→)</span></h2>
   <div class="sub" style="margin:4px 0 8px">18 günlük otopsinin dersi: isabet tek başına yanıltır, çünkü model çoğunlukla "yukarı" der ve piyasa çoğu hafta yükselir. Asıl ölçü: <b>isabet − "hep çoğunluk sınıfı" tabanı</b>. Göreli hedef modelde taban %50'dir; o model her gün varlıkların yarısını seçmek zorundadır.</div>
@@ -116,7 +116,7 @@ svg { width:100%; height:auto; display:block }
   <div style="display:flex;align-items:baseline;gap:14px;margin:6px 0 2px">
     <span style="font-size:34px;font-weight:650">$100.870</span>
     <span style="font-size:15px;font-weight:600;color:var(--good-text)">+$870 (+0,9%)</span>
-    <span class="sub">başlangıç: $100.000 · 2026-11-21</span>
+    <span class="sub">başlangıç: $100.000 · 2026-11-22</span>
   </div>
   <div class="sub" style="margin-top:8px">Şu an açık pozisyon yok — sistem sinyal bekliyor.</div>
   <div class="sub" style="margin-top:8px">Kurallar: kenarlı + güven ≥ %65 yukarı sinyalleri (+ göreli seçici ≥ %55 aktifse) · riskten kaçış rejiminde sadece savunma · MCHI/EWG/EWU/EWQ/EWY alım dışı · maks 5 pozisyon, nakit sınırı · her koşuda gözden geçirme: 5 gün doldu / %4 zarar durdur / sinyal &lt;%45 tersine döndü / kötü haber / %6 kâr al → sat · %10 düşüşte tam durdurma. Gerçek para değildir; sistemin canlı sınavıdır.</div>
@@ -125,11 +125,11 @@ svg { width:100%; height:auto; display:block }
 <div class="card" style="margin-bottom:18px">
   <h2>1.000₺ Sinyal Portföyü <span style="font-weight:400;color:var(--muted);font-size:12px">(defterdeki GERÇEK sinyaller harfiyen uygulansaydı)</span></h2>
   <div style="display:flex;align-items:baseline;gap:14px;margin:6px 0 2px">
-    <span style="font-size:34px;font-weight:650">1.177 ₺</span>
-    <span style="font-size:15px;font-weight:600;color:var(--good-text)">+177 ₺ (+17,7%)</span>
-    <span class="sub">başlangıç: 1.000₺ · 2026-08-13 → 2026-11-21</span>
+    <span style="font-size:34px;font-weight:650">1.171 ₺</span>
+    <span style="font-size:15px;font-weight:600;color:var(--good-text)">+171 ₺ (+17,1%)</span>
+    <span class="sub">başlangıç: 1.000₺ · 2026-08-13 → 2026-11-22</span>
   </div>
-  <svg viewBox="0 0 560 260" role="img" aria-label="Sinyal portföyü strateji eğrisi" class="eqsvg" data-dates="2026-08-13,2026-08-14,2026-08-17,2026-08-18,2026-08-19,2026-08-20,2026-08-21,2026-08-22,2026-08-23,2026-08-25,2026-08-26,2026-08-28,2026-08-31,2026-09-01,2026-09-02,2026-09-03,2026-09-04,2026-09-05,2026-09-06,2026-09-07,2026-09-08,2026-09-09,2026-09-10,2026-09-11,2026-09-14,2026-09-15,2026-09-16,2026-09-17,2026-09-18,2026-09-21,2026-09-22,2026-09-23,2026-09-24,2026-09-25,2026-09-28,2026-09-29,2026-09-30,2026-10-01,2026-10-02,2026-10-05,2026-10-06,2026-10-07,2026-10-08,2026-10-09,2026-10-12,2026-10-13,2026-10-14,2026-10-15,2026-10-16,2026-10-19,2026-10-20,2026-10-21,2026-10-22,2026-10-23,2026-10-27,2026-10-28,2026-10-29,2026-10-30,2026-11-01,2026-11-02,2026-11-03,2026-11-04,2026-11-05,2026-11-06,2026-11-07,2026-11-10,2026-11-11,2026-11-12,2026-11-13,2026-11-14,2026-11-15,2026-11-16,2026-11-17,2026-11-18,2026-11-19,2026-11-20,2026-11-21" data-strat="1.00075,0.99989,0.9992,1.00176,1.00361,1.00938,1.02112,1.13513,1.24525,1.24662,1.25627,1.2587,1.25969,1.25863,1.25067,1.249,1.24556,1.24313,1.24195,1.2395,1.23778,1.24546,1.24471,1.24338,1.243,1.2438,1.24513,1.24565,1.24634,1.24718,1.24805,1.24896,1.25001,1.25071,1.25195,1.2528,1.25363,1.25415,1.2551,1.25564,1.25635,1.25443,1.25475,1.25569,1.25653,1.25614,1.25694,1.25897,1.26175,1.25624,1.24836,1.2479,1.24976,1.25342,1.25495,1.25658,1.25627,1.25549,1.25629,1.25393,1.25488,1.25569,1.2567,1.26237,1.26311,1.26628,1.26049,1.25879,1.26001,1.24185,1.24259,1.22271,1.2152,1.20922,1.19787,1.19446,1.17734" data-bh="1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0" data-l="46" data-r="96" data-w="560" data-h="260"><line x1="46" y1="218.4" x2="464" y2="218.4" stroke="var(--grid)" stroke-width="1"/><text x="40" y="222.4" text-anchor="end" class="ax">1,00x</text><line x1="46" y1="154.1" x2="464" y2="154.1" stroke="var(--grid)" stroke-width="1"/><text x="40" y="158.1" text-anchor="end" class="ax">1,09x</text><line x1="46" y1="89.9" x2="464" y2="89.9" stroke="var(--grid)" stroke-width="1"/><text x="40" y="93.9" text-anchor="end" class="ax">1,18x</text><line x1="46" y1="25.6" x2="464" y2="25.6" stroke="var(--grid)" stroke-width="1"/><text x="40" y="29.6" text-anchor="end" class="ax">1,27x</text><path d="M46.0 217.9 L51.5 217.9 L57.0 217.9 L62.5 217.9 L68.0 217.9 L73.5 217.9 L79.0 217.9 L84.5 217.9 L90.0 217.9 L95.5 217.9 L101.0 217.9 L106.5 217.9 L112.0 217.9 L117.5 217.9 L123.0 217.9 L128.5 217.9 L134.0 217.9 L139.5 217.9 L145.0 217.9 L150.5 217.9 L156.0 217.9 L161.5 217.9 L167.0 217.9 L172.5 217.9 L178.0 217.9 L183.5 217.9 L189.0 217.9 L194.5 217.9 L200.0 217.9 L205.5 217.9 L211.0 217.9 L216.5 217.9 L222.0 217.9 L227.5 217.9 L233.0 217.9 L238.5 217.9 L244.0 217.9 L249.5 217.9 L255.0 217.9 L260.5 217.9 L266.0 217.9 L271.5 217.9 L277.0 217.9 L282.5 217.9 L288.0 217.9 L293.5 217.9 L299.0 217.9 L304.5 217.9 L310.0 217.9 L315.5 217.9 L321.0 217.9 L326.5 217.9 L332.0 217.9 L337.5 217.9 L343.0 217.9 L348.5 217.9 L354.0 217.9 L359.5 217.9 L365.0 217.9 L370.5 217.9 L376.0 217.9 L381.5 217.9 L387.0 217.9 L392.5 217.9 L398.0 217.9 L403.5 217.9 L409.0 217.9 L414.5 217.9 L420.0 217.9 L425.5 217.9 L431.0 217.9 L436.5 217.9 L442.0 217.9 L447.5 217.9 L453.0 217.9 L458.5 217.9 L464.0 217.9" fill="none" stroke="var(--ctx)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><path d="M46.0 217.3 L51.5 217.9 L57.0 218.4 L62.5 216.6 L68.0 215.2 L73.5 211.1 L79.0 202.6 L84.5 120.3 L90.0 40.8 L95.5 39.8 L101.0 32.8 L106.5 31.0 L112.0 30.3 L117.5 31.1 L123.0 36.8 L128.5 38.0 L134.0 40.5 L139.5 42.3 L145.0 43.1 L150.5 44.9 L156.0 46.2 L161.5 40.6 L167.0 41.1 L172.5 42.1 L178.0 42.4 L183.5 41.8 L189.0 40.8 L194.5 40.5 L200.0 40.0 L205.5 39.4 L211.0 38.7 L216.5 38.1 L222.0 37.3 L227.5 36.8 L233.0 35.9 L238.5 35.3 L244.0 34.7 L249.5 34.3 L255.0 33.6 L260.5 33.3 L266.0 32.7 L271.5 34.1 L277.0 33.9 L282.5 33.2 L288.0 32.6 L293.5 32.9 L299.0 32.3 L304.5 30.8 L310.0 28.8 L315.5 32.8 L321.0 38.5 L326.5 38.8 L332.0 37.5 L337.5 34.9 L343.0 33.8 L348.5 32.6 L354.0 32.8 L359.5 33.4 L365.0 32.8 L370.5 34.5 L376.0 33.8 L381.5 33.2 L387.0 32.5 L392.5 28.4 L398.0 27.9 L403.5 25.6 L409.0 29.8 L414.5 31.0 L420.0 30.1 L425.5 43.2 L431.0 42.7 L436.5 57.0 L442.0 62.5 L447.5 66.8 L453.0 75.0 L458.5 77.4 L464.0 89.8" fill="none" stroke="var(--acc)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="464.0" cy="89.8" r="4" fill="var(--acc)" stroke="var(--surface-1)" stroke-width="2"/><circle cx="464.0" cy="217.9" r="4" fill="var(--ctx)" stroke="var(--surface-1)" stroke-width="2"/><text x="472.0" y="93.8" class="val">1,2x sinyaller</text><text x="472.0" y="221.9" class="val2">1,0x nakit</text><line class="xh" x1="-9" y1="14" x2="-9" y2="230" stroke="var(--baseline)" stroke-width="1" opacity="0"/></svg>
+  <svg viewBox="0 0 560 260" role="img" aria-label="Sinyal portföyü strateji eğrisi" class="eqsvg" data-dates="2026-08-13,2026-08-14,2026-08-17,2026-08-18,2026-08-19,2026-08-20,2026-08-21,2026-08-22,2026-08-23,2026-08-25,2026-08-26,2026-08-28,2026-08-31,2026-09-01,2026-09-02,2026-09-03,2026-09-04,2026-09-05,2026-09-06,2026-09-07,2026-09-08,2026-09-09,2026-09-10,2026-09-11,2026-09-14,2026-09-15,2026-09-16,2026-09-17,2026-09-18,2026-09-21,2026-09-22,2026-09-23,2026-09-24,2026-09-25,2026-09-28,2026-09-29,2026-09-30,2026-10-01,2026-10-02,2026-10-05,2026-10-06,2026-10-07,2026-10-08,2026-10-09,2026-10-12,2026-10-13,2026-10-14,2026-10-15,2026-10-16,2026-10-19,2026-10-20,2026-10-21,2026-10-22,2026-10-23,2026-10-27,2026-10-28,2026-10-29,2026-10-30,2026-11-01,2026-11-02,2026-11-03,2026-11-04,2026-11-05,2026-11-06,2026-11-07,2026-11-10,2026-11-11,2026-11-12,2026-11-13,2026-11-14,2026-11-15,2026-11-16,2026-11-17,2026-11-18,2026-11-19,2026-11-20,2026-11-21,2026-11-22" data-strat="1.00075,0.99989,0.9992,1.00176,1.00361,1.00938,1.02112,1.13513,1.24525,1.24662,1.25627,1.2587,1.25969,1.25863,1.25067,1.249,1.24556,1.24313,1.24195,1.2395,1.23778,1.24546,1.24471,1.24338,1.243,1.2438,1.24513,1.24565,1.24634,1.24718,1.24805,1.24896,1.25001,1.25071,1.25195,1.2528,1.25363,1.25415,1.2551,1.25564,1.25635,1.25443,1.25475,1.25569,1.25653,1.25614,1.25694,1.25897,1.26175,1.25624,1.24836,1.2479,1.24976,1.25342,1.25495,1.25658,1.25627,1.25549,1.25629,1.25393,1.25488,1.25569,1.2567,1.26237,1.26311,1.26628,1.26049,1.25879,1.26001,1.24185,1.24259,1.22271,1.2152,1.20922,1.19787,1.19446,1.17734,1.1709" data-bh="1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0" data-l="46" data-r="96" data-w="560" data-h="260"><line x1="46" y1="218.4" x2="464" y2="218.4" stroke="var(--grid)" stroke-width="1"/><text x="40" y="222.4" text-anchor="end" class="ax">1,00x</text><line x1="46" y1="154.1" x2="464" y2="154.1" stroke="var(--grid)" stroke-width="1"/><text x="40" y="158.1" text-anchor="end" class="ax">1,09x</text><line x1="46" y1="89.9" x2="464" y2="89.9" stroke="var(--grid)" stroke-width="1"/><text x="40" y="93.9" text-anchor="end" class="ax">1,18x</text><line x1="46" y1="25.6" x2="464" y2="25.6" stroke="var(--grid)" stroke-width="1"/><text x="40" y="29.6" text-anchor="end" class="ax">1,27x</text><path d="M46.0 217.9 L51.4 217.9 L56.9 217.9 L62.3 217.9 L67.7 217.9 L73.1 217.9 L78.6 217.9 L84.0 217.9 L89.4 217.9 L94.9 217.9 L100.3 217.9 L105.7 217.9 L111.1 217.9 L116.6 217.9 L122.0 217.9 L127.4 217.9 L132.9 217.9 L138.3 217.9 L143.7 217.9 L149.1 217.9 L154.6 217.9 L160.0 217.9 L165.4 217.9 L170.9 217.9 L176.3 217.9 L181.7 217.9 L187.1 217.9 L192.6 217.9 L198.0 217.9 L203.4 217.9 L208.9 217.9 L214.3 217.9 L219.7 217.9 L225.1 217.9 L230.6 217.9 L236.0 217.9 L241.4 217.9 L246.9 217.9 L252.3 217.9 L257.7 217.9 L263.1 217.9 L268.6 217.9 L274.0 217.9 L279.4 217.9 L284.9 217.9 L290.3 217.9 L295.7 217.9 L301.1 217.9 L306.6 217.9 L312.0 217.9 L317.4 217.9 L322.9 217.9 L328.3 217.9 L333.7 217.9 L339.1 217.9 L344.6 217.9 L350.0 217.9 L355.4 217.9 L360.9 217.9 L366.3 217.9 L371.7 217.9 L377.1 217.9 L382.6 217.9 L388.0 217.9 L393.4 217.9 L398.9 217.9 L404.3 217.9 L409.7 217.9 L415.1 217.9 L420.6 217.9 L426.0 217.9 L431.4 217.9 L436.9 217.9 L442.3 217.9 L447.7 217.9 L453.1 217.9 L458.6 217.9 L464.0 217.9" fill="none" stroke="var(--ctx)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><path d="M46.0 217.3 L51.4 217.9 L56.9 218.4 L62.3 216.6 L67.7 215.2 L73.1 211.1 L78.6 202.6 L84.0 120.3 L89.4 40.8 L94.9 39.8 L100.3 32.8 L105.7 31.0 L111.1 30.3 L116.6 31.1 L122.0 36.8 L127.4 38.0 L132.9 40.5 L138.3 42.3 L143.7 43.1 L149.1 44.9 L154.6 46.2 L160.0 40.6 L165.4 41.1 L170.9 42.1 L176.3 42.4 L181.7 41.8 L187.1 40.8 L192.6 40.5 L198.0 40.0 L203.4 39.4 L208.9 38.7 L214.3 38.1 L219.7 37.3 L225.1 36.8 L230.6 35.9 L236.0 35.3 L241.4 34.7 L246.9 34.3 L252.3 33.6 L257.7 33.3 L263.1 32.7 L268.6 34.1 L274.0 33.9 L279.4 33.2 L284.9 32.6 L290.3 32.9 L295.7 32.3 L301.1 30.8 L306.6 28.8 L312.0 32.8 L317.4 38.5 L322.9 38.8 L328.3 37.5 L333.7 34.9 L339.1 33.8 L344.6 32.6 L350.0 32.8 L355.4 33.4 L360.9 32.8 L366.3 34.5 L371.7 33.8 L377.1 33.2 L382.6 32.5 L388.0 28.4 L393.4 27.9 L398.9 25.6 L404.3 29.8 L409.7 31.0 L415.1 30.1 L420.6 43.2 L426.0 42.7 L431.4 57.0 L436.9 62.5 L442.3 66.8 L447.7 75.0 L453.1 77.4 L458.6 89.8 L464.0 94.4" fill="none" stroke="var(--acc)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="464.0" cy="94.4" r="4" fill="var(--acc)" stroke="var(--surface-1)" stroke-width="2"/><circle cx="464.0" cy="217.9" r="4" fill="var(--ctx)" stroke="var(--surface-1)" stroke-width="2"/><text x="472.0" y="98.4" class="val">1,2x sinyaller</text><text x="472.0" y="221.9" class="val2">1,0x nakit</text><line class="xh" x1="-9" y1="14" x2="-9" y2="230" stroke="var(--baseline)" stroke-width="1" opacity="0"/></svg>
   <div class="sub" style="margin-top:8px">Kural: yalnızca kanıtlanmış kenarlı varlıklarda, güven &gt; %55 YUKARI çağrıları; long-only; işlem maliyeti dahil; sermaye 5 dilimde döner (örtüşen 5 günlük pozisyonlar için standart yaklaşım). Bu bir simülasyondur, gerçek para değildir; geçmiş getiri gelecek garantisi değildir.</div>
 </div>
 
@@ -256,6 +256,15 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
 <td class="num muted2">20.11.2026 </td>
 </tr><tr>
+<td><span class="aname">Ethereum</span> <span class="acls">Kripto</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: 10 günlük momentum ↑ · 20g ortalamaya uzaklık ↑ · 3 aylık momentum ↑">▲ YUKARI</span></td>
+<td class="num"><strong>60,6%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:var(--good-text)">55,3%</span></td>
+<td class="num">$1.681</td>
+<td class="num muted2">$1.503 – $1.881</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">22.11.2026 </td>
+</tr><tr>
 <td><span class="aname">Teknoloji ETF (XLK)</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up mut" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · 3 aylık momentum ↑ · S&P 500 ile korelasyon ↑">▲ YUKARI</span></td>
 <td class="num"><strong>59,9%</strong></td>
@@ -282,6 +291,15 @@ svg { width:100%; height:auto; display:block }
 <td class="num muted2">$261,60 – $354,22</td>
 <td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
 <td class="num muted2">20.11.2026 </td>
+</tr><tr>
+<td><span class="aname">Solana</span> <span class="acls">Kripto</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · 10 günlük momentum ↑ · 3 aylık momentum ↑">▲ YUKARI</span></td>
+<td class="num"><strong>59,4%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,2%</span></td>
+<td class="num">$70,26</td>
+<td class="num muted2">$63,20 – $78,11</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">22.11.2026 </td>
 </tr><tr>
 <td><span class="aname">Microsoft</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up mut" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · MACD histogramı ↑ · Fed haber ısısı ↑">▲ YUKARI</span></td>
@@ -380,7 +398,16 @@ svg { width:100%; height:auto; display:block }
 <td class="num">159,93</td>
 <td class="num muted2">158,40 – 161,47</td>
 <td><span class="chip none" data-tip="Out-of-sample: AUC 0,510, isabet 54,1% (taban 57,3%)">Kenar yok</span></td>
-<td class="num muted2">13.11.2026 <span class="chip stale" data-tip="Bu varlığın verisi 8 gün geride — canlı veri hattı kurulunca güncellenecek">8 gün eski</span></td>
+<td class="num muted2">13.11.2026 <span class="chip stale" data-tip="Bu varlığın verisi 9 gün geride — canlı veri hattı kurulunca güncellenecek">9 gün eski</span></td>
+</tr><tr>
+<td><span class="aname">Bitcoin</span> <span class="acls">Kripto</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: MACD histogramı ↑ · 20g ortalamaya uzaklık ↑ · 10 günlük momentum ↑">▲ YUKARI</span></td>
+<td class="num"><strong>56,5%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">54,9%</span></td>
+<td class="num">$60.184</td>
+<td class="num muted2">$55.725 – $65.000</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">22.11.2026 </td>
 </tr><tr>
 <td><span class="aname">Brezilya ETF (EWZ)</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up mut" data-tip="Modeli iten etkenler: kuyruk riski (basıklık) ↓ · 20g ortalamaya uzaklık ↑ · 3 aylık momentum ↑">▲ YUKARI</span></td>
@@ -398,7 +425,7 @@ svg { width:100%; height:auto; display:block }
 <td class="num">6,6710</td>
 <td class="num muted2">6,6529 – 6,6891</td>
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,529, isabet 52,2% (taban 52,3%)">Zayıf sinyal</span></td>
-<td class="num muted2">13.11.2026 <span class="chip stale" data-tip="Bu varlığın verisi 8 gün geride — canlı veri hattı kurulunca güncellenecek">8 gün eski</span></td>
+<td class="num muted2">13.11.2026 <span class="chip stale" data-tip="Bu varlığın verisi 9 gün geride — canlı veri hattı kurulunca güncellenecek">9 gün eski</span></td>
 </tr><tr>
 <td><span class="aname">Hang Seng</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: 3 aylık momentum ↑ · VIX 5 günlük değişim ↓ · Fed haber ısısı ↑">▲ YUKARI</span></td>
@@ -408,6 +435,15 @@ svg { width:100%; height:auto; display:block }
 <td class="num muted2">21.563 – 23.291</td>
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
 <td class="num muted2">20.11.2026 </td>
+</tr><tr>
+<td><span class="aname">XRP</span> <span class="acls">Kripto</span></td>
+<td><span class="dir up mut" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · 3 aylık momentum ↑ · kripto sınıfı ↓">▲ YUKARI</span></td>
+<td class="num"><strong>55,2%</strong></td>
+<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">52,6%</span></td>
+<td class="num">$0,9310</td>
+<td class="num muted2">$0,8372 – $1,0353</td>
+<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
+<td class="num muted2">22.11.2026 </td>
 </tr><tr>
 <td><span class="aname">Ereğli Demir Çelik</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up mut" data-tip="Modeli iten etkenler: 3 aylık momentum ↑ · 5 günlük momentum ↑ · Fed haber ısısı ↑">▲ YUKARI</span></td>
@@ -463,15 +499,6 @@ svg { width:100%; height:auto; display:block }
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,518, isabet 54,3% (taban 56,8%)">Zayıf sinyal</span></td>
 <td class="num muted2">20.11.2026 </td>
 </tr><tr>
-<td><span class="aname">Bitcoin</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: MACD histogramı ↑ · 20g ortalamaya uzaklık ↑ · 10 günlük momentum ↑">▲ YUKARI</span></td>
-<td class="num"><strong>54,1%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">53,4%</span></td>
-<td class="num">$60.331</td>
-<td class="num muted2">$55.772 – $65.264</td>
-<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">21.11.2026 </td>
-</tr><tr>
 <td><span class="aname">Brent Petrol</span> <span class="acls">Emtia</span></td>
 <td><span class="dir dn mut" data-tip="Modeli iten etkenler: S&P 500 ile korelasyon ↓ · Fed haber ısısı ↓ · 20g ortalamaya uzaklık ↑">▼ AŞAĞI</span></td>
 <td class="num"><strong>54,0%</strong></td>
@@ -489,15 +516,6 @@ svg { width:100%; height:auto; display:block }
 <td class="num muted2">₺175,73 – ₺199,42</td>
 <td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
 <td class="num muted2">20.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Ethereum</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: dünkü getiri ↓ · 20g ortalamaya uzaklık ↑ · 10 günlük momentum ↑">▲ YUKARI</span></td>
-<td class="num"><strong>53,8%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,1%</span></td>
-<td class="num">$1.684</td>
-<td class="num muted2">$1.504 – $1.885</td>
-<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">21.11.2026 </td>
 </tr><tr>
 <td><span class="aname">Aselsan</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up mut" data-tip="Modeli iten etkenler: 3 aylık momentum ↑ · 5 günlük momentum ↑ · VIX 5 günlük değişim ↓">▲ YUKARI</span></td>
@@ -552,15 +570,6 @@ svg { width:100%; height:auto; display:block }
 <td class="num muted2">$52,34 – $56,23</td>
 <td><span class="chip stale" data-tip="Canlı sicili çöktüğü için sinyal setinden geçici çıkarıldı — aylık doğrulamada yeniden değerlendirilecek">Canlı askıda</span></td>
 <td class="num muted2">20.11.2026 </td>
-</tr><tr>
-<td><span class="aname">Solana</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · 10 günlük momentum ↑ · kripto sınıfı ↓">▲ YUKARI</span></td>
-<td class="num"><strong>52,5%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">50,3%</span></td>
-<td class="num">$70,45</td>
-<td class="num muted2">$63,36 – $78,34</td>
-<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">21.11.2026 </td>
 </tr><tr>
 <td><span class="aname">Quanta Services</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: 5 günlük momentum ↑ · Fed haber ısısı ↑ · VIX 5 günlük değişim ↓">▲ YUKARI</span></td>
@@ -623,7 +632,7 @@ svg { width:100%; height:auto; display:block }
 <td class="num">0,9063</td>
 <td class="num muted2">0,8967 – 0,9160</td>
 <td><span class="chip none" data-tip="Out-of-sample: AUC 0,495, isabet 51,1% (taban 50,4%)">Kenar yok</span></td>
-<td class="num muted2">13.11.2026 <span class="chip stale" data-tip="Bu varlığın verisi 8 gün geride — canlı veri hattı kurulunca güncellenecek">8 gün eski</span></td>
+<td class="num muted2">13.11.2026 <span class="chip stale" data-tip="Bu varlığın verisi 9 gün geride — canlı veri hattı kurulunca güncellenecek">9 gün eski</span></td>
 </tr><tr>
 <td><span class="aname">Finans ETF (XLF)</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: VIX 5 günlük değişim ↓ · 5 günlük momentum ↑ · Fed haber ısısı ↑">▲ YUKARI</span></td>
@@ -668,7 +677,7 @@ svg { width:100%; height:auto; display:block }
 <td class="num">1,4760</td>
 <td class="num muted2">1,4538 – 1,4986</td>
 <td><span class="chip none" data-tip="Out-of-sample: AUC 0,470, isabet 46,6% (taban 52,0%)">Kenar yok</span></td>
-<td class="num muted2">13.11.2026 <span class="chip stale" data-tip="Bu varlığın verisi 8 gün geride — canlı veri hattı kurulunca güncellenecek">8 gün eski</span></td>
+<td class="num muted2">13.11.2026 <span class="chip stale" data-tip="Bu varlığın verisi 9 gün geride — canlı veri hattı kurulunca güncellenecek">9 gün eski</span></td>
 </tr><tr>
 <td><span class="aname">Gayrimenkul ETF (XLRE)</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: 5 günlük momentum ↑ · Fed haber ısısı ↑ · VIX 5 günlük değişim ↓">▲ YUKARI</span></td>
@@ -704,7 +713,7 @@ svg { width:100%; height:auto; display:block }
 <td class="num">0,8389</td>
 <td class="num muted2">0,8269 – 0,8511</td>
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,520, isabet 51,5% (taban 50,7%)">Zayıf sinyal</span></td>
-<td class="num muted2">13.11.2026 <span class="chip stale" data-tip="Bu varlığın verisi 8 gün geride — canlı veri hattı kurulunca güncellenecek">8 gün eski</span></td>
+<td class="num muted2">13.11.2026 <span class="chip stale" data-tip="Bu varlığın verisi 9 gün geride — canlı veri hattı kurulunca güncellenecek">9 gün eski</span></td>
 </tr><tr>
 <td><span class="aname">FTSE 100</span> <span class="acls">Hisse</span></td>
 <td><span class="dir dn" data-tip="Modeli iten etkenler: VIX 5 günlük değişim ↓ · Fed haber ısısı ↑ · 5 günlük momentum ↑">▼ AŞAĞI</span></td>
@@ -722,7 +731,7 @@ svg { width:100%; height:auto; display:block }
 <td class="num">0,7569</td>
 <td class="num muted2">0,7478 – 0,7661</td>
 <td><span class="chip none" data-tip="Out-of-sample: AUC 0,485, isabet 48,9% (taban 50,1%)">Kenar yok</span></td>
-<td class="num muted2">13.11.2026 <span class="chip stale" data-tip="Bu varlığın verisi 8 gün geride — canlı veri hattı kurulunca güncellenecek">8 gün eski</span></td>
+<td class="num muted2">13.11.2026 <span class="chip stale" data-tip="Bu varlığın verisi 9 gün geride — canlı veri hattı kurulunca güncellenecek">9 gün eski</span></td>
 </tr><tr>
 <td><span class="aname">İletişim ETF (XLC)</span> <span class="acls">Hisse</span></td>
 <td><span class="dir up" data-tip="Modeli iten etkenler: VIX 5 günlük değişim ↓ · 5 günlük momentum ↑ · Fed haber ısısı ↑">▲ YUKARI</span></td>
@@ -759,15 +768,6 @@ svg { width:100%; height:auto; display:block }
 <td class="num muted2">$81,42 – $98,45</td>
 <td><span class="chip weak" data-tip="Out-of-sample: AUC 0,519, isabet 51,9% (taban 54,4%)">Zayıf sinyal</span></td>
 <td class="num muted2">17.11.2026 </td>
-</tr><tr>
-<td><span class="aname">XRP</span> <span class="acls">Kripto</span></td>
-<td><span class="dir up mut" data-tip="Modeli iten etkenler: 20g ortalamaya uzaklık ↑ · kripto sınıfı ↓ · 3 aylık momentum ↑">▲ YUKARI</span></td>
-<td class="num"><strong>50,3%</strong></td>
-<td class="num" data-tip="Sınıfının medyanını geçme olasılığı (göreli model)"><span style="color:inherit">51,0%</span></td>
-<td class="num">$0,9303</td>
-<td class="num muted2">$0,8367 – $1,0344</td>
-<td><span class="chip none" data-tip="Son günlerde büyük zarar ettirdi; 1 hafta yeni pozisyon açılmaz">Soğumada</span></td>
-<td class="num muted2">21.11.2026 </td>
 </tr><tr>
 <td><span class="aname">Doğalgaz (Henry Hub)</span> <span class="acls">Emtia</span></td>
 <td><span class="dir dn" data-tip="Modeli iten etkenler: Fed haber ısısı ↓ · 52 haftalık zirveye uzaklık ↑ · İran/Orta Doğu haber ısısı ↓">▼ AŞAĞI</span></td>
@@ -897,7 +897,7 @@ svg { width:100%; height:auto; display:block }
 <div class="card" style="margin-bottom:18px">
   <h2>Haber akışı <span style="font-weight:400;color:var(--muted);font-size:12px">(son 24 saat · Alpaca/Benzinga · sembol bazlı)</span></h2>
   <div class="sub" style="margin-bottom:6px">Duygu skoru finans sözlüğüyle hesaplanır (hafif model; FinBERT v9 adayı). Haber yoğunluğu ve duygusu modele özellik olarak da girer — A/B karar verir. Belirgin olumsuz akışta o gün alım yapılmaz.</div>
-  <div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Nvidia</span> <span class="muted2">7 haber</span> <span class="chip stale">olumsuz</span><div class="sub" style="margin-top:3px">• <a href="https://datacentremagazine.com/news/this-weeks-top-five-stories-in-the-data-centre-industry-21-november-2026" target="_blank" rel="noopener" style="color:inherit">Vertiv Launches ATLAS Lab to Validate NVIDIA AI Infrastructure</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.einnews.com/pr_news/957765130/compute-exchange-announces-live-gpu-capacity-auction-at-nvidia-gtc-dc" target="_blank" rel="noopener" style="color:inherit">Compute Exchange Announces Live GPU Capacity Auction at NVIDIA GTC DC</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Tesla</span> <span class="muted2">4 haber</span> <span class="chip proven">olumlu</span><div class="sub" style="margin-top:3px">• <a href="https://www.marketscreener.com/news/tesla-opens-first-argentina-retail-location-in-buenos-aires-ce785ed3dd81f625" target="_blank" rel="noopener" style="color:inherit">Tesla Opens First Retail Location in Argentina</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.moomoo.com/stock/TSLA-US?chain_id=Name1K9-3FXPhg.1lg030g&global_content=%7B%22promote_id%22%3A13764%2C%22sub_promote_id%22%3A57%2C%22f%22%3A%22www.moomoo.com%2Fstock%2FSHOP-CA%22%7D" target="_blank" rel="noopener" style="color:inherit">Tesla Plans Live Optimus Demonstration</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Amazon</span> <span class="muted2">3 haber</span> <span class="chip proven">olumlu</span><div class="sub" style="margin-top:3px">• <a href="https://www.prnewswire.com/news-releases/scalecapacity-signs-multi-year-strategic-collaboration-agreement-with-aws-to-accelerate-amazon-connect-customer-adoption-302945831.html" target="_blank" rel="noopener" style="color:inherit">ScaleCapacity Enters Multi-Year Strategic Collaboration Agreement with AWS</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.media-outreach.com/news/hong-kong/2026/11/20/503008/aws-%E5%8A%A9%E5%8A%9B%E8%BF%AA%E5%A3%AB%E5%B0%BC%E5%B9%BB%E6%83%B3%E5%B7%A5%E7%A8%8B%E3%80%80%E6%8F%AD%E9%96%8B-%E3%80%8A%E6%98%9F%E7%90%83%E5%A4%A7%E6%88%B0%E3%80%8Banzellans-%E6%A9%9F%E6%A2%B0/" target="_blank" rel="noopener" style="color:inherit">Amazon Web Services Provides Technical Support for Walt Disney Imagineering R&D</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Meta</span> <span class="muted2">3 haber</span> <span class="chip stale">olumsuz</span><div class="sub" style="margin-top:3px">• <a href="https://www.moomoo.com/stock/META-US?chain_id=Name1K9-3FXPhg.1lfvvg0&global_content=%7B%22promote_id%22%3A13764%2C%22sub_promote_id%22%3A57%2C%22f%22%3A%22www.moomoo.com%2Fstock%2FSTLD-US%22%7D" target="_blank" rel="noopener" style="color:inherit">Meta Platforms CFO Executes Insider Share Sale</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.marketscreener.com/news/meta-platforms-warned-threads-being-used-by-china-to-influence-taiwan-local-elections-ce785ed2d081f627" target="_blank" rel="noopener" style="color:inherit">Meta Warns of China-Linked Accounts Targeting Taiwan Elections on Threads</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Apple</span> <span class="muted2">2 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.koreaherald.com/article/10944423" target="_blank" rel="noopener" style="color:inherit">Apple Developer Academy Showcase in Pohang</a></div><div class="sub" style="margin-top:3px">• <a href="https://www.moomoo.com/stock/AAPL-US?chain_id=Name1K9-3FXPhg.1lg030g&global_content=%7B%22promote_id%22%3A13764%2C%22sub_promote_id%22%3A57%2C%22f%22%3A%22www.moomoo.com%2Fstock%2FPDD-US%22%7D" target="_blank" rel="noopener" style="color:inherit">Apple Developing Autonomous AI Agent</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Broadcom</span> <span class="muted2">1 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.moomoo.com/community/feed/breaking-news-google-bypasses-broadcom-for-hbm-pressures-memory-margins-117649382768646" target="_blank" rel="noopener" style="color:inherit">Alphabet Reportedly Bypassing Broadcom for HBM Procurement</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Eaton</span> <span class="muted2">1 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.moomoo.com/news/post/1005345321/argus-research-maintains-eaton-etnus-with-buy-rating-announces-target" target="_blank" rel="noopener" style="color:inherit">Argus Research Maintains Buy Rating on Eaton Corporation plc</a></div></div><div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Microsoft</span> <span class="muted2">1 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://www.prnewswire.com/news-releases/danaher-collaborates-with-microsoft-to-make-scientific-instruments-agentically-connected-and-laboratories-more-intelligent-302946263.html" target="_blank" rel="noopener" style="color:inherit">Danaher Collaborates with Microsoft to Advance AI-Powered Scientific Instrument Connectivity</a></div></div>
+  <div style="padding:8px 0;border-bottom:1px solid var(--grid)"><span class="aname">Nvidia</span> <span class="muted2">1 haber</span> <span class="chip none">nötr</span><div class="sub" style="margin-top:3px">• <a href="https://datacentremagazine.com/news/this-weeks-top-five-stories-in-the-data-centre-industry-21-november-2026" target="_blank" rel="noopener" style="color:inherit">Vertiv Launches ATLAS Lab to Validate NVIDIA AI Infrastructure</a></div></div>
 </div>
 
 <div class="grid2"><div class="card">
