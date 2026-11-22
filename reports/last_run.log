@@ -33,9 +33,8 @@
 1.5/5 olay radari (GDELT)...
   olay evt_china: guncel isi alinamadi (HTTPError)
   olay evt_sanction: guncel isi alinamadi (HTTPError)
-  olay evt_fed: guncel isi alinamadi (HTTPError)
-  olay evt_oil: guncel isi alinamadi (ReadTimeout)
-   olay radari: 6 tema (6 tam gecmis), 3613 gun, 150s
+  olay evt_oil: guncel isi alinamadi (HTTPError)
+   olay radari: 6 tema (6 tam gecmis), 3613 gun, 143s
 1.7/5 haber akisi (Alpaca)...
    haber akisi: 43 yeni baslik, onbellek 9084 varlik-gun
    toplam 73 varlik, 244562 satir
@@ -54,4 +53,4 @@
 4.7/5 balina takibi...
    balina takibi: 6 fon
 5/5 pano...
-bitti — 228s
+bitti — 198s
